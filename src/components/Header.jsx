@@ -1,28 +1,37 @@
+import { useState } from 'react'
+import { Menu, X, Code2 } from 'lucide-react'
 import Navbar from './Navbar'
 
 function Header() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+
   return (
-    <header style={{
-      background: '#2c3e50',
-      color: 'white',
-      padding: '1rem 0',
-      boxShadow: '0 2px 5px rgba(0,0,0,0.1)'
-    }}>
-      <div style={{
-        maxWidth: '1200px',
-        margin: '0 auto',
-        padding: '0 2rem'
-      }}>
-        <div style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center'
-        }}>
-          <h1 style={{ margin: 0, fontSize: '1.5rem' }}>
-            Azizjon Norimboyev
-          </h1>
-          <Navbar />
+    <header className="header">
+      <div className="header-container">
+        <div className="logo">
+          <Code2 className="logo-icon" />
+          <span>Azizjon.N</span>
         </div>
+        
+        {/* Desktop Navigation */}
+        <nav className="desktop-nav">
+          <Navbar />
+        </nav>
+
+        {/* Mobile Menu Button */}
+        <button 
+          className="menu-btn"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        >
+          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+
+        {/* Mobile Navigation */}
+        {isMenuOpen && (
+          <div className="mobile-nav">
+            <Navbar mobile onLinkClick={() => setIsMenuOpen(false)} />
+          </div>
+        )}
       </div>
     </header>
   )

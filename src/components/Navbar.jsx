@@ -1,49 +1,53 @@
 import { Link, useLocation } from 'react-router-dom'
+import { motion } from 'framer-motion'
 
-function Navbar() {
+function Navbar({ mobile, onLinkClick }) {
   const location = useLocation()
   
-  const linkStyle = {
-    color: 'white',
-    textDecoration: 'none',
-    margin: '0 1rem',
-    padding: '0.5rem 1rem',
-    borderRadius: '4px',
-    transition: 'background 0.3s'
+  const links = [
+    { path: '/', label: 'Bosh Sahifa' },
+    { path: '/about', label: 'Men haqimda' },
+    { path: '/portfolio', label: 'Portfolio' },
+    { path: '/contact', label: 'Bog\'lanish' }
+  ]
+
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
   }
-  
-  const activeLinkStyle = {
-    ...linkStyle,
-    background: '#3498db'
+
+  const item = {
+    hidden: { y: -20, opacity: 0 },
+    show: { y: 0, opacity: 1 }
   }
 
   return (
-    <nav>
-      <Link 
-        to="/" 
-        style={location.pathname === '/' ? activeLinkStyle : linkStyle}
-      >
-        Bosh Sahifa
-      </Link>
-      <Link 
-        to="/about" 
-        style={location.pathname === '/about' ? activeLinkStyle : linkStyle}
-      >
-        Men haqimda
-      </Link>
-      <Link 
-        to="/portfolio" 
-        style={location.pathname === '/portfolio' ? activeLinkStyle : linkStyle}
-      >
-        Portfolio
-      </Link>
-      <Link 
-        to="/contact" 
-        style={location.pathname === '/contact' ? activeLinkStyle : linkStyle}
-      >
-        Bog'lanish
-      </Link>
-    </nav>
+    <motion.nav 
+      className={mobile ? 'nav-mobile' : 'nav-desktop'}
+      variants={container}
+      initial="hidden"
+      animate="show"
+    >
+      {links.map((link) => (
+        <motion.div key={link.path} variants={item}>
+          <Link
+            to={link.path}
+            className={`nav-link ${location.pathname === link.path ? 'active' : ''}`}
+            onClick={onLinkClick}
+          >
+            {link.label}
+            {location.pathname === link.path && (
+              <motion.div className="active-indicator" layoutId="active" />
+            )}
+          </Link>
+        </motion.div>
+      ))}
+    </motion.nav>
   )
 }
 

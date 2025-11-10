@@ -5,27 +5,14 @@ import Home from "./pages/Home"
 import About from "./pages/About"
 import Portfolio from "./pages/Portfolio"
 import Contact from "./pages/Contact"
+import "./App.css"
 
 function App() {
   return (
-    <div style={{
-      minHeight: '100vh',
-      display: 'flex',
-      flexDirection: 'column'
-    }}>
-      {/* Header - BARCHA SAHIFALARDA KO'RINADI */}
+    <div className="app">
       <Header />
-      
-      {/* Asosiy kontent */}
-      <main style={{
-        flex: '1',
-        padding: '2rem 0'
-      }}>
-        <div style={{
-          maxWidth: '1200px',
-          margin: '0 auto',
-          padding: '0 2rem'
-        }}>
+      <main>
+        <div className="container">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
@@ -34,8 +21,6 @@ function App() {
           </Routes>
         </div>
       </main>
-      
-      {/* Footer - BARCHA SAHIFALARDA KO'RINADI */}
       <Footer />
     </div>
   )
