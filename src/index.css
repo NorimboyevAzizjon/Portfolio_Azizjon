@@ -1,0 +1,23 @@
+nav {
+  background: #333;
+  padding: 1rem;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 1rem;
+  padding: 0.5rem 1rem;
+}
+
+nav a:hover {
+  background: #555;
+  border-radius: 4px;
+}
+
+.project-card {
+  border: 1px solid #ddd;
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 8px;
+}
