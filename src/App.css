@@ -1,0 +1,50 @@
+.App {
+  position: relative;
+  overflow-x: hidden;
+}
+
+section {
+  min-height: 100vh;
+  padding-top: 80px;
+  scroll-margin-top: 80px;
+}
+
+/* Animation classes */
+.fade-in {
+  animation: fadeIn 0.8s ease-in;
+}
+
+.slide-up {
+  animation: slideUp 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  section {
+    padding-top: 100px;
+    scroll-margin-top: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  section {
+    min-height: auto;
+    padding: 60px 0;
+  }
+}

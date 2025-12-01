@@ -1,54 +1,83 @@
-import { Link, useLocation } from 'react-router-dom'
-import { motion } from 'framer-motion'
+import React, { useState } from 'react';
+import './Navbar.css';
 
-function Navbar({ mobile, onLinkClick }) {
-  const location = useLocation()
-  
-  const links = [
-    { path: '/', label: 'Bosh Sahifa' },
-    { path: '/about', label: 'Men haqimda' },
-    { path: '/portfolio', label: 'Portfolio' },
-    { path: '/contact', label: 'Bog\'lanish' }
-  ]
+const Navbar = ({ activeSection }) => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const container = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1
-      }
+  const navItems = [
+    { id: 'home', label: 'Home', icon: 'fas fa-home' },
+    { id: 'about', label: 'About', icon: 'fas fa-user' },
+    { id: 'portfolio', label: 'Portfolio', icon: 'fas fa-briefcase' },
+    { id: 'contact', label: 'Contact', icon: 'fas fa-envelope' }
+  ];
+
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const offset = 80;
+      const elementPosition = element.offsetTop - offset;
+      window.scrollTo({
+        top: elementPosition,
+        behavior: 'smooth'
+      });
+      setIsMenuOpen(false);
     }
-  }
-
-  const item = {
-    hidden: { y: -20, opacity: 0 },
-    show: { y: 0, opacity: 1 }
-  }
+  };
 
   return (
-    <motion.nav 
-      className={mobile ? 'nav-mobile' : 'nav-desktop'}
-      variants={container}
-      initial="hidden"
-      animate="show"
-    >
-      {links.map((link) => (
-        <motion.div key={link.path} variants={item}>
-          <Link
-            to={link.path}
-            className={`nav-link ${location.pathname === link.path ? 'active' : ''}`}
-            onClick={onLinkClick}
+    <>
+      <nav className="navbar">
+        <div className="nav-container">
+          <div className="nav-logo">
+            <span className="logo-text">Muhammadamin</span>
+            <span className="logo-dot">.</span>
+          </div>
+          
+          <div className="nav-menu">
+            {navItems.map(item => (
+              <a
+                key={item.id}
+                href={`#${item.id}`}
+                className={`nav-link ${activeSection === item.id ? 'active' : ''}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection(item.id);
+                }}
+              >
+                <i className={item.icon}></i>
+                <span>{item.label}</span>
+              </a>
+            ))}
+          </div>
+          
+          <button 
+            className="mobile-menu-btn"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
-            {link.label}
-            {location.pathname === link.path && (
-              <motion.div className="active-indicator" layoutId="active" />
-            )}
-          </Link>
-        </motion.div>
-      ))}
-    </motion.nav>
-  )
-}
+            <i className={`fas ${isMenuOpen ? 'fa-times' : 'fa-bars'}`}></i>
+          </button>
+        </div>
+      </nav>
 
-export default Navbar
+      {/* Mobile Menu */}
+      <div className={`mobile-menu ${isMenuOpen ? 'open' : ''}`}>
+        {navItems.map(item => (
+          <a
+            key={item.id}
+            href={`#${item.id}`}
+            className={`mobile-nav-link ${activeSection === item.id ? 'active' : ''}`}
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection(item.id);
+            }}
+          >
+            <i className={item.icon}></i>
+            <span>{item.label}</span>
+          </a>
+        ))}
+      </div>
+    </>
+  );
+};
+
+export default Navbar;
