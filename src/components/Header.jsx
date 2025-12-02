@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react';
 import styles from './Header.module.css';
 
 function Header() {
-  const [faolBolim, setFaolBolim] = useState('bosh-sahifa');
-  
+  const [activeSection, setActiveSection] = useState('bosh-sahifa');
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
   const navItems = [
     { id: 'bosh-sahifa', label: 'Bosh Sahifa', icon: 'fas fa-home' },
     { id: 'haqimda', label: 'Haqimda', icon: 'fas fa-user' },
@@ -11,33 +13,55 @@ function Header() {
     { id: 'aloqa', label: 'Aloqa', icon: 'fas fa-envelope' }
   ];
 
-  // Scroll qilganda faol bo'limni aniqlash
+  // Scroll kuzatish
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPosition = window.scrollY + 100;
+      const currentScrollY = window.scrollY;
       
+      // Header'ni yashirish/ko'rsatish
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        setIsVisible(false);
+      } else {
+        setIsVisible(true);
+      }
+      setLastScrollY(currentScrollY);
+
+      // Faol bo'limni aniqlash
       for (let i = navItems.length - 1; i >= 0; i--) {
         const element = document.getElementById(navItems[i].id);
-        if (element && scrollPosition >= element.offsetTop) {
-          setFaolBolim(navItems[i].id);
-          break;
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          if (rect.top <= 150 && rect.bottom >= 150) {
+            setActiveSection(navItems[i].id);
+            break;
+          }
         }
       }
     };
-    
-    window.addEventListener('scroll', handleScroll);
-    
-    // Sayt yuklanganda URL hash bo'yicha scroll qilish
-    const hash = window.location.hash.substring(1);
-    if (hash && navItems.some(item => item.id === hash)) {
-      setTimeout(() => {
+
+    // Hash bo'yicha scroll
+    const handleHashChange = () => {
+      const hash = window.location.hash.substring(1);
+      if (hash && navItems.some(item => item.id === hash)) {
         scrollToSection(hash);
-        setFaolBolim(hash);
-      }, 500);
-    }
+        setActiveSection(hash);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('hashchange', handleHashChange);
     
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    // Dastlabki hash
+    const initialHash = window.location.hash.substring(1);
+    if (initialHash && navItems.some(item => item.id === initialHash)) {
+      setActiveSection(initialHash);
+    }
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('hashchange', handleHashChange);
+    };
+  }, [lastScrollY]);
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
@@ -49,32 +73,38 @@ function Header() {
         top: elementPosition,
         behavior: 'smooth'
       });
-      
-      // URL hash o'zgartirish
-      window.history.pushState(null, null, `#${sectionId}`);
+
+      // URL hash
+      if (window.location.hash !== `#${sectionId}`) {
+        window.history.replaceState(null, null, `#${sectionId}`);
+      }
     }
   };
 
   const handleNavClick = (e, sectionId) => {
     e.preventDefault();
     scrollToSection(sectionId);
-    setFaolBolim(sectionId);
+    setActiveSection(sectionId);
   };
 
   return (
-    <header className={`${styles.header} fade-in`}>
-      {navItems.map(item => (
-        <a
-          key={item.id}
-          href={`#${item.id}`}
-          className={`${styles.navLink} ${faolBolim === item.id ? styles.active : ''}`}
-          onClick={(e) => handleNavClick(e, item.id)}
-          aria-label={item.label}
-        >
-          <i className={item.icon}></i>
-          <span>{item.label}</span>
-        </a>
-      ))}
+    <header className={`${styles.header} ${isVisible ? styles.visible : styles.hidden} fade-in`}>
+      <div className={styles.navContainer}>
+        {navItems.map(item => (
+          <a
+            key={item.id}
+            href={`#${item.id}`}
+            className={`${styles.navLink} ${activeSection === item.id ? styles.active : ''}`}
+            onClick={(e) => handleNavClick(e, item.id)}
+            aria-label={item.label}
+            data-tooltip={item.label}
+          >
+            <i className={item.icon}></i>
+            <span className={styles.navText}>{item.label}</span>
+            <div className={styles.activeIndicator}></div>
+          </a>
+        ))}
+      </div>
     </header>
   );
 }

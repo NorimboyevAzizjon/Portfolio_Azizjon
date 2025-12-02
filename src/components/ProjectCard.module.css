@@ -1,240 +1,379 @@
 /* ProjectCard.module.css */
+
 .card {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.08));
-  backdrop-filter: blur(20px);
-  border-radius: 25px;
+  position: relative;
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.08) 0%, 
+    rgba(138, 43, 226, 0.04) 100%);
+  border-radius: 24px;
   overflow: hidden;
   transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   height: 100%;
   display: flex;
   flex-direction: column;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   cursor: pointer;
+  transform: translateY(0);
+  will-change: transform, box-shadow, border-color;
 }
 
-.card:hover {
-  transform: translateY(-15px) scale(1.02);
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4), 0 0 40px rgba(138, 43, 226, 0.4);
+.card.hovered {
+  transform: translateY(-12px);
+  box-shadow: 
+    0 25px 50px rgba(0, 0, 0, 0.25),
+    0 0 30px rgba(138, 43, 226, 0.2),
+    0 0 0 1px rgba(255, 107, 53, 0.3);
   border-color: rgba(255, 107, 53, 0.4);
+  z-index: 10;
 }
 
+.cardHoverEffect {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, 
+    rgba(255, 107, 53, 0.05) 0%,
+    rgba(138, 43, 226, 0.05) 50%,
+    rgba(0, 206, 209, 0.05) 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.card.hovered .cardHoverEffect {
+  opacity: 1;
+}
+
+/* Image Container */
 .imageContainer {
   position: relative;
+  height: 240px;
   overflow: hidden;
-  height: 250px;
   background: linear-gradient(135deg, #8A2BE2, #00CED1);
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
 
 .image {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.6s cubic-bezier(0.215, 0.610, 0.355, 1);
+  transform: scale(1.05);
+  transition: transform 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
+  opacity: 0;
 }
 
-.card:hover .image {
+.image.loaded {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.card.hovered .image {
   transform: scale(1.15);
 }
 
+.imageSkeleton {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, 
+    rgba(138, 43, 226, 0.1) 25%, 
+    rgba(138, 43, 226, 0.2) 50%, 
+    rgba(138, 43, 226, 0.1) 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Overlay */
 .overlay {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(rgba(10, 25, 41, 0.9), rgba(138, 43, 226, 0.9));
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(10, 25, 41, 0.9) 0%,
+    rgba(138, 43, 226, 0.85) 100%
+  );
   display: flex;
   align-items: center;
   justify-content: center;
   opacity: 0;
-  transition: opacity 0.4s ease;
-  gap: 25px;
-  padding: 20px;
+  transition: opacity 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+  z-index: 2;
 }
 
-.card:hover .overlay {
+.overlay.visible {
   opacity: 1;
 }
 
-.overlayBtn {
-  width: 55px;
-  height: 55px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(10px);
+.overlayContent {
   display: flex;
+  gap: 20px;
+  animation: slideUp 0.5s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.overlayBtn {
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  gap: 8px;
+  width: 70px;
+  height: 70px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
   color: #F8FAFC;
-  font-size: 22px;
-  cursor: pointer;
+  text-decoration: none;
+  padding: 12px;
   transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   border: 1px solid rgba(255, 255, 255, 0.2);
-  text-decoration: none;
 }
 
 .overlayBtn:hover {
-  transform: scale(1.15);
+  transform: translateY(-5px) scale(1.1);
   background: rgba(255, 107, 53, 0.3);
   border-color: #FF6B35;
-  box-shadow: 0 0 25px #FF6B35;
+  box-shadow: 0 10px 25px rgba(255, 107, 53, 0.4);
 }
 
+.overlayBtn i {
+  font-size: 22px;
+}
+
+.btnLabel {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* Tech Badges */
+.techBadges {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  display: flex;
+  gap: 8px;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+  z-index: 3;
+}
+
+.techBadges.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.techBadge {
+  background: rgba(255, 255, 255, 0.9);
+  color: #0A1929;
+  padding: 6px 12px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.techMore {
+  background: rgba(255, 107, 53, 0.9);
+  color: white;
+  padding: 6px 10px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  min-width: 40px;
+  text-align: center;
+}
+
+/* Content */
 .content {
-  padding: 30px;
+  padding: 28px;
   flex: 1;
   display: flex;
   flex-direction: column;
+  gap: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 15px;
 }
 
 .title {
-  font-size: 1.8rem;
+  font-size: 1.7rem;
   font-weight: 800;
   color: #F8FAFC;
-  margin-bottom: 15px;
   line-height: 1.3;
+  margin: 0;
+  flex: 1;
+}
+
+.projectType {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(0, 206, 209, 0.15);
+  color: #00CED1;
+  padding: 6px 12px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  white-space: nowrap;
+  border: 1px solid rgba(0, 206, 209, 0.3);
+}
+
+.projectType i {
+  font-size: 0.9rem;
 }
 
 .description {
-  font-size: 1rem;
+  font-size: 0.95rem;
   color: #CBD5E1;
-  margin-bottom: 20px;
   line-height: 1.6;
-  flex: 1;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Footer */
+.footer {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .techContainer {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  margin-bottom: 25px;
 }
 
 .techTag {
-  padding: 8px 16px;
-  background: rgba(138, 43, 226, 0.15);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(138, 43, 226, 0.12);
   color: #8A2BE2;
-  border-radius: 20px;
-  font-size: 0.9rem;
+  padding: 8px 14px;
+  border-radius: 16px;
+  font-size: 0.85rem;
   font-weight: 600;
-  border: 1px solid rgba(138, 43, 226, 0.3);
-  transition: all 0.3s ease;
-}
-
-.card:hover .techTag {
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(138, 43, 226, 0.3);
-}
-
-.buttons {
-  display: flex;
-  gap: 15px;
-  margin-top: auto;
-}
-
-.demoBtn {
-  padding: 14px 25px;
-  background: linear-gradient(135deg, #FF6B35 0%, #E55A2B 100%);
-  color: white;
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-  font-size: 1rem;
-  font-weight: 600;
+  border: 1px solid rgba(138, 43, 226, 0.25);
   transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  max-width: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.card.hovered .techTag {
+  transform: translateY(-3px);
+  background: rgba(138, 43, 226, 0.2);
+  box-shadow: 0 5px 15px rgba(138, 43, 226, 0.2);
+}
+
+.techTag i {
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+.techName {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.actionButtons {
+  display: flex;
+  gap: 12px;
+}
+
+.demoBtn, .codeBtn {
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
+  padding: 14px 20px;
+  border-radius: 14px;
+  font-size: 0.95rem;
+  font-weight: 600;
   text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   text-align: center;
+}
+
+.demoBtn {
+  background: linear-gradient(135deg, #FF6B35 0%, #E55A2B 100%);
+  color: white;
+  border: none;
 }
 
 .demoBtn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 12px 30px rgba(255, 107, 53, 0.5);
+  box-shadow: 0 10px 25px rgba(255, 107, 53, 0.4);
   background: linear-gradient(135deg, #8A2BE2 0%, #6A0DAD 100%);
 }
 
 .codeBtn {
-  padding: 14px 25px;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.08);
   color: #CBD5E1;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 12px;
-  cursor: pointer;
-  font-size: 1rem;
-  font-weight: 600;
-  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  text-decoration: none;
-  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .codeBtn:hover {
   transform: translateY(-3px);
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.15);
   border-color: rgba(138, 43, 226, 0.4);
   color: #8A2BE2;
-  box-shadow: 0 12px 30px rgba(138, 43, 226, 0.3);
+  box-shadow: 0 10px 25px rgba(138, 43, 226, 0.2);
 }
 
-/* RESPONSIVE MEDIA QUERIES */
+/* Responsive */
 @media (max-width: 1200px) {
   .imageContainer {
     height: 220px;
   }
   
   .content {
-    padding: 25px;
-  }
-  
-  .title {
-    font-size: 1.6rem;
-  }
-  
-  .description {
-    font-size: 0.95rem;
-  }
-  
-  .overlayBtn {
-    width: 50px;
-    height: 50px;
-    font-size: 20px;
-  }
-}
-
-@media (max-width: 992px) {
-  .card {
-    border-radius: 22px;
-  }
-  
-  .imageContainer {
-    height: 210px;
+    padding: 24px;
   }
   
   .title {
     font-size: 1.5rem;
   }
   
-  .description {
-    font-size: 0.9rem;
-  }
-  
-  .techTag {
-    padding: 7px 14px;
-    font-size: 0.85rem;
-  }
-  
-  .demoBtn, .codeBtn {
-    padding: 13px 22px;
-    font-size: 0.95rem;
+  .overlayBtn {
+    width: 65px;
+    height: 65px;
   }
 }
 
@@ -243,294 +382,83 @@
     border-radius: 20px;
   }
   
-  .title {
-    font-size: 1.4rem;
-  }
-  
-  .description {
-    font-size: 0.9rem;
-  }
-  
   .imageContainer {
     height: 200px;
   }
   
   .content {
     padding: 20px;
-  }
-  
-  .techTag {
-    padding: 6px 12px;
-    font-size: 0.8rem;
-  }
-  
-  .overlay {
-    gap: 20px;
-    padding: 15px;
-  }
-  
-  .overlayBtn {
-    width: 48px;
-    height: 48px;
-    font-size: 19px;
-  }
-  
-  .buttons {
-    flex-direction: column;
-  }
-  
-  .demoBtn, .codeBtn {
-    padding: 12px 20px;
-    font-size: 0.9rem;
-  }
-}
-
-@media (max-width: 640px) {
-  .card {
-    border-radius: 18px;
-  }
-  
-  .imageContainer {
-    height: 190px;
+    gap: 16px;
   }
   
   .title {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
   }
   
   .description {
-    font-size: 0.85rem;
-    line-height: 1.5;
-  }
-  
-  .content {
-    padding: 18px;
-  }
-  
-  .techTag {
-    padding: 5px 10px;
-    font-size: 0.78rem;
+    font-size: 0.9rem;
+    -webkit-line-clamp: 4;
   }
   
   .overlayBtn {
-    width: 45px;
-    height: 45px;
-    font-size: 18px;
+    width: 60px;
+    height: 60px;
+    padding: 10px;
+  }
+  
+  .techTag {
+    padding: 7px 12px;
+    font-size: 0.8rem;
   }
   
   .demoBtn, .codeBtn {
-    padding: 11px 18px;
-    font-size: 0.85rem;
+    padding: 12px 16px;
+    font-size: 0.9rem;
   }
 }
 
 @media (max-width: 480px) {
   .card {
-    border-radius: 16px;
+    border-radius: 18px;
   }
   
   .imageContainer {
     height: 180px;
   }
   
-  .title {
-    font-size: 1.2rem;
-    margin-bottom: 12px;
+  .header {
+    flex-direction: column;
+    gap: 10px;
   }
   
-  .description {
-    font-size: 0.8rem;
-    margin-bottom: 15px;
+  .projectType {
+    align-self: flex-start;
   }
   
-  .content {
-    padding: 16px;
+  .actionButtons {
+    flex-direction: column;
   }
   
-  .techTag {
-    padding: 4px 9px;
-    font-size: 0.75rem;
-    border-radius: 18px;
-  }
-  
-  .overlay {
-    gap: 15px;
-    padding: 12px;
-  }
-  
-  .overlayBtn {
-    width: 42px;
-    height: 42px;
-    font-size: 17px;
-  }
-  
-  .demoBtn, .codeBtn {
-    padding: 10px 16px;
-    font-size: 0.8rem;
-    border-radius: 10px;
+  .techContainer {
+    justify-content: center;
   }
 }
 
-@media (max-width: 360px) {
-  .card {
-    border-radius: 14px;
-  }
-  
-  .imageContainer {
-    height: 170px;
-  }
-  
-  .title {
-    font-size: 1.1rem;
-  }
-  
-  .description {
-    font-size: 0.78rem;
-  }
-  
-  .content {
-    padding: 14px;
-  }
-  
-  .techTag {
-    padding: 3px 8px;
-    font-size: 0.7rem;
-  }
-  
-  .overlayBtn {
-    width: 40px;
-    height: 40px;
-    font-size: 16px;
-  }
-  
-  .demoBtn, .codeBtn {
-    padding: 9px 14px;
-    font-size: 0.78rem;
-  }
-}
-
-/* Tablet oriyentatsiyasi uchun */
-@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-  .imageContainer {
-    height: 220px;
-  }
-  
-  .content {
-    padding: 22px;
-  }
-  
-  .title {
-    font-size: 1.5rem;
-  }
-  
-  .buttons {
-    flex-direction: row;
-  }
-}
-
-/* Katta ekranlar uchun */
-@media (min-width: 1600px) {
-  .card {
-    border-radius: 30px;
-  }
-  
-  .imageContainer {
-    height: 280px;
-  }
-  
-  .content {
-    padding: 35px;
-  }
-  
-  .title {
-    font-size: 2rem;
-  }
-  
-  .description {
-    font-size: 1.1rem;
-  }
-  
-  .techTag {
-    padding: 10px 20px;
-    font-size: 1rem;
-    border-radius: 25px;
-  }
-  
-  .overlayBtn {
-    width: 60px;
-    height: 60px;
-    font-size: 25px;
-  }
-  
-  .demoBtn, .codeBtn {
-    padding: 16px 30px;
-    font-size: 1.1rem;
-    border-radius: 15px;
-  }
-}
-
-/* Accessibility - harakat kamaytirilganda */
+/* Accessibility */
 @media (prefers-reduced-motion: reduce) {
   .card,
   .image,
   .overlay,
   .overlayBtn,
   .techTag,
+  .techBadges,
   .demoBtn,
   .codeBtn {
     transition: none !important;
     animation: none !important;
   }
   
-  .card:hover {
+  .card.hovered {
     transform: none !important;
-  }
-  
-  .card:hover .image {
-    transform: none !important;
-  }
-}
-
-/* High contrast mode */
-@media (prefers-contrast: high) {
-  .card {
-    border: 2px solid #FF6B35;
-  }
-  
-  .techTag {
-    border: 2px solid #8A2BE2;
-  }
-  
-  .demoBtn, .codeBtn {
-    border: 2px solid currentColor;
-  }
-}
-
-/* Print uchun */
-@media print {
-  .card {
-    background: white;
-    border: 1px solid #ddd;
-    box-shadow: none;
-  }
-  
-  .title {
-    color: black;
-  }
-  
-  .description {
-    color: #333;
-  }
-  
-  .techTag {
-    background: #f0f0f0;
-    color: #333;
-    border: 1px solid #ccc;
-  }
-  
-  .overlay,
-  .demoBtn,
-  .codeBtn {
-    display: none;
   }
 }

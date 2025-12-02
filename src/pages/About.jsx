@@ -1,308 +1,312 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './About.module.css';
 
 const About = () => {
-  // Mahoratlar ro'yxati - Har biriga havola qo'shildi
-  const mahoratlar = [
-    { 
-      nomi: 'HTML5', 
-      foiz: 95, 
-      rang: '#E44D26', 
-      izoh: 'Semantik HTML, SEO optimallashtirish',
-      icon: 'fab fa-html5',
-      link: 'https://developer.mozilla.org/en-US/docs/Web/HTML'
-    },
-    { 
-      nomi: 'CSS3', 
-      foiz: 90, 
-      rang: '#264DE4', 
-      izoh: 'Flexbox, Grid, Animatsiyalar',
-      icon: 'fab fa-css3-alt',
-      link: 'https://developer.mozilla.org/en-US/docs/Web/CSS'
-    },
-    { 
-      nomi: 'SCSS/SASS', 
-      foiz: 88, 
-      rang: '#CC6699', 
-      izoh: 'Mixin, Variables, Nesting',
-      icon: 'fab fa-sass',
-      link: 'https://sass-lang.com/'
-    },
-    { 
-      nomi: 'Bootstrap 5', 
-      foiz: 85, 
-      rang: '#7952B3', 
-      izoh: 'Responsive komponentlar',
-      icon: 'fab fa-bootstrap',
-      link: 'https://getbootstrap.com/'
-    },
-    { 
-      nomi: 'Tailwind CSS', 
-      foiz: 92, 
-      rang: '#38B2AC', 
-      izoh: 'Utility-first framework',
-      icon: 'fas fa-wind',
-      link: 'https://tailwindcss.com/'
-    },
-    { 
-      nomi: 'JavaScript ES6+', 
-      foiz: 90, 
-      rang: '#F7DF1E', 
-      izoh: 'Modern JavaScript',
-      icon: 'fab fa-js-square',
-      link: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript'
-    },
-    { 
-      nomi: 'React.js', 
-      foiz: 88, 
-      rang: '#61DAFB', 
-      izoh: 'Hooks, Context API, Components',
-      icon: 'fab fa-react',
-      link: 'https://reactjs.org/'
-    },
-    { 
-      nomi: 'Next.js 14', 
-      foiz: 82, 
-      rang: '#000000', 
-      izoh: 'App Router, Server Actions',
-      icon: 'fas fa-bolt',
-      link: 'https://nextjs.org/'
-    },
-    { 
-      nomi: 'React Native', 
-      foiz: 75, 
-      rang: '#61DAFB', 
-      izoh: 'Mobile ilovalar',
-      icon: 'fas fa-mobile-alt',
-      link: 'https://reactnative.dev/'
-    },
-    { 
-      nomi: 'TypeScript', 
-      foiz: 80, 
-      rang: '#3178C6', 
-      izoh: 'Type safety, Interfaces',
-      icon: 'fas fa-code',
-      link: 'https://www.typescriptlang.org/'
-    },
-    { 
-      nomi: 'Git / GitHub', 
-      foiz: 85, 
-      rang: '#F1502F', 
-      izoh: 'Version control, CI/CD',
-      icon: 'fab fa-github',
-      link: 'https://github.com/'
-    },
-    { 
-      nomi: 'REST API', 
-      foiz: 88, 
-      rang: '#FF6B35', 
-      izoh: 'Axios, Fetch API',
-      icon: 'fas fa-server',
-      link: 'https://restfulapi.net/'
-    }
-  ];
+  const [activeSection, setActiveSection] = useState('skills');
+  const [skills, setSkills] = useState([]);
+  const [education, setEducation] = useState([]);
+  const [stats, setStats] = useState([]);
 
-  // Ta'lim tarixi - Har biriga havola
-  const talim = [
-    { 
-      daraja: 'Kompyuter Fanlari', 
-      universitet: 'TUIT (Toshkent Axborot Texnologiyalari Universiteti)', 
-      yil: '2024-2028',
-      izoh: 'Bakalavr darajasi',
-      icon: 'fas fa-university',
-      link: 'https://tuit.uz/'
-    },
-    { 
-      daraja: 'Frontend Dasturlash', 
-      universitet: 'Najot Ta\'lim', 
-      yil: '2025',
-      izoh: 'Professional kurs, 6 oy',
-      icon: 'fas fa-graduation-cap',
-      link: 'https://najottalim.uz/'
-    },
-    { 
-      daraja: 'React.js Mukammallashuvi', 
-      universitet: 'Onlayn Platformalar', 
-      yil: '2024-2025',
-      izoh: 'Udemy, Coursera, YouTube',
-      icon: 'fas fa-laptop-code',
-      link: 'https://www.udemy.com/'
-    }
-  ];
+  useEffect(() => {
+    // Mahoratlar ro'yxati
+    const skillsData = [
+      { 
+        name: 'HTML5', 
+        level: 95, 
+        color: '#E44D26', 
+        description: 'Semantik HTML, SEO optimallashtirish',
+        icon: 'fab fa-html5',
+        link: 'https://developer.mozilla.org/en-US/docs/Web/HTML'
+      },
+      { 
+        name: 'CSS3', 
+        level: 90, 
+        color: '#264DE4', 
+        description: 'Flexbox, Grid, Animatsiyalar',
+        icon: 'fab fa-css3-alt',
+        link: 'https://developer.mozilla.org/en-US/docs/Web/CSS'
+      },
+      { 
+        name: 'JavaScript ES6+', 
+        level: 90, 
+        color: '#F7DF1E', 
+        description: 'Modern JavaScript, Async/Await',
+        icon: 'fab fa-js-square',
+        link: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript'
+      },
+      { 
+        name: 'React.js', 
+        level: 88, 
+        color: '#61DAFB', 
+        description: 'Hooks, Context API, Components',
+        icon: 'fab fa-react',
+        link: 'https://reactjs.org/'
+      },
+      { 
+        name: 'Next.js', 
+        level: 82, 
+        color: '#000000', 
+        description: 'App Router, Server Actions',
+        icon: 'fas fa-bolt',
+        link: 'https://nextjs.org/'
+      },
+      { 
+        name: 'TypeScript', 
+        level: 80, 
+        color: '#3178C6', 
+        description: 'Type safety, Interfaces',
+        icon: 'fas fa-code',
+        link: 'https://www.typescriptlang.org/'
+      }
+    ];
 
-  // Statistika ko'rsatkichlari
-  const stats = [
-    { 
-      raqam: '1+', 
-      matn: 'Yillik Tajriba', 
-      ikonka: 'fas fa-briefcase',
-      rang: '#8A2BE2'
-    },
-    { 
-      raqam: '15+', 
-      matn: 'Tugatilgan Loyihalar', 
-      ikonka: 'fas fa-project-diagram',
-      rang: '#00CED1'
-    },
-    { 
-      raqam: '100%', 
-      matn: 'Mijoz Mamnuniyati', 
-      ikonka: 'fas fa-users',
-      rang: '#FF6B35'
-    },
-    { 
-      raqam: '12+', 
-      matn: 'Texnologiya Bilimi', 
-      ikonka: 'fas fa-code',
-      rang: '#4CAF50'
-    }
-  ];
+    // Ta'lim tarixi
+    const educationData = [
+      { 
+        degree: 'Kompyuter Fanlari', 
+        institution: 'TUIT (Toshkent Axborot Texnologiyalari Universiteti)', 
+        period: '2024-2028',
+        description: 'Bakalavr darajasi',
+        icon: 'fas fa-university',
+        link: 'https://tuit.uz/',
+        type: 'university'
+      },
+      { 
+        degree: 'Frontend Dasturlash', 
+        institution: 'Najot Ta\'lim', 
+        period: '2025',
+        description: 'Professional kurs, 6 oy',
+        icon: 'fas fa-graduation-cap',
+        link: 'https://najottalim.uz/',
+        type: 'course'
+      },
+      { 
+        degree: 'React.js Mukammallashuvi', 
+        institution: 'Onlayn Platformalar', 
+        period: '2024-2025',
+        description: 'Udemy, Coursera, YouTube',
+        icon: 'fas fa-laptop-code',
+        link: 'https://www.udemy.com/',
+        type: 'online'
+      }
+    ];
+
+    // Statistika
+    const statsData = [
+      { 
+        number: '1+', 
+        label: 'Yillik Tajriba', 
+        icon: 'fas fa-briefcase',
+        color: '#8A2BE2'
+      },
+      { 
+        number: '15+', 
+        label: 'Tugatilgan Loyihalar', 
+        icon: 'fas fa-project-diagram',
+        color: '#00CED1'
+      },
+      { 
+        number: '100%', 
+        label: 'Mijoz Mamnuniyati', 
+        icon: 'fas fa-users',
+        color: '#FF6B35'
+      },
+      { 
+        number: '12+', 
+        label: 'Texnologiya Bilimi', 
+        icon: 'fas fa-code',
+        color: '#4CAF50'
+      }
+    ];
+
+    setSkills(skillsData);
+    setEducation(educationData);
+    setStats(statsData);
+  }, []);
+
+  const handleSkillClick = (link) => {
+    window.open(link, '_blank', 'noopener,noreferrer');
+  };
+
+  const handleEducationClick = (link) => {
+    window.open(link, '_blank', 'noopener,noreferrer');
+  };
 
   return (
     <div className={`${styles.container} fade-in`} id="haqimda">
       
       {/* Sarlavha qismi */}
       <div className={styles.header}>
-        <h1 className={styles.title}>
-          <i className="fas fa-user-circle" style={{marginRight: '15px', color: '#00CED1'}}></i>
-          MEN HAQIMDA
+        <div className={styles.titleWrapper}>
+          <h1 className={styles.title}>
+            <span className={styles.titleIcon}>👨‍💻</span>
+            Men Haqimda
+          </h1>
           <div className={styles.titleUnderline}></div>
-        </h1>
+        </div>
         <p className={styles.subtitle}>
-          Mening <span style={{color: '#00CED1', fontWeight: '600'}}>texnik mahoratim</span>, 
-          <span style={{color: '#8A2BE2', fontWeight: '600'}}> ta'lim tarixim</span> va 
-          <span style={{color: '#FF6B35', fontWeight: '600'}}> professional tajribam</span> haqida batafsil
+          Mening <span className={styles.highlight}>texnik mahoratim</span>, 
+          <span className={styles.highlight}> ta'lim tarixim</span> va 
+          <span className={styles.highlight}> professional tajribam</span> haqida batafsil
         </p>
       </div>
 
-      {/* Asosiy kontent - 2 ustun */}
-      <div className={styles.content}>
-        
-        {/* MAHORATLAR QISMI (Chap ustun) */}
-        <div className={styles.skillsSection}>
-          <h2 className={styles.sectionTitle}>
-            <i className="fas fa-cogs" style={{color: '#00CED1', marginRight: '10px'}}></i>
-            TEKNIK MAHORATLARIM
-          </h2>
-          
-          {mahoratlar.map((mahorat, index) => (
-            <a 
-              key={index}
-              href={mahorat.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.skillLink}
-            >
-              <div className={styles.skillItem}>
-                <div className={styles.skillHeader}>
-                  <div className={styles.skillLeft}>
-                    <i className={mahorat.icon} style={{
-                      fontSize: '24px',
-                      color: mahorat.rang,
-                      marginRight: '15px'
-                    }}></i>
-                    <div>
-                      <span className={styles.skillName}>{mahorat.nomi}</span>
-                      <div className={styles.skillDescription}>{mahorat.izoh}</div>
-                    </div>
-                  </div>
-                  <div className={styles.skillRight}>
-                    <span className={styles.skillPercentage} style={{ backgroundColor: `${mahorat.rang}20`, color: mahorat.rang }}>
-                      {mahorat.foiz}%
-                    </span>
-                    <i className="fas fa-external-link-alt" style={{
-                      fontSize: '14px',
-                      color: mahorat.rang,
-                      marginLeft: '8px',
-                      opacity: 0.7
-                    }}></i>
-                  </div>
-                </div>
-                <div className={styles.progressBar}>
-                  <div 
-                    className={styles.progressFill}
-                    style={{
-                      width: `${mahorat.foiz}%`,
-                      background: `linear-gradient(90deg, ${mahorat.rang}, ${mahorat.rang}80)`,
-                      boxShadow: `0 0 15px ${mahorat.rang}40`
-                    }}
-                  ></div>
-                </div>
-              </div>
-            </a>
-          ))}
-        </div>
-
-        {/* TA'LIM QISMI (O'ng ustun) */}
-        <div className={styles.educationSection}>
-          <h2 className={styles.sectionTitle}>
-            <i className="fas fa-graduation-cap" style={{color: '#8A2BE2', marginRight: '10px'}}></i>
-            TA'LIM TARIXIM
-          </h2>
-          
-          {talim.map((edu, index) => (
-            <a 
-              key={index}
-              href={edu.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.educationLink}
-            >
-              <div className={styles.educationItem}>
-                <div className={styles.eduIcon}>
-                  <i className={edu.icon} style={{
-                    fontSize: '24px',
-                    color: index === 0 ? '#8A2BE2' : index === 1 ? '#00CED1' : '#FF6B35'
-                  }}></i>
-                </div>
-                <div className={styles.eduContent}>
-                  <div className={styles.eduHeader}>
-                    <h3 className={styles.educationDegree}>{edu.daraja}</h3>
-                    <i className="fas fa-external-link-alt" style={{
-                      fontSize: '14px',
-                      color: '#00CED1',
-                      opacity: 0.7
-                    }}></i>
-                  </div>
-                  <p className={styles.educationUniversity}>
-                    <i className="fas fa-university" style={{marginRight: '8px', color: '#00CED1'}}></i>
-                    {edu.universitet}
-                  </p>
-                  <div className={styles.eduBottom}>
-                    <span className={styles.educationYear}>
-                      <i className="fas fa-calendar-alt" style={{marginRight: '6px'}}></i>
-                      {edu.yil}
-                    </span>
-                    <span className={styles.eduNote}>
-                      <i className="fas fa-info-circle" style={{marginRight: '6px'}}></i>
-                      {edu.izoh}
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </a>
-          ))}
-        </div>
+      {/* Tab navigatsiya */}
+      <div className={styles.tabNavigation}>
+        <button 
+          className={`${styles.tab} ${activeSection === 'skills' ? styles.activeTab : ''}`}
+          onClick={() => setActiveSection('skills')}
+        >
+          <i className="fas fa-code"></i>
+          Texnik Mahorat
+        </button>
+        <button 
+          className={`${styles.tab} ${activeSection === 'education' ? styles.activeTab : ''}`}
+          onClick={() => setActiveSection('education')}
+        >
+          <i className="fas fa-graduation-cap"></i>
+          Ta'lim Tarixi
+        </button>
+        <button 
+          className={`${styles.tab} ${activeSection === 'stats' ? styles.activeTab : ''}`}
+          onClick={() => setActiveSection('stats')}
+        >
+          <i className="fas fa-chart-bar"></i>
+          Statistika
+        </button>
       </div>
 
-      {/* STATISTIKA KARTALARI */}
-      <div className={styles.stats}>
-        {stats.map((stat, index) => (
-          <div 
-            key={index}
-            className={styles.statCard}
-            style={{
-              background: `linear-gradient(135deg, ${stat.rang}15, ${stat.rang}25)`,
-              borderColor: `${stat.rang}30`
-            }}
-          >
-            <div className={styles.statIconWrapper}>
-              <i className={stat.ikonka} className={styles.statIcon} style={{color: stat.rang}}></i>
+      {/* Asosiy kontent */}
+      <div className={styles.content}>
+        
+        {/* Mahoratlar qismi */}
+        {activeSection === 'skills' && (
+          <div className={styles.skillsSection}>
+            <div className={styles.skillsGrid}>
+              {skills.map((skill, index) => (
+                <div 
+                  key={index}
+                  className={styles.skillCard}
+                  onClick={() => handleSkillClick(skill.link)}
+                  style={{ '--skill-color': skill.color }}
+                >
+                  <div className={styles.skillHeader}>
+                    <div className={styles.skillIcon}>
+                      <i className={skill.icon}></i>
+                    </div>
+                    <div className={styles.skillInfo}>
+                      <h3 className={styles.skillName}>{skill.name}</h3>
+                      <p className={styles.skillDescription}>{skill.description}</p>
+                    </div>
+                    <div className={styles.skillLevel}>
+                      <span>{skill.level}%</span>
+                      <i className="fas fa-external-link-alt"></i>
+                    </div>
+                  </div>
+                  <div className={styles.progressContainer}>
+                    <div 
+                      className={styles.progressBar}
+                      style={{ width: `${skill.level}%` }}
+                    ></div>
+                  </div>
+                </div>
+              ))}
             </div>
-            <div className={styles.statNumber}>{stat.raqam}</div>
-            <div className={styles.statText}>{stat.matn}</div>
           </div>
-        ))}
+        )}
+
+        {/* Ta'lim qismi */}
+        {activeSection === 'education' && (
+          <div className={styles.educationSection}>
+            <div className={styles.educationTimeline}>
+              {education.map((edu, index) => (
+                <div 
+                  key={index}
+                  className={`${styles.educationCard} ${styles[edu.type]}`}
+                  onClick={() => handleEducationClick(edu.link)}
+                >
+                  <div className={styles.eduIcon}>
+                    <i className={edu.icon}></i>
+                  </div>
+                  <div className={styles.eduContent}>
+                    <div className={styles.eduHeader}>
+                      <h3 className={styles.eduDegree}>{edu.degree}</h3>
+                      <div className={styles.eduLink}>
+                        <i className="fas fa-external-link-alt"></i>
+                      </div>
+                    </div>
+                    <p className={styles.eduInstitution}>
+                      <i className="fas fa-university"></i>
+                      {edu.institution}
+                    </p>
+                    <div className={styles.eduFooter}>
+                      <span className={styles.eduPeriod}>
+                        <i className="fas fa-calendar-alt"></i>
+                        {edu.period}
+                      </span>
+                      <span className={styles.eduDescription}>
+                        <i className="fas fa-info-circle"></i>
+                        {edu.description}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Statistika qismi */}
+        {activeSection === 'stats' && (
+          <div className={styles.statsSection}>
+            <div className={styles.statsGrid}>
+              {stats.map((stat, index) => (
+                <div 
+                  key={index}
+                  className={styles.statCard}
+                  style={{ '--stat-color': stat.color }}
+                >
+                  <div className={styles.statIcon}>
+                    <i className={stat.icon}></i>
+                  </div>
+                  <div className={styles.statContent}>
+                    <div className={styles.statNumber}>{stat.number}</div>
+                    <div className={styles.statLabel}>{stat.label}</div>
+                  </div>
+                  <div className={styles.statGlow}></div>
+                </div>
+              ))}
+            </div>
+            
+            <div className={styles.aboutText}>
+              <h3>Professional Tajriba</h3>
+              <p>
+                1+ yillik professional tajriba davomida turli xil loyihalarda ishladim.
+                Har bir loyihada yangi texnologiyalar va eng yaxshi amaliyotlarni o'rgandim.
+                Mijozlar bilan yaqin hamkorlik qilib, ularning ehtiyojlariga mos yechimlar yaratdim.
+              </p>
+              <p>
+                Mening asosiy maqsadim - foydalanuvchilar uchun qulay, tezkor va vizual jozibador
+                veb-ilovalar yaratish. Har bir loyihada kod sifati, perfomans va foydalanuvchi tajribasiga
+                alohida e'tibor qarataman.
+              </p>
+            </div>
+          </div>
+        )}
+      </div>
+
+      {/* Call to Action */}
+      <div className={styles.ctaSection}>
+        <p className={styles.ctaText}>
+          Sizning loyihangiz ustida hamkorlik qilishdan xursand bo'laman!
+        </p>
+        <button 
+          className={styles.ctaButton}
+          onClick={() => document.getElementById('aloqa').scrollIntoView({ behavior: 'smooth' })}
+        >
+          <i className="fas fa-paper-plane"></i>
+          Bog'lanish
+        </button>
       </div>
     </div>
   );

@@ -1,206 +1,229 @@
-/* Header.module.css - NAVBAR STILLARI */
+/* Header.module.css - YANGILANGAN */
 
-/* Asosiy navbar konteyner */
+/* Asosiy header */
 .header {
   position: fixed;
   top: 30px;
-  right: 30px;
-  z-index: 1001;
-  display: flex;
-  gap: 18px;
-  backdrop-filter: blur(20px);
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(138, 43, 226, 0.1));
-  padding: 15px 25px;
-  border-radius: 50px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25), 
-              0 0 20px rgba(138, 43, 226, 0.2);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  will-change: transform, opacity;
 }
 
-.header:hover {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(138, 43, 226, 0.15));
-  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3), 
-              0 0 30px rgba(138, 43, 226, 0.3);
-  transform: translateY(-5px);
-  border-color: rgba(255, 107, 53, 0.3);
+.header.visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+  pointer-events: all;
 }
 
-/* NavLink tugmalari */
+.header.hidden {
+  opacity: 0;
+  transform: translateX(-50%) translateY(-20px);
+  pointer-events: none;
+}
+
+/* Nav konteyneri */
+.navContainer {
+  display: flex;
+  gap: 8px;
+  padding: 10px;
+  border-radius: 50px;
+  background: linear-gradient(135deg, 
+    rgba(10, 25, 41, 0.85) 0%,
+    rgba(138, 43, 226, 0.15) 100%);
+  backdrop-filter: blur(15px) saturate(180%);
+  -webkit-backdrop-filter: blur(15px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 
+    0 10px 40px rgba(0, 0, 0, 0.3),
+    0 0 20px rgba(138, 43, 226, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  transition: all 0.4s ease;
+}
+
+.navContainer:hover {
+  background: linear-gradient(135deg, 
+    rgba(10, 25, 41, 0.9) 0%,
+    rgba(138, 43, 226, 0.2) 100%);
+  border-color: rgba(255, 107, 53, 0.2);
+  box-shadow: 
+    0 15px 50px rgba(0, 0, 0, 0.4),
+    0 0 30px rgba(138, 43, 226, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Nav link'lar */
 .navLink {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   text-decoration: none;
-  color: #CBD5E1;
-  padding: 10px 20px;
-  border-radius: 50px;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  position: relative;
-  overflow: hidden;
+  color: #94A3B8;
+  padding: 12px 20px;
   min-width: 100px;
+  border-radius: 40px;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.navLink::before {
+  content: '';
+  position: absolute;
+  inset: 0;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid transparent;
-  font-family: 'Poppins', sans-serif;
-  cursor: pointer;
+  border-radius: inherit;
+  z-index: -1;
+  transition: all 0.3s ease;
 }
 
 .navLink i {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   margin-bottom: 6px;
   transition: all 0.3s ease;
 }
 
-.navLink span {
-  font-size: 0.9rem;
+.navText {
+  font-size: 0.85rem;
   font-weight: 600;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.3px;
+  transition: all 0.3s ease;
 }
 
 /* Hover effekti */
 .navLink:hover {
   color: #F8FAFC;
-  background: linear-gradient(135deg, rgba(138, 43, 226, 0.2), rgba(0, 206, 209, 0.2));
+}
+
+.navLink:hover::before {
+  background: linear-gradient(135deg, 
+    rgba(138, 43, 226, 0.15) 0%,
+    rgba(0, 206, 209, 0.15) 100%);
   border-color: rgba(138, 43, 226, 0.3);
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(138, 43, 226, 0.3);
+  transform: scale(1.05);
 }
 
 .navLink:hover i {
-  transform: scale(1.1);
+  transform: translateY(-2px);
   color: #8A2BE2;
 }
 
-/* Faol bo'lim uchun stil */
+.navLink:hover .navText {
+  transform: translateY(-1px);
+}
+
+/* Active state */
 .navLink.active {
   color: #F8FAFC;
-  background: linear-gradient(135deg, #FF6B35, #E55A2B);
+}
+
+.navLink.active::before {
+  background: linear-gradient(135deg, 
+    rgba(255, 107, 53, 0.9) 0%,
+    rgba(229, 90, 43, 0.9) 100%);
   border-color: rgba(255, 107, 53, 0.4);
-  box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
+  box-shadow: 
+    0 8px 25px rgba(255, 107, 53, 0.4),
+    inset 0 1px 1px rgba(255, 255, 255, 0.1);
 }
 
 .navLink.active i {
   color: #F8FAFC;
-  transform: scale(1.1);
+  transform: translateY(-2px);
 }
 
-/* Animatsiya - Underline effect */
-.navLink::after {
-  content: '';
+.navLink.active .navText {
+  transform: translateY(-1px);
+}
+
+/* Active indicator */
+.activeIndicator {
   position: absolute;
-  bottom: 0;
+  bottom: 6px;
   left: 50%;
-  width: 0;
-  height: 3px;
-  background: linear-gradient(90deg, #8A2BE2, #00CED1);
-  transition: all 0.3s ease;
   transform: translateX(-50%);
-  border-radius: 2px;
+  width: 6px;
+  height: 6px;
+  background: linear-gradient(135deg, #FF6B35, #E55A2B);
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
-.navLink:hover::after {
-  width: 80%;
+.navLink.active .activeIndicator {
+  opacity: 1;
+  animation: pulse 2s infinite;
 }
 
-.navLink.active::after {
-  width: 80%;
-  background: linear-gradient(90deg, #FF6B35, #E55A2B);
+/* Pulse animatsiya */
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(255, 107, 53, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 6px rgba(255, 107, 53, 0);
+  }
 }
 
-/* Tooltip effekti */
-.navLink::before {
-  content: attr(aria-label);
+/* Tooltip */
+.navLink::after {
+  content: attr(data-tooltip);
   position: absolute;
   bottom: -40px;
   left: 50%;
   transform: translateX(-50%) translateY(10px);
-  background: rgba(15, 23, 42, 0.9);
+  background: rgba(15, 23, 42, 0.95);
   color: #F8FAFC;
-  padding: 6px 12px;
+  padding: 8px 14px;
   border-radius: 8px;
-  font-size: 12px;
-  font-weight: 600;
+  font-size: 0.8rem;
+  font-weight: 500;
   white-space: nowrap;
   opacity: 0;
   visibility: hidden;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   border: 1px solid rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
-  z-index: 1002;
+  z-index: 1001;
+  pointer-events: none;
 }
 
-.navLink:hover::before {
+.navLink:hover::after {
   opacity: 1;
   visibility: visible;
   transform: translateX(-50%) translateY(0);
 }
 
-/* Aksent ranglar uchun animatsiya */
-@keyframes pulse {
-  0%, 100% {
-    box-shadow: 0 0 0 0 rgba(138, 43, 226, 0.4);
-  }
-  70% {
-    box-shadow: 0 0 0 10px rgba(138, 43, 226, 0);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(138, 43, 226, 0);
-  }
-}
-
-.navLink.active {
-  animation: pulse 2s infinite;
-  border-color: #FF6B35;
-}
-
-/* Responsive dizayn */
-@media (max-width: 1200px) {
+/* Responsive */
+@media (max-width: 1024px) {
   .header {
-    right: 25px;
-    top: 25px;
-  }
-}
-
-@media (max-width: 992px) {
-  .header {
-    right: 20px;
     top: 20px;
-    padding: 12px 20px;
-    gap: 15px;
   }
   
   .navLink {
     min-width: 90px;
-    padding: 8px 15px;
-  }
-  
-  .navLink i {
-    font-size: 1.2rem;
-  }
-  
-  .navLink span {
-    font-size: 0.85rem;
-  }
-  
-  .navLink::before {
-    font-size: 11px;
-    padding: 5px 10px;
-    bottom: -35px;
+    padding: 10px 16px;
   }
 }
 
 @media (max-width: 768px) {
   .header {
     top: 15px;
-    right: 15px;
-    padding: 10px 15px;
-    gap: 12px;
-    backdrop-filter: blur(15px);
+    width: 95%;
+  }
+  
+  .navContainer {
+    gap: 4px;
+    padding: 8px;
   }
   
   .navLink {
-    min-width: 80px;
-    padding: 6px 12px;
+    min-width: 70px;
+    padding: 8px 12px;
   }
   
   .navLink i {
@@ -208,48 +231,27 @@
     margin-bottom: 4px;
   }
   
-  .navLink span {
+  .navText {
     font-size: 0.8rem;
   }
   
-  .navLink:hover {
-    transform: translateY(-5px) scale(1.05);
-  }
-  
-  .navLink::before {
-    display: none; /* Mobilda tooltip'ni yashiramiz */
+  .navLink::after {
+    display: none;
   }
 }
 
 @media (max-width: 640px) {
-  .header {
-    flex-wrap: wrap;
-    justify-content: center;
-    width: auto;
-    max-width: 300px;
-    margin: 0 auto;
-    left: 50%;
-    transform: translateX(-50%);
-    right: auto;
-    top: 15px;
-    padding: 12px;
-    gap: 10px;
-  }
-  
-  .header:hover {
-    transform: translateX(-50%) translateY(-5px);
-  }
-  
   .navLink {
-    min-width: 70px;
-    padding: 5px 10px;
+    min-width: 65px;
+    padding: 6px 10px;
   }
   
   .navLink i {
     font-size: 1rem;
+    margin-bottom: 3px;
   }
   
-  .navLink span {
+  .navText {
     font-size: 0.75rem;
   }
 }
@@ -257,75 +259,84 @@
 @media (max-width: 480px) {
   .header {
     top: 10px;
-    padding: 8px 12px;
-    gap: 8px;
-    max-width: 280px;
+    width: 90%;
+  }
+  
+  .navContainer {
+    gap: 2px;
+    padding: 6px;
   }
   
   .navLink {
-    min-width: 65px;
-    padding: 4px 8px;
+    min-width: 60px;
+    padding: 5px 8px;
   }
   
   .navLink i {
     font-size: 0.9rem;
   }
   
-  .navLink span {
+  .navText {
     font-size: 0.7rem;
   }
-  
-  .navLink:hover {
-    transform: translateY(-3px) scale(1.05);
-  }
 }
 
-@media (max-width: 360px) {
-  .header {
-    max-width: 250px;
-    padding: 6px 10px;
-  }
-  
-  .navLink {
-    min-width: 60px;
-    padding: 3px 6px;
-  }
-  
-  .navLink i {
-    font-size: 0.85rem;
-  }
-  
-  .navLink span {
-    font-size: 0.65rem;
-  }
-}
-
-/* A11y - Accessibility */
+/* Accessibility */
 @media (prefers-reduced-motion: reduce) {
   .header,
   .navLink,
-  .navLink::before {
+  .navLink::before,
+  .navLink::after,
+  .activeIndicator {
     transition: none !important;
     animation: none !important;
   }
   
-  .header:hover {
-    transform: none;
+  .navLink:hover::before,
+  .navLink:hover i,
+  .navLink:hover .navText {
+    transform: none !important;
+  }
+}
+
+/* Focus holati */
+.navLink:focus-visible {
+  outline: 2px solid #FF6B35;
+  outline-offset: 3px;
+  border-radius: 40px;
+}
+
+/* Dark/Light mode */
+@media (prefers-color-scheme: light) {
+  .navContainer {
+    background: linear-gradient(135deg, 
+      rgba(255, 255, 255, 0.9) 0%,
+      rgba(138, 43, 226, 0.1) 100%);
+    border-color: rgba(138, 43, 226, 0.2);
+    box-shadow: 
+      0 10px 40px rgba(0, 0, 0, 0.1),
+      0 0 20px rgba(138, 43, 226, 0.1);
+  }
+  
+  .navLink {
+    color: #4A5568;
+  }
+  
+  .navLink::before {
+    background: rgba(0, 0, 0, 0.05);
   }
   
   .navLink:hover {
-    transform: none;
+    color: #2D3748;
   }
-}
-
-/* Focus holati (klaviatura navigatsiyasi uchun) */
-.navLink:focus {
-  outline: 2px solid #FF6B35;
-  outline-offset: 3px;
-  border-color: #FF6B35;
-}
-
-.navLink:focus-visible {
-  transform: translateY(-5px) scale(1.1);
-  box-shadow: 0 10px 25px rgba(255, 107, 53, 0.3);
+  
+  .navLink:hover::before {
+    background: linear-gradient(135deg, 
+      rgba(138, 43, 226, 0.1) 0%,
+      rgba(0, 206, 209, 0.1) 100%);
+  }
+  
+  .navLink.active {
+    color: #FFFFFF;
+  }
 }
