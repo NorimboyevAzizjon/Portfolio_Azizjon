@@ -1,7 +1,7 @@
-// Portfolio.jsx - TO'LIQ TAYYOR VERSIYA
+// Portfolio.jsx - TO'LIQ VERSIYA
 import React, { useState } from 'react';
 import ProjectCard from '../components/ProjectCard.jsx';
-import './Portfolio.module.css'
+import styles from './Portfolio.module.css';
 
 const Portfolio = () => {
   const [loyihalar] = useState([
@@ -157,287 +157,63 @@ const Portfolio = () => {
     { raqam: '100%', yorliq: 'Muvaffaqiyat Darajasi', ikonka: 'fas fa-trophy' }
   ];
 
-  const styles = {
-    container: {
-      maxWidth: '1200px',
-      margin: '0 auto',
-      padding: '100px 20px 80px',
-      position: 'relative',
-      zIndex: 1,
-      fontFamily: "'Poppins', sans-serif"
-    },
-    sarlavha: {
-      textAlign: 'center',
-      marginBottom: '70px'
-    },
-    asosiySarlavha: {
-      fontSize: '3.5rem',
-      fontWeight: '900',
-      marginBottom: '1.5rem',
-      background: 'linear-gradient(135deg, #F8FAFC 0%, #8A2BE2 50%, #00CED1 100%)',
-      WebkitBackgroundClip: 'text',
-      WebkitTextFillColor: 'transparent',
-      backgroundClip: 'text',
-      letterSpacing: '1px',
-      textTransform: 'uppercase'
-    },
-    chiziq: {
-      width: '120px',
-      height: '5px',
-      background: 'linear-gradient(90deg, #8A2BE2, #00CED1)',
-      margin: '20px auto 0',
-      borderRadius: '3px'
-    },
-    tagSarlavha: {
-      fontSize: '1.25rem',
-      color: '#CBD5E1',
-      maxWidth: '700px',
-      margin: '0 auto',
-      lineHeight: '1.7',
-      marginBottom: '30px'
-    },
-    filtrlarKonteyner: {
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      gap: '25px',
-      marginBottom: '50px',
-      flexWrap: 'wrap'
-    },
-    toifalarKonteyner: {
-      display: 'flex',
-      gap: '15px',
-      flexWrap: 'wrap',
-      justifyContent: 'center'
-    },
-    toifaTugmasi: {
-      padding: '14px 30px',
-      background: filtr === 'hamma' && !faqatReact 
-        ? 'linear-gradient(135deg, #FF6B35, #E55A2B)' 
-        : 'rgba(255, 255, 255, 0.08)',
-      border: filtr === 'hamma' && !faqatReact 
-        ? '2px solid rgba(255, 107, 53, 0.4)' 
-        : '2px solid rgba(255, 255, 255, 0.1)',
-      borderRadius: '50px',
-      cursor: 'pointer',
-      transition: 'all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
-      fontSize: '1rem',
-      fontWeight: '600',
-      color: filtr === 'hamma' && !faqatReact ? '#F8FAFC' : '#CBD5E1',
-      outline: 'none',
-      minWidth: '170px',
-      backdropFilter: 'blur(10px)',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      gap: '10px',
-      position: 'relative',
-      overflow: 'hidden'
-    },
-    soni: {
-      fontSize: '0.85rem',
-      background: 'rgba(255, 255, 255, 0.15)',
-      padding: '2px 10px',
-      borderRadius: '20px',
-      marginLeft: '8px'
-    },
-    reactFilter: {
-      display: 'flex',
-      alignItems: 'center',
-      gap: '12px',
-      padding: '12px 25px',
-      background: faqatReact 
-        ? 'linear-gradient(135deg, #61DAFB, #2D9CDB)' 
-        : 'rgba(255, 255, 255, 0.08)',
-      border: faqatReact 
-        ? '2px solid rgba(97, 218, 251, 0.4)' 
-        : '2px solid rgba(255, 255, 255, 0.1)',
-      borderRadius: '50px',
-      cursor: 'pointer',
-      transition: 'all 0.3s ease',
-      color: faqatReact ? '#F8FAFC' : '#CBD5E1',
-      fontWeight: '600',
-      fontSize: '1rem',
-      backdropFilter: 'blur(10px)'
-    },
-    loyihalarQatori: {
-      display: 'grid',
-      gridTemplateColumns: 'repeat(auto-fill, minmax(350px, 1fr))',
-      gap: '35px',
-      marginBottom: '50px'
-    },
-    boshlangan: {
-      textAlign: 'center',
-      padding: '80px 20px',
-      color: '#94A3B8',
-      background: 'rgba(255, 255, 255, 0.05)',
-      borderRadius: '25px',
-      margin: '40px 0',
-      border: '1px solid rgba(255, 255, 255, 0.1)'
-    },
-    boshlanganSarlavha: {
-      fontSize: '1.8rem',
-      marginBottom: '20px',
-      color: '#FF6B35'
-    },
-    statistikaKonteyner: {
-      display: 'grid',
-      gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-      gap: '30px',
-      marginTop: '60px'
-    },
-    statKarta: {
-      background: 'linear-gradient(135deg, rgba(138, 43, 226, 0.15), rgba(0, 206, 209, 0.15))',
-      backdropFilter: 'blur(15px)',
-      padding: '30px 20px',
-      borderRadius: '20px',
-      textAlign: 'center',
-      border: '1px solid rgba(255, 255, 255, 0.1)',
-      transition: 'all 0.3s ease',
-      cursor: 'default',
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      justifyContent: 'center'
-    },
-    statIkonka: {
-      fontSize: '2.5rem',
-      color: '#00CED1',
-      marginBottom: '15px'
-    },
-    statRaqam: {
-      fontSize: '2.8rem',
-      fontWeight: '800',
-      color: '#F8FAFC',
-      marginBottom: '10px',
-      textShadow: '0 2px 10px rgba(138, 43, 226, 0.3)'
-    },
-    statYorliq: {
-      fontSize: '1rem',
-      color: '#CBD5E1',
-      fontWeight: '500',
-      letterSpacing: '1px'
-    },
-    texnologiyalarKonteyner: {
-      display: 'flex',
-      flexWrap: 'wrap',
-      gap: '15px',
-      justifyContent: 'center',
-      marginTop: '40px',
-      padding: '30px',
-      background: 'rgba(255, 255, 255, 0.05)',
-      borderRadius: '20px',
-      border: '1px solid rgba(255, 255, 255, 0.1)'
-    },
-    texnologiyaYorligi: {
-      padding: '10px 20px',
-      background: 'rgba(138, 43, 226, 0.15)',
-      color: '#8A2BE2',
-      borderRadius: '25px',
-      fontSize: '0.95rem',
-      fontWeight: '600',
-      border: '1px solid rgba(138, 43, 226, 0.3)',
-      transition: 'all 0.3s ease',
-      display: 'flex',
-      alignItems: 'center',
-      gap: '8px'
-    }
-  };
-
   // Barcha texnologiyalarni olish
   const barchaTexnologiyalar = [...new Set(loyihalar.flatMap(l => l.texnologiyalar))];
 
+  // Filter tugmalari uchun klass nomlarini aniqlash
+  const getCategoryBtnClass = (toifaId) => {
+    const isActive = filtr === toifaId && !(toifaId === 'hamma' && faqatReact);
+    return `${styles.categoryBtn} ${isActive ? styles.active : ''}`;
+  };
+
   return (
-    <div style={styles.container} id="portfolio" className="fade-in">
-      <div style={styles.sarlavha}>
-        <h1 style={styles.asosiySarlavha}>
+    <div className={`${styles.portfolioContainer} fade-in`} id="portfolio">
+      <div className={styles.header}>
+        <h1 className={styles.mainTitle}>
           PORTFOLIO
-          <div style={styles.chiziq}></div>
+          <div className={styles.underline}></div>
         </h1>
-        <p style={styles.tagSarlavha}>
+        <p className={styles.tagline}>
           Turli dasturlash tillari va texnologiyalarda yaratgan ishlarimning namunalari. 
           Har bir loyiha o'zining noyob yechimi va dizayniga ega.
         </p>
       </div>
 
       {/* FILTR VA TOIFALAR */}
-      <div style={styles.filtrlarKonteyner}>
-        <div style={styles.toifalarKonteyner}>
+      <div className={styles.filtersContainer}>
+        <div className={styles.categoriesContainer}>
           {toifalar.map((toifa) => (
             <button
               key={toifa.id}
-              style={{
-                ...styles.toifaTugmasi,
-                background: filtr === toifa.id && !(toifa.id === 'hamma' && faqatReact)
-                  ? 'linear-gradient(135deg, #FF6B35, #E55A2B)' 
-                  : styles.toifaTugmasi.background,
-                border: filtr === toifa.id && !(toifa.id === 'hamma' && faqatReact)
-                  ? '2px solid rgba(255, 107, 53, 0.4)' 
-                  : styles.toifaTugmasi.border,
-                color: filtr === toifa.id && !(toifa.id === 'hamma' && faqatReact)
-                  ? '#F8FAFC' 
-                  : styles.toifaTugmasi.color
-              }}
+              className={getCategoryBtnClass(toifa.id)}
               onClick={() => {
                 setFiltr(toifa.id);
                 if (toifa.id !== 'react') {
                   setFaqatReact(false);
                 }
               }}
-              onMouseEnter={(e) => {
-                if (!(filtr === toifa.id && !(toifa.id === 'hamma' && faqatReact))) {
-                  e.currentTarget.style.background = 'rgba(255, 255, 255, 0.15)';
-                  e.currentTarget.style.borderColor = 'rgba(255, 107, 53, 0.3)';
-                  e.currentTarget.style.transform = 'translateY(-3px)';
-                  e.currentTarget.style.boxShadow = '0 10px 25px rgba(255, 107, 53, 0.2)';
-                }
-              }}
-              onMouseLeave={(e) => {
-                if (!(filtr === toifa.id && !(toifa.id === 'hamma' && faqatReact))) {
-                  e.currentTarget.style.background = styles.toifaTugmasi.background;
-                  e.currentTarget.style.borderColor = styles.toifaTugmasi.border;
-                  e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.boxShadow = 'none';
-                }
-              }}
               aria-label={`${toifa.nomi} loyihalarini ko'rish`}
             >
               {toifa.nomi}
-              <span style={styles.soni}>{toifa.soni}</span>
+              <span className={styles.count}>{toifa.soni}</span>
             </button>
           ))}
         </div>
 
         {filtr === 'hamma' && (
-          <div 
-            style={styles.reactFilter}
+          <button 
+            className={`${styles.reactFilter} ${faqatReact ? styles.active : ''}`}
             onClick={() => setFaqatReact(!faqatReact)}
-            onMouseEnter={(e) => {
-              if (!faqatReact) {
-                e.currentTarget.style.background = 'rgba(97, 218, 251, 0.2)';
-                e.currentTarget.style.borderColor = 'rgba(97, 218, 251, 0.3)';
-                e.currentTarget.style.transform = 'translateY(-2px)';
-              }
-            }}
-            onMouseLeave={(e) => {
-              if (!faqatReact) {
-                e.currentTarget.style.background = styles.reactFilter.background;
-                e.currentTarget.style.borderColor = styles.reactFilter.border;
-                e.currentTarget.style.transform = 'translateY(0)';
-              }
-            }}
+            aria-label={faqatReact ? 'Barcha loyihalarni ko\'rish' : 'Faqat React loyihalarini ko\'rish'}
           >
-            <i className={`fab fa-react ${faqatReact ? 'fa-spin' : ''}`} style={{ 
-              color: faqatReact ? '#61DAFB' : '#CBD5E1',
-              fontSize: '1.2rem'
-            }}></i>
+            <i className={`fab fa-react ${faqatReact ? 'fa-spin' : ''}`}></i>
             {faqatReact ? 'Faqat React' : 'React loyihalar'}
-          </div>
+          </button>
         )}
       </div>
 
       {/* LOYIHALAR QATORI */}
-      <div style={styles.loyihalarQatori}>
+      <div className={styles.projectsGrid}>
         {filtrlanganLoyihalar().map((loyiha) => (
           <ProjectCard
             key={loyiha.id}
@@ -453,80 +229,41 @@ const Portfolio = () => {
 
       {/* BO'SH HOLAT */}
       {filtrlanganLoyihalar().length === 0 && (
-        <div style={styles.boshlangan}>
-          <h3 style={styles.boshlanganSarlavha}>
+        <div className={styles.emptyState}>
+          <h3 className={styles.emptyStateTitle}>
             Bu toifada loyihalar topilmadi
           </h3>
           <p style={{ fontSize: '1.1rem', marginBottom: '20px' }}>
             Boshqa toifani tanlang yoki filterni o'zgartiring
           </p>
           <button
-            style={{
-              padding: '12px 30px',
-              background: 'linear-gradient(135deg, #8A2BE2 0%, #6A0DAD 100%)',
-              color: 'white',
-              border: 'none',
-              borderRadius: '30px',
-              fontSize: '1rem',
-              fontWeight: '600',
-              cursor: 'pointer',
-              transition: 'all 0.3s ease'
-            }}
+            className={styles.resetButton}
             onClick={() => {
               setFiltr('hamma');
               setFaqatReact(false);
             }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.transform = 'translateY(-3px)';
-              e.currentTarget.style.boxShadow = '0 10px 25px rgba(138, 43, 226, 0.3)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.transform = 'translateY(0)';
-              e.currentTarget.style.boxShadow = 'none';
-            }}
           >
-            <i className="fas fa-redo-alt" style={{ marginRight: '8px' }}></i>
+            <i className="fas fa-redo-alt"></i>
             Barcha loyihalarni ko'rish
           </button>
         </div>
       )}
 
       {/* TEXNOLOGIYALAR */}
-      <div style={{ marginTop: '50px', textAlign: 'center' }}>
-        <h2 style={{
-          fontSize: '2.2rem',
-          fontWeight: '700',
-          color: '#F8FAFC',
-          marginBottom: '30px'
-        }}>
-          <i className="fas fa-cogs" style={{ color: '#00CED1', marginRight: '12px' }}></i>
+      <div className={styles.technologiesSection}>
+        <h2 className={styles.technologiesTitle}>
+          <i className="fas fa-cogs" style={{ color: '#00CED1' }}></i>
           Ishlatilgan Texnologiyalar
         </h2>
-        <p style={{
-          color: '#CBD5E1',
-          fontSize: '1.1rem',
-          maxWidth: '800px',
-          margin: '0 auto 30px',
-          lineHeight: '1.6'
-        }}>
+        <p className={styles.technologiesSubtitle}>
           Loyihalarimda quyidagi zamonaviy texnologiyalardan foydalanganman
         </p>
         
-        <div style={styles.texnologiyalarKonteyner}>
+        <div className={styles.technologiesContainer}>
           {barchaTexnologiyalar.map((tex, index) => (
             <div 
               key={index} 
-              style={styles.texnologiyaYorligi}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-3px)';
-                e.currentTarget.style.background = 'rgba(138, 43, 226, 0.25)';
-                e.currentTarget.style.boxShadow = '0 8px 20px rgba(138, 43, 226, 0.3)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.background = 'rgba(138, 43, 226, 0.15)';
-                e.currentTarget.style.boxShadow = 'none';
-              }}
+              className={styles.technologyTag}
             >
               {tex.includes('React') && <i className="fab fa-react"></i>}
               {tex.includes('Node') && <i className="fab fa-node-js"></i>}
@@ -534,9 +271,14 @@ const Portfolio = () => {
               {tex.includes('Firebase') && <i className="fas fa-fire"></i>}
               {tex.includes('JavaScript') && <i className="fab fa-js"></i>}
               {tex.includes('CSS') && <i className="fab fa-css3-alt"></i>}
+              {tex.includes('Express') && <i className="fas fa-server"></i>}
+              {tex.includes('Redux') && <i className="fas fa-code-branch"></i>}
+              {tex.includes('Tailwind') && <i className="fas fa-wind"></i>}
+              {tex.includes('GraphQL') && <i className="fas fa-project-diagram"></i>}
               {!tex.includes('React') && !tex.includes('Node') && !tex.includes('MongoDB') && 
-               !tex.includes('Firebase') && !tex.includes('JavaScript') && !tex.includes('CSS') && 
-               <i className="fas fa-code"></i>}
+               !tex.includes('Firebase') && !tex.includes('JavaScript') && !tex.includes('CSS') &&
+               !tex.includes('Express') && !tex.includes('Redux') && !tex.includes('Tailwind') &&
+               !tex.includes('GraphQL') && <i className="fas fa-code"></i>}
               {tex}
             </div>
           ))}
@@ -544,81 +286,31 @@ const Portfolio = () => {
       </div>
 
       {/* STATISTIKA */}
-      <div style={styles.statistikaKonteyner}>
+      <div className={styles.statsContainer}>
         {statistika.map((stat, index) => (
           <div 
             key={index}
-            style={styles.statKarta}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.transform = 'translateY(-8px)';
-              e.currentTarget.style.boxShadow = '0 15px 35px rgba(138, 43, 226, 0.3)';
-              e.currentTarget.style.background = 'linear-gradient(135deg, rgba(138, 43, 226, 0.25), rgba(0, 206, 209, 0.25))';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.transform = 'translateY(0)';
-              e.currentTarget.style.boxShadow = 'none';
-              e.currentTarget.style.background = 'linear-gradient(135deg, rgba(138, 43, 226, 0.15), rgba(0, 206, 209, 0.15))';
-            }}
+            className={styles.statCard}
           >
-            <i className={stat.ikonka} style={styles.statIkonka}></i>
-            <div style={styles.statRaqam}>{stat.raqam}</div>
-            <div style={styles.statYorliq}>{stat.yorliq}</div>
+            <i className={stat.ikonka} className={styles.statIcon}></i>
+            <div className={styles.statNumber}>{stat.raqam}</div>
+            <div className={styles.statLabel}>{stat.yorliq}</div>
           </div>
         ))}
       </div>
 
       {/* CALL TO ACTION */}
-      <div style={{
-        textAlign: 'center',
-        marginTop: '70px',
-        padding: '50px',
-        background: 'linear-gradient(135deg, rgba(138, 43, 226, 0.1), rgba(255, 107, 53, 0.1))',
-        borderRadius: '25px',
-        border: '1px solid rgba(255, 255, 255, 0.1)'
-      }}>
-        <h2 style={{
-          fontSize: '2.5rem',
-          fontWeight: '700',
-          color: '#F8FAFC',
-          marginBottom: '20px'
-        }}>
+      <div className={styles.ctaSection}>
+        <h2 className={styles.ctaTitle}>
           Loyiha hamkorligi uchun tayyorman!
         </h2>
-        <p style={{
-          color: '#CBD5E1',
-          fontSize: '1.2rem',
-          maxWidth: '700px',
-          margin: '0 auto 30px',
-          lineHeight: '1.6'
-        }}>
+        <p className={styles.ctaText}>
           Yangi va qiziqarli loyihalar uchun hamkorlik qilishga tayyorman. 
           Sizning g'oyangizni hayotga tatbiq etishda yordam beraman.
         </p>
         <a 
           href="#aloqa"
-          style={{
-            padding: '16px 45px',
-            background: 'linear-gradient(135deg, #00CED1 0%, #008B8B 100%)',
-            color: 'white',
-            border: 'none',
-            borderRadius: '50px',
-            fontSize: '1.1rem',
-            fontWeight: '600',
-            cursor: 'pointer',
-            textDecoration: 'none',
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: '12px',
-            transition: 'all 0.3s ease'
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.transform = 'translateY(-5px)';
-            e.currentTarget.style.boxShadow = '0 15px 35px rgba(0, 206, 209, 0.4)';
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.transform = 'translateY(0)';
-            e.currentTarget.style.boxShadow = 'none';
-          }}
+          className={styles.ctaButton}
         >
           <i className="fas fa-paper-plane"></i>
           Bog'lanish

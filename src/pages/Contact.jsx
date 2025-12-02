@@ -1,311 +1,271 @@
-import React from 'react';
-import styles from './About.module.css';
+// Contact.jsx - TO'LIQ VERSIYA
+import React, { useState } from 'react';
+import styles from './Contact.module.css';
 
-const About = () => {
-  // Mahoratlar ro'yxati - Har biriga havola qo'shildi
-  const mahoratlar = [
+const Contact = () => {
+  const [formData, setFormData] = useState({
+    ism: '',
+    email: '',
+    mavzu: '',
+    xabar: ''
+  });
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
+
+  // Aloqa ma'lumotlari
+  const contactInfo = [
+    
     { 
-      nomi: 'HTML5', 
-      foiz: 95, 
-      rang: '#E44D26', 
-      izoh: 'Semantik HTML, SEO optimallashtirish',
-      icon: 'fab fa-html5',
-      link: 'https://developer.mozilla.org/en-US/docs/Web/HTML'
+      icon: 'fas fa-map-marker-alt',
+      label: 'Manzil',
+      value: 'Toshkent, Uzbekistan',
+      color: '#FF6B35'
     },
     { 
-      nomi: 'CSS3', 
-      foiz: 90, 
-      rang: '#264DE4', 
-      izoh: 'Flexbox, Grid, Animatsiyalar',
-      icon: 'fab fa-css3-alt',
-      link: 'https://developer.mozilla.org/en-US/docs/Web/CSS'
+      icon: 'fas fa-envelope',
+      label: 'Email',
+      value: 'norimboyevazizjon29@gmail.com',
+      color: '#8A2BE2',
+      action: 'mailto:azizjon@gmail.com'
     },
     { 
-      nomi: 'SCSS/SASS', 
-      foiz: 88, 
-      rang: '#CC6699', 
-      izoh: 'Mixin, Variables, Nesting',
-      icon: 'fab fa-sass',
-      link: 'https://sass-lang.com/'
+      icon: 'fas fa-phone-alt',
+      label: 'Telefon',
+      value: '+998 93 364 20 30',
+      color: '#00CED1',
+      action: 'tel:+998901234567'
     },
-    { 
-      nomi: 'Bootstrap 5', 
-      foiz: 85, 
-      rang: '#7952B3', 
-      izoh: 'Responsive komponentlar',
-      icon: 'fab fa-bootstrap',
-      link: 'https://getbootstrap.com/'
-    },
-    { 
-      nomi: 'Tailwind CSS', 
-      foiz: 92, 
-      rang: '#38B2AC', 
-      izoh: 'Utility-first framework',
-      icon: 'fas fa-wind',
-      link: 'https://tailwindcss.com/'
-    },
-    { 
-      nomi: 'JavaScript ES6+', 
-      foiz: 90, 
-      rang: '#F7DF1E', 
-      izoh: 'Modern JavaScript',
-      icon: 'fab fa-js-square',
-      link: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript'
-    },
-    { 
-      nomi: 'React.js', 
-      foiz: 88, 
-      rang: '#61DAFB', 
-      izoh: 'Hooks, Context API, Components',
-      icon: 'fab fa-react',
-      link: 'https://reactjs.org/'
-    },
-    { 
-      nomi: 'Next.js 14', 
-      foiz: 82, 
-      rang: '#000000', 
-      izoh: 'App Router, Server Actions',
-      icon: 'fas fa-bolt',
-      link: 'https://nextjs.org/'
-    },
-    { 
-      nomi: 'React Native', 
-      foiz: 75, 
-      rang: '#61DAFB', 
-      izoh: 'Mobile ilovalar',
-      icon: 'fas fa-mobile-alt',
-      link: 'https://reactnative.dev/'
-    },
-    { 
-      nomi: 'TypeScript', 
-      foiz: 80, 
-      rang: '#3178C6', 
-      izoh: 'Type safety, Interfaces',
-      icon: 'fas fa-code',
-      link: 'https://www.typescriptlang.org/'
-    },
-    { 
-      nomi: 'Git / GitHub', 
-      foiz: 85, 
-      rang: '#F1502F', 
-      izoh: 'Version control, CI/CD',
-      icon: 'fab fa-github',
-      link: 'https://github.com/'
-    },
-    { 
-      nomi: 'REST API', 
-      foiz: 88, 
-      rang: '#FF6B35', 
-      izoh: 'Axios, Fetch API',
-      icon: 'fas fa-server',
-      link: 'https://restfulapi.net/'
-    }
+    
+    
   ];
 
-  // Ta'lim tarixi - Har biriga havola
-  const talim = [
-    { 
-      daraja: 'Kompyuter Fanlari', 
-      universitet: 'TUIT (Toshkent Axborot Texnologiyalari Universiteti)', 
-      yil: '2024-2028',
-      izoh: 'Bakalavr darajasi',
-      icon: 'fas fa-university',
-      link: 'https://tuit.uz/'
-    },
-    { 
-      daraja: 'Frontend Dasturlash', 
-      universitet: 'Najot Ta\'lim', 
-      yil: '2025',
-      izoh: 'Professional kurs, 6 oy',
-      icon: 'fas fa-graduation-cap',
-      link: 'https://najottalim.uz/'
-    },
-    { 
-      daraja: 'React.js Mukammallashuvi', 
-      universitet: 'Onlayn Platformalar', 
-      yil: '2024-2025',
-      izoh: 'Udemy, Coursera, YouTube',
-      icon: 'fas fa-laptop-code',
-      link: 'https://www.udemy.com/'
-    }
-  ];
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
 
-  // Statistika ko'rsatkichlari
-  const stats = [
-    { 
-      raqam: '1+', 
-      matn: 'Yillik Tajriba', 
-      ikonka: 'fas fa-briefcase',
-      rang: '#8A2BE2'
-    },
-    { 
-      raqam: '15+', 
-      matn: 'Tugatilgan Loyihalar', 
-      ikonka: 'fas fa-project-diagram',
-      rang: '#00CED1'
-    },
-    { 
-      raqam: '100%', 
-      matn: 'Mijoz Mamnuniyati', 
-      ikonka: 'fas fa-users',
-      rang: '#FF6B35'
-    },
-    { 
-      raqam: '12+', 
-      matn: 'Texnologiya Bilimi', 
-      ikonka: 'fas fa-code',
-      rang: '#4CAF50'
-    }
-  ];
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    
+    // Bu yerda haqiqiy API ga so'rov yuborish mumkin
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setSubmitSuccess(true);
+      setFormData({
+        ism: '',
+        email: '',
+        mavzu: '',
+        xabar: ''
+      });
+      
+      // 3 sekunddan keyin success xabarini o'chirish
+      setTimeout(() => {
+        setSubmitSuccess(false);
+      }, 3000);
+    }, 1500);
+  };
+
+  const handleCVDownload = () => {
+    // CV yuklab olish logikasi
+    window.open('/CV_Azizjon.pdf', '_blank');
+  };
 
   return (
-    <div className={`${styles.container} fade-in`} id="haqimda">
+    <div className={`${styles.container} fade-in`} id="aloqa">
       
       {/* Sarlavha qismi */}
       <div className={styles.header}>
         <h1 className={styles.title}>
-          <i className="fas fa-user-circle" style={{marginRight: '15px', color: '#00CED1'}}></i>
-          MEN HAQIMDA
+          <i className="fas fa-paper-plane" style={{marginRight: '15px', color: '#FF6B35'}}></i>
+          BOG'LANISH
           <div className={styles.titleUnderline}></div>
         </h1>
         <p className={styles.subtitle}>
-          Mening <span style={{color: '#00CED1', fontWeight: '600'}}>texnik mahoratim</span>, 
-          <span style={{color: '#8A2BE2', fontWeight: '600'}}> ta'lim tarixim</span> va 
-          <span style={{color: '#FF6B35', fontWeight: '600'}}> professional tajribam</span> haqida batafsil
+          Men bilan bog'lanish uchun quyidagi formani to'ldiring yoki to'g'ridan-to'g'ri 
+          <span style={{color: '#00CED1', fontWeight: '600'}}> elektron pochtamga</span> yozing.
+          Hamkorlik uchun har doim tayyorman!
         </p>
       </div>
 
       {/* Asosiy kontent - 2 ustun */}
-      <div className={styles.content}>
+      <div className={styles.contactContainer}>
         
-        {/* MAHORATLAR QISMI (Chap ustun) */}
-        <div className={styles.skillsSection}>
+        {/* FORM QISMI (Chap ustun) */}
+        <div className={styles.formSection}>
           <h2 className={styles.sectionTitle}>
-            <i className="fas fa-cogs" style={{color: '#00CED1', marginRight: '10px'}}></i>
-            TEKNIK MAHORATLARIM
+            <i className="fas fa-comment-alt" style={{color: '#FF6B35'}}></i>
+            XABAR YUBORISH
           </h2>
           
-          {mahoratlar.map((mahorat, index) => (
-            <a 
-              key={index}
-              href={mahorat.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.skillLink}
+          <form onSubmit={handleSubmit}>
+            <div className={styles.formGroup}>
+              <label className={styles.label} htmlFor="ism">
+                <i className="fas fa-user" style={{marginRight: '8px'}}></i>
+                ISMINGIZ
+              </label>
+              <input
+                type="text"
+                id="ism"
+                name="ism"
+                value={formData.ism}
+                onChange={handleChange}
+                className={styles.input}
+                placeholder="Ismingizni kiriting"
+                required
+              />
+            </div>
+            
+            <div className={styles.formGroup}>
+              <label className={styles.label} htmlFor="email">
+                <i className="fas fa-envelope" style={{marginRight: '8px'}}></i>
+                EMAIL MANZILINGIZ
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                className={styles.input}
+                placeholder="example@gmail.com"
+                required
+              />
+            </div>
+            
+            <div className={styles.formGroup}>
+              <label className={styles.label} htmlFor="mavzu">
+                <i className="fas fa-tag" style={{marginRight: '8px'}}></i>
+                MAVZU
+              </label>
+              <input
+                type="text"
+                id="mavzu"
+                name="mavzu"
+                value={formData.mavzu}
+                onChange={handleChange}
+                className={styles.input}
+                placeholder="Xabar mavzusi"
+                required
+              />
+            </div>
+            
+            <div className={styles.formGroup}>
+              <label className={styles.label} htmlFor="xabar">
+                <i className="fas fa-edit" style={{marginRight: '8px'}}></i>
+                XABAR
+              </label>
+              <textarea
+                id="xabar"
+                name="xabar"
+                value={formData.xabar}
+                onChange={handleChange}
+                className={styles.textarea}
+                placeholder="Xabaringizni bu yerga yozing..."
+                rows="5"
+                required
+              ></textarea>
+            </div>
+            
+            <button 
+              type="submit" 
+              className={styles.submitButton}
+              disabled={isSubmitting}
             >
-              <div className={styles.skillItem}>
-                <div className={styles.skillHeader}>
-                  <div className={styles.skillLeft}>
-                    <i className={mahorat.icon} style={{
-                      fontSize: '24px',
-                      color: mahorat.rang,
-                      marginRight: '15px'
-                    }}></i>
-                    <div>
-                      <span className={styles.skillName}>{mahorat.nomi}</span>
-                      <div className={styles.skillDescription}>{mahorat.izoh}</div>
-                    </div>
-                  </div>
-                  <div className={styles.skillRight}>
-                    <span className={styles.skillPercentage} style={{ backgroundColor: `${mahorat.rang}20`, color: mahorat.rang }}>
-                      {mahorat.foiz}%
-                    </span>
-                    <i className="fas fa-external-link-alt" style={{
-                      fontSize: '14px',
-                      color: mahorat.rang,
-                      marginLeft: '8px',
-                      opacity: 0.7
-                    }}></i>
-                  </div>
-                </div>
-                <div className={styles.progressBar}>
-                  <div 
-                    className={styles.progressFill}
-                    style={{
-                      width: `${mahorat.foiz}%`,
-                      background: `linear-gradient(90deg, ${mahorat.rang}, ${mahorat.rang}80)`,
-                      boxShadow: `0 0 15px ${mahorat.rang}40`
-                    }}
-                  ></div>
-                </div>
-              </div>
-            </a>
-          ))}
+              {isSubmitting ? (
+                <>
+                  <i className="fas fa-spinner fa-spin"></i>
+                  YUBORILMOQDA...
+                </>
+              ) : submitSuccess ? (
+                <>
+                  <i className="fas fa-check-circle"></i>
+                  MUVAFFAQIYATLI YUBORILDI!
+                </>
+              ) : (
+                <>
+                  <i className="fas fa-paper-plane"></i>
+                  XABAR YUBORISH
+                </>
+              )}
+            </button>
+          </form>
         </div>
 
-        {/* TA'LIM QISMI (O'ng ustun) */}
-        <div className={styles.educationSection}>
+        {/* MA'LUMOT QISMI (O'ng ustun) */}
+        <div className={styles.infoSection}>
           <h2 className={styles.sectionTitle}>
-            <i className="fas fa-graduation-cap" style={{color: '#8A2BE2', marginRight: '10px'}}></i>
-            TA'LIM TARIXIM
+            <i className="fas fa-address-book" style={{color: '#8A2BE2'}}></i>
+            ALOQA MA'LUMOTLARI
           </h2>
           
-          {talim.map((edu, index) => (
-            <a 
-              key={index}
-              href={edu.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.educationLink}
-            >
-              <div className={styles.educationItem}>
-                <div className={styles.eduIcon}>
-                  <i className={edu.icon} style={{
-                    fontSize: '24px',
-                    color: index === 0 ? '#8A2BE2' : index === 1 ? '#00CED1' : '#FF6B35'
+          {contactInfo.map((info, index) => (
+            info.action ? (
+              <a
+                key={index}
+                href={info.action}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.infoLink}
+              >
+                <div 
+                  className={styles.infoItem}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'translateY(-5px)';
+                    e.currentTarget.style.boxShadow = `0 15px 30px ${info.color}30`;
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'translateY(0)';
+                    e.currentTarget.style.boxShadow = 'none';
+                  }}
+                >
+                  <div 
+                    className={styles.infoIcon}
+                    style={{background: `linear-gradient(135deg, ${info.color}, ${info.color}80)`}}
+                  >
+                    <i className={info.icon}></i>
+                  </div>
+                  <div className={styles.infoContent}>
+                    <div className={styles.infoLabel}>{info.label}</div>
+                    <div className={styles.infoValue}>{info.value}</div>
+                  </div>
+                  <i className="fas fa-external-link-alt" style={{
+                    color: info.color,
+                    opacity: 0.7,
+                    fontSize: '14px'
                   }}></i>
                 </div>
-                <div className={styles.eduContent}>
-                  <div className={styles.eduHeader}>
-                    <h3 className={styles.educationDegree}>{edu.daraja}</h3>
-                    <i className="fas fa-external-link-alt" style={{
-                      fontSize: '14px',
-                      color: '#00CED1',
-                      opacity: 0.7
-                    }}></i>
-                  </div>
-                  <p className={styles.educationUniversity}>
-                    <i className="fas fa-university" style={{marginRight: '8px', color: '#00CED1'}}></i>
-                    {edu.universitet}
-                  </p>
-                  <div className={styles.eduBottom}>
-                    <span className={styles.educationYear}>
-                      <i className="fas fa-calendar-alt" style={{marginRight: '6px'}}></i>
-                      {edu.yil}
-                    </span>
-                    <span className={styles.eduNote}>
-                      <i className="fas fa-info-circle" style={{marginRight: '6px'}}></i>
-                      {edu.izoh}
-                    </span>
-                  </div>
+              </a>
+            ) : (
+              <div 
+                key={index}
+                className={styles.infoItem}
+                style={{cursor: 'default'}}
+              >
+                <div 
+                  className={styles.infoIcon}
+                  style={{background: `linear-gradient(135deg, ${info.color}, ${info.color}80)`}}
+                >
+                  <i className={info.icon}></i>
+                </div>
+                <div className={styles.infoContent}>
+                  <div className={styles.infoLabel}>{info.label}</div>
+                  <div className={styles.infoValue}>{info.value}</div>
                 </div>
               </div>
-            </a>
+            )
           ))}
         </div>
       </div>
 
-      {/* STATISTIKA KARTALARI */}
-      <div className={styles.stats}>
-        {stats.map((stat, index) => (
-          <div 
-            key={index}
-            className={styles.statCard}
-            style={{
-              background: `linear-gradient(135deg, ${stat.rang}15, ${stat.rang}25)`,
-              borderColor: `${stat.rang}30`
-            }}
-          >
-            <div className={styles.statIconWrapper}>
-              <i className={stat.ikonka} style={{color: stat.rang, fontSize: '42px'}}></i>
-            </div>
-            <div className={styles.statNumber}>{stat.raqam}</div>
-            <div className={styles.statText}>{stat.matn}</div>
-          </div>
-        ))}
-      </div>
+      
+     
     </div>
   );
 };
 
-export default About;
+export default Contact;

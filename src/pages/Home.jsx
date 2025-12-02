@@ -1,6 +1,5 @@
-// Home.jsx - O'ZBEKCHA VA ZAMONAVIY
+// Home.jsx - TO'LIQ VERSIYA (Inline style bilan)
 import React from 'react';
-import './Home.module.css'
 import imgAzizjon from '../assets/images/photo_2025-12-02_17-16-43.jpg';
 
 const Home = () => {
@@ -29,7 +28,7 @@ const Home = () => {
       position: 'relative',
       zIndex: 2
     },
-    salom: {
+    greeting: {
       fontSize: '28px',
       color: '#00CED1',
       fontWeight: '600',
@@ -38,7 +37,7 @@ const Home = () => {
       alignItems: 'center',
       gap: '12px'
     },
-    ism: {
+    name: {
       fontSize: '72px',
       fontWeight: '900',
       color: '#F8FAFC',
@@ -49,25 +48,25 @@ const Home = () => {
       WebkitTextFillColor: 'transparent',
       backgroundClip: 'text'
     },
-    kasb: {
+    title: {
       fontSize: '56px',
       fontWeight: '700',
       color: '#CBD5E1',
       marginBottom: '35px'
     },
-    ajralibTuruvchi: {
+    highlight: {
       color: '#FF6B35',
       position: 'relative',
       paddingRight: '10px'
     },
-    tavsif: {
+    description: {
       fontSize: '20px',
       color: '#94A3B8',
       lineHeight: '1.8',
       marginBottom: '45px',
       maxWidth: '550px'
     },
-    cvTugmasi: {
+    cvButton: {
       padding: '18px 45px',
       background: 'linear-gradient(135deg, #8A2BE2 0%, #6A0DAD 100%)',
       color: 'white',
@@ -94,14 +93,14 @@ const Home = () => {
       borderRadius: '30% 70% 70% 30% / 30% 30% 70% 70%',
       background: 'linear-gradient(135deg, #8A2BE2, #00CED1)',
       display: 'flex',
-      alignItemspan: 'center',
+      alignItems: 'center',
       justifyContent: 'center',
       position: 'relative',
       overflow: 'hidden',
       boxShadow: '0 30px 80px rgba(138, 43, 226, 0.4)',
       animation: 'morphing 15s infinite ease-in-out'
     },
-    avatar: {
+    avatarImage: {
       width: '92%',
       height: '92%',
       borderRadius: '30% 70% 70% 30% / 30% 30% 70% 70%',
@@ -109,7 +108,7 @@ const Home = () => {
       border: '12px solid rgba(255, 255, 255, 0.1)',
       filter: 'brightness(1.05) contrast(1.1)'
     },
-    statistikalar: {
+    statsContainer: {
       display: 'flex',
       justifyContent: 'space-between',
       alignItems: 'center',
@@ -121,13 +120,13 @@ const Home = () => {
       textAlign: 'center',
       flex: 1
     },
-    statRaqam: {
+    statNumber: {
       fontSize: '42px',
       fontWeight: '800',
       color: '#00CED1',
       marginBottom: '8px'
     },
-    statMatn: {
+    statText: {
       fontSize: '17px',
       color: '#94A3B8',
       fontWeight: '500'
@@ -138,20 +137,20 @@ const Home = () => {
     <div style={styles.container} id="bosh-sahifa" className="fade-in">
       <div style={styles.content}>
         <div style={styles.textSection}>
-          <div style={styles.salom}>
+          <div style={styles.greeting}>
             <i className="fas fa-hand-wave" style={{ animation: 'wave 2s infinite' }}></i>
             Salom, mening ismim
           </div>
           
-          <h1 style={styles.ism}>Azizjon</h1>
+          <h1 style={styles.name}>Azizjon</h1>
           
-          <h2 style={styles.kasb}>
-            <span style={styles.ajralibTuruvchi}>Frontend</span>
+          <h2 style={styles.title}>
+            <span style={styles.highlight}>Frontend</span>
             <br />
             Dasturchiman.
           </h2>
           
-          <p style={styles.tavsif}>
+          <p style={styles.description}>
             <strong>🎯 Tajribali Frontend dasturchi</strong>, 
             <span style={{color: '#FF6B35', fontWeight: '600'}}> 1+ yillik professional tajriba</span>.
             <br /><br />
@@ -176,7 +175,7 @@ const Home = () => {
           </p>
           
           <button 
-            style={styles.cvTugmasi}
+            style={styles.cvButton}
             onMouseEnter={(e) => {
               e.currentTarget.style.transform = 'translateY(-6px)';
               e.currentTarget.style.boxShadow = '0 15px 40px rgba(138, 43, 226, 0.6)';
@@ -193,30 +192,30 @@ const Home = () => {
             CV Yuklab Olish
           </button>
           
-          <div style={styles.statistikalar}>
+          <div style={styles.statsContainer}>
             <div style={styles.statItem}>
-              <div style={styles.statRaqam}>1+</div>
-              <div style={styles.statMatn}>Yillik Tajriba</div>
+              <div style={styles.statNumber}>1+</div>
+              <div style={styles.statText}>Yillik Tajriba</div>
             </div>
             <div style={styles.statItem}>
-              <div style={styles.statRaqam}>10+</div>
-              <div style={styles.statMatn}>Tugatilgan Loyihalar</div>
+              <div style={styles.statNumber}>10+</div>
+              <div style={styles.statText}>Tugatilgan Loyihalar</div>
             </div>
             <div style={styles.statItem}>
-              <div style={styles.statRaqam}>100%</div>
-              <div style={styles.statMatn}>Mijoz Mamnuniyati</div>
+              <div style={styles.statNumber}>100%</div>
+              <div style={styles.statText}>Mijoz Mamnuniyati</div>
             </div>
           </div>
         </div>
         
         <div style={styles.imageSection}>
           <div style={styles.avatarContainer}>
-            {<img  className='avatar-image'
-              src= {imgAzizjon}
+            <img 
+              src={imgAzizjon}
               alt="Azizjon" 
-              style={styles.avatar}
+              style={styles.avatarImage}
               loading="lazy"
-            /> }
+            />
           </div>
         </div>
       </div>
@@ -236,68 +235,200 @@ const Home = () => {
           100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
         }
         
-        /* Responsive media queries */
+        @keyframes fadeIn {
+          from { opacity: 0; transform: translateY(30px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+          animation: fadeIn 0.8s ease-out;
+        }
+        
+        /* Responsive styles */
         @media (max-width: 1024px) {
-          div[style*="content"] {
-            flex-direction: column;
-            text-align: center;
-            gap: 40px;
+          .content {
+            flex-direction: column !important;
+            text-align: center !important;
+            gap: 40px !important;
           }
           
-          div[style*="ism"] {
-            font-size: 56px;
+          .greeting {
+            justify-content: center !important;
           }
           
-          div[style*="kasb"] {
-            font-size: 42px;
+          .name {
+            font-size: 56px !important;
           }
           
-          div[style*="avatarContainer"] {
-            width: 350px;
-            height: 350px;
+          .title {
+            font-size: 42px !important;
+          }
+          
+          .avatarContainer {
+            width: 350px !important;
+            height: 350px !important;
+          }
+          
+          .description {
+            margin: 0 auto 45px !important;
           }
         }
         
         @media (max-width: 768px) {
-          div[style*="ism"] {
-            font-size: 42px;
+          .name {
+            font-size: 42px !important;
           }
           
-          div[style*="kasb"] {
-            font-size: 32px;
+          .title {
+            font-size: 32px !important;
           }
           
-          div[style*="avatarContainer"] {
-            width: 300px;
-            height: 300px;
+          .greeting {
+            font-size: 24px !important;
           }
           
-          div[style*="statRaqam"] {
-            font-size: 36px;
+          .description {
+            font-size: 18px !important;
+            line-height: 1.6 !important;
+          }
+          
+          .avatarContainer {
+            width: 300px !important;
+            height: 300px !important;
+          }
+          
+          .cvButton {
+            padding: 16px 35px !important;
+            font-size: 16px !important;
+          }
+          
+          .statNumber {
+            font-size: 36px !important;
           }
         }
         
-        @media (max-width: 480px) {
-          div[style*="ism"] {
-            font-size: 32px;
+        @media (max-width: 576px) {
+          .container {
+            padding: 0 15px !important;
           }
           
-          div[style*="kasb"] {
-            font-size: 28px;
+          .name {
+            font-size: 32px !important;
           }
           
-          div[style*="avatarContainer"] {
-            width: 250px;
-            height: 250px;
+          .title {
+            font-size: 28px !important;
           }
           
-          div[style*="statRaqam"] {
-            font-size: 28px;
+          .greeting {
+            font-size: 20px !important;
+            gap: 8px !important;
           }
           
-          div[style*="statistikalar"] {
-            flex-direction: column;
-            gap: 25px;
+          .description {
+            font-size: 16px !important;
+            margin-bottom: 35px !important;
+          }
+          
+          .avatarContainer {
+            width: 250px !important;
+            height: 250px !important;
+          }
+          
+          .cvButton {
+            padding: 14px 30px !important;
+            font-size: 15px !important;
+            width: 100% !important;
+            justify-content: center !important;
+          }
+          
+          .statsContainer {
+            flex-direction: column !important;
+            gap: 25px !important;
+          }
+          
+          .statNumber {
+            font-size: 32px !important;
+          }
+        }
+        
+        @media (max-width: 425px) {
+          .name {
+            font-size: 28px !important;
+          }
+          
+          .title {
+            font-size: 24px !important;
+          }
+          
+          .greeting {
+            font-size: 18px !important;
+          }
+          
+          .avatarContainer {
+            width: 220px !important;
+            height: 220px !important;
+          }
+          
+          .cvButton {
+            padding: 12px 25px !important;
+            font-size: 14px !important;
+          }
+          
+          .statNumber {
+            font-size: 28px !important;
+          }
+        }
+        
+        @media (min-width: 1600px) {
+          .container {
+            max-width: 1400px !important;
+            margin: 0 auto !important;
+          }
+          
+          .name {
+            font-size: 82px !important;
+          }
+          
+          .title {
+            font-size: 62px !important;
+          }
+          
+          .description {
+            font-size: 22px !important;
+            max-width: 600px !important;
+          }
+          
+          .avatarContainer {
+            width: 500px !important;
+            height: 500px !important;
+          }
+          
+          .statNumber {
+            font-size: 48px !important;
+          }
+        }
+        
+        @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+          .content {
+            flex-direction: row !important;
+            gap: 35px !important;
+          }
+          
+          .avatarContainer {
+            width: 350px !important;
+            height: 300px !important;
+          }
+        }
+        
+        @media (prefers-reduced-motion: reduce) {
+          .fade-in,
+          .avatarContainer {
+            animation: none !important;
+          }
+          
+          .cvButton:hover {
+            transform: none !important;
           }
         }
       `}</style>

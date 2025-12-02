@@ -1,4 +1,6 @@
-/* Header.module.css */
+/* Header.module.css - NAVBAR STILLARI */
+
+/* Asosiy navbar konteyner */
 .header {
   position: fixed;
   top: 30px;
@@ -24,88 +26,89 @@
   border-color: rgba(255, 107, 53, 0.3);
 }
 
-.socialLink {
-  width: 55px;
-  height: 55px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.1);
+/* NavLink tugmalari */
+.navLink {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  color: #F8FAFC;
-  font-size: 22px;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   text-decoration: none;
-  border: 2px solid transparent;
+  color: #CBD5E1;
+  padding: 10px 20px;
+  border-radius: 50px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   position: relative;
   overflow: hidden;
+  min-width: 100px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid transparent;
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
 }
 
-.socialLink::before {
+.navLink i {
+  font-size: 1.3rem;
+  margin-bottom: 6px;
+  transition: all 0.3s ease;
+}
+
+.navLink span {
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* Hover effekti */
+.navLink:hover {
+  color: #F8FAFC;
+  background: linear-gradient(135deg, rgba(138, 43, 226, 0.2), rgba(0, 206, 209, 0.2));
+  border-color: rgba(138, 43, 226, 0.3);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(138, 43, 226, 0.3);
+}
+
+.navLink:hover i {
+  transform: scale(1.1);
+  color: #8A2BE2;
+}
+
+/* Faol bo'lim uchun stil */
+.navLink.active {
+  color: #F8FAFC;
+  background: linear-gradient(135deg, #FF6B35, #E55A2B);
+  border-color: rgba(255, 107, 53, 0.4);
+  box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
+}
+
+.navLink.active i {
+  color: #F8FAFC;
+  transform: scale(1.1);
+}
+
+/* Animatsiya - Underline effect */
+.navLink::after {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: inherit;
-  border-radius: 50%;
-  transform: scale(0);
-  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  z-index: -1;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #8A2BE2, #00CED1);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+  border-radius: 2px;
 }
 
-.socialLink:hover {
-  transform: translateY(-8px) scale(1.15);
-  color: white;
-  border-color: currentColor;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+.navLink:hover::after {
+  width: 80%;
 }
 
-.socialLink:hover::before {
-  transform: scale(1.2);
-}
-
-.socialLink:active {
-  transform: translateY(-4px) scale(1.05);
-  transition: transform 0.1s ease;
-}
-
-/* Har bir ijtimoiy tarmoq uchun maxsus effektlar */
-.socialLink:nth-child(1):hover { /* GitHub */
-  background: linear-gradient(135deg, #333, #24292e);
-  box-shadow: 0 15px 35px rgba(36, 41, 46, 0.4);
-}
-
-.socialLink:nth-child(2):hover { /* LinkedIn */
-  background: linear-gradient(135deg, #0077b5, #00a0dc);
-  box-shadow: 0 15px 35px rgba(0, 119, 181, 0.4);
-}
-
-.socialLink:nth-child(3):hover { /* Telegram */
-  background: linear-gradient(135deg, #0088cc, #1da1f2);
-  box-shadow: 0 15px 35px rgba(0, 136, 204, 0.4);
-}
-
-.socialLink:nth-child(4):hover { /* Instagram */
-  background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D, #F56040, #F77737, #FCAF45, #FFDC80);
-  background-size: 400% 400%;
-  animation: instagramGradient 3s ease infinite;
-  box-shadow: 0 15px 35px rgba(225, 48, 108, 0.4);
-}
-
-/* Instagram gradient animatsiyasi */
-@keyframes instagramGradient {
-  0%, 100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
+.navLink.active::after {
+  width: 80%;
+  background: linear-gradient(90deg, #FF6B35, #E55A2B);
 }
 
 /* Tooltip effekti */
-.socialLink::after {
+.navLink::before {
   content: attr(aria-label);
   position: absolute;
   bottom: -40px;
@@ -126,22 +129,7 @@
   z-index: 1002;
 }
 
-.socialLink::before {
-  content: '';
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  border-width: 5px;
-  border-style: solid;
-  border-color: rgba(15, 23, 42, 0.9) transparent transparent transparent;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.3s ease;
-}
-
-.socialLink:hover::after,
-.socialLink:hover::before {
+.navLink:hover::before {
   opacity: 1;
   visibility: visible;
   transform: translateX(-50%) translateY(0);
@@ -160,33 +148,9 @@
   }
 }
 
-.socialLink.active {
+.navLink.active {
   animation: pulse 2s infinite;
   border-color: #FF6B35;
-}
-
-/* Loading holati */
-.socialLink.loading {
-  animation: spin 1s linear infinite;
-  pointer-events: none;
-  opacity: 0.7;
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-/* Tarmoqlar soni ko'p bo'lsa */
-.header.hasManyLinks {
-  flex-wrap: wrap;
-  justify-content: center;
-  max-width: 400px;
-  padding: 20px;
 }
 
 /* Responsive dizayn */
@@ -205,13 +169,20 @@
     gap: 15px;
   }
   
-  .socialLink {
-    width: 50px;
-    height: 50px;
-    font-size: 20px;
+  .navLink {
+    min-width: 90px;
+    padding: 8px 15px;
   }
   
-  .socialLink::after {
+  .navLink i {
+    font-size: 1.2rem;
+  }
+  
+  .navLink span {
+    font-size: 0.85rem;
+  }
+  
+  .navLink::before {
     font-size: 11px;
     padding: 5px 10px;
     bottom: -35px;
@@ -227,22 +198,26 @@
     backdrop-filter: blur(15px);
   }
   
-  .socialLink {
-    width: 45px;
-    height: 45px;
-    font-size: 18px;
+  .navLink {
+    min-width: 80px;
+    padding: 6px 12px;
   }
   
-  .socialLink:hover {
-    transform: translateY(-5px) scale(1.1);
+  .navLink i {
+    font-size: 1.1rem;
+    margin-bottom: 4px;
   }
   
-  .socialLink::after {
+  .navLink span {
+    font-size: 0.8rem;
+  }
+  
+  .navLink:hover {
+    transform: translateY(-5px) scale(1.05);
+  }
+  
+  .navLink::before {
     display: none; /* Mobilda tooltip'ni yashiramiz */
-  }
-  
-  .socialLink::before {
-    display: none;
   }
 }
 
@@ -265,10 +240,17 @@
     transform: translateX(-50%) translateY(-5px);
   }
   
-  .socialLink {
-    width: 40px;
-    height: 40px;
-    font-size: 16px;
+  .navLink {
+    min-width: 70px;
+    padding: 5px 10px;
+  }
+  
+  .navLink i {
+    font-size: 1rem;
+  }
+  
+  .navLink span {
+    font-size: 0.75rem;
   }
 }
 
@@ -280,13 +262,20 @@
     max-width: 280px;
   }
   
-  .socialLink {
-    width: 38px;
-    height: 38px;
-    font-size: 15px;
+  .navLink {
+    min-width: 65px;
+    padding: 4px 8px;
   }
   
-  .socialLink:hover {
+  .navLink i {
+    font-size: 0.9rem;
+  }
+  
+  .navLink span {
+    font-size: 0.7rem;
+  }
+  
+  .navLink:hover {
     transform: translateY(-3px) scale(1.05);
   }
 }
@@ -297,87 +286,25 @@
     padding: 6px 10px;
   }
   
-  .socialLink {
-    width: 35px;
-    height: 35px;
-    font-size: 14px;
-  }
-}
-
-/* Dark/Light mode uchun */
-@media (prefers-color-scheme: light) {
-  .header {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.25), rgba(138, 43, 226, 0.15));
-    border-color: rgba(138, 43, 226, 0.2);
+  .navLink {
+    min-width: 60px;
+    padding: 3px 6px;
   }
   
-  .socialLink {
-    background: rgba(255, 255, 255, 0.2);
-    color: #2c3e50;
+  .navLink i {
+    font-size: 0.85rem;
   }
   
-  .socialLink:hover {
-    color: white;
+  .navLink span {
+    font-size: 0.65rem;
   }
-  
-  .socialLink::after {
-    background: rgba(255, 255, 255, 0.95);
-    color: #2c3e50;
-    border-color: rgba(138, 43, 226, 0.2);
-  }
-  
-  .socialLink::before {
-    border-color: rgba(255, 255, 255, 0.95) transparent transparent transparent;
-  }
-}
-
-/* Animatsiya klаsslari */
-.header.animateIn {
-  animation: slideInRight 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
-}
-
-@keyframes slideInRight {
-  from {
-    opacity: 0;
-    transform: translateX(50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-.header.animateOut {
-  animation: slideOutRight 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
-}
-
-@keyframes slideOutRight {
-  from {
-    opacity: 1;
-    transform: translateX(0);
-  }
-  to {
-    opacity: 0;
-    transform: translateX(50px);
-  }
-}
-
-/* Sticky header uchun variant */
-.header.sticky {
-  position: sticky;
-  top: 20px;
-  right: auto;
-  left: auto;
-  margin: 0 auto 20px;
-  width: fit-content;
 }
 
 /* A11y - Accessibility */
 @media (prefers-reduced-motion: reduce) {
   .header,
-  .socialLink,
-  .socialLink::before,
-  .socialLink::after {
+  .navLink,
+  .navLink::before {
     transition: none !important;
     animation: none !important;
   }
@@ -386,137 +313,19 @@
     transform: none;
   }
   
-  .socialLink:hover {
+  .navLink:hover {
     transform: none;
   }
 }
 
 /* Focus holati (klaviatura navigatsiyasi uchun) */
-.socialLink:focus {
+.navLink:focus {
   outline: 2px solid #FF6B35;
   outline-offset: 3px;
   border-color: #FF6B35;
 }
 
-.socialLink:focus-visible {
+.navLink:focus-visible {
   transform: translateY(-5px) scale(1.1);
   box-shadow: 0 10px 25px rgba(255, 107, 53, 0.3);
-}
-
-/* Print uchun */
-@media print {
-  .header {
-    display: none;
-  }
-}
-
-/* High contrast mode */
-@media (prefers-contrast: high) {
-  .header {
-    border: 2px solid #FF6B35;
-  }
-  
-  .socialLink {
-    border: 2px solid currentColor;
-  }
-  
-  .socialLink:hover {
-    border-width: 3px;
-  }
-}
-
-.navLink {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  color: #CBD5E1;
-  font-weight: 600;
-  font-size: 16px;
-  transition: all 0.3s ease;
-  padding: 10px 15px;
-  text-decoration: none;
-  border-radius: 50px;
-}
-
-.navLink:hover {
-  color: #FF6B35;
-  background: rgba(255, 107, 53, 0.1);
-}
-
-/* navLink uchun responsive media query'lar */
-@media (max-width: 1200px) {
-  .navLink {
-    padding: 8px 12px;
-    font-size: 15px;
-  }
-}
-
-@media (max-width: 992px) {
-  .navLink {
-    padding: 6px 10px;
-    font-size: 14px;
-    gap: 6px;
-  }
-  
-  .navLink i {
-    font-size: 16px;
-  }
-}
-
-@media (max-width: 768px) {
-  .navLink {
-    padding: 5px 8px;
-    font-size: 13px;
-    gap: 4px;
-  }
-  
-  .navLink i {
-    font-size: 15px;
-  }
-  
-  .navLink span {
-    display: none;
-  }
-}
-
-@media (max-width: 640px) {
-  .navLink {
-    padding: 4px 6px;
-    font-size: 12px;
-  }
-  
-  .navLink i {
-    font-size: 14px;
-  }
-}
-
-@media (max-width: 480px) {
-  .header {
-    padding: 8px 12px;
-    gap: 8px;
-  }
-  
-  .navLink {
-    padding: 3px 5px;
-    font-size: 11px;
-  }
-  
-  .navLink i {
-    font-size: 13px;
-  }
-}
-
-@media (max-width: 360px) {
-  .header {
-    padding: 6px 10px;
-    gap: 6px;
-  }
-  
-  .navLink {
-    padding: 2px 4px;
-  }
-  
-  .navLink i {
-    font-size: 12px;
-  }
 }
