@@ -185,10 +185,66 @@
   box-shadow: 0 12px 30px rgba(138, 43, 226, 0.3);
 }
 
-/* Responsive */
-@media (max-width: 768px) {
+/* RESPONSIVE MEDIA QUERIES */
+@media (max-width: 1200px) {
+  .imageContainer {
+    height: 220px;
+  }
+  
+  .content {
+    padding: 25px;
+  }
+  
+  .title {
+    font-size: 1.6rem;
+  }
+  
+  .description {
+    font-size: 0.95rem;
+  }
+  
+  .overlayBtn {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 992px) {
+  .card {
+    border-radius: 22px;
+  }
+  
+  .imageContainer {
+    height: 210px;
+  }
+  
   .title {
     font-size: 1.5rem;
+  }
+  
+  .description {
+    font-size: 0.9rem;
+  }
+  
+  .techTag {
+    padding: 7px 14px;
+    font-size: 0.85rem;
+  }
+  
+  .demoBtn, .codeBtn {
+    padding: 13px 22px;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .card {
+    border-radius: 20px;
+  }
+  
+  .title {
+    font-size: 1.4rem;
   }
   
   .description {
@@ -208,6 +264,17 @@
     font-size: 0.8rem;
   }
   
+  .overlay {
+    gap: 20px;
+    padding: 15px;
+  }
+  
+  .overlayBtn {
+    width: 48px;
+    height: 48px;
+    font-size: 19px;
+  }
+  
   .buttons {
     flex-direction: column;
   }
@@ -218,9 +285,48 @@
   }
 }
 
+@media (max-width: 640px) {
+  .card {
+    border-radius: 18px;
+  }
+  
+  .imageContainer {
+    height: 190px;
+  }
+  
+  .title {
+    font-size: 1.3rem;
+  }
+  
+  .description {
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+  
+  .content {
+    padding: 18px;
+  }
+  
+  .techTag {
+    padding: 5px 10px;
+    font-size: 0.78rem;
+  }
+  
+  .overlayBtn {
+    width: 45px;
+    height: 45px;
+    font-size: 18px;
+  }
+  
+  .demoBtn, .codeBtn {
+    padding: 11px 18px;
+    font-size: 0.85rem;
+  }
+}
+
 @media (max-width: 480px) {
   .card {
-    border-radius: 20px;
+    border-radius: 16px;
   }
   
   .imageContainer {
@@ -228,12 +334,203 @@
   }
   
   .title {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+  }
+  
+  .description {
+    font-size: 0.8rem;
+    margin-bottom: 15px;
+  }
+  
+  .content {
+    padding: 16px;
+  }
+  
+  .techTag {
+    padding: 4px 9px;
+    font-size: 0.75rem;
+    border-radius: 18px;
+  }
+  
+  .overlay {
+    gap: 15px;
+    padding: 12px;
   }
   
   .overlayBtn {
-    width: 45px;
-    height: 45px;
-    font-size: 18px;
+    width: 42px;
+    height: 42px;
+    font-size: 17px;
+  }
+  
+  .demoBtn, .codeBtn {
+    padding: 10px 16px;
+    font-size: 0.8rem;
+    border-radius: 10px;
+  }
+}
+
+@media (max-width: 360px) {
+  .card {
+    border-radius: 14px;
+  }
+  
+  .imageContainer {
+    height: 170px;
+  }
+  
+  .title {
+    font-size: 1.1rem;
+  }
+  
+  .description {
+    font-size: 0.78rem;
+  }
+  
+  .content {
+    padding: 14px;
+  }
+  
+  .techTag {
+    padding: 3px 8px;
+    font-size: 0.7rem;
+  }
+  
+  .overlayBtn {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+  
+  .demoBtn, .codeBtn {
+    padding: 9px 14px;
+    font-size: 0.78rem;
+  }
+}
+
+/* Tablet oriyentatsiyasi uchun */
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  .imageContainer {
+    height: 220px;
+  }
+  
+  .content {
+    padding: 22px;
+  }
+  
+  .title {
+    font-size: 1.5rem;
+  }
+  
+  .buttons {
+    flex-direction: row;
+  }
+}
+
+/* Katta ekranlar uchun */
+@media (min-width: 1600px) {
+  .card {
+    border-radius: 30px;
+  }
+  
+  .imageContainer {
+    height: 280px;
+  }
+  
+  .content {
+    padding: 35px;
+  }
+  
+  .title {
+    font-size: 2rem;
+  }
+  
+  .description {
+    font-size: 1.1rem;
+  }
+  
+  .techTag {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 25px;
+  }
+  
+  .overlayBtn {
+    width: 60px;
+    height: 60px;
+    font-size: 25px;
+  }
+  
+  .demoBtn, .codeBtn {
+    padding: 16px 30px;
+    font-size: 1.1rem;
+    border-radius: 15px;
+  }
+}
+
+/* Accessibility - harakat kamaytirilganda */
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .image,
+  .overlay,
+  .overlayBtn,
+  .techTag,
+  .demoBtn,
+  .codeBtn {
+    transition: none !important;
+    animation: none !important;
+  }
+  
+  .card:hover {
+    transform: none !important;
+  }
+  
+  .card:hover .image {
+    transform: none !important;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .card {
+    border: 2px solid #FF6B35;
+  }
+  
+  .techTag {
+    border: 2px solid #8A2BE2;
+  }
+  
+  .demoBtn, .codeBtn {
+    border: 2px solid currentColor;
+  }
+}
+
+/* Print uchun */
+@media print {
+  .card {
+    background: white;
+    border: 1px solid #ddd;
+    box-shadow: none;
+  }
+  
+  .title {
+    color: black;
+  }
+  
+  .description {
+    color: #333;
+  }
+  
+  .techTag {
+    background: #f0f0f0;
+    color: #333;
+    border: 1px solid #ccc;
+  }
+  
+  .overlay,
+  .demoBtn,
+  .codeBtn {
+    display: none;
   }
 }
