@@ -1,5 +1,6 @@
 // Home.jsx - O'ZBEKCHA VA ZAMONAVIY
 import React from 'react';
+import './Home.module.css'
 
 const Home = () => {
   const styles = {
@@ -92,7 +93,7 @@ const Home = () => {
       borderRadius: '30% 70% 70% 30% / 30% 30% 70% 70%',
       background: 'linear-gradient(135deg, #8A2BE2, #00CED1)',
       display: 'flex',
-      alignItems: 'center',
+      alignItemspan: 'center',
       justifyContent: 'center',
       position: 'relative',
       overflow: 'hidden',
@@ -109,27 +110,26 @@ const Home = () => {
     },
     statistikalar: {
       display: 'flex',
-      gap: '50px',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      gap: '40px',
       marginTop: '60px',
-      flexWrap: 'wrap'
+      width: '100%'
     },
     statItem: {
       textAlign: 'center',
-      position: 'relative',
-      padding: '0 20px'
+      flex: 1
     },
     statRaqam: {
       fontSize: '42px',
       fontWeight: '800',
       color: '#00CED1',
-      marginBottom: '8px',
-      position: 'relative'
+      marginBottom: '8px'
     },
     statMatn: {
       fontSize: '17px',
       color: '#94A3B8',
-      fontWeight: '500',
-      letterSpacing: '0.5px'
+      fontWeight: '500'
     }
   };
 
@@ -141,18 +141,37 @@ const Home = () => {
             <i className="fas fa-hand-wave" style={{ animation: 'wave 2s infinite' }}></i>
             Salom, mening ismim
           </div>
-          <h1 style={styles.ism}>Muhammadamin</h1>
+          
+          <h1 style={styles.ism}>Azizjon</h1>
+          
           <h2 style={styles.kasb}>
-            <span style={styles.ajralibTuruvchi}>Frontend</span><br />
+            <span style={styles.ajralibTuruvchi}>Frontend</span>
+            <br />
             Dasturchiman.
           </h2>
           
           <p style={styles.tavsif}>
-            Tajribali Frontend dasturchi, 2.5 yillik professional tajriba. 
-            React texnologiyalarida ishlash bo'yicha chuqur bilimga ega. 
-            Muammolarni hal qilish qobiliyatim bilan ilovalar samaradorligini 14% oshirdim. 
-            Ma'lumotlarni vizuallashtirish vositalarini yaratdim va dizaynlar integratsiya qildim. 
-            Mahsulot hayot tsikli tezligini oshirib, loyihalarni 100% vaqtida topshirdim.
+            <strong>🎯 Tajribali Frontend dasturchi</strong>, 
+            <span style={{color: '#FF6B35', fontWeight: '600'}}> 1+ yillik professional tajriba</span>.
+            <br /><br />
+            
+            <span style={{color: '#00CED1'}}>⚛️ React texnologiyalarida</span> ishlash bo'yicha 
+            <em> chuqur bilimga ega</em>.
+            <br /><br />
+            
+            <span style={{color: '#F8FAFC', fontWeight: '600'}}>🔧 Muammolarni hal qilish qobiliyatim</span> bilan 
+            ilovalar samaradorligini 
+            <span style={{color: '#FF6B35', fontWeight: '700'}}> 14% oshirdim</span>.
+            <br /><br />
+            
+            <span style={{color: '#00CED1'}}>🎨 Ma'lumotlarni vizuallashtirish vositalarini</span> 
+            <strong> yaratdim</strong> va dizaynlar 
+            <strong> integratsiya qildim</strong>.
+            <br /><br />
+            
+            <span style={{color: '#F8FAFC'}}>🚀 Mahsulot hayot tsikli tezligini oshirib</span>, 
+            loyihalarni 
+            <span style={{color: '#FF6B35', fontWeight: '700'}}> 100% vaqtida topshirdim</span>.
           </p>
           
           <button 
@@ -175,11 +194,11 @@ const Home = () => {
           
           <div style={styles.statistikalar}>
             <div style={styles.statItem}>
-              <div style={styles.statRaqam}>2.5+</div>
+              <div style={styles.statRaqam}>1+</div>
               <div style={styles.statMatn}>Yillik Tajriba</div>
             </div>
             <div style={styles.statItem}>
-              <div style={styles.statRaqam}>50+</div>
+              <div style={styles.statRaqam}>10+</div>
               <div style={styles.statMatn}>Tugatilgan Loyihalar</div>
             </div>
             <div style={styles.statItem}>
@@ -191,12 +210,12 @@ const Home = () => {
         
         <div style={styles.imageSection}>
           <div style={styles.avatarContainer}>
-            <img 
-              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&auto=format&fit=crop" 
-              alt="Muhammadamin" 
+            {/* <img 
+              src="" 
+              alt="Azizjon" 
               style={styles.avatar}
               loading="lazy"
-            />
+            /> */}
           </div>
         </div>
       </div>
@@ -216,6 +235,7 @@ const Home = () => {
           100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
         }
         
+        /* Responsive media queries */
         @media (max-width: 1024px) {
           div[style*="content"] {
             flex-direction: column;
@@ -275,6 +295,7 @@ const Home = () => {
           }
           
           div[style*="statistikalar"] {
+            flex-direction: column;
             gap: 25px;
           }
         }

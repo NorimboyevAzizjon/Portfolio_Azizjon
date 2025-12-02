@@ -1,0 +1,208 @@
+/* Footer.module.css */
+.footer {
+  background: linear-gradient(135deg, #0A1929 0%, #1A2C42 100%);
+  color: #CBD5E1;
+  padding: 60px 20px 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  margin-top: 100px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+.logo {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #F8FAFC;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logoDot {
+  color: #FF6B35;
+  font-size: 3rem;
+  animation: pulse 2s infinite;
+}
+
+.navigation {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.navLink {
+  color: #94A3B8;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 10px 20px;
+  border-radius: 50px;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+}
+
+.navLink:hover {
+  color: #FF6B35;
+  background: rgba(255, 107, 53, 0.1);
+  transform: translateY(-3px);
+}
+
+.socialLinks {
+  display: flex;
+  gap: 25px;
+}
+
+.socialIcon {
+  color: #CBD5E1;
+  font-size: 1.5rem;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  text-decoration: none;
+}
+
+.socialIcon:hover {
+  transform: translateY(-6px) rotate(10deg);
+  background: rgba(255, 255, 255, 0.15);
+  border-color: inherit;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* COPYRIGHT QISMI - YANGILANGAN */
+.copyright {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 35px;
+  color: #94A3B8;
+  font-size: 1rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-between; /* Ikkala tomon chekkada */
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.copyright p {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.copyright > div:first-child {
+  /* Chap tomondagi matn */
+  text-align: left;
+}
+
+.copyright > div:last-child {
+  /* O'ng tomondagi matn */
+  text-align: right;
+}
+
+.heart {
+  color: #FF6B35;
+  animation: heartbeat 1.5s infinite;
+  display: inline-block;
+}
+
+@keyframes pulse {
+  0%, 100% { 
+    opacity: 1; 
+    transform: scale(1); 
+  }
+  50% { 
+    opacity: 0.7; 
+    transform: scale(1.1); 
+  }
+}
+
+@keyframes heartbeat {
+  0%, 100% { 
+    transform: scale(1); 
+  }
+  25% { 
+    transform: scale(1.2); 
+  }
+  50% { 
+    transform: scale(1); 
+  }
+  75% { 
+    transform: scale(1.1); 
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .logo {
+    font-size: 2.2rem;
+  }
+  
+  .navigation {
+    gap: 20px;
+  }
+  
+  .socialLinks {
+    gap: 15px;
+  }
+  
+  .socialIcon {
+    width: 45px;
+    height: 45px;
+    font-size: 1.2rem;
+  }
+  
+  /* Mobile da copyright ustma-ust */
+  .copyright {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+  }
+  
+  .copyright > div:first-child,
+  .copyright > div:last-child {
+    text-align: center;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 40px 15px 20px;
+  }
+  
+  .logo {
+    font-size: 1.8rem;
+  }
+  
+  .navLink {
+    padding: 8px 15px;
+    font-size: 1rem;
+  }
+  
+  .socialIcon {
+    width: 40px;
+    height: 40px;
+    font-size: 1.1rem;
+  }
+  
+  .copyright {
+    font-size: 0.9rem;
+  }
+}

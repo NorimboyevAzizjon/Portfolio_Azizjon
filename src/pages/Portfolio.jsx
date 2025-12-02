@@ -1,6 +1,7 @@
 // Portfolio.jsx - TO'LIQ TAYYOR VERSIYA
 import React, { useState } from 'react';
 import ProjectCard from '../components/ProjectCard.jsx';
+import './Portfolio.module.css'
 
 const Portfolio = () => {
   const [loyihalar] = useState([

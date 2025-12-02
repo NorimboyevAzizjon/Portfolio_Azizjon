@@ -1,67 +1,45 @@
-// Header.jsx - O'ZBEKCHA VA ZAMONAVIY
 import React from 'react';
+import styles from './Header.module.css';
 
-const Header = () => {
-  const ijtimoiyTarmoqlar = [
-   
+function Header() {
+  const navItems = [
+    { id: 'home', label: 'Bosh Sahifa', ikonka: 'fas fa-home' },
+    { id: 'about', label: 'Haqimda', ikonka: 'fas fa-user' },
+    { id: 'portfolio', label: 'Portfolio', ikonka: 'fas fa-briefcase' },
+    { id: 'contact', label: 'Aloqa', ikonka: 'fas fa-envelope' }
   ];
 
+  const bolimgaSkrol = (bolimId) => {
+    const element = document.getElementById(bolimId);
+    if (element) {
+      const offset = 90;
+      const elementPosition = element.offsetTop - offset;
+      window.scrollTo({
+        top: elementPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
-    <header style={{
-      position: 'fixed',
-      top: '30px',
-      right: '30px',
-      zIndex: '1001',
-      display: 'flex',
-      gap: '18px',
-      backdropFilter: 'blur(10px)',
-      backgroundColor: 'rgba(255, 255, 255, 0.08)',
-      padding: '12px 20px',
-      borderRadius: '50px',
-      border: '1px solid rgba(255, 255, 255, 0.1)',
-      boxShadow: '0 8px 32px rgba(0, 0, 0, 0.2)'
-    }}>
-      {ijtimoiyTarmoqlar.map((tarmoq, index) => (
-        <a 
-          key={index}
-          href={tarmoq.havola} 
-          target="_blank" 
-          rel="noopener noreferrer"
-          style={{
-            width: '48px',
-            height: '48px',
-            borderRadius: '50%',
-            backgroundColor: 'rgba(255, 255, 255, 0.1)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            color: 'white',
-            fontSize: '20px',
-            transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
-            textDecoration: 'none',
-            border: '1px solid transparent'
+    <header className={styles.header}>
+      {navItems.map(item => (
+        <a
+          key={item.id}
+          href={`#${item.id}`}
+          className={styles.navLink}
+          onClick={(e) => {
+            e.preventDefault();
+            bolimgaSkrol(item.id);
           }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.transform = 'translateY(-6px) scale(1.1)';
-            e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.2)';
-            e.currentTarget.style.color = tarmoq.rang;
-            e.currentTarget.style.borderColor = tarmoq.rang;
-            e.currentTarget.style.boxShadow = `0 12px 24px ${tarmoq.rang}40`;
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.transform = 'translateY(0) scale(1)';
-            e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
-            e.currentTarget.style.color = 'white';
-            e.currentTarget.style.borderColor = 'transparent';
-            e.currentTarget.style.boxShadow = 'none';
-          }}
-          aria-label={tarmoq.ikonka.split('-')[1]}
+          aria-label={item.label}
         >
-          <i className={tarmoq.ikonka}></i>
+          <i className={item.ikonka}></i>
+          <span>{item.label}</span>
         </a>
       ))}
     </header>
   );
-};
+}
 
 export default Header;

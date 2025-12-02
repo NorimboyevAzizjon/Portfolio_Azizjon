@@ -1,0 +1,161 @@
+/* App.module.css */
+.app {
+  position: relative;
+  overflow-x: hidden;
+}
+
+section {
+  min-height: 100vh;
+  padding-top: 80px;
+  scroll-margin-top: 80px;
+}
+
+/* Animation classes */
+.fadeIn {
+  animation: fadeIn 0.8s ease-in;
+}
+
+.slideUp {
+  animation: slideUp 0.8s ease-out;
+}
+
+.slideDown {
+  animation: slideDown 0.8s ease-out;
+}
+
+.slideLeft {
+  animation: slideLeft 0.8s ease-out;
+}
+
+.slideRight {
+  animation: slideRight 0.8s ease-out;
+}
+
+/* Keyframes */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Loading */
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #0A1929 0%, #1A2C42 50%, #2A1E5C 100%);
+  font-family: 'Poppins', sans-serif;
+}
+
+.loadingContent {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+}
+
+.loadingSpinner {
+  width: 80px;
+  height: 80px;
+  border: 4px solid rgba(255, 255, 255, 0.1);
+  border-top: 4px solid #FF6B35;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.loadingText {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #F8FAFC;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.loadingDot {
+  color: #FF6B35;
+  animation: pulse 1.5s infinite;
+}
+
+.loadingSubtext {
+  color: #CBD5E1;
+  font-size: 1.1rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  section {
+    padding-top: 100px;
+    scroll-margin-top: 100px;
+  }
+  
+  .fadeIn,
+  .slideUp,
+  .slideDown,
+  .slideLeft,
+  .slideRight {
+    animation-duration: 0.6s;
+  }
+}
+
+@media (max-width: 480px) {
+  section {
+    min-height: auto;
+    padding: 60px 0;
+  }
+}

@@ -1,203 +1,96 @@
-/* Home.module.css - ZAMONAVIY ANIMATSIYALAR */
+/* Home.module.css - TO'LIQ VA CHIROYLI */
+
+/* ANIMATSIYALAR */
 @keyframes float {
-  0%, 100% { 
-    transform: translateY(0) rotate(0deg); 
-  }
-  33% { 
-    transform: translateY(-15px) rotate(120deg); 
-  }
-  66% { 
-    transform: translateY(-8px) rotate(240deg); 
-  }
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  33% { transform: translateY(-15px) rotate(120deg); }
+  66% { transform: translateY(-8px) rotate(240deg); }
 }
 
 @keyframes wave {
-  0%, 100% { 
-    transform: rotate(0deg); 
-  }
-  25% { 
-    transform: rotate(20deg); 
-  }
-  75% { 
-    transform: rotate(-10deg); 
-  }
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(20deg); }
+  75% { transform: rotate(-10deg); }
 }
 
 @keyframes morph {
-  0% { 
-    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; 
-  }
-  25% { 
-    border-radius: 58% 42% 75% 25% / 76% 46% 54% 24%; 
-  }
-  50% { 
-    border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%; 
-  }
-  75% { 
-    border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%; 
-  }
+  0% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+  25% { border-radius: 58% 42% 75% 25% / 76% 46% 54% 24%; }
+  50% { border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%; }
+  75% { border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%; }
 }
 
 @keyframes gradient-shift {
-  0%, 100% { 
-    background-position: 0% 50%; 
-  }
-  50% { 
-    background-position: 100% 50%; 
-  }
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
 }
 
 @keyframes fade-in {
-  from { 
-    opacity: 0; 
-    transform: translateY(30px); 
-  }
-  to { 
-    opacity: 1; 
-    transform: translateY(0); 
-  }
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes slide-up {
-  from { 
-    opacity: 0; 
-    transform: translateY(50px); 
-  }
-  to { 
-    opacity: 1; 
-    transform: translateY(0); 
-  }
+  from { opacity: 0; transform: translateY(50px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes slide-left {
-  from { 
-    opacity: 0; 
-    transform: translateX(-50px); 
-  }
-  to { 
-    opacity: 1; 
-    transform: translateX(0); 
-  }
+  from { opacity: 0; transform: translateX(-50px); }
+  to { opacity: 1; transform: translateX(0); }
 }
 
 @keyframes slide-right {
-  from { 
-    opacity: 0; 
-    transform: translateX(50px); 
-  }
-  to { 
-    opacity: 1; 
-    transform: translateX(0); 
-  }
+  from { opacity: 0; transform: translateX(50px); }
+  to { opacity: 1; transform: translateX(0); }
 }
 
 @keyframes scale-in {
-  from { 
-    opacity: 0; 
-    transform: scale(0.8); 
-  }
-  to { 
-    opacity: 1; 
-    transform: scale(1); 
-  }
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
 }
 
 @keyframes glow {
-  0%, 100% { 
-    box-shadow: 0 0 25px rgba(138, 43, 226, 0.4); 
-  }
-  50% { 
-    box-shadow: 0 0 35px rgba(138, 43, 226, 0.6); 
-  }
+  0%, 100% { box-shadow: 0 0 25px rgba(138, 43, 226, 0.4); }
+  50% { box-shadow: 0 0 35px rgba(138, 43, 226, 0.6); }
+}
+
+@keyframes morphing {
+  0% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+  25% { border-radius: 58% 42% 75% 25% / 76% 46% 54% 24%; }
+  50% { border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%; }
+  75% { border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%; }
+  100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
 }
 
 /* ANIMATSIYA KLASSLARI */
-.fade-in {
-  animation: fade-in 0.8s cubic-bezier(0.215, 0.610, 0.355, 1) forwards;
-}
+.fade-in { animation: fade-in 0.8s cubic-bezier(0.215, 0.610, 0.355, 1) forwards; }
+.slide-up { animation: slide-up 0.8s cubic-bezier(0.215, 0.610, 0.355, 1) forwards; }
+.slide-left { animation: slide-left 0.8s cubic-bezier(0.215, 0.610, 0.355, 1) forwards; }
+.slide-right { animation: slide-right 0.8s cubic-bezier(0.215, 0.610, 0.355, 1) forwards; }
+.scale-in { animation: scale-in 0.6s cubic-bezier(0.215, 0.610, 0.355, 1) forwards; }
+.glow-anim { animation: glow 2s ease-in-out infinite; }
+.float-anim { animation: float 6s ease-in-out infinite; }
+.morph-anim { animation: morph 15s ease-in-out infinite; }
+.gradient-anim { background-size: 200% 200%; animation: gradient-shift 4s ease infinite; }
+.wave-anim { animation: wave 2s ease-in-out infinite; }
 
-.slide-up {
-  animation: slide-up 0.8s cubic-bezier(0.215, 0.610, 0.355, 1) forwards;
-}
+/* KECIKTIRISH */
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+.delay-4 { animation-delay: 0.4s; }
+.delay-5 { animation-delay: 0.5s; }
 
-.slide-left {
-  animation: slide-left 0.8s cubic-bezier(0.215, 0.610, 0.355, 1) forwards;
-}
+/* HOVER EFFEКТLAR */
+.hover-lift { transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+.hover-lift:hover { transform: translateY(-5px); }
 
-.slide-right {
-  animation: slide-right 0.8s cubic-bezier(0.215, 0.610, 0.355, 1) forwards;
-}
+.hover-scale { transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+.hover-scale:hover { transform: scale(1.05); }
 
-.scale-in {
-  animation: scale-in 0.6s cubic-bezier(0.215, 0.610, 0.355, 1) forwards;
-}
-
-.glow-anim {
-  animation: glow 2s ease-in-out infinite;
-}
-
-.float-anim {
-  animation: float 6s ease-in-out infinite;
-}
-
-.morph-anim {
-  animation: morph 15s ease-in-out infinite;
-}
-
-.gradient-anim {
-  background-size: 200% 200%;
-  animation: gradient-shift 4s ease infinite;
-}
-
-.wave-anim {
-  animation: wave 2s ease-in-out infinite;
-}
-
-/* DLAY ANIMATSIYALAR */
-.delay-1 {
-  animation-delay: 0.1s;
-}
-
-.delay-2 {
-  animation-delay: 0.2s;
-}
-
-.delay-3 {
-  animation-delay: 0.3s;
-}
-
-.delay-4 {
-  animation-delay: 0.4s;
-}
-
-.delay-5 {
-  animation-delay: 0.5s;
-}
-
-/* HOVER EFFECTLAR */
-.hover-lift {
-  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.hover-lift:hover {
-  transform: translateY(-5px);
-}
-
-.hover-scale {
-  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.hover-scale:hover {
-  transform: scale(1.05);
-}
-
-.hover-rotate {
-  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.hover-rotate:hover {
-  transform: rotate(5deg);
-}
+.hover-rotate { transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+.hover-rotate:hover { transform: rotate(5deg); }
 
 /* GRADIENT BORDER */
 .gradient-border {
@@ -220,23 +113,247 @@
   animation: gradient-shift 3s ease infinite;
 }
 
-/* RESPONSIVE */
-@media (max-width: 768px) {
-  .fade-in,
-  .slide-up,
-  .slide-left,
-  .slide-right {
-    animation-duration: 0.6s;
+/* ASOSIY STILLAR */
+.container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(135deg, #0A1929 0%, #1A2C42 50%, #2A1E5C 100%);
+  position: relative;
+  overflow: hidden;
+  padding: 0 20px;
+}
+
+.content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+  width: 100%;
+}
+
+.textSection {
+  flex: 1;
+  max-width: 650px;
+  position: relative;
+  z-index: 2;
+}
+
+.greeting {
+  font-size: 28px;
+  color: #00CED1;
+  font-weight: 600;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.greetingIcon {
+  animation: wave 1.5s infinite;
+}
+
+.name {
+  font-size: 72px;
+  font-weight: 900;
+  color: #F8FAFC;
+  margin-bottom: 15px;
+  line-height: 1.1;
+  background: linear-gradient(135deg, #F8FAFC 0%, #8A2BE2 50%, #00CED1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.title {
+  font-size: 56px;
+  font-weight: 700;
+  color: #CBD5E1;
+  margin-bottom: 35px;
+}
+
+.highlight {
+  color: #FF6B35;
+  position: relative;
+  padding-right: 10px;
+}
+
+.description {
+  font-size: 20px;
+  color: #94A3B8;
+  line-height: 1.8;
+  margin-bottom: 45px;
+  max-width: 550px;
+}
+
+.cvButton {
+  padding: 18px 45px;
+  background: linear-gradient(135deg, #8A2BE2 0%, #6A0DAD 100%);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 8px 30px rgba(138, 43, 226, 0.4);
+}
+
+.cvButton:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 40px rgba(138, 43, 226, 0.6);
+  background: linear-gradient(135deg, #FF6B35 0%, #E55A2B 100%);
+}
+
+.imageSection {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.avatarContainer {
+  width: 450px;
+  height: 450px;
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  background: linear-gradient(135deg, #8A2BE2, #00CED1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 30px 80px rgba(138, 43, 226, 0.4);
+  animation: morphing 15s infinite ease-in-out;
+}
+
+.avatar {
+  width: 92%;
+  height: 92%;
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  object-fit: cover;
+  border: 12px solid rgba(255, 255, 255, 0.1);
+  filter: brightness(1.05) contrast(1.1);
+}
+
+/* STATISTIKALAR - BIR QATORDA */
+.statistikalar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  margin-top: 60px;
+  width: 100%;
+}
+
+.statItem {
+  text-align: center;
+  flex: 1;
+}
+
+.statRaqam {
+  font-size: 42px;
+  font-weight: 800;
+  color: #00CED1;
+  margin-bottom: 8px;
+}
+
+.statMatn {
+  font-size: 17px;
+  color: #94A3B8;
+  font-weight: 500;
+}
+
+/* RESPONSIVE DIZAYN */
+@media (max-width: 1024px) {
+  .content {
+    flex-direction: column;
+    text-align: center;
+    gap: 40px;
+  }
+  
+  .name {
+    font-size: 56px;
+  }
+  
+  .title {
+    font-size: 42px;
+  }
+  
+  .avatarContainer {
+    width: 350px;
+    height: 350px;
   }
 }
 
-/* YORQINLIK MODI */
+@media (max-width: 768px) {
+  .name {
+    font-size: 42px;
+  }
+  
+  .title {
+    font-size: 32px;
+  }
+  
+  .avatarContainer {
+    width: 300px;
+    height: 300px;
+  }
+  
+  .statRaqam {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 480px) {
+  .name {
+    font-size: 32px;
+  }
+  
+  .title {
+    font-size: 28px;
+  }
+  
+  .avatarContainer {
+    width: 250px;
+    height: 250px;
+  }
+  
+  .statRaqam {
+    font-size: 28px;
+  }
+  
+  .statistikalar {
+    flex-direction: column;
+    gap: 25px;
+  }
+}
+
+/* QO'SHIMCHA TANLAMLAR */
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
+  *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  .container {
+    background: linear-gradient(135deg, #f0f8ff 0%, #e6f0ff 50%, #f0e6ff 100%);
+  }
+  
+  .name {
+    background: linear-gradient(135deg, #2c3e50 0%, #8A2BE2 50%, #00CED1 100%);
+  }
+}
+
+@media print {
+  .avatarContainer {
+    display: none;
   }
 }

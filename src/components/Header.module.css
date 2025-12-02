@@ -1,0 +1,443 @@
+/* Header.module.css */
+.header {
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  z-index: 1001;
+  display: flex;
+  gap: 18px;
+  backdrop-filter: blur(20px);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(138, 43, 226, 0.1));
+  padding: 15px 25px;
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25), 
+              0 0 20px rgba(138, 43, 226, 0.2);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.header:hover {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(138, 43, 226, 0.15));
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3), 
+              0 0 30px rgba(138, 43, 226, 0.3);
+  transform: translateY(-5px);
+  border-color: rgba(255, 107, 53, 0.3);
+}
+
+.socialLink {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #F8FAFC;
+  font-size: 22px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  text-decoration: none;
+  border: 2px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.socialLink::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: inherit;
+  border-radius: 50%;
+  transform: scale(0);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  z-index: -1;
+}
+
+.socialLink:hover {
+  transform: translateY(-8px) scale(1.15);
+  color: white;
+  border-color: currentColor;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+.socialLink:hover::before {
+  transform: scale(1.2);
+}
+
+.socialLink:active {
+  transform: translateY(-4px) scale(1.05);
+  transition: transform 0.1s ease;
+}
+
+/* Har bir ijtimoiy tarmoq uchun maxsus effektlar */
+.socialLink:nth-child(1):hover { /* GitHub */
+  background: linear-gradient(135deg, #333, #24292e);
+  box-shadow: 0 15px 35px rgba(36, 41, 46, 0.4);
+}
+
+.socialLink:nth-child(2):hover { /* LinkedIn */
+  background: linear-gradient(135deg, #0077b5, #00a0dc);
+  box-shadow: 0 15px 35px rgba(0, 119, 181, 0.4);
+}
+
+.socialLink:nth-child(3):hover { /* Telegram */
+  background: linear-gradient(135deg, #0088cc, #1da1f2);
+  box-shadow: 0 15px 35px rgba(0, 136, 204, 0.4);
+}
+
+.socialLink:nth-child(4):hover { /* Instagram */
+  background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D, #F56040, #F77737, #FCAF45, #FFDC80);
+  background-size: 400% 400%;
+  animation: instagramGradient 3s ease infinite;
+  box-shadow: 0 15px 35px rgba(225, 48, 108, 0.4);
+}
+
+/* Instagram gradient animatsiyasi */
+@keyframes instagramGradient {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Tooltip effekti */
+.socialLink::after {
+  content: attr(aria-label);
+  position: absolute;
+  bottom: -40px;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background: rgba(15, 23, 42, 0.9);
+  color: #F8FAFC;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  z-index: 1002;
+}
+
+.socialLink::before {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 5px;
+  border-style: solid;
+  border-color: rgba(15, 23, 42, 0.9) transparent transparent transparent;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.socialLink:hover::after,
+.socialLink:hover::before {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Aksent ranglar uchun animatsiya */
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(138, 43, 226, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(138, 43, 226, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(138, 43, 226, 0);
+  }
+}
+
+.socialLink.active {
+  animation: pulse 2s infinite;
+  border-color: #FF6B35;
+}
+
+/* Loading holati */
+.socialLink.loading {
+  animation: spin 1s linear infinite;
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Tarmoqlar soni ko'p bo'lsa */
+.header.hasManyLinks {
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 400px;
+  padding: 20px;
+}
+
+/* Responsive dizayn */
+@media (max-width: 1200px) {
+  .header {
+    right: 25px;
+    top: 25px;
+  }
+}
+
+@media (max-width: 992px) {
+  .header {
+    right: 20px;
+    top: 20px;
+    padding: 12px 20px;
+    gap: 15px;
+  }
+  
+  .socialLink {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+  }
+  
+  .socialLink::after {
+    font-size: 11px;
+    padding: 5px 10px;
+    bottom: -35px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    top: 15px;
+    right: 15px;
+    padding: 10px 15px;
+    gap: 12px;
+    backdrop-filter: blur(15px);
+  }
+  
+  .socialLink {
+    width: 45px;
+    height: 45px;
+    font-size: 18px;
+  }
+  
+  .socialLink:hover {
+    transform: translateY(-5px) scale(1.1);
+  }
+  
+  .socialLink::after {
+    display: none; /* Mobilda tooltip'ni yashiramiz */
+  }
+  
+  .socialLink::before {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .header {
+    flex-wrap: wrap;
+    justify-content: center;
+    width: auto;
+    max-width: 300px;
+    margin: 0 auto;
+    left: 50%;
+    transform: translateX(-50%);
+    right: auto;
+    top: 15px;
+    padding: 12px;
+    gap: 10px;
+  }
+  
+  .header:hover {
+    transform: translateX(-50%) translateY(-5px);
+  }
+  
+  .socialLink {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    top: 10px;
+    padding: 8px 12px;
+    gap: 8px;
+    max-width: 280px;
+  }
+  
+  .socialLink {
+    width: 38px;
+    height: 38px;
+    font-size: 15px;
+  }
+  
+  .socialLink:hover {
+    transform: translateY(-3px) scale(1.05);
+  }
+}
+
+@media (max-width: 360px) {
+  .header {
+    max-width: 250px;
+    padding: 6px 10px;
+  }
+  
+  .socialLink {
+    width: 35px;
+    height: 35px;
+    font-size: 14px;
+  }
+}
+
+/* Dark/Light mode uchun */
+@media (prefers-color-scheme: light) {
+  .header {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.25), rgba(138, 43, 226, 0.15));
+    border-color: rgba(138, 43, 226, 0.2);
+  }
+  
+  .socialLink {
+    background: rgba(255, 255, 255, 0.2);
+    color: #2c3e50;
+  }
+  
+  .socialLink:hover {
+    color: white;
+  }
+  
+  .socialLink::after {
+    background: rgba(255, 255, 255, 0.95);
+    color: #2c3e50;
+    border-color: rgba(138, 43, 226, 0.2);
+  }
+  
+  .socialLink::before {
+    border-color: rgba(255, 255, 255, 0.95) transparent transparent transparent;
+  }
+}
+
+/* Animatsiya klаsslari */
+.header.animateIn {
+  animation: slideInRight 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.header.animateOut {
+  animation: slideOutRight 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes slideOutRight {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+}
+
+/* Sticky header uchun variant */
+.header.sticky {
+  position: sticky;
+  top: 20px;
+  right: auto;
+  left: auto;
+  margin: 0 auto 20px;
+  width: fit-content;
+}
+
+/* A11y - Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .header,
+  .socialLink,
+  .socialLink::before,
+  .socialLink::after {
+    transition: none !important;
+    animation: none !important;
+  }
+  
+  .header:hover {
+    transform: none;
+  }
+  
+  .socialLink:hover {
+    transform: none;
+  }
+}
+
+/* Focus holati (klaviatura navigatsiyasi uchun) */
+.socialLink:focus {
+  outline: 2px solid #FF6B35;
+  outline-offset: 3px;
+  border-color: #FF6B35;
+}
+
+.socialLink:focus-visible {
+  transform: translateY(-5px) scale(1.1);
+  box-shadow: 0 10px 25px rgba(255, 107, 53, 0.3);
+}
+
+/* Print uchun */
+@media print {
+  .header {
+    display: none;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .header {
+    border: 2px solid #FF6B35;
+  }
+  
+  .socialLink {
+    border: 2px solid currentColor;
+  }
+  
+  .socialLink:hover {
+    border-width: 3px;
+  }
+}
+.navLink {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #CBD5E1;
+  font-weight: 600;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  padding: 10px 15px;
+  text-decoration: none;
+  border-radius: 50px;
+}
+
+.navLink:hover {
+  color: #FF6B35;
+  background: rgba(255, 107, 53, 0.1);
+}

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './Contact.module.css'
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -11,10 +12,9 @@ const Contact = () => {
   const [yuborilmoqda, setYuborilmoqda] = useState(false);
 
   const aloqaMalumotlari = [  // aloqaMa'lumotlari o'rniga aloqaMalumotlari
-    { ikonka: 'fas fa-map-marker-alt', sarlavha: 'Manzil:', qiymat: 'Toshkent, O\'zbekiston' },
-    { ikonka: 'fas fa-envelope', sarlavha: 'Email:', qiymat: 'm.abbbosov@gmail.com' },
-    { ikonka: 'fas fa-graduation-cap', sarlavha: 'Ta\'lim:', qiymat: 'TUIT' },
-    { ikonka: 'fas fa-phone', sarlavha: 'Telefon:', qiymat: '+998 90 123 45 67' },
+    { ikonka: 'fas fa-map-marker-alt', sarlavha: 'Manzil:', qiymat: ' O\'zbekiston ' },
+    { ikonka: 'fas fa-envelope', sarlavha: 'Email:', qiymat: 'norimboyevazizjon29@gmail.com' },
+    { ikonka: 'fas fa-phone', sarlavha: 'Telefon:', qiymat: '+998 93 364 20 30' },
     { ikonka: 'fas fa-language', sarlavha: 'Tillarni bilaman:', qiymat: 'O\'zbek, Ingliz, Rus' }
   ];
 

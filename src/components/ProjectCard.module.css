@@ -1,0 +1,239 @@
+/* ProjectCard.module.css */
+.card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.08));
+  backdrop-filter: blur(20px);
+  border-radius: 25px;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  position: relative;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-15px) scale(1.02);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4), 0 0 40px rgba(138, 43, 226, 0.4);
+  border-color: rgba(255, 107, 53, 0.4);
+}
+
+.imageContainer {
+  position: relative;
+  overflow: hidden;
+  height: 250px;
+  background: linear-gradient(135deg, #8A2BE2, #00CED1);
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.215, 0.610, 0.355, 1);
+}
+
+.card:hover .image {
+  transform: scale(1.15);
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(rgba(10, 25, 41, 0.9), rgba(138, 43, 226, 0.9));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  gap: 25px;
+  padding: 20px;
+}
+
+.card:hover .overlay {
+  opacity: 1;
+}
+
+.overlayBtn {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #F8FAFC;
+  font-size: 22px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  text-decoration: none;
+}
+
+.overlayBtn:hover {
+  transform: scale(1.15);
+  background: rgba(255, 107, 53, 0.3);
+  border-color: #FF6B35;
+  box-shadow: 0 0 25px #FF6B35;
+}
+
+.content {
+  padding: 30px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #F8FAFC;
+  margin-bottom: 15px;
+  line-height: 1.3;
+}
+
+.description {
+  font-size: 1rem;
+  color: #CBD5E1;
+  margin-bottom: 20px;
+  line-height: 1.6;
+  flex: 1;
+}
+
+.techContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.techTag {
+  padding: 8px 16px;
+  background: rgba(138, 43, 226, 0.15);
+  color: #8A2BE2;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border: 1px solid rgba(138, 43, 226, 0.3);
+  transition: all 0.3s ease;
+}
+
+.card:hover .techTag {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(138, 43, 226, 0.3);
+}
+
+.buttons {
+  display: flex;
+  gap: 15px;
+  margin-top: auto;
+}
+
+.demoBtn {
+  padding: 14px 25px;
+  background: linear-gradient(135deg, #FF6B35 0%, #E55A2B 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-decoration: none;
+  text-align: center;
+}
+
+.demoBtn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(255, 107, 53, 0.5);
+  background: linear-gradient(135deg, #8A2BE2 0%, #6A0DAD 100%);
+}
+
+.codeBtn {
+  padding: 14px 25px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #CBD5E1;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-decoration: none;
+  text-align: center;
+}
+
+.codeBtn:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(138, 43, 226, 0.4);
+  color: #8A2BE2;
+  box-shadow: 0 12px 30px rgba(138, 43, 226, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .title {
+    font-size: 1.5rem;
+  }
+  
+  .description {
+    font-size: 0.9rem;
+  }
+  
+  .imageContainer {
+    height: 200px;
+  }
+  
+  .content {
+    padding: 20px;
+  }
+  
+  .techTag {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+  
+  .buttons {
+    flex-direction: column;
+  }
+  
+  .demoBtn, .codeBtn {
+    padding: 12px 20px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    border-radius: 20px;
+  }
+  
+  .imageContainer {
+    height: 180px;
+  }
+  
+  .title {
+    font-size: 1.3rem;
+  }
+  
+  .overlayBtn {
+    width: 45px;
+    height: 45px;
+    font-size: 18px;
+  }
+}
