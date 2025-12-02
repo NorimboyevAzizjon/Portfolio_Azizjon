@@ -1,6 +1,7 @@
 // Home.jsx - O'ZBEKCHA VA ZAMONAVIY
 import React from 'react';
 import './Home.module.css'
+import imgAzizjon from '../assets/images/photo_2025-12-02_17-16-43.jpg';
 
 const Home = () => {
   const styles = {
@@ -210,12 +211,12 @@ const Home = () => {
         
         <div style={styles.imageSection}>
           <div style={styles.avatarContainer}>
-            {/* <img 
-              src="" 
+            {<img  className='avatar-image'
+              src= {imgAzizjon}
               alt="Azizjon" 
               style={styles.avatar}
               loading="lazy"
-            /> */}
+            /> }
           </div>
         </div>
       </div>
