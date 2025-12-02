@@ -1,70 +1,63 @@
+// Header.jsx - O'ZBEKCHA VA ZAMONAVIY
 import React from 'react';
 
 const Header = () => {
-  const socialLinks = [
-    { 
-      icon: 'fab fa-github', 
-      url: 'https://github.com', 
-      color: '#333' 
-    },
-    { 
-      icon: 'fab fa-linkedin-in', 
-      url: 'https://linkedin.com', 
-      color: '#0077b5' 
-    },
-    { 
-      icon: 'fab fa-telegram', 
-      url: 'https://telegram.org', 
-      color: '#0088cc' 
-    },
-    { 
-      icon: 'fab fa-instagram', 
-      url: 'https://instagram.com', 
-      color: '#E1306C' 
-    }
+  const ijtimoiyTarmoqlar = [
+   
   ];
 
   return (
     <header style={{
       position: 'fixed',
-      top: '20px',
-      right: '20px',
+      top: '30px',
+      right: '30px',
       zIndex: '1001',
       display: 'flex',
-      gap: '15px'
+      gap: '18px',
+      backdropFilter: 'blur(10px)',
+      backgroundColor: 'rgba(255, 255, 255, 0.08)',
+      padding: '12px 20px',
+      borderRadius: '50px',
+      border: '1px solid rgba(255, 255, 255, 0.1)',
+      boxShadow: '0 8px 32px rgba(0, 0, 0, 0.2)'
     }}>
-      {socialLinks.map((link, index) => (
+      {ijtimoiyTarmoqlar.map((tarmoq, index) => (
         <a 
           key={index}
-          href={link.url} 
+          href={tarmoq.havola} 
           target="_blank" 
           rel="noopener noreferrer"
           style={{
-            width: '40px',
-            height: '40px',
+            width: '48px',
+            height: '48px',
             borderRadius: '50%',
-            backgroundColor: '#fff',
+            backgroundColor: 'rgba(255, 255, 255, 0.1)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            color: '#333',
-            fontSize: '18px',
-            boxShadow: '0 4px 15px rgba(0, 0, 0, 0.1)',
-            transition: 'all 0.3s ease',
-            textDecoration: 'none'
+            color: 'white',
+            fontSize: '20px',
+            transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+            textDecoration: 'none',
+            border: '1px solid transparent'
           }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.transform = 'translateY(-3px)';
-            e.currentTarget.style.boxShadow = '0 6px 20px rgba(0, 0, 0, 0.15)';
-            e.currentTarget.style.color = link.color;
+            e.currentTarget.style.transform = 'translateY(-6px) scale(1.1)';
+            e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.2)';
+            e.currentTarget.style.color = tarmoq.rang;
+            e.currentTarget.style.borderColor = tarmoq.rang;
+            e.currentTarget.style.boxShadow = `0 12px 24px ${tarmoq.rang}40`;
           }}
           onMouseLeave={(e) => {
-            e.currentTarget.style.transform = 'translateY(0)';
-            e.currentTarget.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.1)';
-            e.currentTarget.style.color = '#333';
+            e.currentTarget.style.transform = 'translateY(0) scale(1)';
+            e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
+            e.currentTarget.style.color = 'white';
+            e.currentTarget.style.borderColor = 'transparent';
+            e.currentTarget.style.boxShadow = 'none';
           }}
+          aria-label={tarmoq.ikonka.split('-')[1]}
         >
-          <i className={link.icon}></i>
+          <i className={tarmoq.ikonka}></i>
         </a>
       ))}
     </header>

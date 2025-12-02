@@ -1,26 +1,27 @@
+// Navbar.jsx - Prop nomini tuzatish
 import React, { useState } from 'react';
 import './Navbar.css';
 
-const Navbar = ({ activeSection }) => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+const Navbar = ({ faolBolim }) => {  // faolBolim deb o'zgartirildi
+  const [menyuOchiq, setMenyuOchiq] = useState(false);
 
   const navItems = [
-    { id: 'home', label: 'Home', icon: 'fas fa-home' },
-    { id: 'about', label: 'About', icon: 'fas fa-user' },
-    { id: 'portfolio', label: 'Portfolio', icon: 'fas fa-briefcase' },
-    { id: 'contact', label: 'Contact', icon: 'fas fa-envelope' }
+    { id: 'bosh-sahifa', label: 'Bosh Sahifa', ikonka: 'fas fa-home' },
+    { id: 'haqimda', label: 'Haqimda', ikonka: 'fas fa-user' },
+    { id: 'portfolio', label: 'Portfolio', ikonka: 'fas fa-briefcase' },
+    { id: 'aloqa', label: 'Aloqa', ikonka: 'fas fa-envelope' }
   ];
 
-  const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId);
+  const bolimgaSkrol = (bolimId) => {
+    const element = document.getElementById(bolimId);
     if (element) {
-      const offset = 80;
+      const offset = 90;
       const elementPosition = element.offsetTop - offset;
       window.scrollTo({
         top: elementPosition,
         behavior: 'smooth'
       });
-      setIsMenuOpen(false);
+      setMenyuOchiq(false);
     }
   };
 
@@ -38,40 +39,43 @@ const Navbar = ({ activeSection }) => {
               <a
                 key={item.id}
                 href={`#${item.id}`}
-                className={`nav-link ${activeSection === item.id ? 'active' : ''}`}
+                className={`nav-link ${faolBolim === item.id ? 'active' : ''}`}
                 onClick={(e) => {
                   e.preventDefault();
-                  scrollToSection(item.id);
+                  bolimgaSkrol(item.id);
                 }}
+                aria-label={item.label}
               >
-                <i className={item.icon}></i>
+                <i className={item.ikonka}></i>
                 <span>{item.label}</span>
+                <div className="nav-indicator"></div>
               </a>
             ))}
           </div>
           
           <button 
             className="mobile-menu-btn"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            onClick={() => setMenyuOchiq(!menyuOchiq)}
+            aria-label="Menyuni ochish"
           >
-            <i className={`fas ${isMenuOpen ? 'fa-times' : 'fa-bars'}`}></i>
+            <i className={`fas ${menyuOchiq ? 'fa-times' : 'fa-bars'}`}></i>
           </button>
         </div>
       </nav>
 
-      {/* Mobile Menu */}
-      <div className={`mobile-menu ${isMenuOpen ? 'open' : ''}`}>
+      {/* Mobil Menyu */}
+      <div className={`mobile-menu ${menyuOchiq ? 'open' : ''}`}>
         {navItems.map(item => (
           <a
             key={item.id}
             href={`#${item.id}`}
-            className={`mobile-nav-link ${activeSection === item.id ? 'active' : ''}`}
+            className={`mobile-nav-link ${faolBolim === item.id ? 'active' : ''}`}
             onClick={(e) => {
               e.preventDefault();
-              scrollToSection(item.id);
+              bolimgaSkrol(item.id);
             }}
           >
-            <i className={item.icon}></i>
+            <i className={item.ikonka}></i>
             <span>{item.label}</span>
           </a>
         ))}

@@ -2,339 +2,425 @@ import React, { useState } from 'react';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
-    name: '',
+    ism: '',
     email: '',
-    subject: '',
-    message: ''
+    mavzu: '',
+    xabar: ''
   });
 
-  const contactInfo = [
-    { icon: 'fas fa-map-marker-alt', label: 'Location:', value: 'Tashkent, Uzbekistan' },
-    { icon: 'fas fa-envelope', label: 'Email:', value: 'm.abbbosov@gmail.com' },
-    { icon: 'fas fa-graduation-cap', label: 'Education:', value: 'TUIT' },
-    { icon: 'fas fa-phone', label: 'Mobile:', value: '+998 80 099-44-49' },
-    { icon: 'fas fa-language', label: 'Languages:', value: 'Uzbek, English, Russian' }
+  const [yuborilmoqda, setYuborilmoqda] = useState(false);
+
+  const aloqaMalumotlari = [  // aloqaMa'lumotlari o'rniga aloqaMalumotlari
+    { ikonka: 'fas fa-map-marker-alt', sarlavha: 'Manzil:', qiymat: 'Toshkent, O\'zbekiston' },
+    { ikonka: 'fas fa-envelope', sarlavha: 'Email:', qiymat: 'm.abbbosov@gmail.com' },
+    { ikonka: 'fas fa-graduation-cap', sarlavha: 'Ta\'lim:', qiymat: 'TUIT' },
+    { ikonka: 'fas fa-phone', sarlavha: 'Telefon:', qiymat: '+998 90 123 45 67' },
+    { ikonka: 'fas fa-language', sarlavha: 'Tillarni bilaman:', qiymat: 'O\'zbek, Ingliz, Rus' }
   ];
 
-  const handleChange = (e) => {
+  const ozgartirish = (e) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     });
   };
 
-  const handleSubmit = (e) => {
+  const yuborish = (e) => {
     e.preventDefault();
-    alert('Message sent successfully!');
-    setFormData({
-      name: '',
-      email: '',
-      subject: '',
-      message: ''
-    });
+    setYuborilmoqda(true);
+    
+    // Simulyatsiya API so'rovi
+    setTimeout(() => {
+      alert('Xabaringiz muvaffaqiyatli yuborildi! Tez orada siz bilan bog\'lanamiz.');
+      setFormData({
+        ism: '',
+        email: '',
+        mavzu: '',
+        xabar: ''
+      });
+      setYuborilmoqda(false);
+    }, 1500);
   };
 
   const styles = {
     container: {
       maxWidth: '1200px',
       margin: '0 auto',
-      padding: '80px 20px',
-      fontFamily: "'Poppins', sans-serif"
-    },
-    header: {
-      textAlign: 'center',
-      marginBottom: '60px'
-    },
-    title: {
-      fontSize: '48px',
-      fontWeight: '700',
-      color: '#2c3e50',
-      marginBottom: '15px',
-      textTransform: 'uppercase',
-      letterSpacing: '2px',
+      padding: '100px 20px 80px',
       position: 'relative',
-      display: 'inline-block',
-      paddingBottom: '15px'
+      zIndex: 1
     },
-    titleUnderline: {
-      position: 'absolute',
-      width: '100px',
-      height: '4px',
-      backgroundColor: '#3498db',
-      bottom: '0',
-      left: '50%',
-      transform: 'translateX(-50%)',
-      borderRadius: '2px'
+    sarlavha: {
+      textAlign: 'center',
+      marginBottom: '70px'
     },
-    subtitle: {
-      fontSize: '18px',
-      color: '#7f8c8d',
-      maxWidth: '600px',
-      margin: '0 auto'
+    asosiySarlavha: {
+      fontSize: '3.5rem',
+      fontWeight: '900',
+      marginBottom: '1.5rem',
+      background: 'linear-gradient(135deg, #F8FAFC 0%, #8A2BE2 50%, #00CED1 100%)',
+      WebkitBackgroundClip: 'text',
+      WebkitTextFillColor: 'transparent',
+      backgroundClip: 'text',
+      letterSpacing: '1px',
+      textTransform: 'uppercase'
     },
-    contactContainer: {
+    chiziq: {
+      width: '120px',
+      height: '5px',
+      background: 'linear-gradient(90deg, #8A2BE2, #00CED1)',
+      margin: '20px auto 0',
+      borderRadius: '3px'
+    },
+    tagSarlavha: {
+      fontSize: '1.25rem',
+      color: '#CBD5E1',
+      maxWidth: '700px',
+      margin: '0 auto',
+      lineHeight: '1.7'
+    },
+    aloqaKonteyner: {
       display: 'grid',
       gridTemplateColumns: '1fr 1fr',
       gap: '50px',
       marginBottom: '50px'
     },
-    formSection: {
-      backgroundColor: '#fff',
+    formaQismi: {
+      background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.08))',
+      backdropFilter: 'blur(20px)',
       padding: '40px',
-      borderRadius: '15px',
-      boxShadow: '0 10px 30px rgba(0, 0, 0, 0.1)'
+      borderRadius: '25px',
+      border: '1px solid rgba(255, 255, 255, 0.15)',
+      boxShadow: '0 15px 35px rgba(0, 0, 0, 0.3)'
     },
-    formTitle: {
-      fontSize: '28px',
-      fontWeight: '600',
-      color: '#2c3e50',
-      marginBottom: '30px',
+    formaSarlavhasi: {
+      fontSize: '2rem',
+      fontWeight: '700',
+      color: '#F8FAFC',
+      marginBottom: '35px',
       display: 'flex',
       alignItems: 'center',
-      gap: '10px'
+      gap: '12px'
     },
-    formGroup: {
-      marginBottom: '25px'
+    formaGuruhi: {
+      marginBottom: '30px'
     },
-    label: {
+    yorliq: {
       display: 'block',
-      fontSize: '14px',
+      fontSize: '1rem',
       fontWeight: '600',
-      color: '#2c3e50',
-      marginBottom: '8px'
+      color: '#CBD5E1',
+      marginBottom: '10px',
+      textTransform: 'uppercase',
+      letterSpacing: '1px'
     },
-    input: {
+    kiritish: {
       width: '100%',
-      padding: '12px 15px',
-      border: '1px solid #e0e0e0',
-      borderRadius: '8px',
-      fontSize: '16px',
+      padding: '16px 20px',
+      background: 'rgba(255, 255, 255, 0.07)',
+      border: '2px solid rgba(255, 255, 255, 0.1)',
+      borderRadius: '15px',
+      color: '#F8FAFC',
+      fontSize: '1rem',
       fontFamily: "'Poppins', sans-serif",
-      transition: 'border-color 0.3s ease'
+      transition: 'all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+      outline: 'none'
     },
-    textarea: {
-      width: '100%',
-      padding: '12px 15px',
-      border: '1px solid #e0e0e0',
-      borderRadius: '8px',
-      fontSize: '16px',
-      fontFamily: "'Poppins', sans-serif",
-      minHeight: '150px',
-      resize: 'vertical',
-      transition: 'border-color 0.3s ease'
-    },
-    submitButton: {
-      padding: '15px 40px',
-      backgroundColor: '#3498db',
+    yuborishTugmasi: {
+      padding: '18px 45px',
+      background: 'linear-gradient(135deg, #FF6B35 0%, #E55A2B 100%)',
       color: 'white',
       border: 'none',
-      borderRadius: '30px',
-      fontSize: '16px',
+      borderRadius: '50px',
+      fontSize: '1.1rem',
       fontWeight: '600',
       cursor: 'pointer',
       display: 'flex',
       alignItems: 'center',
-      gap: '10px',
-      transition: 'all 0.3s ease',
-      boxShadow: '0 5px 20px rgba(52, 152, 219, 0.3)'
+      gap: '12px',
+      transition: 'all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+      boxShadow: '0 8px 30px rgba(255, 107, 53, 0.4)',
+      marginTop: '10px'
     },
-    infoSection: {
-      backgroundColor: '#fff',
+    malumotQismi: {  // ma'lumot o'rniga malumot
+      background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.08))',
+      backdropFilter: 'blur(20px)',
       padding: '40px',
-      borderRadius: '15px',
-      boxShadow: '0 10px 30px rgba(0, 0, 0, 0.1)'
+      borderRadius: '25px',
+      border: '1px solid rgba(255, 255, 255, 0.15)',
+      boxShadow: '0 15px 35px rgba(0, 0, 0, 0.3)'
     },
-    infoTitle: {
-      fontSize: '28px',
-      fontWeight: '600',
-      color: '#2c3e50',
-      marginBottom: '30px',
+    malumotSarlavhasi: {
+      fontSize: '2rem',
+      fontWeight: '700',
+      color: '#F8FAFC',
+      marginBottom: '35px',
       display: 'flex',
       alignItems: 'center',
-      gap: '10px'
+      gap: '12px'
     },
-    infoItem: {
+    malumotElementi: {
       display: 'flex',
       alignItems: 'flex-start',
-      marginBottom: '25px',
-      gap: '15px'
+      marginBottom: '30px',
+      gap: '18px',
+      padding: '20px',
+      borderRadius: '15px',
+      background: 'rgba(255, 255, 255, 0.05)',
+      transition: 'all 0.3s ease',
+      cursor: 'pointer'
     },
-    infoIcon: {
-      width: '40px',
-      height: '40px',
-      backgroundColor: '#e3f2fd',
+    malumotIkonkasi: {
+      width: '50px',
+      height: '50px',
+      background: 'linear-gradient(135deg, #8A2BE2, #00CED1)',
       borderRadius: '50%',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      color: '#3498db',
-      fontSize: '18px',
-      flexShrink: '0'
+      color: '#F8FAFC',
+      fontSize: '20px',
+      flexShrink: 0
     },
-    infoContent: {
+    malumotMazmuni: {
       flex: '1'
     },
-    infoLabel: {
-      fontSize: '14px',
-      color: '#7f8c8d',
-      marginBottom: '5px'
+    malumotYorligi: {
+      fontSize: '0.9rem',
+      color: '#94A3B8',
+      marginBottom: '6px',
+      textTransform: 'uppercase',
+      letterSpacing: '1px'
     },
-    infoValue: {
-      fontSize: '16px',
+    malumotQiymati: {
+      fontSize: '1.1rem',
       fontWeight: '600',
-      color: '#2c3e50'
+      color: '#F8FAFC'
     },
-    cvSection: {
+    cvQismi: {
       textAlign: 'center',
       marginTop: '50px'
     },
-    cvButton: {
-      padding: '15px 40px',
-      backgroundColor: '#2c3e50',
+    cvTugmasi: {
+      padding: '18px 45px',
+      background: 'linear-gradient(135deg, #8A2BE2 0%, #6A0DAD 100%)',
       color: 'white',
       border: 'none',
-      borderRadius: '30px',
-      fontSize: '16px',
+      borderRadius: '50px',
+      fontSize: '1.1rem',
       fontWeight: '600',
       cursor: 'pointer',
       display: 'flex',
       alignItems: 'center',
-      gap: '10px',
-      transition: 'all 0.3s ease',
-      boxShadow: '0 5px 20px rgba(44, 62, 80, 0.3)',
+      gap: '12px',
+      transition: 'all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+      boxShadow: '0 8px 30px rgba(138, 43, 226, 0.4)',
       margin: '0 auto'
     }
   };
 
   return (
-    <div style={styles.container} className="fade-in">
-      <div style={styles.header}>
-        <h1 style={styles.title}>
-          CONTACT ME
-          <div style={styles.titleUnderline}></div>
+    <div style={styles.container} id="aloqa" className="fade-in">
+      <div style={styles.sarlavha}>
+        <h1 style={styles.asosiySarlavha}>
+          ALOQA
+          <div style={styles.chiziq}></div>
         </h1>
-        <p style={styles.subtitle}>
-          Get in touch with me for collaborations or just a friendly hello
+        <p style={styles.tagSarlavha}>
+          Hamkorlik uchun yoki oddiy salom aytish uchun men bilan bog'laning
         </p>
       </div>
 
-      <div style={styles.contactContainer}>
-        <div style={styles.formSection}>
-          <h2 style={styles.formTitle}>
-            <i className="fas fa-paper-plane"></i>
-            SEND ME A MESSAGE
+      <div style={styles.aloqaKonteyner}>
+        {/* XABAR YUBORISH FORMASI */}
+        <div style={styles.formaQismi}>
+          <h2 style={styles.formaSarlavhasi}>
+            <i className="fas fa-paper-plane" style={{ color: '#FF6B35' }}></i>
+            MENGA XABAR YUBORING
           </h2>
           
-          <form onSubmit={handleSubmit}>
-            <div style={styles.formGroup}>
-              <label style={styles.label}>YOUR NAME</label>
+          <form onSubmit={yuborish}>
+            <div style={styles.formaGuruhi}>
+              <label style={styles.yorliq}>ISMINGIZ</label>
               <input
                 type="text"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                style={styles.input}
+                name="ism"
+                value={formData.ism}
+                onChange={ozgartirish}
+                style={styles.kiritish}
                 required
-                onFocus={(e) => e.target.style.borderColor = '#3498db'}
-                onBlur={(e) => e.target.style.borderColor = '#e0e0e0'}
+                onFocus={(e) => {
+                  e.target.style.borderColor = '#FF6B35';
+                  e.target.style.boxShadow = '0 0 20px rgba(255, 107, 53, 0.3)';
+                  e.target.style.background = 'rgba(255, 255, 255, 0.1)';
+                }}
+                onBlur={(e) => {
+                  e.target.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+                  e.target.style.boxShadow = 'none';
+                  e.target.style.background = 'rgba(255, 255, 255, 0.07)';
+                }}
+                placeholder="Ismingizni kiriting"
               />
             </div>
             
-            <div style={styles.formGroup}>
-              <label style={styles.label}>YOUR EMAIL</label>
+            <div style={styles.formaGuruhi}>
+              <label style={styles.yorliq}>EMAIL MANZILINGIZ</label>
               <input
                 type="email"
                 name="email"
                 value={formData.email}
-                onChange={handleChange}
-                style={styles.input}
+                onChange={ozgartirish}
+                style={styles.kiritish}
                 required
-                onFocus={(e) => e.target.style.borderColor = '#3498db'}
-                onBlur={(e) => e.target.style.borderColor = '#e0e0e0'}
+                onFocus={(e) => {
+                  e.target.style.borderColor = '#FF6B35';
+                  e.target.style.boxShadow = '0 0 20px rgba(255, 107, 53, 0.3)';
+                  e.target.style.background = 'rgba(255, 255, 255, 0.1)';
+                }}
+                onBlur={(e) => {
+                  e.target.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+                  e.target.style.boxShadow = 'none';
+                  e.target.style.background = 'rgba(255, 255, 255, 0.07)';
+                }}
+                placeholder="email@example.com"
               />
             </div>
             
-            <div style={styles.formGroup}>
-              <label style={styles.label}>ENTER SUBJECT</label>
+            <div style={styles.formaGuruhi}>
+              <label style={styles.yorliq}>MAVZU</label>
               <input
                 type="text"
-                name="subject"
-                value={formData.subject}
-                onChange={handleChange}
-                style={styles.input}
+                name="mavzu"
+                value={formData.mavzu}
+                onChange={ozgartirish}
+                style={styles.kiritish}
                 required
-                onFocus={(e) => e.target.style.borderColor = '#3498db'}
-                onBlur={(e) => e.target.style.borderColor = '#e0e0e0'}
+                onFocus={(e) => {
+                  e.target.style.borderColor = '#FF6B35';
+                  e.target.style.boxShadow = '0 0 20px rgba(255, 107, 53, 0.3)';
+                  e.target.style.background = 'rgba(255, 255, 255, 0.1)';
+                }}
+                onBlur={(e) => {
+                  e.target.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+                  e.target.style.boxShadow = 'none';
+                  e.target.style.background = 'rgba(255, 255, 255, 0.07)';
+                }}
+                placeholder="Mavzuni kiriting"
               />
             </div>
             
-            <div style={styles.formGroup}>
-              <label style={styles.label}>MESSAGE HERE...</label>
+            <div style={styles.formaGuruhi}>
+              <label style={styles.yorliq}>XABAR</label>
               <textarea
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                style={styles.textarea}
+                name="xabar"
+                value={formData.xabar}
+                onChange={ozgartirish}
+                style={{
+                  ...styles.kiritish,
+                  minHeight: '160px',
+                  resize: 'vertical',
+                  lineHeight: '1.6'
+                }}
                 required
-                onFocus={(e) => e.target.style.borderColor = '#3498db'}
-                onBlur={(e) => e.target.style.borderColor = '#e0e0e0'}
+                onFocus={(e) => {
+                  e.target.style.borderColor = '#FF6B35';
+                  e.target.style.boxShadow = '0 0 20px rgba(255, 107, 53, 0.3)';
+                  e.target.style.background = 'rgba(255, 255, 255, 0.1)';
+                }}
+                onBlur={(e) => {
+                  e.target.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+                  e.target.style.boxShadow = 'none';
+                  e.target.style.background = 'rgba(255, 255, 255, 0.07)';
+                }}
+                placeholder="Xabaringizni bu yerga yozing..."
               ></textarea>
             </div>
             
             <button
               type="submit"
-              style={styles.submitButton}
+              style={styles.yuborishTugmasi}
+              disabled={yuborilmoqda}
               onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-3px)';
-                e.currentTarget.style.boxShadow = '0 8px 25px rgba(52, 152, 219, 0.4)';
+                if (!yuborilmoqda) {
+                  e.currentTarget.style.transform = 'translateY(-6px)';
+                  e.currentTarget.style.boxShadow = '0 15px 40px rgba(255, 107, 53, 0.6)';
+                  e.currentTarget.style.background = 'linear-gradient(135deg, #8A2BE2 0%, #6A0DAD 100%)';
+                }
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.boxShadow = '0 5px 20px rgba(52, 152, 219, 0.3)';
+                if (!yuborilmoqda) {
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.boxShadow = '0 8px 30px rgba(255, 107, 53, 0.4)';
+                  e.currentTarget.style.background = 'linear-gradient(135deg, #FF6B35 0%, #E55A2B 100%)';
+                }
               }}
             >
-              <i className="fas fa-paper-plane"></i>
-              Send Message
+              {yuborilmoqda ? (
+                <>
+                  <i className="fas fa-spinner fa-spin"></i>
+                  Yuborilmoqda...
+                </>
+              ) : (
+                <>
+                  <i className="fas fa-paper-plane"></i>
+                  Xabarni Yuborish
+                </>
+              )}
             </button>
           </form>
         </div>
 
-        <div style={styles.infoSection}>
-          <h2 style={styles.infoTitle}>
-            <i className="fas fa-address-card"></i>
-            CONTACT INFORMATION
+        {/* ALOQA MA'LUMOTLARI */}
+        <div style={styles.malumotQismi}>
+          <h2 style={styles.malumotSarlavhasi}>
+            <i className="fas fa-address-card" style={{ color: '#00CED1' }}></i>
+            ALOQA MA'LUMOTLARI
           </h2>
           
-          {contactInfo.map((info, index) => (
-            <div key={index} style={styles.infoItem}>
-              <div style={styles.infoIcon}>
-                <i className={info.icon}></i>
+          {aloqaMalumotlari.map((malumot, index) => (
+            <div 
+              key={index} 
+              style={styles.malumotElementi}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = 'rgba(255, 255, 255, 0.1)';
+                e.currentTarget.style.transform = 'translateY(-5px)';
+                e.currentTarget.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.2)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = 'rgba(255, 255, 255, 0.05)';
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = 'none';
+              }}
+            >
+              <div style={styles.malumotIkonkasi}>
+                <i className={malumot.ikonka}></i>
               </div>
-              <div style={styles.infoContent}>
-                <div style={styles.infoLabel}>{info.label}</div>
-                <div style={styles.infoValue}>{info.value}</div>
+              <div style={styles.malumotMazmuni}>
+                <div style={styles.malumotYorligi}>{malumot.sarlavha}</div>
+                <div style={styles.malumotQiymati}>{malumot.qiymat}</div>
               </div>
             </div>
           ))}
         </div>
       </div>
 
-      <div style={styles.cvSection}>
+      <div style={styles.cvQismi}>
         <button
-          style={styles.cvButton}
+          style={styles.cvTugmasi}
           onMouseEnter={(e) => {
-            e.currentTarget.style.transform = 'translateY(-3px)';
-            e.currentTarget.style.boxShadow = '0 8px 25px rgba(44, 62, 80, 0.4)';
-            e.currentTarget.style.backgroundColor = '#3498db';
+            e.currentTarget.style.transform = 'translateY(-6px)';
+            e.currentTarget.style.boxShadow = '0 15px 40px rgba(138, 43, 226, 0.6)';
+            e.currentTarget.style.background = 'linear-gradient(135deg, #FF6B35 0%, #E55A2B 100%)';
           }}
           onMouseLeave={(e) => {
             e.currentTarget.style.transform = 'translateY(0)';
-            e.currentTarget.style.boxShadow = '0 5px 20px rgba(44, 62, 80, 0.3)';
-            e.currentTarget.style.backgroundColor = '#2c3e50';
+            e.currentTarget.style.boxShadow = '0 8px 30px rgba(138, 43, 226, 0.4)';
+            e.currentTarget.style.background = 'linear-gradient(135deg, #8A2BE2 0%, #6A0DAD 100%)';
           }}
+          aria-label="CV yuklab olish"
         >
           <i className="fas fa-download"></i>
-          Download CV
+          CV Yuklab Olish
         </button>
       </div>
     </div>
