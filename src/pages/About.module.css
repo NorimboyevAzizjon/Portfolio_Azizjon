@@ -67,71 +67,150 @@
   gap: 12px;
 }
 
+.skillLink, .educationLink {
+  text-decoration: none;
+  display: block;
+}
+
+.skillLink {
+  margin-bottom: 20px;
+}
+
+.educationLink {
+  margin-bottom: 25px;
+}
+
 .skillItem {
-  margin-bottom: 28px;
+  padding: 20px;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.skillItem:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
 .skillHeader {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
+  align-items: center;
+}
+
+.skillLeft {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.skillRight {
+  display: flex;
   align-items: center;
 }
 
 .skillName {
-  font-size: 17px;
+  font-size: 18px;
   font-weight: 600;
   color: #F8FAFC;
+  display: block;
+}
+
+.skillDescription {
+  font-size: 14px;
+  color: #94A3B8;
+  margin-top: 5px;
 }
 
 .skillPercentage {
   font-size: 15px;
   font-weight: 700;
-  background-color: rgba(0, 0, 0, 0.2);
-  padding: 4px 12px;
+  padding: 6px 14px;
   border-radius: 20px;
+  display: flex;
+  align-items: center;
 }
 
 .progressBar {
   width: 100%;
-  height: 12px;
+  height: 10px;
   background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 6px;
+  border-radius: 5px;
   overflow: hidden;
   position: relative;
 }
 
 .progressFill {
   height: 100%;
-  border-radius: 6px;
+  border-radius: 5px;
   transition: width 1.2s cubic-bezier(0.65, 0, 0.35, 1);
 }
 
 .educationItem {
-  margin-bottom: 30px;
-  padding-bottom: 30px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 25px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
 }
 
-.educationItem:last-child {
-  border-bottom: none;
-  margin-bottom: 0;
-  padding-bottom: 0;
+.educationItem:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+}
+
+.eduIcon {
+  width: 60px;
+  height: 60px;
+  background: rgba(138, 43, 226, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgba(138, 43, 226, 0.3);
+  flex-shrink: 0;
+}
+
+.eduContent {
+  flex: 1;
+}
+
+.eduHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 10px;
 }
 
 .educationDegree {
   font-size: 1.4rem;
   font-weight: 700;
   color: #F8FAFC;
-  margin-bottom: 8px;
+  margin: 0;
 }
 
 .educationUniversity {
   font-size: 1.1rem;
   color: #00CED1;
-  margin-bottom: 8px;
+  margin-bottom: 15px;
   display: flex;
   align-items: center;
+}
+
+.eduBottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
   gap: 10px;
 }
 
@@ -139,10 +218,19 @@
   font-size: 0.95rem;
   color: #94A3B8;
   background-color: rgba(255, 255, 255, 0.08);
-  padding: 6px 16px;
+  padding: 8px 16px;
   border-radius: 25px;
-  display: inline-block;
   border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+}
+
+.eduNote {
+  font-size: 0.9rem;
+  color: #CBD5E1;
+  font-style: italic;
+  display: flex;
+  align-items: center;
 }
 
 .stats {
@@ -153,26 +241,26 @@
 }
 
 .statCard {
-  background: linear-gradient(135deg, rgba(138, 43, 226, 0.15), rgba(0, 206, 209, 0.15));
   backdrop-filter: blur(15px);
   padding: 35px 25px;
   border-radius: 20px;
   text-align: center;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid;
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   cursor: pointer;
 }
 
 .statCard:hover {
   transform: translateY(-12px) scale(1.02);
-  box-shadow: 0 20px 45px rgba(138, 43, 226, 0.4);
-  background: linear-gradient(135deg, rgba(138, 43, 226, 0.25), rgba(0, 206, 209, 0.25));
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.3);
+}
+
+.statIconWrapper {
+  margin-bottom: 22px;
 }
 
 .statIcon {
   font-size: 42px;
-  color: #00CED1;
-  margin-bottom: 22px;
 }
 
 .statNumber {
@@ -188,21 +276,48 @@
   font-weight: 500;
 }
 
-/* Responsive */
-@media (max-width: 992px) {
+/* Responsive Media Queries */
+@media (max-width: 1200px) {
+  .container {
+    max-width: 1100px;
+    padding: 90px 30px 70px;
+  }
+  
+  .title {
+    font-size: 3.2rem;
+  }
+  
   .content {
-    grid-template-columns: 1fr;
-    gap: 30px;
+    gap: 40px;
+  }
+  
+  .skillsSection, .educationSection {
+    padding: 30px;
+  }
+  
+  .sectionTitle {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .container {
+    max-width: 900px;
+    padding: 80px 25px 60px;
   }
   
   .title {
     font-size: 2.8rem;
   }
-}
-
-@media (max-width: 768px) {
-  .title {
-    font-size: 2.2rem;
+  
+  .subtitle {
+    font-size: 1.1rem;
+    max-width: 600px;
+  }
+  
+  .content {
+    grid-template-columns: 1fr;
+    gap: 30px;
   }
   
   .sectionTitle {
@@ -210,21 +325,237 @@
   }
   
   .skillsSection, .educationSection {
-    padding: 25px;
+    padding: 28px;
+  }
+  
+  .skillItem {
+    margin-bottom: 24px;
+  }
+  
+  .educationItem {
+    margin-bottom: 25px;
+    padding-bottom: 25px;
+  }
+  
+  .educationDegree {
+    font-size: 1.3rem;
+  }
+  
+  .educationUniversity {
+    font-size: 1rem;
+  }
+  
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+  }
+  
+  .statCard {
+    padding: 30px 20px;
+  }
+  
+  .statNumber {
+    font-size: 2.2rem;
+  }
+  
+  .statIcon {
+    font-size: 36px;
+    margin-bottom: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 70px 20px 50px;
+  }
+  
+  .header {
+    margin-bottom: 50px;
+  }
+  
+  .title {
+    font-size: 2.4rem;
+    margin-bottom: 1rem;
+  }
+  
+  .titleUnderline {
+    width: 100px;
+    height: 4px;
+    margin: 15px auto 0;
+  }
+  
+  .subtitle {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  
+  .sectionTitle {
+    font-size: 1.6rem;
+    margin-bottom: 25px;
+    gap: 10px;
+  }
+  
+  .skillsSection, .educationSection {
+    padding: 24px;
+    border-radius: 20px;
+  }
+  
+  .skillHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+  
+  .skillName {
+    font-size: 16px;
+  }
+  
+  .skillPercentage {
+    align-self: flex-end;
+    font-size: 14px;
+    padding: 3px 10px;
+  }
+  
+  .progressBar {
+    height: 10px;
+  }
+  
+  .educationItem {
+    padding: 20px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.04);
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+  }
+  
+  .educationDegree {
+    font-size: 1.2rem;
+  }
+  
+  .educationUniversity {
+    font-size: 0.95rem;
+    gap: 8px;
+  }
+  
+  .educationYear {
+    font-size: 0.9rem;
+    padding: 5px 12px;
+  }
+  
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-top: 50px;
   }
   
   .statCard {
     padding: 25px 15px;
+    border-radius: 16px;
+  }
+  
+  .statIcon {
+    font-size: 32px;
+    margin-bottom: 15px;
   }
   
   .statNumber {
     font-size: 2rem;
   }
+  
+  .statText {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding: 60px 15px 40px;
+  }
+  
+  .header {
+    margin-bottom: 40px;
+  }
+  
+  .title {
+    font-size: 2.1rem;
+  }
+  
+  .titleUnderline {
+    width: 90px;
+  }
+  
+  .subtitle {
+    font-size: 0.95rem;
+    padding: 0 10px;
+  }
+  
+  .sectionTitle {
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+  }
+  
+  .skillsSection, .educationSection {
+    padding: 20px;
+    border-radius: 18px;
+  }
+  
+  .skillItem {
+    margin-bottom: 20px;
+  }
+  
+  .skillName {
+    font-size: 15px;
+  }
+  
+  .progressBar {
+    height: 8px;
+  }
+  
+  .educationItem {
+    padding: 18px;
+    margin-bottom: 18px;
+  }
+  
+  .educationDegree {
+    font-size: 1.15rem;
+  }
+  
+  .educationUniversity {
+    font-size: 0.9rem;
+  }
+  
+  .educationYear {
+    font-size: 0.85rem;
+    padding: 4px 10px;
+  }
+  
+  .stats {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  
+  .statCard {
+    padding: 22px 15px;
+  }
+  
+  .statIcon {
+    font-size: 30px;
+    margin-bottom: 12px;
+  }
+  
+  .statNumber {
+    font-size: 1.8rem;
+  }
+  
+  .statText {
+    font-size: 0.95rem;
+  }
 }
 
 @media (max-width: 480px) {
   .container {
-    padding: 80px 15px 60px;
+    padding: 50px 12px 30px;
   }
   
   .title {
@@ -232,18 +563,228 @@
   }
   
   .subtitle {
-    font-size: 1rem;
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+  
+  .sectionTitle {
+    font-size: 1.3rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  
+  .skillsSection, .educationSection {
+    padding: 18px;
+    border-radius: 16px;
+  }
+  
+  .skillItem {
+    margin-bottom: 18px;
   }
   
   .skillName {
     font-size: 14px;
   }
   
+  .skillPercentage {
+    font-size: 13px;
+  }
+  
+  .educationItem {
+    padding: 16px;
+    margin-bottom: 16px;
+  }
+  
   .educationDegree {
+    font-size: 1.1rem;
+  }
+  
+  .educationUniversity {
+    font-size: 0.85rem;
+  }
+  
+  .educationYear {
+    font-size: 0.8rem;
+    padding: 3px 8px;
+  }
+  
+  .statCard {
+    padding: 20px 12px;
+  }
+  
+  .statIcon {
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+  
+  .statNumber {
+    font-size: 1.7rem;
+  }
+  
+  .statText {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .container {
+    padding: 40px 10px 25px;
+  }
+  
+  .title {
+    font-size: 1.6rem;
+  }
+  
+  .titleUnderline {
+    width: 80px;
+    height: 3px;
+  }
+  
+  .subtitle {
+    font-size: 0.85rem;
+  }
+  
+  .sectionTitle {
     font-size: 1.2rem;
   }
   
+  .skillsSection, .educationSection {
+    padding: 16px;
+  }
+  
+  .skillName {
+    font-size: 13px;
+  }
+  
+  .educationItem {
+    padding: 14px;
+  }
+  
+  .educationDegree {
+    font-size: 1rem;
+  }
+  
+  .statCard {
+    padding: 18px 10px;
+  }
+  
+  .statNumber {
+    font-size: 1.5rem;
+  }
+}
+
+/* Tablet oriyentatsiyasi uchun */
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  .container {
+    padding: 80px 30px 60px;
+  }
+  
+  .content {
+    gap: 35px;
+  }
+}
+
+/* Katta ekranlar uchun */
+@media (min-width: 1600px) {
+  .container {
+    max-width: 1400px;
+    padding: 120px 40px 100px;
+  }
+  
+  .title {
+    font-size: 4rem;
+  }
+  
+  .subtitle {
+    font-size: 1.4rem;
+    max-width: 800px;
+  }
+  
+  .sectionTitle {
+    font-size: 2.2rem;
+  }
+  
+  .skillsSection, .educationSection {
+    padding: 40px;
+  }
+  
+  .skillName {
+    font-size: 18px;
+  }
+  
+  .educationDegree {
+    font-size: 1.6rem;
+  }
+  
   .stats {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 35px;
+  }
+  
+  .statCard {
+    padding: 40px 25px;
+  }
+  
+  .statNumber {
+    font-size: 3rem;
+  }
+}
+
+/* Accessibility - harakat kamaytirilganda */
+@media (prefers-reduced-motion: reduce) {
+  .progressFill,
+  .statCard,
+  .skillItem,
+  .educationItem {
+    transition: none !important;
+  }
+  
+  .statCard:hover {
+    transform: none !important;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .skillsSection, .educationSection {
+    border: 2px solid #8A2BE2;
+  }
+  
+  .progressBar {
+    border: 1px solid #00CED1;
+  }
+  
+  .educationItem {
+    border: 1px solid #FF6B35;
+  }
+}
+
+/* Print uchun */
+@media print {
+  .container {
+    padding: 50px 20px;
+  }
+  
+  .title {
+    background: linear-gradient(135deg, #000 0%, #333 50%, #666 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .skillsSection, .educationSection {
+    background: white;
+    border: 1px solid #ddd;
+    box-shadow: none;
+  }
+  
+  .progressBar {
+    background: #f0f0f0;
+  }
+  
+  .statCard {
+    background: #f8f8f8;
+    border: 1px solid #ccc;
   }
 }

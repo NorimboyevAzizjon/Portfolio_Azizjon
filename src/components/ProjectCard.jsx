@@ -59,31 +59,7 @@ const ProjectCard = ({ sarlavha, tavsif, rasm, texnologiyalar, githubHavolasi, j
           ))}
         </div>
         
-        <div className={styles.buttons}>
-          {jonliDemo && (
-            <a 
-              href={jonliDemo} 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className={styles.demoBtn}
-            >
-              <i className="fas fa-external-link-alt"></i>
-              Jonli Demo
-            </a>
-          )}
-          
-          {githubHavolasi && (
-            <a 
-              href={githubHavolasi} 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className={styles.codeBtn}
-            >
-              <i className="fab fa-github"></i>
-              Kodni Ko'rish
-            </a>
-          )}
-        </div>
+
       </div>
     </div>
   );
