@@ -1,27 +1,76 @@
-import React, { useState, useEffect } from 'react';
+// src/components/Header.jsx - ZAMONAVIY VERSIYA
+import React, { useState, useEffect, useRef } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import styles from './Header.module.css';
 
-function Header() {
+const Header = () => {
   const [activeSection, setActiveSection] = useState('bosh-sahifa');
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [isScrolling, setIsScrolling] = useState(false);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const headerRef = useRef(null);
 
   const navItems = [
-    { id: 'bosh-sahifa', label: 'Bosh Sahifa', icon: 'fas fa-home' },
-    { id: 'haqimda', label: 'Haqimda', icon: 'fas fa-user' },
-    { id: 'portfolio', label: 'Portfolio', icon: 'fas fa-briefcase' },
-    { id: 'aloqa', label: 'Aloqa', icon: 'fas fa-envelope' }
+    { 
+      id: 'bosh-sahifa', 
+      label: 'Bosh Sahifa', 
+      icon: 'fas fa-home',
+      color: '#FF6B35'
+    },
+    { 
+      id: 'haqimda', 
+      label: 'Haqimda', 
+      icon: 'fas fa-user',
+      color: '#00CED1'
+    },
+    { 
+      id: 'portfolio', 
+      label: 'Portfolio', 
+      icon: 'fas fa-briefcase',
+      color: '#8A2BE2'
+    },
+    { 
+      id: 'aloqa', 
+      label: 'Aloqa', 
+      icon: 'fas fa-envelope',
+      color: '#4ADE80'
+    }
   ];
+
+  // Mouse harakatini kuzatish
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      if (headerRef.current) {
+        const rect = headerRef.current.getBoundingClientRect();
+        setMousePosition({
+          x: e.clientX - rect.left,
+          y: e.clientY - rect.top
+        });
+      }
+    };
+
+    headerRef.current?.addEventListener('mousemove', handleMouseMove);
+    return () => {
+      headerRef.current?.removeEventListener('mousemove', handleMouseMove);
+    };
+  }, []);
 
   // Scroll kuzatish
   useEffect(() => {
+    let scrollTimeout;
+
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       
+      setIsScrolling(true);
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => setIsScrolling(false), 150);
+
       // Header'ni yashirish/ko'rsatish
-      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+      if (currentScrollY > lastScrollY && currentScrollY > 300) {
         setIsVisible(false);
-      } else {
+      } else if (currentScrollY < lastScrollY || currentScrollY <= 300) {
         setIsVisible(true);
       }
       setLastScrollY(currentScrollY);
@@ -31,7 +80,10 @@ function Header() {
         const element = document.getElementById(navItems[i].id);
         if (element) {
           const rect = element.getBoundingClientRect();
-          if (rect.top <= 150 && rect.bottom >= 150) {
+          const windowHeight = window.innerHeight;
+          const triggerPoint = windowHeight * 0.3;
+          
+          if (rect.top <= triggerPoint && rect.bottom >= triggerPoint) {
             setActiveSection(navItems[i].id);
             break;
           }
@@ -39,74 +91,184 @@ function Header() {
       }
     };
 
-    // Hash bo'yicha scroll
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    
+    // Hash change
     const handleHashChange = () => {
       const hash = window.location.hash.substring(1);
       if (hash && navItems.some(item => item.id === hash)) {
-        scrollToSection(hash);
-        setActiveSection(hash);
+        scrollToSection(hash, true);
       }
     };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
     window.addEventListener('hashchange', handleHashChange);
     
-    // Dastlabki hash
+    // Initial setup
     const initialHash = window.location.hash.substring(1);
     if (initialHash && navItems.some(item => item.id === initialHash)) {
-      setActiveSection(initialHash);
+      setTimeout(() => scrollToSection(initialHash, true), 100);
     }
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('hashchange', handleHashChange);
+      clearTimeout(scrollTimeout);
     };
   }, [lastScrollY]);
 
-  const scrollToSection = (sectionId) => {
+  const scrollToSection = (sectionId, smooth = true) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      const headerHeight = 80;
+      const headerHeight = 100;
       const elementPosition = element.offsetTop - headerHeight;
       
       window.scrollTo({
         top: elementPosition,
-        behavior: 'smooth'
+        behavior: smooth ? 'smooth' : 'auto'
       });
 
-      // URL hash
       if (window.location.hash !== `#${sectionId}`) {
         window.history.replaceState(null, null, `#${sectionId}`);
       }
+      
+      setActiveSection(sectionId);
     }
   };
 
   const handleNavClick = (e, sectionId) => {
     e.preventDefault();
+    e.stopPropagation();
     scrollToSection(sectionId);
-    setActiveSection(sectionId);
+  };
+
+  // Hover animatsiya variantlari
+  const navItemVariants = {
+    initial: { scale: 1 },
+    hover: { scale: 1.05, transition: { type: "spring", stiffness: 400, damping: 17 } },
+    tap: { scale: 0.95 }
+  };
+
+  const iconVariants = {
+    initial: { rotate: 0, y: 0 },
+    hover: { rotate: 10, y: -3, transition: { type: "spring", stiffness: 300 } }
+  };
+
+  const textVariants = {
+    initial: { y: 0, opacity: 0.9 },
+    hover: { y: -2, opacity: 1, transition: { duration: 0.2 } }
   };
 
   return (
-    <header className={`${styles.header} ${isVisible ? styles.visible : styles.hidden} fade-in`}>
-      <div className={styles.navContainer}>
-        {navItems.map(item => (
-          <a
-            key={item.id}
-            href={`#${item.id}`}
-            className={`${styles.navLink} ${activeSection === item.id ? styles.active : ''}`}
-            onClick={(e) => handleNavClick(e, item.id)}
-            aria-label={item.label}
-            data-tooltip={item.label}
-          >
-            <i className={item.icon}></i>
-            <span className={styles.navText}>{item.label}</span>
-            <div className={styles.activeIndicator}></div>
-          </a>
-        ))}
-      </div>
-    </header>
+    <AnimatePresence>
+      <motion.header
+        ref={headerRef}
+        className={`${styles.header} ${isVisible ? styles.visible : styles.hidden}`}
+        initial={{ y: -100, opacity: 0 }}
+        animate={{ 
+          y: isVisible ? 0 : -100, 
+          opacity: isVisible ? 1 : 0,
+          backdropFilter: isScrolling ? 'blur(20px)' : 'blur(15px)'
+        }}
+        transition={{ 
+          type: "spring", 
+          stiffness: 300, 
+          damping: 25,
+          opacity: { duration: 0.3 }
+        }}
+        style={{
+          '--mouse-x': `${mousePosition.x}px`,
+          '--mouse-y': `${mousePosition.y}px`
+        }}
+      >
+        {/* Cursor glow effect */}
+        <div className={styles.cursorGlow} />
+        
+        {/* Ambient light effect */}
+        <div className={styles.ambientLight} />
+        
+        <div className={styles.navContainer}>
+          {navItems.map((item) => {
+            const isActive = activeSection === item.id;
+            
+            return (
+              <motion.a
+                key={item.id}
+                href={`#${item.id}`}
+                className={`${styles.navLink} ${isActive ? styles.active : ''}`}
+                onClick={(e) => handleNavClick(e, item.id)}
+                aria-label={item.label}
+                data-tooltip={item.label}
+                data-color={item.color}
+                variants={navItemVariants}
+                initial="initial"
+                whileHover="hover"
+                whileTap="tap"
+                style={{
+                  '--item-color': item.color,
+                  '--item-color-light': `${item.color}20`
+                }}
+              >
+                {/* Background glow effect */}
+                <div className={styles.linkGlow} />
+                
+                {/* Icon container */}
+                <motion.div 
+                  className={styles.iconWrapper}
+                  variants={iconVariants}
+                >
+                  <div className={styles.iconCircle}>
+                    <i className={item.icon}></i>
+                  </div>
+                  {isActive && (
+                    <motion.div 
+                      className={styles.activePulse}
+                      initial={{ scale: 0, opacity: 0 }}
+                      animate={{ scale: 1, opacity: 1 }}
+                      transition={{ type: "spring", stiffness: 200 }}
+                    />
+                  )}
+                </motion.div>
+                
+                {/* Label */}
+                <motion.span 
+                  className={styles.navText}
+                  variants={textVariants}
+                >
+                  {item.label}
+                </motion.span>
+                
+                {/* Active indicator */}
+                {isActive && (
+                  <motion.div 
+                    className={styles.activeIndicator}
+                    initial={{ width: 0 }}
+                    animate={{ width: "70%" }}
+                    transition={{ duration: 0.3 }}
+                  />
+                )}
+                
+                {/* Hover effect */}
+                <div className={styles.hoverEffect} />
+                
+                {/* Tooltip */}
+                <div className={styles.tooltip}>
+                  {item.label}
+                  <div className={styles.tooltipArrow} />
+                </div>
+              </motion.a>
+            );
+          })}
+        </div>
+        
+        {/* Scroll progress indicator */}
+        <motion.div 
+          className={styles.scrollProgress}
+          animate={{ scaleX: lastScrollY / (document.body.scrollHeight - window.innerHeight) }}
+          transition={{ type: "spring", stiffness: 100, damping: 20 }}
+        />
+      </motion.header>
+    </AnimatePresence>
   );
-}
+};
 
 export default Header;
