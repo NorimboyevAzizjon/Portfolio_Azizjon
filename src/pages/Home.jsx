@@ -1,6 +1,6 @@
 // Home.jsx - TO'LIQ VERSIYA (Inline style bilan)
 import React from 'react';
-import imgAzizjon from '../assets/images/photo_2025-12-02_17-16-43.jpg';
+import imgAzizjon from '../assets/images/photo_2025-12-01_10-31-02.jpg';
 
 const Home = () => {
   const styles = {
@@ -276,20 +276,20 @@ const Home = () => {
         
         @media (max-width: 768px) {
           .name {
-            font-size: 42px !important;
+            fontSize: 42px !important;
           }
           
           .title {
-            font-size: 32px !important;
+            fontSize: 32px !important;
           }
           
           .greeting {
-            font-size: 24px !important;
+            fontSize: 24px !important;
           }
           
           .description {
-            font-size: 18px !important;
-            line-height: 1.6 !important;
+            fontSize: 18px !important;
+            lineHeight: 1.6 !important;
           }
           
           .avatarContainer {
@@ -299,11 +299,11 @@ const Home = () => {
           
           .cvButton {
             padding: 16px 35px !important;
-            font-size: 16px !important;
+            fontSize: 16px !important;
           }
           
           .statNumber {
-            font-size: 36px !important;
+            fontSize: 36px !important;
           }
         }
         
@@ -313,21 +313,21 @@ const Home = () => {
           }
           
           .name {
-            font-size: 32px !important;
+            fontSize: 32px !important;
           }
           
           .title {
-            font-size: 28px !important;
+            fontSize: 28px !important;
           }
           
           .greeting {
-            font-size: 20px !important;
+            fontSize: 20px !important;
             gap: 8px !important;
           }
           
           .description {
-            font-size: 16px !important;
-            margin-bottom: 35px !important;
+            fontSize: 16px !important;
+            marginBottom: 35px !important;
           }
           
           .avatarContainer {
@@ -337,32 +337,32 @@ const Home = () => {
           
           .cvButton {
             padding: 14px 30px !important;
-            font-size: 15px !important;
+            fontSize: 15px !important;
             width: 100% !important;
-            justify-content: center !important;
+            justifyContent: center !important;
           }
           
           .statsContainer {
-            flex-direction: column !important;
+            flexDirection: column !important;
             gap: 25px !important;
           }
           
           .statNumber {
-            font-size: 32px !important;
+            fontSize: 32px !important;
           }
         }
         
         @media (max-width: 425px) {
           .name {
-            font-size: 28px !important;
+            fontSize: 28px !important;
           }
           
           .title {
-            font-size: 24px !important;
+            fontSize: 24px !important;
           }
           
           .greeting {
-            font-size: 18px !important;
+            fontSize: 18px !important;
           }
           
           .avatarContainer {
@@ -372,11 +372,11 @@ const Home = () => {
           
           .cvButton {
             padding: 12px 25px !important;
-            font-size: 14px !important;
+            fontSize: 14px !important;
           }
           
           .statNumber {
-            font-size: 28px !important;
+            fontSize: 28px !important;
           }
         }
         
@@ -387,15 +387,15 @@ const Home = () => {
           }
           
           .name {
-            font-size: 82px !important;
+            fontSize: 82px !important;
           }
           
           .title {
-            font-size: 62px !important;
+            fontSize: 62px !important;
           }
           
           .description {
-            font-size: 22px !important;
+            fontSize: 22px !important;
             max-width: 600px !important;
           }
           
@@ -405,13 +405,13 @@ const Home = () => {
           }
           
           .statNumber {
-            font-size: 48px !important;
+            fontSize: 48px !important;
           }
         }
         
         @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
           .content {
-            flex-direction: row !important;
+            flexDirection: row !important;
             gap: 35px !important;
           }
           

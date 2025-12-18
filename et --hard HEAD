@@ -1,0 +1,16 @@
+* [31m69ae6be[m -[33m (HEAD -> main, origin/main)[m Rasm papkasini to'g'rilash va Header.jsx ni yangilash [32m(2 weeks ago) [1;34m<Azizjon | Frontend Dev>[m
+* [31m738978d[m -[33m[m Loyihani yangilash: Header, Footer, Navbar, ProjectCard va About sahifalari [32m(2 weeks ago) [1;34m<Azizjon | Frontend Dev>[m
+* [31mb949993[m -[33m[m Yangi navbar, contact va portfolio bo'limlari qo'shildi. Responsive dizayn yaxshilandi. [32m(2 weeks ago) [1;34m<Azizjon | Frontend Dev>[m
+* [31mf690682[m -[33m[m style: add comprehensive responsive media queries for ProjectCard [32m(2 weeks ago) [1;34m<Azizjon | Frontend Dev>[m
+* [31m967546b[m -[33m[m feat: add profile image and complete Home page with responsive design [32m(2 weeks ago) [1;34m<Azizjon | Frontend Dev>[m
+* [31m9a741f2[m -[33m[m refactor: CSS fayllarni modulga aylantirish va responsive dizayn yaxshilash [32m(2 weeks ago) [1;34m<Azizjon | Frontend Dev>[m
+* [31m0cae56e[m -[33m[m Portfolio loyihasi yangilandi: - Barcha componentlar yangilandi - Zamonaviy dizayn qo'shildi - Responsive tuzilma yaratildi - CSS modullar qo'shildi - Animatsiyalar va effektlar - Yangi sahifalar va komponentlar [32m(2 weeks ago) [1;34m<Azizjon | Frontend Dev>[m
+* [31mf4f6f5f[m -[33m[m Portfolio vebsaytini to'liq yangilash: o'zbek tiliga tarjima qilish, zamonaviy dizayn qo'shish, yangi komponentlar va animatsiyalar [32m(2 weeks ago) [1;34m<Azizjon | Frontend Dev>[m
+*   [31m186d2a6[m -[33m[m Merge: resolve index.css conflicts [32m(2 weeks ago) [1;34m<Azizjon | Frontend Dev>[m
+[32m|[m[33m\[m  
+[32m|[m * [31mf129c04[m -[33m[m css: add styling for header [32m(5 weeks ago) [1;34m<Azizjon | Frontend Dev>[m
+* [33m|[m [31ma92f113[m -[33m[m Fix import paths [32m(2 weeks ago) [1;34m<Azizjon | Frontend Dev>[m
+[33m|[m[33m/[m  
+* [31m199f1cd[m -[33m[m feat: add modern UI with animations and responsive design [32m(5 weeks ago) [1;34m<Azizjon | Frontend Dev>[m
+* [31mbaa1d87[m -[33m[m Add header, footer and pages [32m(5 weeks ago) [1;34m<Azizjon | Frontend Dev>[m
+* [31m8e33695[m -[33m[m first commit [32m(5 weeks ago) [1;34m<Azizjon | Frontend Dev>[m
