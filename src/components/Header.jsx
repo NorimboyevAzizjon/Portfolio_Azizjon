@@ -114,7 +114,7 @@ const Header = () => {
       window.removeEventListener('hashchange', handleHashChange);
       clearTimeout(scrollTimeout);
     };
-  }, [lastScrollY]);
+  }, [lastScrollY, navItems]);
 
   const scrollToSection = (sectionId, smooth = true) => {
     const element = document.getElementById(sectionId);
