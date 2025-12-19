@@ -138,12 +138,18 @@ const Home = () => {
           <div style={styles.greeting}>
             Salom, Azizjonman
           </div>
-          <h1 style={styles.name}>Frontend Dasturchi</h1>
-          <p style={styles.description}>
-            <strong>1+ yil tajriba</strong> <br />
-            <span style={{color: '#00CED1'}}>React</span> va zamonaviy web texnologiyalar <br />
-            Yangi g‘oyalarni funksional va jozibali web ilovalarga aylantiraman
-          </p>
+          {/* <h1 style={styles.name}>Azizjon</h1> */}
+          <div style={{
+            fontSize: '22px',
+            color: '#CBD5E1',
+            fontWeight: 500,
+            margin: '18px 0 28px 0',
+            lineHeight: 1.4,
+            maxWidth: 480
+          }}>
+            <div>Yangi texnologiyalar va kreativ yondashuvlar orqali</div>
+            <div>har bir loyihaga jon va qiymat qo‘shaman</div>
+          </div>
           
           <button 
             style={styles.cvButton}

@@ -144,11 +144,7 @@ const About = () => {
           </h1>
           <div className={styles.titleUnderline}></div>
         </div>
-        <p className={styles.subtitle}>
-          Mening <span className={styles.highlight}>texnik mahoratim</span>, 
-          <span className={styles.highlight}> ta'lim tarixim</span> va 
-          <span className={styles.highlight}> professional tajribam</span> haqida batafsil
-        </p>
+
       </div>
 
       {/* Tab navigatsiya */}

@@ -233,10 +233,7 @@ const Header = () => {
                 {/* Hover effect */}
                 <div className={styles.hoverEffect} />
                 {/* Tooltip */}
-                <div className={styles.tooltip}>
-                  {item.label}
-                  <div className={styles.tooltipArrow} />
-                </div>
+                {/* Tooltip faqat hoverda chiqadi, label ikki marta ko‘rinmaydi */}
               </motion.div>
             </NavLink>
           ))}

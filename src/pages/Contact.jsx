@@ -85,11 +85,6 @@ const Contact = () => {
           BOG'LANISH
           <div className={styles.titleUnderline}></div>
         </h1>
-        <p className={styles.subtitle}>
-          Men bilan bog'lanish uchun quyidagi formani to'ldiring yoki to'g'ridan-to'g'ri 
-          <span style={{color: '#00CED1', fontWeight: '600'}}> elektron pochtamga</span> yozing.
-          Hamkorlik uchun har doim tayyorman!
-        </p>
       </div>
 
       {/* Asosiy kontent - 2 ustun */}

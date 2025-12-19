@@ -173,10 +173,7 @@ const Portfolio = () => {
           PORTFOLIO
           <div className={styles.underline}></div>
         </h1>
-        <p className={styles.tagline}>
-          Turli dasturlash tillari va texnologiyalarda yaratgan ishlarimning namunalari. 
-          Har bir loyiha o'zining noyob yechimi va dizayniga ega.
-        </p>
+
       </div>
 
       {/* FILTR VA TOIFALAR */}
@@ -255,9 +252,7 @@ const Portfolio = () => {
           <i className="fas fa-cogs" style={{ color: '#00CED1' }}></i>
           Ishlatilgan Texnologiyalar
         </h2>
-        <p className={styles.technologiesSubtitle}>
-          Loyihalarimda quyidagi zamonaviy texnologiyalardan foydalanganman
-        </p>
+        
         
         <div className={styles.technologiesContainer}>
           {barchaTexnologiyalar.map((tex, index) => (

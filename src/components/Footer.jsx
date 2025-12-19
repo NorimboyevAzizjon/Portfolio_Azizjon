@@ -39,15 +39,7 @@ const Footer = () => {
       
       <div className={styles.container}>
         {/* Logo va tagline */}
-        <div className={styles.brandSection}>
-          <div className={styles.logo}>
-            <span className={styles.logoText}>Azizjon</span>
-            <span className={styles.logoDot}></span>
-          </div>
-          <p className={styles.tagline}>
-            Frontend dasturchi • React mutaxassisi • Web innovatori
-          </p>
-        </div>
+
 
         {/* Linklar va ijtimoiy tarmoqlar */}
         <div className={styles.contentSection}>
