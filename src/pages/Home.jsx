@@ -138,40 +138,13 @@ const Home = () => {
       <div style={styles.content}>
         <div style={styles.textSection}>
           <div style={styles.greeting}>
-            <i className="fas fa-hand-wave" style={{ animation: 'wave 2s infinite' }}></i>
-            Salom, mening ismim
+            Salom, Azizjonman
           </div>
-          
-          <h1 style={styles.name}>Azizjon</h1>
-          
-          <h2 style={styles.title}>
-            <span style={styles.highlight}>Frontend</span>
-            <br />
-            Dasturchiman.
-          </h2>
-          
+          <h1 style={styles.name}>Frontend Dasturchi</h1>
           <p style={styles.description}>
-            <strong>🎯 Tajribali Frontend dasturchi</strong>, 
-            <span style={{color: '#FF6B35', fontWeight: '600'}}> 1+ yillik professional tajriba</span>.
-            <br /><br />
-            
-            <span style={{color: '#00CED1'}}>⚛️ React texnologiyalarida</span> ishlash bo'yicha 
-            <em> chuqur bilimga ega</em>.
-            <br /><br />
-            
-            <span style={{color: '#F8FAFC', fontWeight: '600'}}>🔧 Muammolarni hal qilish qobiliyatim</span> bilan 
-            ilovalar samaradorligini 
-            <span style={{color: '#FF6B35', fontWeight: '700'}}> 14% oshirdim</span>.
-            <br /><br />
-            
-            <span style={{color: '#00CED1'}}>🎨 Ma'lumotlarni vizuallashtirish vositalarini</span> 
-            <strong> yaratdim</strong> va dizaynlar 
-            <strong> integratsiya qildim</strong>.
-            <br /><br />
-            
-            <span style={{color: '#F8FAFC'}}>🚀 Mahsulot hayot tsikli tezligini oshirib</span>, 
-            loyihalarni 
-            <span style={{color: '#FF6B35', fontWeight: '700'}}> 100% vaqtida topshirdim</span>.
+            <strong>1+ yil tajriba</strong> <br />
+            <span style={{color: '#00CED1'}}>React</span> va zamonaviy web texnologiyalar <br />
+            Yangi g‘oyalarni funksional va jozibali web ilovalarga aylantiraman
           </p>
           
           <button 
