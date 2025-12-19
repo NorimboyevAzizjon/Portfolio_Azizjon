@@ -5,12 +5,10 @@ import imgAzizjon from '../assets/images/photo_2025-12-01_10-31-02.jpg';
 const Home = () => {
   const styles = {
     container: {
-      minHeight: '100vh',
       display: 'flex',
       alignItems: 'center',
       background: 'linear-gradient(135deg, #0A1929 0%, #1A2C42 50%, #2A1E5C 100%)',
       position: 'relative',
-      overflow: 'hidden',
       padding: '0 20px'
     },
     content: {

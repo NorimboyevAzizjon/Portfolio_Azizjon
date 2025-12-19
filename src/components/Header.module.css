@@ -117,18 +117,18 @@
 }
 
 /* Active state */
+
 .navLink.active {
   color: #F8FAFC;
+  /* border va qora shadow olib tashlandi */
 }
 
 .navLink.active::before {
   background: linear-gradient(135deg, 
     rgba(255, 107, 53, 0.9) 0%,
     rgba(229, 90, 43, 0.9) 100%);
-  border-color: rgba(255, 107, 53, 0.4);
-  box-shadow: 
-    0 8px 25px rgba(255, 107, 53, 0.4),
-    inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  border-color: transparent;
+  box-shadow: none;
 }
 
 .navLink.active i {

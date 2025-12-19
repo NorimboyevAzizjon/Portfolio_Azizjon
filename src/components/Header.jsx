@@ -222,8 +222,6 @@ const Header = () => {
                   <div className={styles.iconCircle}>
                     <i className={`${item.icon} ${styles.statIcon}`}></i>
                   </div>
-                  {/* Active pulse faqat isActive bo'lsa */}
-                  {/* NavLink className orqali active aniqlanadi */}
                 </motion.div>
                 {/* Label */}
                 <motion.span 
@@ -232,8 +230,6 @@ const Header = () => {
                 >
                   {item.label}
                 </motion.span>
-                {/* Active indicator */}
-                {/* NavLink active class orqali CSS bilan ko'rsatiladi */}
                 {/* Hover effect */}
                 <div className={styles.hoverEffect} />
                 {/* Tooltip */}
