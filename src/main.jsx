@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App.jsx';
+import { BrowserRouter } from 'react-router-dom';
 import './index.css'; // Faqat global stillar
 
 // Font Awesome CDN
@@ -38,6 +39,8 @@ document.head.appendChild(favicon);
 // React ilovasini ishga tushirish
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </React.StrictMode>
 );

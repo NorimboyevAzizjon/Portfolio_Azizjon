@@ -293,6 +293,9 @@ const Portfolio = () => {
             className={styles.statCard}
           >
             <i className={`${stat.ikonka} ${styles.statIcon}`}></i>
+
+              <i className={`${stat.ikonka} ${styles.statIcon}`}></i>
+
             <div className={styles.statNumber}>{stat.raqam}</div>
             <div className={styles.statLabel}>{stat.yorliq}</div>
           </div>

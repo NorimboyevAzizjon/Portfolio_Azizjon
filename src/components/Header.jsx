@@ -1,6 +1,7 @@
 // src/components/Header.jsx - ZAMONAVIY VERSIYA
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { NavLink } from 'react-router-dom';
 import styles from './Header.module.css';
 
 const Header = () => {
@@ -16,25 +17,29 @@ const Header = () => {
       id: 'bosh-sahifa', 
       label: 'Bosh Sahifa', 
       icon: 'fas fa-home',
-      color: '#FF6B35'
+      color: '#FF6B35',
+      path: '/'
     },
     { 
       id: 'haqimda', 
       label: 'Haqimda', 
       icon: 'fas fa-user',
-      color: '#00CED1'
+      color: '#00CED1',
+      path: '/haqimda'
     },
     { 
       id: 'portfolio', 
       label: 'Portfolio', 
       icon: 'fas fa-briefcase',
-      color: '#8A2BE2'
+      color: '#8A2BE2',
+      path: '/portfolio'
     },
     { 
       id: 'aloqa', 
       label: 'Aloqa', 
       icon: 'fas fa-envelope',
-      color: '#4ADE80'
+      color: '#4ADE80',
+      path: '/aloqa'
     }
   ];
 
@@ -187,48 +192,39 @@ const Header = () => {
         <div className={styles.ambientLight} />
         
         <div className={styles.navContainer}>
-          {navItems.map((item) => {
-            const isActive = activeSection === item.id;
-            
-            return (
-              <motion.a
-                key={item.id}
-                href={`#${item.id}`}
-                className={`${styles.navLink} ${isActive ? styles.active : ''}`}
-                onClick={(e) => handleNavClick(e, item.id)}
-                aria-label={item.label}
-                data-tooltip={item.label}
-                data-color={item.color}
+          {navItems.map((item) => (
+            <NavLink
+              key={item.id}
+              to={item.path}
+              className={({ isActive }) => `${styles.navLink} ${isActive ? styles.active : ''}`}
+              aria-label={item.label}
+              data-tooltip={item.label}
+              data-color={item.color}
+              end={item.path === '/'}
+              style={{
+                '--item-color': item.color,
+                '--item-color-light': `${item.color}20`
+              }}
+            >
+              <motion.div
                 variants={navItemVariants}
                 initial="initial"
                 whileHover="hover"
                 whileTap="tap"
-                style={{
-                  '--item-color': item.color,
-                  '--item-color-light': `${item.color}20`
-                }}
               >
                 {/* Background glow effect */}
                 <div className={styles.linkGlow} />
-                
                 {/* Icon container */}
                 <motion.div 
                   className={styles.iconWrapper}
                   variants={iconVariants}
                 >
                   <div className={styles.iconCircle}>
-                    <i className={item.icon}></i>
+                    <i className={`${item.icon} ${styles.statIcon}`}></i>
                   </div>
-                  {isActive && (
-                    <motion.div 
-                      className={styles.activePulse}
-                      initial={{ scale: 0, opacity: 0 }}
-                      animate={{ scale: 1, opacity: 1 }}
-                      transition={{ type: "spring", stiffness: 200 }}
-                    />
-                  )}
+                  {/* Active pulse faqat isActive bo'lsa */}
+                  {/* NavLink className orqali active aniqlanadi */}
                 </motion.div>
-                
                 {/* Label */}
                 <motion.span 
                   className={styles.navText}
@@ -236,28 +232,18 @@ const Header = () => {
                 >
                   {item.label}
                 </motion.span>
-                
                 {/* Active indicator */}
-                {isActive && (
-                  <motion.div 
-                    className={styles.activeIndicator}
-                    initial={{ width: 0 }}
-                    animate={{ width: "70%" }}
-                    transition={{ duration: 0.3 }}
-                  />
-                )}
-                
+                {/* NavLink active class orqali CSS bilan ko'rsatiladi */}
                 {/* Hover effect */}
                 <div className={styles.hoverEffect} />
-                
                 {/* Tooltip */}
                 <div className={styles.tooltip}>
                   {item.label}
                   <div className={styles.tooltipArrow} />
                 </div>
-              </motion.a>
-            );
-          })}
+              </motion.div>
+            </NavLink>
+          ))}
         </div>
         
         {/* Scroll progress indicator */}
