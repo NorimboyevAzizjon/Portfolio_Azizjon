@@ -1,20 +1,10 @@
 import React from "react";
+import { useNavigate } from 'react-router-dom';
 import styles from "./Footer.module.css";
 
 const Footer = () => {
   const joriyYil = new Date().getFullYear();
-
-  const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      const headerHeight = 80;
-      const elementPosition = element.offsetTop - headerHeight;
-      window.scrollTo({
-        top: elementPosition,
-        behavior: 'smooth'
-      });
-    }
-  };
+  const navigate = useNavigate();
 
   const socialLinks = [
     { icon: "fab fa-github", label: "GitHub", url: "https://github.com/NorimboyevAzizjon", color: "#F0F6FC" },
@@ -25,10 +15,10 @@ const Footer = () => {
   ];
 
   const footerLinks = [
-    { label: "Bosh Sahifa", action: () => scrollToSection('bosh-sahifa') },
-    { label: "Haqimda", action: () => scrollToSection('haqimda') },
-    { label: "Portfolio", action: () => scrollToSection('portfolio') },
-    { label: "Aloqa", action: () => scrollToSection('aloqa') },
+    { label: "Bosh Sahifa", action: () => navigate('/') },
+    { label: "Haqimda", action: () => navigate('/haqimda') },
+    { label: "Portfolio", action: () => navigate('/portfolio') },
+    { label: "Aloqa", action: () => navigate('/aloqa') },
     { label: "CV Yuklab Olish", action: () => window.open('/CV_Azizjon.pdf', '_blank') }
   ];
 
@@ -36,11 +26,7 @@ const Footer = () => {
     <footer className={styles.footer}>
       {/* Gradient chiziq */}
       <div className={styles.gradientLine}></div>
-      
       <div className={styles.container}>
-        {/* Logo va tagline */}
-
-
         {/* Linklar va ijtimoiy tarmoqlar */}
         <div className={styles.contentSection}>
           <div className={styles.linksSection}>
@@ -90,7 +76,7 @@ const Footer = () => {
               O'zbekiston <span className={styles.heart}>❤️</span> da yaratildi
             </p>
           </div>
-          
+
           <div className={styles.backToTop} onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
             <i className="fas fa-arrow-up"></i>
             Yuqoriga

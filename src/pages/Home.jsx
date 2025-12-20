@@ -1,6 +1,6 @@
 // Home.jsx - TO'LIQ VERSIYA (Inline style bilan)
 import React from 'react';
-import imgAzizjon from '../assets/images/photo_2025-12-01_10-31-02.jpg';
+import imgAzizjon from '../assets/images/photo_2025-12-02_17-16-43.jpg';
 
 const Home = () => {
   const styles = {

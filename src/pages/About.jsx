@@ -60,33 +60,51 @@ const About = () => {
       }
     ];
 
-    // Ta'lim tarixi
+    // Ta'lim tarixi - takrorlanishlarni olib tashladim
     const educationData = [
-      { 
-        degree: 'Kompyuter Fanlari', 
-        institution: 'TUIT (Toshkent Axborot Texnologiyalari Universiteti)', 
+      {
+        degree: 'Dasturiy injiniring',
+        institution: 'TATU (Toshkent Axborot Texnologiyalari Universiteti)',
         period: '2024-2028',
         description: 'Bakalavr darajasi',
         icon: 'fas fa-university',
         link: 'https://tuit.uz/',
         type: 'university'
       },
-      { 
-        degree: 'Frontend Dasturlash', 
-        institution: 'Najot Ta\'lim', 
+      {
+        degree: 'Frontend Dasturlash',
+        institution: 'Najot Ta\'lim',
         period: '2025',
-        description: 'Professional kurs, 6 oy',
+        description: 'React.JS kurs, 8 oy',
         icon: 'fas fa-graduation-cap',
         link: 'https://najottalim.uz/',
         type: 'course'
       },
-      { 
-        degree: 'React.js Mukammallashuvi', 
-        institution: 'Onlayn Platformalar', 
-        period: '2024-2025',
-        description: 'Udemy, Coursera, YouTube',
+      {
+        degree: 'Onlayin Platforma',
+        institution: 'Mohirdev',
+        period: '2025',
+        description: 'ReactJS 6 oy',
         icon: 'fas fa-laptop-code',
-        link: 'https://www.udemy.com/',
+        link: 'https://mohirdev.uz/courses/frontend-reactjs',
+        type: 'online'
+      },
+      {
+        degree: 'Onlayin Platforma',
+        institution: 'Coursera (Board Infinity)',
+        period: '2025',
+        description: 'Web Development',
+        icon: 'fas fa-globe',
+        link: 'https://coursera.org/learn/frontend-development-for-java-full-stack',
+        type: 'online'
+      },
+      {
+        degree: 'Onlayin Platforma',
+        institution: 'Ustoz AI',
+        period: '2025',
+        description: 'Premium, Asosiy, Kurslar, Oʻyinlar, AI va suniy intellektlar',
+        icon: 'fas fa-robot',
+        link: 'https://ustoz.ai/',
         type: 'online'
       }
     ];
@@ -144,7 +162,6 @@ const About = () => {
           </h1>
           <div className={styles.titleUnderline}></div>
         </div>
-
       </div>
 
       {/* Tab navigatsiya */}
@@ -156,25 +173,26 @@ const About = () => {
           <i className="fas fa-code"></i>
           Texnik Mahorat
         </button>
+        
         <button 
           className={`${styles.tab} ${activeSection === 'education' ? styles.activeTab : ''}`}
           onClick={() => setActiveSection('education')}
         >
           <i className="fas fa-graduation-cap"></i>
-          Ta'lim Tarixi
+          Ta'lim & Sertifikatlar
         </button>
+        
         <button 
           className={`${styles.tab} ${activeSection === 'stats' ? styles.activeTab : ''}`}
           onClick={() => setActiveSection('stats')}
         >
-          <i className="fas fa-chart-bar"></i>
-          Statistika
+          <i className="fas fa-chart-line"></i>
+          Statistika & Tajriba
         </button>
       </div>
 
-      {/* Asosiy kontent */}
+      {/* Kontent qismi */}
       <div className={styles.content}>
-        
         {/* Mahoratlar qismi */}
         {activeSection === 'skills' && (
           <div className={styles.skillsSection}>
@@ -249,6 +267,54 @@ const About = () => {
                 </div>
               ))}
             </div>
+
+            {/* Sertifikatlar qismi */}
+            <div className={styles.certificatesSection}>
+              <h3 className={styles.certificatesTitle}>
+                <i className="fas fa-award"></i>
+                Sertifikatlar
+              </h3>
+              <div className={styles.certificatesGrid}>
+                <div className={styles.certificateCard}>
+                  <div className={styles.certificateIcon}>
+                    <i className="fab fa-react"></i>
+                  </div>
+                  <div className={styles.certificateContent}>
+                    <div className={styles.certificateName}>React.js Development</div>
+                    <div className={styles.certificateOrg}>Mohirdev, 2025</div>
+                    <div className={styles.certificateLink} onClick={() => window.open('https://mohirdev.uz/', '_blank')}>
+                      Ko'rish
+                    </div>
+                  </div>
+                </div>
+                
+                <div className={styles.certificateCard}>
+                  <div className={styles.certificateIcon}>
+                    <i className="fab fa-js"></i>
+                  </div>
+                  <div className={styles.certificateContent}>
+                    <div className={styles.certificateName}>JavaScript Advanced</div>
+                    <div className={styles.certificateOrg}>Coursera, 2024</div>
+                    <div className={styles.certificateLink} onClick={() => window.open('https://www.coursera.org/', '_blank')}>
+                      Ko'rish
+                    </div>
+                  </div>
+                </div>
+                
+                <div className={styles.certificateCard}>
+                  <div className={styles.certificateIcon}>
+                    <i className="fas fa-code"></i>
+                  </div>
+                  <div className={styles.certificateContent}>
+                    <div className={styles.certificateName}>Frontend Development</div>
+                    <div className={styles.certificateOrg}>Najot Ta'lim, 2025</div>
+                    <div className={styles.certificateLink} onClick={() => window.open('https://najottalim.uz/', '_blank')}>
+                      Ko'rish
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         )}
 
@@ -298,7 +364,12 @@ const About = () => {
         </p>
         <button 
           className={styles.ctaButton}
-          onClick={() => document.getElementById('aloqa').scrollIntoView({ behavior: 'smooth' })}
+          onClick={() => {
+            const contactSection = document.getElementById('aloqa');
+            if (contactSection) {
+              contactSection.scrollIntoView({ behavior: 'smooth' });
+            }
+          }}
         >
           <i className="fas fa-paper-plane"></i>
           Bog'lanish

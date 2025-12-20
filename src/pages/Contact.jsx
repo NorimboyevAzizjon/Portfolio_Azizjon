@@ -17,10 +17,10 @@ const Contact = () => {
   const contactInfo = [
     
     { 
-      icon: 'fas fa-map-marker-alt',
-      label: 'Manzil',
-      value: 'Toshkent, Uzbekistan',
-      color: '#FF6B35'
+  // const handleCVDownload = () => {
+  //   // CV yuklab olish logikasi
+  //   window.open('/CV_Azizjon.pdf', '_blank');
+  // };
     },
     { 
       icon: 'fas fa-envelope',

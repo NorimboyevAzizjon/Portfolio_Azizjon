@@ -5,13 +5,14 @@ import { NavLink } from 'react-router-dom';
 import styles from './Header.module.css';
 
 const Header = () => {
-  const [activeSection, setActiveSection] = useState('bosh-sahifa');
+  // const [activeSection, setActiveSection] = useState('bosh-sahifa');
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isScrolling, setIsScrolling] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const headerRef = useRef(null);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const navItems = [
     { 
       id: 'bosh-sahifa', 
@@ -119,7 +120,7 @@ const Header = () => {
       window.removeEventListener('hashchange', handleHashChange);
       clearTimeout(scrollTimeout);
     };
-  }, [lastScrollY, navItems]);
+  }, [lastScrollY]);
 
   const scrollToSection = (sectionId, smooth = true) => {
     const element = document.getElementById(sectionId);
@@ -140,11 +141,11 @@ const Header = () => {
     }
   };
 
-  const handleNavClick = (e, sectionId) => {
-    e.preventDefault();
-    e.stopPropagation();
-    scrollToSection(sectionId);
-  };
+  // const handleNavClick = (e, sectionId) => {
+  //   e.preventDefault();
+  //   e.stopPropagation();
+  //   scrollToSection(sectionId);
+  // };
 
   // Hover animatsiya variantlari
   const navItemVariants = {
