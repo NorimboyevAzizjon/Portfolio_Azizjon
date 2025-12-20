@@ -132,7 +132,7 @@ const Home = () => {
   };
 
   return (
-    <div style={styles.container} id="bosh-sahifa" className="fade-in">
+    <><div style={styles.container} id="bosh-sahifa" className="fade-in">
       <div style={styles.content}>
         <div style={styles.textSection}>
           <div style={styles.greeting}>
@@ -150,54 +150,54 @@ const Home = () => {
             <div>Yangi texnologiyalar va kreativ yondashuvlar orqali</div>
             <div>har bir loyihaga jon va qiymat qo‘shaman</div>
           </div>
-          
-          <button 
+
+          <button
             style={styles.cvButton}
             onMouseEnter={(e) => {
               e.currentTarget.style.transform = 'translateY(-6px)';
               e.currentTarget.style.boxShadow = '0 15px 40px rgba(138, 43, 226, 0.6)';
               e.currentTarget.style.background = 'linear-gradient(135deg, #FF6B35 0%, #E55A2B 100%)';
-            }}
+            } }
             onMouseLeave={(e) => {
               e.currentTarget.style.transform = 'translateY(0)';
               e.currentTarget.style.boxShadow = '0 8px 30px rgba(138, 43, 226, 0.4)';
               e.currentTarget.style.background = 'linear-gradient(135deg, #8A2BE2 0%, #6A0DAD 100%)';
-            }}
+            } }
             aria-label="CV yuklab olish"
           >
             <i className="fas fa-download"></i>
             CV Yuklab Olish
           </button>
-          
-          <div style={styles.statsContainer}>
-            <div style={styles.statItem}>
-              <div style={styles.statNumber}>1+</div>
-              <div style={styles.statText}>Yillik Tajriba</div>
-            </div>
-            <div style={styles.statItem}>
-              <div style={styles.statNumber}>10+</div>
-              <div style={styles.statText}>Tugatilgan Loyihalar</div>
-            </div>
-            <div style={styles.statItem}>
-              <div style={styles.statNumber}>100%</div>
-              <div style={styles.statText}>Mijoz Mamnuniyati</div>
-            </div>
-          </div>
+
+          {/* Statistika pastga ko'chirildi */}
+              {/* Statistika bloki rasm ostiga ko'chirildi */}
+              <div style={{...styles.statsContainer, margin: '60px auto 0 auto', maxWidth: 600}}>
+                <div style={styles.statItem}>
+                  <div style={styles.statNumber}>1+</div>
+                  <div style={styles.statText}>Yillik Tajriba</div>
+                </div>
+                <div style={styles.statItem}>
+                  <div style={styles.statNumber}>10+</div>
+                  <div style={styles.statText}>Tugatilgan Loyihalar</div>
+                </div>
+                <div style={styles.statItem}>
+                  <div style={styles.statNumber}>100%</div>
+                  <div style={styles.statText}>Mijoz Mamnuniyati</div>
+                </div>
+              </div>
         </div>
-        
+
         <div style={styles.imageSection}>
           <div style={styles.avatarContainer}>
-            <img 
+            <img
               src={imgAzizjon}
-              alt="Azizjon" 
+              alt="Azizjon"
               style={styles.avatarImage}
-              loading="lazy"
-            />
+              loading="lazy" />
           </div>
         </div>
       </div>
-      
-      <style jsx>{`
+    </div><style jsx>{`
         @keyframes wave {
           0%, 100% { transform: rotate(0deg); }
           25% { transform: rotate(15deg); }
@@ -408,8 +408,8 @@ const Home = () => {
             transform: none !important;
           }
         }
-      `}</style>
-    </div>
+      `}</style></>
+   
   );
 };
 
