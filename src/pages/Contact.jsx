@@ -57,10 +57,7 @@ const Contact = () => {
     }, 1500);
   };
 
-  const handleCVDownload = () => {
-    // CV yuklab olish logikasi
-    window.open('/CV_Azizjon.pdf', '_blank');
-  };
+
 
   return (
     <div className={`${styles.container} fade-in`} id="aloqa">

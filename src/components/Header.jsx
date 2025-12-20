@@ -1,6 +1,7 @@
 // src/components/Header.jsx - ZAMONAVIY VERSIYA
 import React, { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { NavLink } from 'react-router-dom';
 import styles from './Header.module.css';
 import { FaHome, FaUser, FaBriefcase, FaEnvelope } from 'react-icons/fa';
@@ -13,7 +14,6 @@ const Header = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const headerRef = useRef(null);
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   const navItems = [
     { 
       id: 'bosh-sahifa', 
@@ -56,20 +56,20 @@ const Header = () => {
         });
       }
     };
-
-    headerRef.current?.addEventListener('mousemove', handleMouseMove);
+    const node = headerRef.current;
+    node?.addEventListener('mousemove', handleMouseMove);
     return () => {
-      headerRef.current?.removeEventListener('mousemove', handleMouseMove);
+      node?.removeEventListener('mousemove', handleMouseMove);
     };
   }, []);
 
   // Scroll kuzatish
+  const [activeSection, setActiveSection] = useState('bosh-sahifa');
   useEffect(() => {
     let scrollTimeout;
 
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      
       setIsScrolling(true);
       clearTimeout(scrollTimeout);
       scrollTimeout = setTimeout(() => setIsScrolling(false), 150);
@@ -89,7 +89,7 @@ const Header = () => {
           const rect = element.getBoundingClientRect();
           const windowHeight = window.innerHeight;
           const triggerPoint = windowHeight * 0.3;
-          
+
           if (rect.top <= triggerPoint && rect.bottom >= triggerPoint) {
             setActiveSection(navItems[i].id);
             break;
@@ -99,7 +99,7 @@ const Header = () => {
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
-    
+
     // Hash change
     const handleHashChange = () => {
       const hash = window.location.hash.substring(1);
@@ -109,7 +109,7 @@ const Header = () => {
     };
 
     window.addEventListener('hashchange', handleHashChange);
-    
+
     // Initial setup
     const initialHash = window.location.hash.substring(1);
     if (initialHash && navItems.some(item => item.id === initialHash)) {
@@ -121,7 +121,7 @@ const Header = () => {
       window.removeEventListener('hashchange', handleHashChange);
       clearTimeout(scrollTimeout);
     };
-  }, [lastScrollY]);
+  }, [lastScrollY, navItems]);
 
   const scrollToSection = (sectionId, smooth = true) => {
     const element = document.getElementById(sectionId);

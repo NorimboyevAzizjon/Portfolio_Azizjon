@@ -9,7 +9,7 @@ const iconMap = {
    'fab fa-js-square': <FaJsSquare color="#F7DF1E" />, 
    'fab fa-react': <FaReact color="#61DAFB" />, 
    'fas fa-bolt': <FaBolt color="#000" />, 
-   'fas fa-code': <FaCode color="#3178C6" />, 
+  'fas fa-code': <FaCode color="#3178C6" />, 
    'fab fa-sass': <FaSass color="#CC6699" />, 
   'fab fa-redux': <SiRedux color="#764ABC" />, 
   'fab fa-figma': <FaFigma color="#A259FF" />, 
@@ -25,7 +25,8 @@ const iconMap = {
   'fas fa-briefcase': <FaBriefcase />, 
   'fas fa-project-diagram': <FaProjectDiagram />, 
   'fas fa-users': <FaUsers />, 
-  'fas fa-code': <FaCode />,
+  // eslint-disable-next-line no-dupe-keys
+  // Duplicate removed: 'fas fa-code'
   'fas fa-chart-line': <FaChartLine />, 
   'fas fa-calendar-alt': <FaCalendarAlt />,
   'fas fa-info-circle': <FaInfoCircle />, 
