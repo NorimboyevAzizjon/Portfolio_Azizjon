@@ -118,37 +118,43 @@
   min-height: 100vh;
   display: flex;
   align-items: center;
-  background: linear-gradient(135deg, #0A1929 0%, #1A2C42 50%, #2A1E5C 100%);
+  background: linear-gradient(120deg, #0a192f 0%, #1a2c42 60%, #2a1e5c 100%);
   position: relative;
   overflow: hidden;
-  padding: 0 20px;
+  padding: 0 0 0 40px;
 }
 
 .content {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 60px;
   width: 100%;
+  min-height: 600px;
 }
 
 .textSection {
   flex: 1;
-  max-width: 650px;
+  max-width: 480px;
   position: relative;
   z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  min-height: 500px;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .greeting {
-  font-size: 28px;
-  color: #00CED1;
-  font-weight: 600;
-  margin-bottom: 15px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
+  font-size: 44px;
+  color: #00e6d0;
+  font-weight: 800;
+  margin-bottom: 18px;
+  line-height: 1.1;
+  letter-spacing: 0.5px;
 }
 
 .greetingIcon {
@@ -181,27 +187,32 @@
 }
 
 .description {
-  font-size: 20px;
-  color: #94A3B8;
-  line-height: 1.8;
-  margin-bottom: 45px;
-  max-width: 550px;
+  font-size: 22px;
+  color: #e0e6f0;
+  line-height: 1.7;
+  margin-bottom: 38px;
+  font-weight: 500;
+  max-width: 420px;
 }
 
 .cvButton {
   padding: 18px 45px;
-  background: linear-gradient(135deg, #8A2BE2 0%, #6A0DAD 100%);
-  color: white;
+  background: linear-gradient(135deg, #a259f7 0%, #7c3aed 100%);
+  color: #fff;
   border: none;
   border-radius: 50px;
-  font-size: 18px;
-  font-weight: 600;
+  font-size: 22px;
+  font-weight: 700;
   cursor: pointer;
   display: flex;
   align-items: center;
   gap: 12px;
   transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   box-shadow: 0 8px 30px rgba(138, 43, 226, 0.4);
+  margin-top: 30px;
+  margin-bottom: 10px;
+  align-self: flex-start;
+  box-shadow: 0 0 32px 0 #7c3aed55;
 }
 
 .cvButton:hover {
@@ -213,22 +224,25 @@
 .imageSection {
   flex: 1;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-end;
+  align-items: flex-end;
+  min-width: 350px;
+  margin-right: 40px;
 }
 
 .avatarContainer {
-  width: 550px;
-  height: 450px;
-  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-  background: linear-gradient(135deg, #8A2BE2, #00CED1);
+  width: 480px;
+  height: 480px;
+  border-radius: 50%;
+  background: linear-gradient(120deg, #ff6a3d 0%, #ffb86c 100%);
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 30px 80px rgba(138, 43, 226, 0.4);
-  animation: morphing 15s infinite ease-in-out;
+  box-shadow: 0 30px 80px rgba(255, 186, 108, 0.18);
+  border: 12px solid #38bdf8;
+  margin-top: 0;
 }
 
 .avatar-image {
@@ -241,40 +255,45 @@
 }
 
 .avatar {
-  width: 92%;
-  height: 92%;
-  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
   object-fit: cover;
-  border: 12px solid rgba(255, 255, 255, 0.1);
   filter: brightness(1.05) contrast(1.1);
+  border: none;
 }
 
 /* STATISTIKALAR - BIR QATORDA */
 .statistikalar {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 40px;
+  justify-content: flex-start;
+  align-items: flex-end;
+  gap: 120px;
   margin-top: 60px;
   width: 100%;
+  margin-left: 0;
 }
 
 .statItem {
   text-align: center;
-  flex: 1;
+  min-width: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .statRaqam {
-  font-size: 42px;
+  font-size: 54px;
   font-weight: 800;
-  color: #00CED1;
+  color: #00e6d0;
   margin-bottom: 8px;
 }
 
 .statMatn {
-  font-size: 17px;
-  color: #94A3B8;
+  font-size: 20px;
+  color: #e0e6f0;
   font-weight: 500;
+  margin-top: 8px;
 }
 
 /* RESPONSIVE MEDIA QUERIES */
