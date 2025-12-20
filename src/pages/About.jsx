@@ -102,7 +102,7 @@ const About = () => {
         degree: 'Onlayin Platforma',
         institution: 'Ustoz AI',
         period: '2025',
-        description: 'Premium, Asosiy, Kurslar, Oʻyinlar, AI va suniy intellektlar',
+        description: 'AI (suniy intellektlar)',
         icon: 'fas fa-robot',
         link: 'https://ustoz.ai/',
         type: 'online'
@@ -157,7 +157,6 @@ const About = () => {
       <div className={styles.header}>
         <div className={styles.titleWrapper}>
           <h1 className={styles.title}>
-            <span className={styles.titleIcon}>👨‍💻</span>
             Men Haqimda
           </h1>
           <div className={styles.titleUnderline}></div>
@@ -179,7 +178,7 @@ const About = () => {
           onClick={() => setActiveSection('education')}
         >
           <i className="fas fa-graduation-cap"></i>
-          Ta'lim & Sertifikatlar
+          Ta'lim 
         </button>
         
         <button 
@@ -268,53 +267,6 @@ const About = () => {
               ))}
             </div>
 
-            {/* Sertifikatlar qismi */}
-            <div className={styles.certificatesSection}>
-              <h3 className={styles.certificatesTitle}>
-                <i className="fas fa-award"></i>
-                Sertifikatlar
-              </h3>
-              <div className={styles.certificatesGrid}>
-                <div className={styles.certificateCard}>
-                  <div className={styles.certificateIcon}>
-                    <i className="fab fa-react"></i>
-                  </div>
-                  <div className={styles.certificateContent}>
-                    <div className={styles.certificateName}>React.js Development</div>
-                    <div className={styles.certificateOrg}>Mohirdev, 2025</div>
-                    <div className={styles.certificateLink} onClick={() => window.open('https://mohirdev.uz/', '_blank')}>
-                      Ko'rish
-                    </div>
-                  </div>
-                </div>
-                
-                <div className={styles.certificateCard}>
-                  <div className={styles.certificateIcon}>
-                    <i className="fab fa-js"></i>
-                  </div>
-                  <div className={styles.certificateContent}>
-                    <div className={styles.certificateName}>JavaScript Advanced</div>
-                    <div className={styles.certificateOrg}>Coursera, 2024</div>
-                    <div className={styles.certificateLink} onClick={() => window.open('https://www.coursera.org/', '_blank')}>
-                      Ko'rish
-                    </div>
-                  </div>
-                </div>
-                
-                <div className={styles.certificateCard}>
-                  <div className={styles.certificateIcon}>
-                    <i className="fas fa-code"></i>
-                  </div>
-                  <div className={styles.certificateContent}>
-                    <div className={styles.certificateName}>Frontend Development</div>
-                    <div className={styles.certificateOrg}>Najot Ta'lim, 2025</div>
-                    <div className={styles.certificateLink} onClick={() => window.open('https://najottalim.uz/', '_blank')}>
-                      Ko'rish
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         )}
 
