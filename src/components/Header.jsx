@@ -3,6 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { NavLink } from 'react-router-dom';
 import styles from './Header.module.css';
+import { FaHome, FaUser, FaBriefcase, FaEnvelope } from 'react-icons/fa';
 
 const Header = () => {
   // const [activeSection, setActiveSection] = useState('bosh-sahifa');
@@ -17,28 +18,28 @@ const Header = () => {
     { 
       id: 'bosh-sahifa', 
       label: 'Bosh Sahifa', 
-      icon: 'fas fa-home',
+      icon: <FaHome className={styles.statIcon} />, 
       color: '#FF6B35',
       path: '/'
     },
     { 
       id: 'haqimda', 
       label: 'Haqimda', 
-      icon: 'fas fa-user',
+      icon: <FaUser className={styles.statIcon} />, 
       color: '#00CED1',
       path: '/haqimda'
     },
     { 
       id: 'portfolio', 
       label: 'Portfolio', 
-      icon: 'fas fa-briefcase',
+      icon: <FaBriefcase className={styles.statIcon} />, 
       color: '#8A2BE2',
       path: '/portfolio'
     },
     { 
       id: 'aloqa', 
       label: 'Aloqa', 
-      icon: 'fas fa-envelope',
+      icon: <FaEnvelope className={styles.statIcon} />, 
       color: '#4ADE80',
       path: '/aloqa'
     }
@@ -221,7 +222,7 @@ const Header = () => {
                   variants={iconVariants}
                 >
                   <div className={styles.iconCircle}>
-                    <i className={`${item.icon} ${styles.statIcon}`}></i>
+                    {item.icon}
                   </div>
                 </motion.div>
                 {/* Label */}

@@ -8,18 +8,17 @@ const Home = () => {
       <div className={styles.content}>
         <div className={styles.textSection}>
           <div className={styles.greeting}>
-            Salom, Azizjonman
+                Salom, Azizjonman
           </div>
           <div className={styles.description}>
-            <div>Yangi texnologiyalar va kreativ yondashuvlar orqali</div>
-            <div>har bir loyihaga jon va qiymat qo‘shaman</div>
+                <div>Innovatsion texnologiyalar orqali</div>
+                <div>har bir loyihaga ajoyib yechimlar yarataman</div>
           </div>
           <button 
             className={styles.cvButton}
-            aria-label="CV yuklab olish"
+            aria-label="Azizjonning CV faylini yangi oynada yuklab olish"
             onClick={() => window.open('/CV_Azizjon.pdf', '_blank')}
           >
-            <i className="fas fa-download"></i>
             CV Yuklab Olish
           </button>
         </div>
@@ -27,9 +26,10 @@ const Home = () => {
           <div className={styles.avatarContainer}>
             <img 
               src={imgAzizjon}
-              alt="Azizjon" 
+              alt="Azizjon Norimboyev portret rasmi" 
               className={styles.avatar}
               loading="lazy"
+              aria-label="Azizjon Norimboyev portret rasmi"
             />
           </div>
         </div>

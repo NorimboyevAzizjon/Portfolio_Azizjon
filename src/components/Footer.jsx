@@ -1,17 +1,18 @@
 import React from "react";
 import { useNavigate } from 'react-router-dom';
 import styles from "./Footer.module.css";
+import { FaGithub, FaLinkedin, FaTelegram, FaInstagram, FaTwitter, FaArrowUp } from 'react-icons/fa';
 
 const Footer = () => {
   const joriyYil = new Date().getFullYear();
   const navigate = useNavigate();
 
   const socialLinks = [
-    { icon: "fab fa-github", label: "GitHub", url: "https://github.com/NorimboyevAzizjon", color: "#F0F6FC" },
-    { icon: "fab fa-linkedin", label: "LinkedIn", url: "https://www.linkedin.com/in/azizjon-norimboyev-dev", color: "#0077B5" },
-    { icon: "fab fa-telegram", label: "Telegram", url: "https://t.me/AzizjonNorimboyev", color: "#26A5E4" },
-    { icon: "fab fa-instagram", label: "Instagram", url: "https://instagram.com/azizjondev_", color: "#E4405F" },
-    { icon: "fab fa-twitter", label: "Twitter", url: "https://twitter.com/azizjondev", color: "#1DA1F2" }
+    { icon: <FaGithub />, label: "GitHub", url: "https://github.com/NorimboyevAzizjon", color: "#F0F6FC" },
+    { icon: <FaLinkedin />, label: "LinkedIn", url: "https://www.linkedin.com/in/azizjon-norimboyev-dev", color: "#0077B5" },
+    { icon: <FaTelegram />, label: "Telegram", url: "https://t.me/AzizjonNorimboyev", color: "#26A5E4" },
+    { icon: <FaInstagram />, label: "Instagram", url: "https://instagram.com/azizjondev_", color: "#E4405F" },
+    { icon: <FaTwitter />, label: "Twitter", url: "https://twitter.com/azizjondev", color: "#1DA1F2" }
   ];
 
   const footerLinks = [
@@ -58,7 +59,7 @@ const Footer = () => {
                   style={{ '--social-color': social.color }}
                   aria-label={social.label}
                 >
-                  <i className={social.icon}></i>
+                  {social.icon}
                   <div className={styles.tooltip}>{social.label}</div>
                 </a>
               ))}
@@ -78,7 +79,7 @@ const Footer = () => {
           </div>
 
           <div className={styles.backToTop} onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-            <i className="fas fa-arrow-up"></i>
+            <FaArrowUp />
             Yuqoriga
           </div>
         </div>

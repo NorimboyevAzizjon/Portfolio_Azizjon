@@ -1,6 +1,38 @@
-
 import React, { useState, useEffect } from 'react';
 import styles from './About.module.css';
+import { FaHtml5, FaCss3Alt, FaJsSquare, FaReact, FaBolt, FaCode, FaSass, FaFigma, FaGitAlt, FaWind, FaBootstrap, FaUniversity, FaGraduationCap, FaLaptopCode, FaGlobe, FaRobot, FaBriefcase, FaProjectDiagram, FaUsers, FaChartLine, FaExternalLinkAlt, FaCalendarAlt, FaInfoCircle, FaPaperPlane } from 'react-icons/fa';
+import { SiTypescript, SiTailwindcss, SiRedux } from 'react-icons/si';
+// Icon mapping for skills, education, stats
+const iconMap = {
+  'fab fa-html5': <FaHtml5 color="#E44D26" />,
+   'fab fa-css3-alt': <FaCss3Alt color="#264DE4" />, 
+   'fab fa-js-square': <FaJsSquare color="#F7DF1E" />, 
+   'fab fa-react': <FaReact color="#61DAFB" />, 
+   'fas fa-bolt': <FaBolt color="#000" />, 
+   'fas fa-code': <FaCode color="#3178C6" />, 
+   'fab fa-sass': <FaSass color="#CC6699" />, 
+  'fab fa-redux': <SiRedux color="#764ABC" />, 
+  'fab fa-figma': <FaFigma color="#A259FF" />, 
+  'fab fa-git-alt': <FaGitAlt color="#F05032" />, 
+  'fas fa-wind': <FaWind color="#38BDF8" />, 
+  'fab fa-bootstrap': <FaBootstrap color="#7952B3" />, 
+  'fas fa-external-link-alt': <FaExternalLinkAlt />, 
+  'fas fa-university': <FaUniversity />, 
+  'fas fa-graduation-cap': <FaGraduationCap />,
+  'fas fa-laptop-code': <FaLaptopCode />, 
+  'fas fa-globe': <FaGlobe />, 
+  'fas fa-robot': <FaRobot />, 
+  'fas fa-briefcase': <FaBriefcase />, 
+  'fas fa-project-diagram': <FaProjectDiagram />, 
+  'fas fa-users': <FaUsers />, 
+  'fas fa-code': <FaCode />,
+  'fas fa-chart-line': <FaChartLine />, 
+  'fas fa-calendar-alt': <FaCalendarAlt />,
+  'fas fa-info-circle': <FaInfoCircle />, 
+  'fab fa-github': <FaGitAlt />, 
+  'fab fa-linkedin': <FaUsers />, 
+  'fab fa-twitter': <FaUsers />
+};
 
 const About = () => {
   const [activeSection, setActiveSection] = useState('skills');
@@ -218,25 +250,28 @@ const About = () => {
         <button 
           className={`${styles.tab} ${activeSection === 'skills' ? styles.activeTab : ''}`}
           onClick={() => setActiveSection('skills')}
+          aria-label="Texnik mahorat bo‘limini ko‘rsatish"
         >
-          <i className="fas fa-code"></i>
+          <FaCode />
           Texnik Mahorat
         </button>
         
         <button 
           className={`${styles.tab} ${activeSection === 'education' ? styles.activeTab : ''}`}
           onClick={() => setActiveSection('education')}
+          aria-label="Ta'lim bo‘limini ko‘rsatish"
         >
-          <i className="fas fa-graduation-cap"></i>
+          <FaGraduationCap />
           Ta'lim 
         </button>
         
         <button 
           className={`${styles.tab} ${activeSection === 'stats' ? styles.activeTab : ''}`}
           onClick={() => setActiveSection('stats')}
+          aria-label="Statistika bo‘limini ko‘rsatish"
         >
-          <i className="fas fa-chart-line"></i>
-          Statistika
+          <FaChartLine />
+          Statistika         
         </button>
       </div>
 
@@ -252,10 +287,14 @@ const About = () => {
                   className={styles.skillCard}
                   onClick={() => handleSkillClick(skill.link)}
                   style={{ '--skill-color': skill.color }}
+                  tabIndex={0}
+                  aria-label={`${skill.name} haqida batafsil ma'lumot (yangi oynada ochiladi)`}
+                  role="button"
+                  onKeyPress={e => { if (e.key === 'Enter') handleSkillClick(skill.link); }}
                 >
                   <div className={styles.skillHeader}>
                     <div className={styles.skillIcon}>
-                      <i className={skill.icon}></i>
+                      {iconMap[skill.icon] || <FaCode />}
                     </div>
                     <div className={styles.skillInfo}>
                       <h3 className={styles.skillName}>{skill.name}</h3>
@@ -263,7 +302,7 @@ const About = () => {
                     </div>
                     <div className={styles.skillLevel}>
                       <span>{skill.level}%</span>
-                      <i className="fas fa-external-link-alt"></i>
+                      <FaExternalLinkAlt />
                     </div>
                   </div>
                   <div className={styles.progressContainer}>
@@ -287,28 +326,32 @@ const About = () => {
                   key={index}
                   className={`${styles.educationCard} ${styles[edu.type]}`}
                   onClick={() => handleEducationClick(edu.link)}
+                  tabIndex={0}
+                  aria-label={`${edu.degree} - ${edu.institution} (yangi oynada ochiladi)`}
+                  role="button"
+                  onKeyPress={e => { if (e.key === 'Enter') handleEducationClick(edu.link); }}
                 >
                   <div className={styles.eduIcon}>
-                    <i className={edu.icon}></i>
+                    {iconMap[edu.icon] || <FaGraduationCap />}
                   </div>
                   <div className={styles.eduContent}>
                     <div className={styles.eduHeader}>
                       <h3 className={styles.eduDegree}>{edu.degree}</h3>
                       <div className={styles.eduLink}>
-                        <i className="fas fa-external-link-alt"></i>
+                        <FaExternalLinkAlt />
                       </div>
                     </div>
                     <p className={styles.eduInstitution}>
-                      <i className="fas fa-university"></i>
+                      <FaUniversity />
                       {edu.institution}
                     </p>
                     <div className={styles.eduFooter}>
                       <span className={styles.eduPeriod}>
-                        <i className="fas fa-calendar-alt"></i>
+                        <FaCalendarAlt />
                         {edu.period}
                       </span>
                       <span className={styles.eduDescription}>
-                        <i className="fas fa-info-circle"></i>
+                        <FaInfoCircle />
                         {edu.description}
                       </span>
                     </div>
@@ -331,7 +374,7 @@ const About = () => {
                   style={{ '--stat-color': stat.color }}
                 >
                   <div className={styles.statIcon}>
-                    <i className={stat.icon}></i>
+                    {iconMap[stat.icon] || <FaCode />}
                   </div>
                   <div className={styles.statContent}>
                     <div className={styles.statNumber}>{stat.number}</div>
@@ -359,8 +402,9 @@ const About = () => {
               contactSection.scrollIntoView({ behavior: 'smooth' });
             }
           }}
+          aria-label="Aloqa bo‘limiga o'tish"
         >
-          <i className="fas fa-paper-plane"></i>
+          <FaPaperPlane />
           Bog'lanish
         </button>
       </div>

@@ -167,9 +167,9 @@ const Portfolio = () => {
   };
 
   return (
-    <div className={`${styles.portfolioContainer} fade-in`} id="portfolio">
+    <div className={`${styles.portfolioContainer} fade-in`} id="portfolio" aria-label="Portfolio sahifasi">
       <div className={styles.header}>
-        <h1 className={styles.mainTitle}>
+        <h1 className={styles.mainTitle} aria-label="Portfolio sarlavhasi">
           PORTFOLIO
           <div className={styles.underline}></div>
         </h1>
@@ -177,7 +177,7 @@ const Portfolio = () => {
       </div>
 
       {/* FILTR VA TOIFALAR */}
-      <div className={styles.filtersContainer}>
+      <div className={styles.filtersContainer} aria-label="Portfolio filtr va toifalar">
         <div className={styles.categoriesContainer}>
           {toifalar.map((toifa) => (
             <button

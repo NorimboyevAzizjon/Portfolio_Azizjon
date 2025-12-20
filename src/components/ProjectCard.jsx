@@ -1,5 +1,14 @@
 import React, { useState } from 'react';
 import styles from './ProjectCard.module.css';
+import { FaExternalLinkAlt, FaGithub, FaCode, FaReact, FaNodeJs, FaJs, FaCss3Alt, FaPlayCircle } from 'react-icons/fa';
+// Texnologiya nomi => icon mapping
+const techIconMap = {
+  'React': <FaReact color="#61DBFB" />,
+  'Node': <FaNodeJs color="#3C873A" />,
+  'JS': <FaJs color="#F7DF1E" />,
+  'CSS': <FaCss3Alt color="#264de4" />,
+  'Redux': <FaCode color="#764abc" />,
+};
 
 const ProjectCard = ({ 
   sarlavha, 
@@ -54,7 +63,7 @@ const ProjectCard = ({
                 className={styles.overlayBtn}
                 aria-label={`${sarlavha} loyihasining jonli demosini ko'rish`}
               >
-                <i className="fas fa-external-link-alt"></i>
+                <FaExternalLinkAlt />
                 <span className={styles.btnLabel}>Demo</span>
               </a>
             )}
@@ -66,7 +75,7 @@ const ProjectCard = ({
                 className={styles.overlayBtn}
                 aria-label={`${sarlavha} loyihasining GitHub kodini ko'rish`}
               >
-                <i className="fab fa-github"></i>
+                <FaGithub />
                 <span className={styles.btnLabel}>Kod</span>
               </a>
             )}
@@ -76,7 +85,7 @@ const ProjectCard = ({
         <div className={`${styles.techBadges} ${isHovered ? styles.visible : ''}`}>
           {texnologiyalar.slice(0, 3).map((tex, index) => (
             <span key={index} className={styles.techBadge}>
-              {tex}
+              {techIconMap[Object.keys(techIconMap).find(key => tex.includes(key))] || <FaCode />} {tex}
             </span>
           ))}
           {texnologiyalar.length > 3 && (
@@ -91,7 +100,7 @@ const ProjectCard = ({
         <header className={styles.header}>
           <h3 className={styles.title}>{sarlavha}</h3>
           <div className={styles.projectType}>
-            <i className="fas fa-code"></i>
+            <FaCode />
             <span>Web Dastur</span>
           </div>
         </header>
@@ -106,13 +115,7 @@ const ProjectCard = ({
                 className={styles.techTag}
                 title={tex}
               >
-                {tex.includes('React') && <i className="fab fa-react"></i>}
-                {tex.includes('Node') && <i className="fab fa-node-js"></i>}
-                {tex.includes('JS') && <i className="fab fa-js"></i>}
-                {tex.includes('CSS') && <i className="fab fa-css3-alt"></i>}
-                {!tex.includes('React') && !tex.includes('Node') && 
-                 !tex.includes('JS') && !tex.includes('CSS') && 
-                 <i className="fas fa-code"></i>}
+                {techIconMap[Object.keys(techIconMap).find(key => tex.includes(key))] || <FaCode />}
                 <span className={styles.techName}>{tex}</span>
               </span>
             ))}
@@ -127,7 +130,7 @@ const ProjectCard = ({
                 className={styles.demoBtn}
                 aria-label={`${sarlavha} loyihasining jonli demosini ochish`}
               >
-                <i className="fas fa-play-circle"></i>
+                <FaPlayCircle />
                 Demo
               </a>
             )}
@@ -139,7 +142,7 @@ const ProjectCard = ({
                 className={styles.codeBtn}
                 aria-label={`${sarlavha} loyihasining GitHub repositorysini ochish`}
               >
-                <i className="fab fa-github"></i>
+                <FaGithub />
                 Kod
               </a>
             )}

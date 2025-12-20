@@ -1,6 +1,7 @@
 // Contact.jsx - TO'LIQ VERSIYA
 import React, { useState } from 'react';
 import styles from './Contact.module.css';
+import { FaMapMarkerAlt, FaEnvelope, FaPhoneAlt, FaPaperPlane, FaCommentAlt, FaUser, FaTag, FaEdit, FaSpinner, FaCheckCircle, FaAddressBook, FaExternalLinkAlt } from 'react-icons/fa';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -16,25 +17,13 @@ const Contact = () => {
   // Aloqa ma'lumotlari
   const contactInfo = [
     {
-      icon: 'fas fa-map-marker-alt',
-      label: 'Manzil',
-      value: 'Toshkent shahri, Yunusobod tumani',
-      color: '#FF6B35',
-      action: 'https://goo.gl/maps/2Q2Q2Q2Q2Q2Q2Q2Q8' // Google Maps link (o‘zgartirishingiz mumkin)
+      icon: <FaMapMarkerAlt />, label: 'Manzil', value: 'Toshkent shahri, Yunusobod tumani', color: '#FF6B35', action: 'https://goo.gl/maps/2Q2Q2Q2Q2Q2Q2Q2Q8'
     },
     {
-      icon: 'fas fa-envelope',
-      label: 'Email',
-      value: 'norimboyevazizjon29@gmail.com',
-      color: '#8A2BE2',
-      action: 'mailto:azizjon@gmail.com'
+      icon: <FaEnvelope />, label: 'Email', value: 'norimboyevazizjon29@gmail.com', color: '#8A2BE2', action: 'mailto:azizjon@gmail.com'
     },
     {
-      icon: 'fas fa-phone-alt',
-      label: 'Telefon',
-      value: '+998 93 364 20 30',
-      color: '#00CED1',
-      action: 'tel:+998901234567'
+      icon: <FaPhoneAlt />, label: 'Telefon', value: '+998 93 364 20 30', color: '#00CED1', action: 'tel:+998901234567'
     },
   ];
 
@@ -78,8 +67,8 @@ const Contact = () => {
       
       {/* Sarlavha qismi */}
       <div className={styles.header}>
-        <h1 className={styles.title}>
-          <i className="fas fa-paper-plane" style={{marginRight: '15px', color: '#FF6B35'}}></i>
+        <h1 className={styles.title} aria-label="Bog'lanish sarlavhasi">
+          <FaPaperPlane style={{marginRight: '15px', color: '#FF6B35'}} />
           BOG'LANISH
           <div className={styles.titleUnderline}></div>
         </h1>
@@ -90,15 +79,15 @@ const Contact = () => {
         
         {/* FORM QISMI (Chap ustun) */}
         <div className={styles.formSection}>
-          <h2 className={styles.sectionTitle}>
-            <i className="fas fa-comment-alt" style={{color: '#FF6B35'}}></i>
+          <h2 className={styles.sectionTitle} aria-label="Xabar yuborish bo‘limi">
+            <FaCommentAlt style={{color: '#FF6B35'}} />
             XABAR YUBORISH
           </h2>
           
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} aria-label="Aloqa formasi">
             <div className={styles.formGroup}>
               <label className={styles.label} htmlFor="ism">
-                <i className="fas fa-user" style={{marginRight: '8px'}}></i>
+                <FaUser style={{marginRight: '8px'}} />
                 ISMINGIZ
               </label>
               <input
@@ -110,12 +99,13 @@ const Contact = () => {
                 className={styles.input}
                 placeholder="Ismingizni kiriting"
                 required
+                aria-label="Ismingiz"
               />
             </div>
             
             <div className={styles.formGroup}>
               <label className={styles.label} htmlFor="email">
-                <i className="fas fa-envelope" style={{marginRight: '8px'}}></i>
+                <FaEnvelope style={{marginRight: '8px'}} />
                 EMAIL MANZILINGIZ
               </label>
               <input
@@ -127,12 +117,13 @@ const Contact = () => {
                 className={styles.input}
                 placeholder="example@gmail.com"
                 required
+                aria-label="Email manzilingiz"
               />
             </div>
             
             <div className={styles.formGroup}>
               <label className={styles.label} htmlFor="mavzu">
-                <i className="fas fa-tag" style={{marginRight: '8px'}}></i>
+                <FaTag style={{marginRight: '8px'}} />
                 MAVZU
               </label>
               <input
@@ -144,12 +135,13 @@ const Contact = () => {
                 className={styles.input}
                 placeholder="Xabar mavzusi"
                 required
+                aria-label="Xabar mavzusi"
               />
             </div>
             
             <div className={styles.formGroup}>
               <label className={styles.label} htmlFor="xabar">
-                <i className="fas fa-edit" style={{marginRight: '8px'}}></i>
+                <FaEdit style={{marginRight: '8px'}} />
                 XABAR
               </label>
               <textarea
@@ -161,6 +153,7 @@ const Contact = () => {
                 placeholder="Xabaringizni bu yerga yozing..."
                 rows="5"
                 required
+                aria-label="Xabar matni"
               ></textarea>
             </div>
             
@@ -168,31 +161,32 @@ const Contact = () => {
               type="submit" 
               className={styles.submitButton}
               disabled={isSubmitting}
+              aria-label="Xabar yuborish tugmasi"
             >
               {isSubmitting ? (
-                <>
-                  <i className="fas fa-spinner fa-spin"></i>
-                  YUBORILMOQDA...
-                </>
-              ) : submitSuccess ? (
-                <>
-                  <i className="fas fa-check-circle"></i>
-                  MUVAFFAQIYATLI YUBORILDI!
-                </>
-              ) : (
-                <>
-                  <i className="fas fa-paper-plane"></i>
-                  XABAR YUBORISH
-                </>
-              )}
+                  <>
+                    <FaSpinner className="fa-spin" />
+                    YUBORILMOQDA...
+                  </>
+                ) : submitSuccess ? (
+                  <>
+                    <FaCheckCircle />
+                    MUVAFFAQIYATLI YUBORILDI!
+                  </>
+                ) : (
+                  <>
+                    <FaPaperPlane />
+                    XABAR YUBORISH
+                  </>
+                )}
             </button>
           </form>
         </div>
 
         {/* MA'LUMOT QISMI (O'ng ustun) */}
-        <div className={styles.infoSection}>
-          <h2 className={styles.sectionTitle}>
-            <i className="fas fa-address-book" style={{color: '#8A2BE2'}}></i>
+        <div className={styles.infoSection} aria-label="Aloqa ma'lumotlari bo‘limi">
+          <h2 className={styles.sectionTitle} aria-label="Aloqa ma'lumotlari sarlavhasi">
+            <FaAddressBook style={{color: '#8A2BE2'}} />
             ALOQA MA'LUMOTLARI
           </h2>
           
@@ -204,6 +198,7 @@ const Contact = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.infoLink}
+                aria-label={`${info.label}: ${info.value} (yangi oynada ochiladi)`}
               >
                 <div 
                   className={styles.infoItem}
@@ -220,17 +215,17 @@ const Contact = () => {
                     className={styles.infoIcon}
                     style={{background: `linear-gradient(135deg, ${info.color}, ${info.color}80)`}}
                   >
-                    <i className={info.icon}></i>
+                    {info.icon}
                   </div>
                   <div className={styles.infoContent}>
                     <div className={styles.infoLabel}>{info.label}</div>
                     <div className={styles.infoValue}>{info.value}</div>
                   </div>
-                  <i className="fas fa-external-link-alt" style={{
+                  <FaExternalLinkAlt style={{
                     color: info.color,
                     opacity: 0.7,
                     fontSize: '14px'
-                  }}></i>
+                  }} />
                 </div>
               </a>
             ) : (
@@ -243,7 +238,7 @@ const Contact = () => {
                   className={styles.infoIcon}
                   style={{background: `linear-gradient(135deg, ${info.color}, ${info.color}80)`}}
                 >
-                  <i className={info.icon}></i>
+                  {info.icon}
                 </div>
                 <div className={styles.infoContent}>
                   <div className={styles.infoLabel}>{info.label}</div>
