@@ -197,16 +197,7 @@ const Portfolio = () => {
           ))}
         </div>
 
-        {filtr === 'hamma' && (
-          <button 
-            className={`${styles.reactFilter} ${faqatReact ? styles.active : ''}`}
-            onClick={() => setFaqatReact(!faqatReact)}
-            aria-label={faqatReact ? 'Barcha loyihalarni ko\'rish' : 'Faqat React loyihalarini ko\'rish'}
-          >
-            <i className={`fab fa-react ${faqatReact ? 'fa-spin' : ''}`}></i>
-            {faqatReact ? 'Faqat React' : 'React loyihalar'}
-          </button>
-        )}
+        {/* React loyihalar tugmasi olib tashlandi */}
       </div>
 
       {/* LOYIHALAR QATORI */}
@@ -289,7 +280,6 @@ const Portfolio = () => {
           >
             <i className={`${stat.ikonka} ${styles.statIcon}`}></i>
 
-              <i className={`${stat.ikonka} ${styles.statIcon}`}></i>
 
             <div className={styles.statNumber}>{stat.raqam}</div>
             <div className={styles.statLabel}>{stat.yorliq}</div>

@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import styles from './About.module.css';
 
@@ -57,6 +58,55 @@ const About = () => {
         description: 'Type safety, Interfaces',
         icon: 'fas fa-code',
         link: 'https://www.typescriptlang.org/'
+      },
+      // Qo'shimcha frontend texnologiyalari
+      {
+        name: 'Sass/SCSS',
+        level: 78,
+        color: '#CC6699',
+        description: 'Nesting, Variables, Mixins',
+        icon: 'fab fa-sass',
+        link: 'https://sass-lang.com/'
+      },
+      {
+        name: 'Redux',
+        level: 75,
+        color: '#764ABC',
+        description: 'State Management, Toolkit',
+        icon: 'fab fa-redux',
+        link: 'https://redux.js.org/'
+      },
+      {
+        name: 'Figma',
+        level: 70,
+        color: '#A259FF',
+        description: 'UI/UX Dizayn, Prototyping',
+        icon: 'fab fa-figma',
+        link: 'https://figma.com/'
+      },
+      {
+        name: 'Git',
+        level: 85,
+        color: '#F05032',
+        description: 'Version Control, Branching',
+        icon: 'fab fa-git-alt',
+        link: 'https://git-scm.com/'
+      },
+            {
+        name: 'Tailwind CSS',
+        level: 77,
+        color: '#38BDF8',
+        description: 'Utility-first, Responsive Design',
+        icon: 'fas fa-wind',
+        link: 'https://tailwindcss.com/'
+      },
+      {
+        name: 'Bootstrap',
+        level: 73,
+        color: '#7952B3',
+        description: 'Grid System, Components',
+        icon: 'fab fa-bootstrap',
+        link: 'https://getbootstrap.com/'
       }
     ];
 
@@ -186,7 +236,7 @@ const About = () => {
           onClick={() => setActiveSection('stats')}
         >
           <i className="fas fa-chart-line"></i>
-          Statistika & Tajriba
+          Statistika
         </button>
       </div>
 
@@ -292,19 +342,6 @@ const About = () => {
               ))}
             </div>
             
-            <div className={styles.aboutText}>
-              <h3>Professional Tajriba</h3>
-              <p>
-                1+ yillik professional tajriba davomida turli xil loyihalarda ishladim.
-                Har bir loyihada yangi texnologiyalar va eng yaxshi amaliyotlarni o'rgandim.
-                Mijozlar bilan yaqin hamkorlik qilib, ularning ehtiyojlariga mos yechimlar yaratdim.
-              </p>
-              <p>
-                Mening asosiy maqsadim - foydalanuvchilar uchun qulay, tezkor va vizual jozibador
-                veb-ilovalar yaratish. Har bir loyihada kod sifati, perfomans va foydalanuvchi tajribasiga
-                alohida e'tibor qarataman.
-              </p>
-            </div>
           </div>
         )}
       </div>

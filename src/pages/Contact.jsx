@@ -15,29 +15,27 @@ const Contact = () => {
 
   // Aloqa ma'lumotlari
   const contactInfo = [
-    
-    { 
-  // const handleCVDownload = () => {
-  //   // CV yuklab olish logikasi
-  //   window.open('/CV_Azizjon.pdf', '_blank');
-  // };
+    {
+      icon: 'fas fa-map-marker-alt',
+      label: 'Manzil',
+      value: 'Toshkent shahri, Yunusobod tumani',
+      color: '#FF6B35',
+      action: 'https://goo.gl/maps/2Q2Q2Q2Q2Q2Q2Q2Q8' // Google Maps link (o‘zgartirishingiz mumkin)
     },
-    { 
+    {
       icon: 'fas fa-envelope',
       label: 'Email',
       value: 'norimboyevazizjon29@gmail.com',
       color: '#8A2BE2',
       action: 'mailto:azizjon@gmail.com'
     },
-    { 
+    {
       icon: 'fas fa-phone-alt',
       label: 'Telefon',
       value: '+998 93 364 20 30',
       color: '#00CED1',
       action: 'tel:+998901234567'
     },
-    
-    
   ];
 
   const handleChange = (e) => {
