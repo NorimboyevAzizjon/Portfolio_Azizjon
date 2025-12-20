@@ -1,11 +1,8 @@
-// Home.jsx - TO'LIQ VERSIYA (Inline style bilan)
 import React from 'react';
 import imgAzizjon from '../assets/images/photo_2025-12-02_17-16-43.jpg';
 import styles from './Home.module.css';
 
-
 const Home = () => {
-
   return (
     <div className={`${styles.container} fade-in`} id="bosh-sahifa">
       <div className={styles.content}>
@@ -52,7 +49,6 @@ const Home = () => {
           </div>
       </div>
     </div>
-   
   );
 };
 
