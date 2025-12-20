@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from "./Footer.module.css";
-import { FaGithub, FaLinkedin, FaTelegram, FaInstagram, FaTwitter, FaArrowUp } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaTelegram, FaInstagram, FaTwitter, FaArrowUp, FaSun, FaMoon } from 'react-icons/fa';
 
 const Footer = () => {
+  const [theme, setTheme] = useState(() => {
+    // Check localStorage or default to dark
+    return localStorage.getItem('theme') || 'dark';
+  });
+
+  const [lang, setLang] = useState(() => {
+    return localStorage.getItem('lang') || 'uz';
+  });
   const joriyYil = new Date().getFullYear();
   const navigate = useNavigate();
 
@@ -22,6 +30,20 @@ const Footer = () => {
     { label: "Aloqa", action: () => navigate('/aloqa') },
     { label: "CV Yuklab Olish", action: () => window.open('/CV_Azizjon.pdf', '_blank') }
   ];
+
+  React.useEffect(() => {
+    document.body.classList.remove('light', 'dark');
+    document.body.classList.add(theme);
+    localStorage.setItem('theme', theme);
+  }, [theme]);
+
+  React.useEffect(() => {
+    localStorage.setItem('lang', lang);
+  }, [lang]);
+
+  const toggleTheme = () => {
+    setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'));
+  };
 
   return (
     <footer className={styles.footer}>
@@ -78,9 +100,35 @@ const Footer = () => {
             </p>
           </div>
 
-          <div className={styles.backToTop} onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-            <FaArrowUp />
-            Yuqoriga
+          <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
+            <div className={styles.backToTop} onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+              <FaArrowUp />
+              Yuqoriga
+            </div>
+            <div className={styles.langSwitcher}>
+              <button
+                className={`${styles.langBtn} ${lang === 'uz' ? styles.activeLang : ''}`}
+                onClick={() => setLang('uz')}
+                aria-label="O'zbekcha"
+              >uz</button>
+              <button
+                className={`${styles.langBtn} ${lang === 'en' ? styles.activeLang : ''}`}
+                onClick={() => setLang('en')}
+                aria-label="English"
+              >en</button>
+              <button
+                className={`${styles.langBtn} ${lang === 'ru' ? styles.activeLang : ''}`}
+                onClick={() => setLang('ru')}
+                aria-label="Русский"
+              >ru</button>
+            </div>
+            <button
+              className={styles.themeToggleBtn}
+              onClick={toggleTheme}
+              aria-label={theme === 'dark' ? 'Oq rejim' : 'Qora rejim'}
+            >
+              {theme === 'dark' ? <FaSun style={{ color: '#FFA500' }} /> : <FaMoon style={{ color: '#222' }} />}
+            </button>
           </div>
         </div>
       </div>

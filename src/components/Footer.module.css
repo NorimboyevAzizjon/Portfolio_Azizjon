@@ -1,3 +1,83 @@
+.activeLang {
+  background: #8A2BE2 !important;
+  color: #fff !important;
+  border-color: #8A2BE2 !important;
+}
+.langSwitcher {
+  display: flex;
+  gap: 6px;
+}
+
+.langBtn {
+  background: #fff;
+  color: #222;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 4px 10px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.langBtn:hover {
+  background: #8A2BE2;
+  color: #fff;
+}
+.themeToggleBtn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #fff;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  cursor: pointer;
+  transition: box-shadow 0.2s, transform 0.2s, background 0.2s;
+  font-size: 1.3rem;
+}
+.themeToggleBtn:hover {
+  background: #222;
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+  transform: translateY(-2px) scale(1.08);
+}
+.whiteBtn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #fff;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  cursor: pointer;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.whiteBtn:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+  transform: translateY(-2px) scale(1.08);
+}
+
+.blackBtn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #222;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  cursor: pointer;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.blackBtn:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+  transform: translateY(-2px) scale(1.08);
+}
 /* Footer.module.css */
 
 .footer {
