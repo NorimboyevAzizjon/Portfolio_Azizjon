@@ -1,5 +1,6 @@
 // Contact.jsx - TO'LIQ VERSIYA
 import React, { useState } from 'react';
+import { useLanguage } from '../LanguageContext';
 import styles from './Contact.module.css';
 import { FaMapMarkerAlt, FaEnvelope, FaPhoneAlt, FaPaperPlane, FaCommentAlt, FaUser, FaTag, FaEdit, FaSpinner, FaCheckCircle, FaAddressBook, FaExternalLinkAlt } from 'react-icons/fa';
 
@@ -14,16 +15,17 @@ const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
 
+  const { t } = useLanguage();
   // Aloqa ma'lumotlari
   const contactInfo = [
     {
-      icon: <FaMapMarkerAlt />, label: 'Manzil', value: 'Toshkent shahri, Yunusobod tumani', color: '#FF6B35', action: 'https://goo.gl/maps/2Q2Q2Q2Q2Q2Q2Q2Q8'
+      icon: <FaMapMarkerAlt />, label: t('contactAddress'), value: 'Toshkent shahri, Yunusobod tumani', color: '#FF6B35', action: 'https://goo.gl/maps/2Q2Q2Q2Q2Q2Q2Q2Q8'
     },
     {
-      icon: <FaEnvelope />, label: 'Email', value: 'norimboyevazizjon29@gmail.com', color: '#8A2BE2', action: 'mailto:azizjon@gmail.com'
+      icon: <FaEnvelope />, label: t('contactEmail'), value: 'norimboyevazizjon29@gmail.com', color: '#8A2BE2', action: 'mailto:azizjon@gmail.com'
     },
     {
-      icon: <FaPhoneAlt />, label: 'Telefon', value: '+998 93 364 20 30', color: '#00CED1', action: 'tel:+998901234567'
+      icon: <FaPhoneAlt />, label: t('contactPhone'), value: '+998 93 364 20 30', color: '#00CED1', action: 'tel:+998901234567'
     },
   ];
 
@@ -64,9 +66,9 @@ const Contact = () => {
       
       {/* Sarlavha qismi */}
       <div className={styles.header}>
-        <h1 className={styles.title} aria-label="Bog'lanish sarlavhasi">
+        <h1 className={styles.title} aria-label={t('contactTitle') + ' sarlavhasi'}>
           <FaPaperPlane style={{marginRight: '15px', color: '#FF6B35'}} />
-          BOG'LANISH
+          {t('contactTitle').toUpperCase()}
           <div className={styles.titleUnderline}></div>
         </h1>
       </div>
@@ -76,16 +78,15 @@ const Contact = () => {
         
         {/* FORM QISMI (Chap ustun) */}
         <div className={styles.formSection}>
-          <h2 className={styles.sectionTitle} aria-label="Xabar yuborish bo‘limi">
+          <h2 className={styles.sectionTitle} aria-label={t('contactSendMessage') + ' bo‘limi'}>
             <FaCommentAlt style={{color: '#FF6B35'}} />
-            XABAR YUBORISH
+            {t('contactSendMessage').toUpperCase()}
           </h2>
-          
           <form onSubmit={handleSubmit} aria-label="Aloqa formasi">
             <div className={styles.formGroup}>
               <label className={styles.label} htmlFor="ism">
                 <FaUser style={{marginRight: '8px'}} />
-                ISMINGIZ
+                {t('contactName').toUpperCase()}
               </label>
               <input
                 type="text"
@@ -94,16 +95,15 @@ const Contact = () => {
                 value={formData.ism}
                 onChange={handleChange}
                 className={styles.input}
-                placeholder="Ismingizni kiriting"
+                placeholder={t('contactNamePlaceholder')}
                 required
-                aria-label="Ismingiz"
+                aria-label={t('contactName')}
               />
             </div>
-            
             <div className={styles.formGroup}>
               <label className={styles.label} htmlFor="email">
                 <FaEnvelope style={{marginRight: '8px'}} />
-                EMAIL MANZILINGIZ
+                {t('contactEmail').toUpperCase()}
               </label>
               <input
                 type="email"
@@ -112,16 +112,15 @@ const Contact = () => {
                 value={formData.email}
                 onChange={handleChange}
                 className={styles.input}
-                placeholder="example@gmail.com"
+                placeholder={t('contactEmailPlaceholder')}
                 required
-                aria-label="Email manzilingiz"
+                aria-label={t('contactEmail')}
               />
             </div>
-            
             <div className={styles.formGroup}>
               <label className={styles.label} htmlFor="mavzu">
                 <FaTag style={{marginRight: '8px'}} />
-                MAVZU
+                {t('contactSubject').toUpperCase()}
               </label>
               <input
                 type="text"
@@ -130,16 +129,15 @@ const Contact = () => {
                 value={formData.mavzu}
                 onChange={handleChange}
                 className={styles.input}
-                placeholder="Xabar mavzusi"
+                placeholder={t('contactSubject')}
                 required
-                aria-label="Xabar mavzusi"
+                aria-label={t('contactSubject')}
               />
             </div>
-            
             <div className={styles.formGroup}>
               <label className={styles.label} htmlFor="xabar">
                 <FaEdit style={{marginRight: '8px'}} />
-                XABAR
+                {t('contactMessage').toUpperCase()}
               </label>
               <textarea
                 id="xabar"
@@ -147,33 +145,32 @@ const Contact = () => {
                 value={formData.xabar}
                 onChange={handleChange}
                 className={styles.textarea}
-                placeholder="Xabaringizni bu yerga yozing..."
+                placeholder={t('contactMessage')}
                 rows="5"
                 required
-                aria-label="Xabar matni"
+                aria-label={t('contactMessage')}
               ></textarea>
             </div>
-            
             <button 
               type="submit" 
               className={styles.submitButton}
               disabled={isSubmitting}
-              aria-label="Xabar yuborish tugmasi"
+              aria-label={t('contactSendMessage') + ' tugmasi'}
             >
               {isSubmitting ? (
                   <>
                     <FaSpinner className="fa-spin" />
-                    YUBORILMOQDA...
+                    {t('contactSendMessage').toUpperCase()}...
                   </>
                 ) : submitSuccess ? (
                   <>
                     <FaCheckCircle />
-                    MUVAFFAQIYATLI YUBORILDI!
+                    {t('contactSendMessage').toUpperCase()}!
                   </>
                 ) : (
                   <>
                     <FaPaperPlane />
-                    XABAR YUBORISH
+                    {t('contactSendMessage').toUpperCase()}
                   </>
                 )}
             </button>
@@ -181,12 +178,11 @@ const Contact = () => {
         </div>
 
         {/* MA'LUMOT QISMI (O'ng ustun) */}
-        <div className={styles.infoSection} aria-label="Aloqa ma'lumotlari bo‘limi">
-          <h2 className={styles.sectionTitle} aria-label="Aloqa ma'lumotlari sarlavhasi">
+        <div className={styles.infoSection} aria-label={t('contactInfo') + ' bo‘limi'}>
+          <h2 className={styles.sectionTitle} aria-label={t('contactInfo') + ' sarlavhasi'}>
             <FaAddressBook style={{color: '#8A2BE2'}} />
-            ALOQA MA'LUMOTLARI
+            {t('contactInfo').toUpperCase()}
           </h2>
-          
           {contactInfo.map((info, index) => (
             info.action ? (
               <a
