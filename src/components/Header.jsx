@@ -1,7 +1,7 @@
 // src/components/Header.jsx - ZAMONAVIY VERSIYA
 import React, { useState, useEffect, useRef } from 'react';
-import { AnimatePresence } from 'framer-motion';
-import { motion } from 'framer-motion';
+import { useLanguage } from '../LanguageContext';
+import { AnimatePresence, motion } from 'framer-motion';
 import { NavLink } from 'react-router-dom';
 import styles from './Header.module.css';
 import { FaHome, FaUser, FaBriefcase, FaEnvelope } from 'react-icons/fa';
@@ -14,36 +14,37 @@ const Header = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const headerRef = useRef(null);
 
-  const navItems = [
+  const { lang, setLang, t } = useLanguage();
+  const navItems = React.useMemo(() => [
     { 
       id: 'bosh-sahifa', 
-      label: 'Bosh Sahifa', 
+      label: t('home'), 
       icon: <FaHome className={styles.statIcon} />, 
       color: '#FF6B35',
       path: '/'
     },
     { 
       id: 'haqimda', 
-      label: 'Haqimda', 
+      label: t('about'), 
       icon: <FaUser className={styles.statIcon} />, 
       color: '#00CED1',
       path: '/haqimda'
     },
     { 
       id: 'portfolio', 
-      label: 'Portfolio', 
+      label: t('portfolio'), 
       icon: <FaBriefcase className={styles.statIcon} />, 
       color: '#8A2BE2',
       path: '/portfolio'
     },
     { 
       id: 'aloqa', 
-      label: 'Aloqa', 
+      label: t('contact'), 
       icon: <FaEnvelope className={styles.statIcon} />, 
       color: '#4ADE80',
       path: '/aloqa'
     }
-  ];
+  ], [t]);
 
   // Mouse harakatini kuzatish
   useEffect(() => {
@@ -64,7 +65,7 @@ const Header = () => {
   }, []);
 
   // Scroll kuzatish
-  const [activeSection, setActiveSection] = useState('bosh-sahifa');
+  // const [activeSection, setActiveSection] = useState('bosh-sahifa');
   useEffect(() => {
     let scrollTimeout;
 
@@ -91,7 +92,7 @@ const Header = () => {
           const triggerPoint = windowHeight * 0.3;
 
           if (rect.top <= triggerPoint && rect.bottom >= triggerPoint) {
-            setActiveSection(navItems[i].id);
+            // setActiveSection(navItems[i].id);
             break;
           }
         }
@@ -138,7 +139,7 @@ const Header = () => {
         window.history.replaceState(null, null, `#${sectionId}`);
       }
       
-      setActiveSection(sectionId);
+      // setActiveSection(sectionId);
     }
   };
 
@@ -234,11 +235,27 @@ const Header = () => {
                 </motion.span>
                 {/* Hover effect */}
                 <div className={styles.hoverEffect} />
-                {/* Tooltip */}
-                {/* Tooltip faqat hoverda chiqadi, label ikki marta ko‘rinmaydi */}
               </motion.div>
             </NavLink>
           ))}
+          {/* Language switcher */}
+          <div className={styles.langSwitcher} style={{marginLeft: 24}}>
+            <button
+              className={`${styles.langBtn} ${lang === 'uz' ? styles.activeLang : ''}`}
+              onClick={() => setLang('uz')}
+              aria-label="O'zbekcha"
+            >uz</button>
+            <button
+              className={`${styles.langBtn} ${lang === 'en' ? styles.activeLang : ''}`}
+              onClick={() => setLang('en')}
+              aria-label="English"
+            >en</button>
+            <button
+              className={`${styles.langBtn} ${lang === 'ru' ? styles.activeLang : ''}`}
+              onClick={() => setLang('ru')}
+              aria-label="Русский"
+            >ru</button>
+          </div>
         </div>
         
         {/* Scroll progress indicator */}

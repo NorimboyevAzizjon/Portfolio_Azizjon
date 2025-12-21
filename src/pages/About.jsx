@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from 'react';
+import { useLanguage } from '../LanguageContext';
 import styles from './About.module.css';
 import { FaHtml5, FaCss3Alt, FaJsSquare, FaReact, FaBolt, FaCode, FaSass, FaFigma, FaGitAlt, FaWind, FaBootstrap, FaUniversity, FaGraduationCap, FaLaptopCode, FaGlobe, FaRobot, FaBriefcase, FaProjectDiagram, FaUsers, FaChartLine, FaExternalLinkAlt, FaCalendarAlt, FaInfoCircle, FaPaperPlane } from 'react-icons/fa';
 import { SiTypescript, SiTailwindcss, SiRedux } from 'react-icons/si';
+
 // Icon mapping for skills, education, stats
 const iconMap = {
   'fab fa-html5': <FaHtml5 color="#E44D26" />,
-   'fab fa-css3-alt': <FaCss3Alt color="#264DE4" />, 
-   'fab fa-js-square': <FaJsSquare color="#F7DF1E" />, 
-   'fab fa-react': <FaReact color="#61DAFB" />, 
-   'fas fa-bolt': <FaBolt color="#000" />, 
+  'fab fa-css3-alt': <FaCss3Alt color="#264DE4" />, 
+  'fab fa-js-square': <FaJsSquare color="#F7DF1E" />, 
+  'fab fa-react': <FaReact color="#61DAFB" />, 
+  'fas fa-bolt': <FaBolt color="#000" />, 
   'fas fa-code': <FaCode color="#3178C6" />, 
-   'fab fa-sass': <FaSass color="#CC6699" />, 
+  'fab fa-sass': <FaSass color="#CC6699" />, 
   'fab fa-redux': <SiRedux color="#764ABC" />, 
   'fab fa-figma': <FaFigma color="#A259FF" />, 
   'fab fa-git-alt': <FaGitAlt color="#F05032" />, 
@@ -25,8 +27,6 @@ const iconMap = {
   'fas fa-briefcase': <FaBriefcase />, 
   'fas fa-project-diagram': <FaProjectDiagram />, 
   'fas fa-users': <FaUsers />, 
-  // eslint-disable-next-line no-dupe-keys
-  // Duplicate removed: 'fas fa-code'
   'fas fa-chart-line': <FaChartLine />, 
   'fas fa-calendar-alt': <FaCalendarAlt />,
   'fas fa-info-circle': <FaInfoCircle />, 
@@ -40,6 +40,7 @@ const About = () => {
   const [skills, setSkills] = useState([]);
   const [education, setEducation] = useState([]);
   const [stats, setStats] = useState([]);
+  const { t } = useLanguage(); // t funksiyasini olish
 
   useEffect(() => {
     // Mahoratlar ro'yxati
@@ -125,7 +126,7 @@ const About = () => {
         icon: 'fab fa-git-alt',
         link: 'https://git-scm.com/'
       },
-            {
+      {
         name: 'Tailwind CSS',
         level: 77,
         color: '#38BDF8',
@@ -143,7 +144,7 @@ const About = () => {
       }
     ];
 
-    // Ta'lim tarixi - takrorlanishlarni olib tashladim
+    // Ta'lim tarixi
     const educationData = [
       {
         degree: 'Dasturiy injiniring',
@@ -235,13 +236,10 @@ const About = () => {
 
   return (
     <div className={`${styles.container} fade-in`} id="haqimda">
-      
       {/* Sarlavha qismi */}
       <div className={styles.header}>
         <div className={styles.titleWrapper}>
-          <h1 className={styles.title}>
-            Men Haqimda
-          </h1>
+          <h1 className={styles.title}>{t('aboutTitle')}</h1>
           <div className={styles.titleUnderline}></div>
         </div>
       </div>
@@ -251,28 +249,26 @@ const About = () => {
         <button 
           className={`${styles.tab} ${activeSection === 'skills' ? styles.activeTab : ''}`}
           onClick={() => setActiveSection('skills')}
-          aria-label="Texnik mahorat bo‘limini ko‘rsatish"
+          aria-label={t('aboutTabSkillsAria')}
         >
           <FaCode />
-          Texnik Mahorat
+          {t('aboutTabSkills')}
         </button>
-        
         <button 
           className={`${styles.tab} ${activeSection === 'education' ? styles.activeTab : ''}`}
           onClick={() => setActiveSection('education')}
-          aria-label="Ta'lim bo‘limini ko‘rsatish"
+          aria-label={t('aboutTabEducationAria')}
         >
           <FaGraduationCap />
-          Ta'lim 
+          {t('aboutTabEducation')}
         </button>
-        
         <button 
           className={`${styles.tab} ${activeSection === 'stats' ? styles.activeTab : ''}`}
           onClick={() => setActiveSection('stats')}
-          aria-label="Statistika bo‘limini ko‘rsatish"
+          aria-label={t('aboutTabStatsAria')}
         >
           <FaChartLine />
-          Statistika         
+          {t('aboutTabStats')}
         </button>
       </div>
 
@@ -291,7 +287,9 @@ const About = () => {
                   tabIndex={0}
                   aria-label={`${skill.name} haqida batafsil ma'lumot (yangi oynada ochiladi)`}
                   role="button"
-                  onKeyPress={e => { if (e.key === 'Enter') handleSkillClick(skill.link); }}
+                  onKeyPress={(e) => { 
+                    if (e.key === 'Enter') handleSkillClick(skill.link); 
+                  }}
                 >
                   <div className={styles.skillHeader}>
                     <div className={styles.skillIcon}>
@@ -330,7 +328,9 @@ const About = () => {
                   tabIndex={0}
                   aria-label={`${edu.degree} - ${edu.institution} (yangi oynada ochiladi)`}
                   role="button"
-                  onKeyPress={e => { if (e.key === 'Enter') handleEducationClick(edu.link); }}
+                  onKeyPress={(e) => { 
+                    if (e.key === 'Enter') handleEducationClick(edu.link); 
+                  }}
                 >
                   <div className={styles.eduIcon}>
                     {iconMap[edu.icon] || <FaGraduationCap />}
@@ -360,7 +360,6 @@ const About = () => {
                 </div>
               ))}
             </div>
-
           </div>
         )}
 
@@ -385,16 +384,13 @@ const About = () => {
                 </div>
               ))}
             </div>
-            
           </div>
         )}
       </div>
 
       {/* Call to Action */}
       <div className={styles.ctaSection}>
-        <p className={styles.ctaText}>
-          Sizning loyihangiz ustida hamkorlik qilishdan xursand bo'laman!
-        </p>
+        <p className={styles.ctaText}>{t('aboutCtaText')}</p>
         <button 
           className={styles.ctaButton}
           onClick={() => {
@@ -403,14 +399,17 @@ const About = () => {
               contactSection.scrollIntoView({ behavior: 'smooth' });
             }
           }}
-          aria-label="Aloqa bo‘limiga o'tish"
+          aria-label={t('aboutCtaAria')}
         >
           <FaPaperPlane />
-          Bog'lanish
+          {t('aboutCtaBtn')}
         </button>
       </div>
     </div>
   );
 };
 
-export default About;
+export default {
+  key1: "value1",
+  key2: "value2"
+};

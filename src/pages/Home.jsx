@@ -1,52 +1,54 @@
 import React from 'react';
+import { useLanguage } from '../LanguageContext';
 import imgAzizjon from '../assets/images/photo_2025-12-02_17-16-43.jpg';
 import styles from './Home.module.css';
 
 const Home = () => {
+  const { t } = useLanguage();
   return (
     <div className={`${styles.container} fade-in`} id="bosh-sahifa">
       <div className={styles.content}>
         <div className={styles.textSection}>
           <div className={styles.greeting}>
-                Salom, Azizjonman
+            {t('homeGreeting')}
           </div>
           <div className={styles.description}>
-                <div>Innovatsion texnologiyalar orqali</div>
-                <div>har bir loyihaga ajoyib yechimlar yarataman</div>
+            <div>{t('homeDesc1')}</div>
+            <div>{t('homeDesc2')}</div>
           </div>
           <button 
             className={styles.cvButton}
-            aria-label="Azizjonning CV faylini yangi oynada yuklab olish"
+            aria-label={t('cvAria')}
             onClick={() => window.open('/CV_Azizjon.pdf', '_blank')}
           >
-            CV Yuklab Olish
+            {t('downloadCV')}
           </button>
         </div>
         <div className={styles.imageSection}>
           <div className={styles.avatarContainer}>
             <img 
               src={imgAzizjon}
-              alt="Azizjon Norimboyev portret rasmi" 
+              alt={t('avatarAlt')}
               className={styles.avatar}
               loading="lazy"
-              aria-label="Azizjon Norimboyev portret rasmi"
+              aria-label={t('avatarAlt')}
             />
           </div>
         </div>
       </div>
       <div className={styles.statistikalar}>
-          <div className={styles.statItem}>
-            <div className={styles.statRaqam}>1+</div>
-            <div className={styles.statMatn}>Yillik Tajriba</div>
-          </div>
-          <div className={styles.statItem}>
-            <div className={styles.statRaqam}>10+</div>
-            <div className={styles.statMatn}>Tugatilgan<br />Loyihalar</div>
-          </div>
-          <div className={styles.statItem}>
-            <div className={styles.statRaqam}>100%</div>
-            <div className={styles.statMatn}>Mijoz<br />Mamnuniyati</div>
-          </div>
+        <div className={styles.statItem}>
+          <div className={styles.statRaqam}>1+</div>
+          <div className={styles.statMatn}>{t('expYears')}</div>
+        </div>
+        <div className={styles.statItem}>
+          <div className={styles.statRaqam}>10+</div>
+          <div className={styles.statMatn}>{t('projectsDone')}</div>
+        </div>
+        <div className={styles.statItem}>
+          <div className={styles.statRaqam}>100%</div>
+          <div className={styles.statMatn}>{t('clientSatisfaction')}</div>
+        </div>
       </div>
     </div>
   );

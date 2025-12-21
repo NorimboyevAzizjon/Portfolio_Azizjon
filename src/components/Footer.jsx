@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useLanguage } from '../LanguageContext';
 import { useNavigate } from 'react-router-dom';
 import styles from "./Footer.module.css";
 import { FaGithub, FaLinkedin, FaTelegram, FaInstagram, FaTwitter, FaArrowUp, FaSun, FaMoon } from 'react-icons/fa';
@@ -9,9 +10,7 @@ const Footer = () => {
     return localStorage.getItem('theme') || 'dark';
   });
 
-  const [lang, setLang] = useState(() => {
-    return localStorage.getItem('lang') || 'uz';
-  });
+  const { lang, setLang, t } = useLanguage();
   const joriyYil = new Date().getFullYear();
   const navigate = useNavigate();
 
@@ -24,11 +23,11 @@ const Footer = () => {
   ];
 
   const footerLinks = [
-    { label: "Bosh Sahifa", action: () => navigate('/') },
-    { label: "Haqimda", action: () => navigate('/haqimda') },
-    { label: "Portfolio", action: () => navigate('/portfolio') },
-    { label: "Aloqa", action: () => navigate('/aloqa') },
-    { label: "CV Yuklab Olish", action: () => window.open('/CV_Azizjon.pdf', '_blank') }
+    { label: t('home'), action: () => navigate('/') },
+    { label: t('about'), action: () => navigate('/haqimda') },
+    { label: t('portfolio'), action: () => navigate('/portfolio') },
+    { label: t('contact'), action: () => navigate('/aloqa') },
+    { label: t('downloadCV'), action: () => window.open('/CV_Azizjon.pdf', '_blank') }
   ];
 
   React.useEffect(() => {
@@ -53,7 +52,7 @@ const Footer = () => {
         {/* Linklar va ijtimoiy tarmoqlar */}
         <div className={styles.contentSection}>
           <div className={styles.linksSection}>
-            <h3 className={styles.sectionTitle}>Tezkor o'tish</h3>
+            <h3 className={styles.sectionTitle}>{t('quickLinks')}</h3>
             <div className={styles.linksGrid}>
               {footerLinks.map((link, index) => (
                 <button
@@ -69,7 +68,7 @@ const Footer = () => {
           </div>
 
           <div className={styles.socialSection}>
-            <h3 className={styles.sectionTitle}>Ijtimoiy tarmoqlar</h3>
+            <h3 className={styles.sectionTitle}>{t('social')}</h3>
             <div className={styles.socialIcons}>
               {socialLinks.map((social, index) => (
                 <a
@@ -93,17 +92,17 @@ const Footer = () => {
         <div className={styles.copyrightSection}>
           <div className={styles.copyrightText}>
             <p>
-              © {joriyYil} Azizjon Norimboyev. Barcha huquqlar himoyalangan.
+              © {joriyYil} Azizjon Norimboyev. {t('copyright')}
             </p>
             <p className={styles.heartText}>
-              O'zbekiston <span className={styles.heart}>❤️</span> da yaratildi
+              {t('madeIn')} <span className={styles.heart}>❤️</span> {t('madeWith')}
             </p>
           </div>
 
           <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
             <div className={styles.backToTop} onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
               <FaArrowUp />
-              Yuqoriga
+              {t('toTop')}
             </div>
             <div className={styles.langSwitcher}>
               <button
