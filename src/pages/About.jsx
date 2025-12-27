@@ -197,25 +197,25 @@ const About = () => {
     const statsData = [
       { 
         number: '1+', 
-        label: 'Yillik Tajriba', 
+        label: t('expYears'), 
         icon: 'fas fa-briefcase',
         color: '#8A2BE2'
       },
       { 
         number: '15+', 
-        label: 'Tugatilgan Loyihalar', 
+        label: t('projectsDone'), 
         icon: 'fas fa-project-diagram',
         color: '#00CED1'
       },
       { 
         number: '100%', 
-        label: 'Mijoz Mamnuniyati', 
+        label: t('clientSatisfaction'), 
         icon: 'fas fa-users',
         color: '#FF6B35'
       },
       { 
         number: '12+', 
-        label: 'Texnologiya Bilimi', 
+        label: 'Technology Skills', // English fallback if not in i18n
         icon: 'fas fa-code',
         color: '#4CAF50'
       }
