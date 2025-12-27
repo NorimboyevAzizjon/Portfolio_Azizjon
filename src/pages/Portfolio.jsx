@@ -1,14 +1,16 @@
 // Portfolio.jsx - TO'LIQ VERSIYA
 import React, { useState } from 'react';
+import { useLanguage } from '../LanguageContext';
 import ProjectCard from '../components/ProjectCard.jsx';
 import styles from './Portfolio.module.css';
 
 const Portfolio = () => {
+  const { t } = useLanguage();
   const [loyihalar] = useState([
     {
       id: 1,
-      sarlavha: 'Rone E-commerce',
-      tavsif: 'Zamonaviy va interaktiv elektron tijorat platformasi. Mahsulotlar katalogi, savat, to\'lov tizimi va foydalanuvchi paneli.',
+      sarlavha: t('project1_title'),
+      tavsif: t('project1_desc'),
       rasm: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&auto=format&fit=crop',
       texnologiyalar: ['React', 'Node.js', 'MongoDB', 'Express', 'Redux'],
       githubHavolasi: '#',
@@ -17,8 +19,8 @@ const Portfolio = () => {
     },
     {
       id: 2,
-      sarlavha: 'Restoran Topgich',
-      tavsif: 'Xarita asosidagi restoran va mehmonxona topish ilovasi. Real vaqtda joylashuv, baholar va rezervatsiya qilish imkoniyati.',
+      sarlavha: t('project2_title'),
+      tavsif: t('project2_desc'),
       rasm: 'https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?w=600&auto=format&fit=crop',
       texnologiyalar: ['React', 'Google Maps API', 'Firebase', 'SCSS', 'Axios'],
       githubHavolasi: '#',
@@ -27,8 +29,8 @@ const Portfolio = () => {
     },
     {
       id: 3,
-      sarlavha: 'Vazifa Boshqaruvchi',
-      tavsif: 'Kuchli vazifalar boshqaruvi ilovasi. Drag & drop, vazifa filtrlari, vaqt oralig\'i va progress monitoring.',
+      sarlavha: t('project3_title'),
+      tavsif: t('project3_desc'),
       rasm: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=600&auto=format&fit=crop',
       texnologiyalar: ['React', 'Redux', 'Express.js', 'MongoDB', 'DnD'],
       githubHavolasi: '#',
@@ -37,8 +39,8 @@ const Portfolio = () => {
     },
     {
       id: 4,
-      sarlavha: 'Ob-havo Dashboardi',
-      tavsif: 'Real vaqt ob-havo monitoring dashboardi. 5 kunlik prognoz, harorat grafiklari va shaharlarni solishtirish.',
+      sarlavha: t('project4_title'),
+      tavsif: t('project4_desc'),
       rasm: 'https://images.unsplash.com/photo-1592210454359-9043f067919b?w=600&auto=format&fit=crop',
       texnologiyalar: ['React', 'Weather API', 'Chart.js', 'Axios', 'Tailwind'],
       githubHavolasi: '#',
@@ -47,8 +49,8 @@ const Portfolio = () => {
     },
     {
       id: 5,
-      sarlavha: 'Ijtimoiy Tarmoq Ilovasi',
-      tavsif: 'To\'liq xususiyatli ijtimoiy tarmoq ilovasi. Postlar, kommentariyalar, do\'stlar va xabar almashish.',
+      sarlavha: t('project5_title'),
+      tavsif: t('project5_desc'),
       rasm: 'https://images.unsplash.com/photo-1611605698335-8b1569810432?w=600&auto=format&fit=crop',
       texnologiyalar: ['React Native', 'Firebase', 'Redux', 'Node.js', 'Expo'],
       githubHavolasi: '#',
@@ -57,8 +59,8 @@ const Portfolio = () => {
     },
     {
       id: 6,
-      sarlavha: 'Portfolio Shablon',
-      tavsif: 'Responsive va zamonaviy portfolio vebsayt shabloni. Dark/light mode, animatsiyalar va SEO optimallashtirish.',
+      sarlavha: t('project6_title'),
+      tavsif: t('project6_desc'),
       rasm: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&auto=format&fit=crop',
       texnologiyalar: ['React', 'CSS3', 'JavaScript', 'Framer Motion', 'GSAP'],
       githubHavolasi: '#',
@@ -67,8 +69,8 @@ const Portfolio = () => {
     },
     {
       id: 7,
-      sarlavha: 'Kriptovalyuta Traker',
-      tavsif: 'Real vaqt kriptovalyuta kuzatuvchi. Narxlar, grafiklar, portfel boshqaruvi va push-bildirishnomalar.',
+      sarlavha: t('project7_title'),
+      tavsif: t('project7_desc'),
       rasm: 'https://images.unsplash.com/photo-1620336655055-bd87c5d1d73f?w=600&auto=format&fit=crop',
       texnologiyalar: ['React', 'CoinGecko API', 'Chart.js', 'Tailwind', 'WebSocket'],
       githubHavolasi: '#',
@@ -77,8 +79,8 @@ const Portfolio = () => {
     },
     {
       id: 8,
-      sarlavha: 'Musiqa Pleyeri',
-      tavsif: 'Zamonaviy interaktiv musiqa pleyeri. Pleylistlar, ovoz nazorati, qidiruv va favoritelar.',
+      sarlavha: t('project8_title'),
+      tavsif: t('project8_desc'),
       rasm: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=600&auto=format&fit=crop',
       texnologiyalar: ['React', 'Howler.js', 'Material-UI', 'Redux', 'Node.js'],
       githubHavolasi: '#',
@@ -87,8 +89,8 @@ const Portfolio = () => {
     },
     {
       id: 9,
-      sarlavha: 'Onlayn Do\'kon',
-      tavsif: 'To\'liq funksiyali onlayn do\'kon. Mahsulot filtrlari, sharhlar, chegirmalar va administrator paneli.',
+      sarlavha: t('project9_title'),
+      tavsif: t('project9_desc'),
       rasm: 'https://images.unsplash.com/photo-1556742044-3c52d6e88c62?w=600&auto=format&fit=crop',
       texnologiyalar: ['React', 'Stripe API', 'MongoDB', 'Express', 'JWT'],
       githubHavolasi: '#',
@@ -97,8 +99,8 @@ const Portfolio = () => {
     },
     {
       id: 10,
-      sarlavha: 'Blog Platformasi',
-      tavsif: 'Modern blog platformasi. Maqolalar, kategoriyalar, izohlar va admin paneli bilan.',
+      sarlavha: t('project10_title'),
+      tavsif: t('project10_desc'),
       rasm: 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&auto=format&fit=crop',
       texnologiyalar: ['Next.js', 'Sanity.io', 'Tailwind', 'Vercel', 'GraphQL'],
       githubHavolasi: '#',
@@ -107,8 +109,8 @@ const Portfolio = () => {
     },
     {
       id: 11,
-      sarlavha: 'Fitnes Ilovasi',
-      tavsif: 'Shaxsiy fitnes ilovasi. Mashg\'ulot rejalari, ovqatlanish kundaligi va progress monitoring.',
+      sarlavha: t('project11_title'),
+      tavsif: t('project11_desc'),
       rasm: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&auto=format&fit=crop',
       texnologiyalar: ['React Native', 'Firebase', 'HealthKit', 'Redux', 'Expo'],
       githubHavolasi: '#',
@@ -117,8 +119,8 @@ const Portfolio = () => {
     },
     {
       id: 12,
-      sarlavha: 'Video Konferensiya',
-      tavsif: 'Real vaqt video konferensiya platformasi. Video/audio chat, ekran ulashish va chat xususiyatlari.',
+      sarlavha: t('project12_title'),
+      tavsif: t('project12_desc'),
       rasm: 'https://images.unsplash.com/photo-1587560699334-cc4ff634909a?w=600&auto=format&fit=crop',
       texnologiyalar: ['React', 'WebRTC', 'Socket.io', 'Node.js', 'WebSocket'],
       githubHavolasi: '#',
@@ -131,10 +133,10 @@ const Portfolio = () => {
   const [faqatReact, setFaqatReact] = useState(false);
 
   const toifalar = [
-    { id: 'hamma', nomi: 'Barcha Loyihalar', soni: loyihalar.length },
-    { id: 'veb', nomi: 'Veb Dasturlash', soni: loyihalar.filter(l => l.toifa === 'veb').length },
-    { id: 'mobil', nomi: 'Mobil Ilovalar', soni: loyihalar.filter(l => l.toifa === 'mobil').length },
-    { id: 'react', nomi: 'React Loyihalari', soni: loyihalar.filter(l => l.texnologiyalar.some(t => t.includes('React'))).length }
+    { id: 'hamma', nomi: t('portfolioAll'), soni: loyihalar.length },
+    { id: 'veb', nomi: t('portfolioWeb'), soni: loyihalar.filter(l => l.toifa === 'veb').length },
+    { id: 'mobil', nomi: t('portfolioMobile'), soni: loyihalar.filter(l => l.toifa === 'mobil').length },
+    { id: 'react', nomi: t('portfolioReact'), soni: loyihalar.filter(l => l.texnologiyalar.some(tex => tex.includes('React'))).length }
   ];
 
   const filtrlanganLoyihalar = () => {
@@ -151,10 +153,10 @@ const Portfolio = () => {
   };
 
   const statistika = [
-    { raqam: loyihalar.length, yorliq: 'Jami Loyihalar', ikonka: 'fas fa-folder-open' },
-    { raqam: filtrlanganLoyihalar().length, yorliq: 'Ko\'rsatilayotgan', ikonka: 'fas fa-eye' },
-    { raqam: new Set(loyihalar.flatMap(l => l.texnologiyalar)).size, yorliq: 'Texnologiyalar', ikonka: 'fas fa-code' },
-    { raqam: '100%', yorliq: 'Muvaffaqiyat Darajasi', ikonka: 'fas fa-trophy' }
+    { raqam: loyihalar.length, yorliq: t('portfolioStatsTotal'), ikonka: 'fas fa-folder-open' },
+    { raqam: filtrlanganLoyihalar().length, yorliq: t('portfolioStatsShowing'), ikonka: 'fas fa-eye' },
+    { raqam: new Set(loyihalar.flatMap(l => l.texnologiyalar)).size, yorliq: t('portfolioStatsTech'), ikonka: 'fas fa-code' },
+    { raqam: '100%', yorliq: t('portfolioStatsSuccess'), ikonka: 'fas fa-trophy' }
   ];
 
   // Barcha texnologiyalarni olish
@@ -170,7 +172,7 @@ const Portfolio = () => {
     <div className={`${styles.portfolioContainer} fade-in`} id="portfolio" aria-label="Portfolio sahifasi">
       <div className={styles.header}>
         <h1 className={styles.mainTitle} aria-label="Portfolio sarlavhasi">
-          PORTFOLIO
+          {t('portfolioTitle')}
           <div className={styles.underline}></div>
         </h1>
 
@@ -218,12 +220,8 @@ const Portfolio = () => {
       {/* BO'SH HOLAT */}
       {filtrlanganLoyihalar().length === 0 && (
         <div className={styles.emptyState}>
-          <h3 className={styles.emptyStateTitle}>
-            Bu toifada loyihalar topilmadi
-          </h3>
-          <p style={{ fontSize: '1.1rem', marginBottom: '20px' }}>
-            Boshqa toifani tanlang yoki filterni o'zgartiring
-          </p>
+          <h3 className={styles.emptyStateTitle}>{t('portfolioNoProjects')}</h3>
+          <p style={{ fontSize: '1.1rem', marginBottom: '20px' }}>{t('portfolioNoProjectsDesc')}</p>
           <button
             className={styles.resetButton}
             onClick={() => {
@@ -232,7 +230,7 @@ const Portfolio = () => {
             }}
           >
             <i className="fas fa-redo-alt"></i>
-            Barcha loyihalarni ko'rish
+            {t('portfolioShowAll')}
           </button>
         </div>
       )}
@@ -241,7 +239,7 @@ const Portfolio = () => {
       <div className={styles.technologiesSection}>
         <h2 className={styles.technologiesTitle}>
           <i className="fas fa-cogs" style={{ color: '#00CED1' }}></i>
-          Ishlatilgan Texnologiyalar
+          {t('portfolioTechTitle')}
         </h2>
         
         
@@ -289,19 +287,14 @@ const Portfolio = () => {
 
       {/* CALL TO ACTION */}
       <div className={styles.ctaSection}>
-        <h2 className={styles.ctaTitle}>
-          Loyiha hamkorligi uchun tayyorman!
-        </h2>
-        <p className={styles.ctaText}>
-          Yangi va qiziqarli loyihalar uchun hamkorlik qilishga tayyorman. 
-          Sizning g'oyangizni hayotga tatbiq etishda yordam beraman.
-        </p>
+        <h2 className={styles.ctaTitle}>{t('portfolioCtaTitle')}</h2>
+        <p className={styles.ctaText}>{t('portfolioCtaText')}</p>
         <a 
           href="#aloqa"
           className={styles.ctaButton}
         >
           <i className="fas fa-paper-plane"></i>
-          Bog'lanish
+          {t('portfolioContactBtn')}
         </a>
       </div>
     </div>

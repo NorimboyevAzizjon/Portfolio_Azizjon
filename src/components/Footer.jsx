@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useLanguage } from '../LanguageContext';
 import { useNavigate } from 'react-router-dom';
 import styles from "./Footer.module.css";
-import { FaGithub, FaLinkedin, FaTelegram, FaInstagram, FaTwitter, FaArrowUp, FaSun, FaMoon } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaTelegram, FaInstagram, FaTwitter, FaFacebook, FaArrowUp, FaSun, FaMoon } from 'react-icons/fa';
 
 const Footer = () => {
   const [theme, setTheme] = useState(() => {
@@ -19,7 +19,8 @@ const Footer = () => {
     { icon: <FaLinkedin />, label: "LinkedIn", url: "https://www.linkedin.com/in/azizjon-norimboyev-dev", color: "#0077B5" },
     { icon: <FaTelegram />, label: "Telegram", url: "https://t.me/AzizjonNorimboyev", color: "#26A5E4" },
     { icon: <FaInstagram />, label: "Instagram", url: "https://instagram.com/azizjondev_", color: "#E4405F" },
-    { icon: <FaTwitter />, label: "Twitter", url: "https://twitter.com/azizjondev", color: "#1DA1F2" }
+    { icon: <FaTwitter />, label: "Twitter", url: "https://twitter.com/azizjondev", color: "#1DA1F2" },
+    { icon: <FaFacebook />, label: "Facebook", url: "https://facebook.com/azizjondev_", color: "#1877F3" }
   ];
 
   const footerLinks = [
@@ -104,23 +105,7 @@ const Footer = () => {
               <FaArrowUp />
               {t('toTop')}
             </div>
-            <div className={styles.langSwitcher}>
-              <button
-                className={`${styles.langBtn} ${lang === 'uz' ? styles.activeLang : ''}`}
-                onClick={() => setLang('uz')}
-                aria-label="O'zbekcha"
-              >uz</button>
-              <button
-                className={`${styles.langBtn} ${lang === 'en' ? styles.activeLang : ''}`}
-                onClick={() => setLang('en')}
-                aria-label="English"
-              >en</button>
-              <button
-                className={`${styles.langBtn} ${lang === 'ru' ? styles.activeLang : ''}`}
-                onClick={() => setLang('ru')}
-                aria-label="Русский"
-              >ru</button>
-            </div>
+            {/* Language switcher removed from Footer. Now only in Header/Navbar. */}
             <button
               className={styles.themeToggleBtn}
               onClick={toggleTheme}

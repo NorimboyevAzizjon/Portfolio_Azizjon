@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useLanguage } from '../LanguageContext';
 import styles from './ProjectCard.module.css';
 import { FaExternalLinkAlt, FaGithub, FaCode, FaReact, FaNodeJs, FaJs, FaCss3Alt, FaPlayCircle } from 'react-icons/fa';
 // Texnologiya nomi => icon mapping
@@ -18,6 +19,7 @@ const ProjectCard = ({
   githubHavolasi, 
   jonliDemo 
 }) => {
+  const { t } = useLanguage();
   const [isHovered, setIsHovered] = useState(false);
   const [imageLoaded, setImageLoaded] = useState(false);
 
@@ -64,7 +66,7 @@ const ProjectCard = ({
                 aria-label={`${sarlavha} loyihasining jonli demosini ko'rish`}
               >
                 <FaExternalLinkAlt />
-                <span className={styles.btnLabel}>Demo</span>
+                <span className={styles.btnLabel}>{t('demo')}</span>
               </a>
             )}
             {githubHavolasi && (
@@ -76,7 +78,7 @@ const ProjectCard = ({
                 aria-label={`${sarlavha} loyihasining GitHub kodini ko'rish`}
               >
                 <FaGithub />
-                <span className={styles.btnLabel}>Kod</span>
+                <span className={styles.btnLabel}>{t('code')}</span>
               </a>
             )}
           </div>
@@ -101,7 +103,7 @@ const ProjectCard = ({
           <h3 className={styles.title}>{sarlavha}</h3>
           <div className={styles.projectType}>
             <FaCode />
-            <span>Web Dastur</span>
+            <span>{t('webApp')}</span>
           </div>
         </header>
         
@@ -131,7 +133,7 @@ const ProjectCard = ({
                 aria-label={`${sarlavha} loyihasining jonli demosini ochish`}
               >
                 <FaPlayCircle />
-                Demo
+                {t('demo')}
               </a>
             )}
             {githubHavolasi && (
@@ -143,7 +145,7 @@ const ProjectCard = ({
                 aria-label={`${sarlavha} loyihasining GitHub repositorysini ochish`}
               >
                 <FaGithub />
-                Kod
+                {t('code')}
               </a>
             )}
           </div>
