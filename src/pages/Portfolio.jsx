@@ -4,7 +4,7 @@ import SeoHelmet from '../components/SeoHelmet';
 import { useLanguage } from '../LanguageContext';
 import ProjectCard from '../components/ProjectCard.jsx';
 import styles from './Portfolio.module.css';
-import ThreeDHero from '../components/ThreeDHero';
+
 
 const Portfolio = () => {
   const { t } = useLanguage();
@@ -179,7 +179,7 @@ const Portfolio = () => {
         keywords="Azizjon Norimboyev, Portfolio, Web Developer, React, Projects, Uzbekistan"
         ogUrl={typeof window !== 'undefined' ? window.location.href : ''}
       />
-      <ThreeDHero />
+
       <div className={`${styles.portfolioContainer} fade-in`} id="portfolio" aria-label="Portfolio sahifasi">
       <div className={styles.header}>
         <h1 className={styles.mainTitle} aria-label="Portfolio sarlavhasi">

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useLanguage } from '../LanguageContext';
 import styles from './About.module.css';
-import ThreeDHero from '../components/ThreeDHero';
+
 import { FaHtml5, FaCss3Alt, FaJsSquare, FaReact, FaBolt, FaCode, FaSass, FaFigma, FaGitAlt, FaWind, FaBootstrap, FaUniversity, FaGraduationCap, FaLaptopCode, FaGlobe, FaRobot, FaBriefcase, FaProjectDiagram, FaUsers, FaChartLine, FaExternalLinkAlt, FaCalendarAlt, FaInfoCircle, FaPaperPlane } from 'react-icons/fa';
 import { SiTypescript, SiTailwindcss, SiRedux } from 'react-icons/si';
 
@@ -237,7 +237,7 @@ const About = () => {
 
   return (
     <>
-      <ThreeDHero />
+
       <div className={`${styles.container} fade-in`} id="haqimda">
       {/* Sarlavha qismi */}
       <div className={styles.header}>

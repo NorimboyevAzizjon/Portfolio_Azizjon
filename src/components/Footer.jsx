@@ -105,7 +105,6 @@ const Footer = () => {
               <FaArrowUp />
               {t('toTop')}
             </div>
-            {/* Language switcher removed from Footer. Now only in Header/Navbar. */}
             <button
               className={styles.themeToggleBtn}
               onClick={toggleTheme}

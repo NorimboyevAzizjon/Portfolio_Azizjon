@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { useLanguage } from '../LanguageContext';
 import styles from './Contact.module.css';
-import ThreeDHero from '../components/ThreeDHero';
+
 import { FaMapMarkerAlt, FaEnvelope, FaPhoneAlt, FaPaperPlane, FaCommentAlt, FaUser, FaTag, FaEdit, FaSpinner, FaCheckCircle, FaAddressBook, FaExternalLinkAlt } from 'react-icons/fa';
 
 const Contact = () => {
@@ -64,7 +64,7 @@ const Contact = () => {
 
   return (
     <>
-      <ThreeDHero />
+
       <div className={`${styles.container} fade-in`} id="aloqa">
       
       {/* Sarlavha qismi */}

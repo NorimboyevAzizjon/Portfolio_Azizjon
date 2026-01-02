@@ -1,5 +1,6 @@
 // src/components/Header.jsx - ZAMONAVIY VERSIYA
 import React, { useState, useEffect, useRef } from 'react';
+
 import { useLanguage } from '../LanguageContext';
 import { AnimatePresence, motion } from 'framer-motion';
 import { NavLink } from 'react-router-dom';
@@ -15,6 +16,7 @@ const Header = () => {
   const headerRef = useRef(null);
 
   const { lang, setLang, t } = useLanguage();
+
   const navItems = React.useMemo(() => [
     { 
       id: 'bosh-sahifa', 
@@ -258,6 +260,7 @@ const Header = () => {
           </div>
         </div>
         
+        {/* Theme toggle button removed from Header */}
         {/* Scroll progress indicator */}
         <motion.div 
           className={styles.scrollProgress}

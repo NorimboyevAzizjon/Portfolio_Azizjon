@@ -3,7 +3,7 @@ import SeoHelmet from '../components/SeoHelmet';
 import { useLanguage } from '../LanguageContext';
 import imgAzizjon from '../assets/images/photo_2025-12-02_17-16-43.jpg';
 import styles from './Home.module.css';
-import ThreeDHero from '../components/ThreeDHero';
+
 
 const Home = () => {
   const { t } = useLanguage();
@@ -17,7 +17,7 @@ const Home = () => {
         ogUrl={typeof window !== 'undefined' ? window.location.href : ''}
       />
       <div className={`${styles.container} fade-in`} id="bosh-sahifa">
-        <ThreeDHero />
+
         <div className={styles.content}>
         <div className={styles.textSection}>
           <div className={styles.greeting}>
