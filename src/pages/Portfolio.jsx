@@ -1,11 +1,13 @@
 // Portfolio.jsx - TO'LIQ VERSIYA
 import React, { useState } from 'react';
+import SeoHelmet from '../components/SeoHelmet';
 import { useLanguage } from '../LanguageContext';
 import ProjectCard from '../components/ProjectCard.jsx';
 import styles from './Portfolio.module.css';
 
 const Portfolio = () => {
   const { t } = useLanguage();
+  const description = t('portfolioTechTitle') + ' | ' + t('portfolioCtaText');
   const [loyihalar] = useState([
     {
       id: 1,
@@ -169,7 +171,14 @@ const Portfolio = () => {
   };
 
   return (
-    <div className={`${styles.portfolioContainer} fade-in`} id="portfolio" aria-label="Portfolio sahifasi">
+    <>
+      <SeoHelmet
+        title={t('portfolioTitle') + ' | Portfolio'}
+        description={description}
+        keywords="Azizjon Norimboyev, Portfolio, Web Developer, React, Projects, Uzbekistan"
+        ogUrl={typeof window !== 'undefined' ? window.location.href : ''}
+      />
+      <div className={`${styles.portfolioContainer} fade-in`} id="portfolio" aria-label="Portfolio sahifasi">
       <div className={styles.header}>
         <h1 className={styles.mainTitle} aria-label="Portfolio sarlavhasi">
           {t('portfolioTitle')}
@@ -298,6 +307,7 @@ const Portfolio = () => {
         </a>
       </div>
     </div>
+  </> 
   );
 };
 
