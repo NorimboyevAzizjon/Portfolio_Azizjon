@@ -400,19 +400,17 @@
     padding: 12px 20px;
     font-size: 14px;
   }
+  .statRaqam {
     font-size: 28px;
   }
-
   .statMatn {
     font-size: 14px;
   }
-
   .cvButton {
     width: 100%;
     justify-content: center;
     padding: 12px 25px;
   }
-  
   .statistikalar {
     padding: 15px 10px;
     margin-top: 20px;
