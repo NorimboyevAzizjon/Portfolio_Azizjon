@@ -1,3 +1,85 @@
+/* Language dropdown styles */
+.langDropdownBtn {
+  border: none;
+  outline: none;
+  background: linear-gradient(90deg, #8A2BE2 40%, #00CED1 100%);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 6px 18px;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  box-shadow: 0 1px 4px rgba(138,43,226,0.07);
+  letter-spacing: 0.5px;
+  opacity: 0.95;
+  min-width: 44px;
+  min-height: 36px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.langDropdownMenu {
+  position: absolute;
+  top: 110%;
+  right: 0;
+  background: #232946;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+  padding: 6px 0;
+  z-index: 1002;
+  min-width: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+.langDropdownItem {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1rem;
+  padding: 8px 18px;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.18s;
+  border-radius: 8px;
+}
+.langDropdownItem:hover {
+  background: #8A2BE2;
+}
+@media (max-width: 425px) {
+  .header {
+    top: 2px;
+    width: 100vw;
+    min-width: 0;
+    padding: 0 2px;
+  }
+  .navContainer {
+    gap: 1px;
+    padding: 2px 2px;
+    min-width: 0;
+  }
+  .navLink {
+    min-width: 48px;
+    padding: 6px 4px;
+    font-size: 0.85rem;
+    min-height: 36px;
+  }
+  .navText {
+    font-size: 0.8rem;
+  }
+  .langSwitcher {
+    padding: 2px 4px;
+    gap: 2px;
+  }
+  .langBtn {
+    font-size: 0.8rem;
+    padding: 4px 8px;
+    min-width: 32px;
+    min-height: 32px;
+  }
+  /* Dropdown uchun joy ajratiladi, lekin JS kerak bo‘ladi */
+}
 /* Language Switcher (Til tanlash) */
 .langSwitcher {
   display: flex;

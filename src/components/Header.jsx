@@ -15,6 +15,16 @@ const Header = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const headerRef = useRef(null);
 
+  // Language dropdown state and effect
+  const [showLangDropdown, setShowLangDropdown] = useState(false);
+  useEffect(() => {
+    const closeDropdown = (e) => {
+      if (!headerRef.current?.contains(e.target)) setShowLangDropdown(false);
+    };
+    if (showLangDropdown) document.addEventListener('mousedown', closeDropdown);
+    return () => document.removeEventListener('mousedown', closeDropdown);
+  }, [showLangDropdown]);
+
   const { lang, setLang, t } = useLanguage();
 
   const navItems = React.useMemo(() => [
@@ -240,23 +250,35 @@ const Header = () => {
               </motion.div>
             </NavLink>
           ))}
-          {/* Language switcher */}
-          <div className={styles.langSwitcher} style={{marginLeft: 24}}>
+        {/* Language switcher */}
+          <div className={styles.langSwitcher} style={{marginLeft: 24, position: 'relative'}}>
             <button
-              className={`${styles.langBtn} ${lang === 'uz' ? styles.activeLang : ''}`}
-              onClick={() => setLang('uz')}
-              aria-label="O'zbekcha"
-            >uz</button>
-            <button
-              className={`${styles.langBtn} ${lang === 'en' ? styles.activeLang : ''}`}
-              onClick={() => setLang('en')}
-              aria-label="English"
-            >en</button>
-            <button
-              className={`${styles.langBtn} ${lang === 'ru' ? styles.activeLang : ''}`}
-              onClick={() => setLang('ru')}
-              aria-label="Русский"
-            >ru</button>
+              className={styles.langDropdownBtn}
+              aria-label="Til tanlash"
+              onClick={() => setShowLangDropdown(v => !v)}
+              style={{minWidth: 44, minHeight: 36}}
+            >
+              {lang.toUpperCase()} <span style={{fontSize: 12, marginLeft: 4}}>▼</span>
+            </button>
+            {showLangDropdown && (
+              <div className={styles.langDropdownMenu}>
+                <button
+                  className={styles.langDropdownItem}
+                  onClick={() => { setLang('uz'); setShowLangDropdown(false); }}
+                  aria-label="O'zbekcha"
+                >uz</button>
+                <button
+                  className={styles.langDropdownItem}
+                  onClick={() => { setLang('en'); setShowLangDropdown(false); }}
+                  aria-label="English"
+                >en</button>
+                <button
+                  className={styles.langDropdownItem}
+                  onClick={() => { setLang('ru'); setShowLangDropdown(false); }}
+                  aria-label="Русский"
+                >ru</button>
+              </div>
+            )}
           </div>
         </div>
         
