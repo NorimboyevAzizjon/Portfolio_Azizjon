@@ -57,6 +57,7 @@
   width: 100%;
   min-height: 500px;
   flex-grow: 1;
+  margin-top: 90px;
 }
 
 .textSection {
