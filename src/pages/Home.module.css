@@ -344,76 +344,136 @@
 }
 
 @media (max-width: 640px) {
+  .content {
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 18px;
+  }
+  .imageSection {
+    order: 1;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+  .textSection {
+    order: 2;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    min-height: unset;
+    margin-left: 0;
+  }
   .container {
-    padding: 25px 15px 40px;
-    gap: 30px;
+    padding: 25px 8px 32px;
+    gap: 22px;
   }
   .greeting {
-    font-size: 30px;
-  }
-  .description {
-    font-size: 18px;
-  }
-  .avatarContainer {
-    width: 220px;
-    height: 220px;
-  }
-  .statistikalar {
-    flex-direction: column;
-    gap: 25px;
-    width: 100%;
-  }
-  .statRaqam {
     font-size: 28px;
   }
-  .cvButton {
-    padding: 14px 30px;
-    font-size: 16px;
-  }
-  .statItem {
-    width: 100%;
-    margin-bottom: 15px;
-  }
-}
-
-@media (max-width: 480px) {
-  .container {
-    padding: 20px 12px 30px;
-    gap: 25px;
-  }
-  .content {
-    gap: 25px;
-  }
-  .greeting {
-    font-size: 26px;
-  }
   .description {
     font-size: 16px;
-    margin-bottom: 20px;
   }
   .avatarContainer {
     width: 160px;
     height: 160px;
-    border-width: 4px;
+    max-width: 90vw;
+    max-height: 40vw;
   }
-  .cvButton {
-    padding: 12px 20px;
-    font-size: 14px;
+  .statistikalar {
+    flex-direction: column;
+    gap: 18px;
+    width: 100%;
+    padding: 10px 2px;
   }
   .statRaqam {
-    font-size: 28px;
+    font-size: 20px;
   }
   .statMatn {
+    font-size: 15px;
+  }
+  .cvButton {
+    padding: 12px 18px;
+    font-size: 15px;
+    min-width: 44px;
+    min-height: 44px;
+  }
+  .statItem {
+    width: 100%;
+    margin-bottom: 10px;
+    min-width: 44px;
+    min-height: 44px;
+  }
+}
+
+@media (max-width: 480px) {
+  .content {
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+  }
+  .imageSection {
+    order: 1;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 6px;
+  }
+  .textSection {
+    order: 2;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    min-height: unset;
+    margin-left: 0;
+  }
+  .container {
+    padding: 12px 4px 18px;
+    gap: 14px;
+  }
+  .content {
+    gap: 12px;
+  }
+  .greeting {
+    font-size: 20px;
+  }
+  .description {
     font-size: 14px;
+    margin-bottom: 10px;
+  }
+  .avatarContainer {
+    width: 110px;
+    height: 110px;
+    max-width: 80vw;
+    max-height: 30vw;
+    border-width: 3px;
   }
   .cvButton {
     width: 100%;
     justify-content: center;
-    padding: 12px 25px;
+    padding: 10px 10px;
+    font-size: 13px;
+    min-width: 44px;
+    min-height: 44px;
+  }
+  .statRaqam {
+    font-size: 18px;
+  }
+  .statMatn {
+    font-size: 13px;
   }
   .statistikalar {
-    padding: 15px 10px;
-    margin-top: 20px;
+    padding: 8px 2px;
+    margin-top: 10px;
+    gap: 10px;
+  }
+  .statItem {
+    width: 100%;
+    margin-bottom: 6px;
+    min-width: 44px;
+    min-height: 44px;
   }
 }
 
