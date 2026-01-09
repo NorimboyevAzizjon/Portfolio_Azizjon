@@ -304,42 +304,38 @@
 
 @media (max-width: 640px) {
   .navLink {
-    min-width: 65px;
-    padding: 6px 10px;
-  }
-  
-  .navLink i {
+    min-width: 80px;
+    padding: 10px 14px;
     font-size: 1rem;
+  }
+  .navLink i {
+    font-size: 1.15rem;
     margin-bottom: 3px;
   }
-  
   .navText {
-    font-size: 0.75rem;
+    font-size: 0.92rem;
   }
 }
 
 @media (max-width: 480px) {
   .header {
-    top: 10px;
-    width: 90%;
+    top: 6px;
+    width: 98%;
   }
-  
   .navContainer {
     gap: 2px;
-    padding: 6px;
+    padding: 4px;
   }
-  
   .navLink {
     min-width: 60px;
-    padding: 5px 8px;
+    padding: 8px 10px;
+    font-size: 0.98rem;
   }
-  
   .navLink i {
-    font-size: 0.9rem;
+    font-size: 1rem;
   }
-  
   .navText {
-    font-size: 0.7rem;
+    font-size: 0.85rem;
   }
 }
 

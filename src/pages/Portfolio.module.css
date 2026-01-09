@@ -1,10 +1,26 @@
+@media (max-width: 768px) {
+  .header {
+    margin-top: 90px;
+  }
+  .mainTitle {
+    font-size: 2.2rem;
+  }
+}
+@media (max-width: 480px) {
+  .header {
+    margin-top: 80px;
+  }
+  .mainTitle {
+    font-size: 1.5rem;
+  }
+}
 /* Portfolio.module.css */
 
 /* Asosiy container */
 .portfolioContainer {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 100px 20px 80px;
+  padding: 120px 20px 80px;
   position: relative;
   z-index: 1;
   font-family: 'Poppins', sans-serif;

@@ -44,7 +44,7 @@
   background: var(--bg-gradient);
   position: relative;
   overflow: hidden;
-  padding: 40px 40px 80px 40px;
+  padding: 120px 40px 80px 40px;
   gap: 60px;
 }
 
@@ -306,47 +306,38 @@
     padding: 30px 20px 50px;
     gap: 40px;
   }
-  
   .content {
     gap: 35px;
   }
-  
   .greeting {
-    font-size: 32px;
+    font-size: 36px;
   }
-  
   .description {
-    font-size: 18px;
+    font-size: 20px;
     line-height: 1.6;
     margin-bottom: 30px;
   }
-  
   .avatarContainer {
     width: 300px;
     height: 300px;
     border-width: 8px;
   }
-  
   .statRaqam {
     font-size: 36px;
   }
-  
   .statMatn {
     font-size: 16px;
   }
-  
   .cvButton {
-    padding: 16px 35px;
-    font-size: 16px;
+    padding: 18px 40px;
+    font-size: 18px;
   }
-  
   .statistikalar {
     gap: 30px;
     margin-top: 30px;
     padding: 20px 15px;
     border-radius: var(--radius-medium);
   }
-  
   .statItem {
     min-width: 120px;
   }
@@ -357,35 +348,28 @@
     padding: 25px 15px 40px;
     gap: 30px;
   }
-  
   .greeting {
-    font-size: 28px;
+    font-size: 30px;
   }
-  
   .description {
-    font-size: 16px;
+    font-size: 18px;
   }
-  
   .avatarContainer {
-    width: 250px;
-    height: 250px;
+    width: 220px;
+    height: 220px;
   }
-  
   .statistikalar {
     flex-direction: column;
     gap: 25px;
     width: 100%;
   }
-  
   .statRaqam {
-    font-size: 32px;
+    font-size: 28px;
   }
-  
   .cvButton {
     padding: 14px 30px;
-    font-size: 15px;
+    font-size: 16px;
   }
-  
   .statItem {
     width: 100%;
     margin-bottom: 15px;
@@ -397,27 +381,25 @@
     padding: 20px 12px 30px;
     gap: 25px;
   }
-
   .content {
     gap: 25px;
   }
-
   .greeting {
-    font-size: 24px;
+    font-size: 26px;
   }
-
   .description {
-    font-size: 15px;
-    margin-bottom: 25px;
+    font-size: 16px;
+    margin-bottom: 20px;
   }
-
   .avatarContainer {
-    width: 220px;
-    height: 220px;
-    border-width: 6px;
+    width: 160px;
+    height: 160px;
+    border-width: 4px;
   }
-
-  .statRaqam {
+  .cvButton {
+    padding: 12px 20px;
+    font-size: 14px;
+  }
     font-size: 28px;
   }
 
