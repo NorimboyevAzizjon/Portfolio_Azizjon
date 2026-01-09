@@ -1,4 +1,45 @@
 @media (max-width: 768px) {
+  .contactContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .formSection, .infoSection {
+    width: 100%;
+    padding: 24px 8px;
+    margin: 0 auto;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+  .formGroup, .infoItem {
+    width: 100%;
+  }
+  .input, textarea {
+    width: 100%;
+    min-width: 0;
+    font-size: 1rem;
+  }
+  .submitBtn {
+    width: 100%;
+    min-width: 44px;
+    min-height: 44px;
+    font-size: 1.1rem;
+    margin-top: 18px;
+  }
+}
+@media (max-width: 480px) {
+  .contactContainer {
+    gap: 14px;
+  }
+  .formSection, .infoSection {
+    padding: 14px 2px;
+  }
+  .submitBtn {
+    font-size: 1rem;
+    padding: 12px 0;
+  }
+}
+@media (max-width: 768px) {
   .header {
     margin-top: 90px;
   }
