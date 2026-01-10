@@ -1,4 +1,4 @@
-// src/components/Header.jsx - ZAMONAVIY VERSIYA
+// src/components/Header.tsx - ZAMONAVIY VERSIYA
 import React, { useState, useEffect, useRef } from 'react';
 
 import { useLanguage } from '../LanguageContext';
@@ -7,7 +7,7 @@ import { NavLink } from 'react-router-dom';
 import styles from './Header.module.css';
 import { FaHome, FaUser, FaBriefcase, FaEnvelope } from 'react-icons/fa';
 
-const Header = () => {
+const Header: React.FC = () => {
   // const [activeSection, setActiveSection] = useState('bosh-sahifa');
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
