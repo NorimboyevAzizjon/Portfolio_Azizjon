@@ -7,7 +7,7 @@ import { NavLink } from 'react-router-dom';
 import styles from './Header.module.css';
 import { FaHome, FaUser, FaBriefcase, FaEnvelope } from 'react-icons/fa';
 
-const Header: React.FC = () => {
+const Header = () => {
   // const [activeSection, setActiveSection] = useState('bosh-sahifa');
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);

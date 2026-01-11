@@ -1,4 +1,5 @@
 import React, { Component, ReactNode } from 'react';
+
 interface ErrorBoundaryProps {
   children: ReactNode;
 }
@@ -13,12 +14,6 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
     this.state = { hasError: false };
   }
 
-class ErrorBoundary extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { hasError: false };
-  }
-
   static getDerivedStateFromError(error: Error): ErrorBoundaryState {
     return { hasError: true };
   }
@@ -28,6 +23,7 @@ class ErrorBoundary extends React.Component {
     // console.error(error, errorInfo);
   }
 
+  render() {
     if (this.state.hasError) {
       return (
         <div style={{ padding: 32, textAlign: 'center', color: 'red' }}>

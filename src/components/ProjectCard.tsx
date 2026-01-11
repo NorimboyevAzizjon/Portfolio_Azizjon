@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, ReactElement } from 'react';
 import { useLanguage } from '../LanguageContext';
 import styles from './ProjectCard.module.css';
 import { FaExternalLinkAlt, FaGithub, FaCode, FaReact, FaNodeJs, FaJs, FaCss3Alt, FaPlayCircle } from 'react-icons/fa';
 // Texnologiya nomi => icon mapping
-const techIconMap = {
+const techIconMap: Record<'React' | 'Node' | 'JS' | 'CSS' | 'Redux', ReactElement> = {
   'React': <FaReact color="#61DBFB" />,
   'Node': <FaNodeJs color="#3C873A" />,
   'JS': <FaJs color="#F7DF1E" />,
@@ -20,14 +20,14 @@ interface ProjectCardProps {
   jonliDemo?: string;
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({
+const ProjectCard = ({
   sarlavha,
   tavsif,
   rasm,
   texnologiyalar,
   githubHavolasi,
   jonliDemo,
-}) => {
+}: ProjectCardProps) => {
   const { t } = useLanguage();
   const [isHovered, setIsHovered] = useState(false);
   const [imageLoaded, setImageLoaded] = useState(false);
@@ -96,7 +96,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         <div className={`${styles.techBadges} ${isHovered ? styles.visible : ''}`}>
           {texnologiyalar.slice(0, 3).map((tex, index) => (
             <span key={index} className={styles.techBadge}>
-              {techIconMap[Object.keys(techIconMap).find(key => tex.includes(key))] || <FaCode />} {tex}
+              {(() => {
+                const foundKey = Object.keys(techIconMap).find(key => tex.includes(key));
+                return foundKey ? techIconMap[foundKey as keyof typeof techIconMap] : <FaCode />;
+              })()} {tex}
             </span>
           ))}
           {texnologiyalar.length > 3 && (
@@ -126,7 +129,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                 className={styles.techTag}
                 title={tex}
               >
-                {techIconMap[Object.keys(techIconMap).find(key => tex.includes(key))] || <FaCode />}
+                {(() => {
+                  const foundKey = Object.keys(techIconMap).find(key => tex.includes(key));
+                  return foundKey ? techIconMap[foundKey as keyof typeof techIconMap] : <FaCode />;
+                })()}
                 <span className={styles.techName}>{tex}</span>
               </span>
             ))}
@@ -167,3 +173,4 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 };
 
 export default ProjectCard;
+
