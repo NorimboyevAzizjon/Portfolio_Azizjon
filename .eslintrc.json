@@ -19,5 +19,15 @@
   "rules": {
     "no-unused-vars": ["error", { "vars": "all", "args": "after-used", "ignoreRestSiblings": false }],
     "react-refresh/only-export-components": "off"
-  }
+  },
+  "overrides": [
+    {
+      "files": ["*.test.js", "*.test.jsx", "*.spec.js", "*.spec.jsx"],
+      "env": { "jest": true }
+    },
+    {
+      "files": ["jest.config.js", "setupTests.js"],
+      "env": { "node": true }
+    }
+  ]
 }
