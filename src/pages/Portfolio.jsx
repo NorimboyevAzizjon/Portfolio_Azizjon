@@ -1,7 +1,7 @@
 // Portfolio.jsx - TO'LIQ VERSIYA
 import React, { useState } from 'react';
 import SeoHelmet from '../components/SeoHelmet';
-import { useLanguage } from '../LanguageContext';
+import { useLanguage } from '../useLanguage';
 import ProjectCard from '../components/ProjectCard.jsx';
 import styles from './Portfolio.module.css';
 

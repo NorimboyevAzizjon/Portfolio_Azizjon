@@ -1,7 +1,7 @@
 // src/components/Header.tsx - ZAMONAVIY VERSIYA
 import React, { useState, useEffect, useRef } from 'react';
 
-import { useLanguage } from '../LanguageContext';
+import { useLanguage } from '../useLanguage';
 import { AnimatePresence, motion } from 'framer-motion'; // 'motion' is used, so keep both
 import { NavLink } from 'react-router-dom';
 import styles from './Header.module.css';

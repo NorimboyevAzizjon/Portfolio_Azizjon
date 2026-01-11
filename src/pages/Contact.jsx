@@ -1,6 +1,6 @@
 // Contact.jsx - TO'LIQ VERSIYA
 import React, { useState } from 'react';
-import { useLanguage } from '../LanguageContext';
+import { useLanguage } from '../useLanguage';
 import styles from './Contact.module.css';
 
 import { FaMapMarkerAlt, FaEnvelope, FaPhoneAlt, FaPaperPlane, FaCommentAlt, FaUser, FaTag, FaEdit, FaSpinner, FaCheckCircle, FaAddressBook, FaExternalLinkAlt } from 'react-icons/fa';

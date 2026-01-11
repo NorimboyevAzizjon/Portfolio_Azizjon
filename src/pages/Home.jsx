@@ -1,6 +1,6 @@
 import React from 'react';
 import SeoHelmet from '../components/SeoHelmet';
-import { useLanguage } from '../LanguageContext';
+import { useLanguage } from '../useLanguage';
 import imgAzizjon from '../assets/images/photo_2025-12-02_17-16-43.jpg';
 import styles from './Home.module.css';
 

@@ -23,4 +23,4 @@ export const LanguageProvider = ({ children }) => {
   );
 };
 
-export const useLanguage = () => useContext(LanguageContext);
+// useLanguage hook moved to useLanguage.js
