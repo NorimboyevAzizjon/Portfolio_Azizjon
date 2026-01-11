@@ -1,136 +1,4 @@
-@media (max-width: 600px) {
-  .container {
-    padding: 8px 2px 12px;
-    gap: 8px;
-  }
-  .content {
-    gap: 6px;
-  }
-  .avatarContainer {
-    width: 120px;
-    height: 120px;
-    max-width: 80vw;
-    max-height: 30vw;
-  }
-  .statistikalar {
-    gap: 8px;
-    padding: 4px 1px;
-  }
-  .statItem {
-    min-width: 32px;
-    min-height: 32px;
-    font-size: 0.9rem;
-  }
-}
-@media (max-width: 992px) {
-  .content {
-    gap: 24px;
-  }
-  .imageSection {
-    margin-right: 10px;
-    min-width: 180px;
-  }
-}
-@media (max-width: 768px) {
-  .content {
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 18px;
-  }
-  .imageSection {
-    order: 1;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 10px;
-    margin-right: 0;
-    min-width: 0;
-  }
-  .textSection {
-    order: 2;
-    width: 100%;
-    align-items: center;
-    text-align: center;
-    min-height: unset;
-    margin-left: 0;
-  }
-  .avatarContainer {
-    width: 220px;
-    height: 220px;
-    max-width: 90vw;
-    max-height: 40vw;
-  }
-  .statistikalar {
-    flex-direction: column;
-    gap: 18px;
-    width: 100%;
-    padding: 10px 2px;
-  }
-  .statItem {
-    width: 100%;
-    margin-bottom: 10px;
-    min-width: 44px;
-    min-height: 44px;
-  }
-}
-@media (max-width: 480px) {
-  .container {
-    padding: 12px 4px 18px;
-    gap: 14px;
-  }
-  .content {
-    gap: 10px;
-  }
-  .greeting {
-    font-size: 20px;
-  }
-  .description {
-    font-size: 14px;
-    margin-bottom: 10px;
-  }
-  .avatarContainer {
-    width: 110px;
-    height: 110px;
-    max-width: 80vw;
-    max-height: 30vw;
-    border-width: 3px;
-  }
-  .cvButton {
-    width: 100%;
-    justify-content: center;
-    padding: 10px 10px;
-    font-size: 13px;
-    min-width: 44px;
-    min-height: 44px;
-  }
-  .statRaqam {
-    font-size: 18px;
-  }
-  .statMatn {
-    font-size: 13px;
-  }
-  .statistikalar {
-    padding: 8px 2px;
-    margin-top: 10px;
-    gap: 10px;
-  }
-  .statItem {
-    width: 100%;
-    margin-bottom: 6px;
-    min-width: 44px;
-    min-height: 44px;
-  }
-}
-@media (max-width: 992px) {
-  .content {
-    gap: 24px;
-  }
-  .imageSection {
-    margin-right: 10px;
-    min-width: 200px;
-  }
-}
+
 :root {
   /* Zamonaviy gradient rang palettasi */
   --primary: #8A2BE2;
@@ -261,7 +129,17 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  overflow: hidden;
+    border-radius: 50% !important;
+    overflow: hidden !important;
+    background: linear-gradient(120deg, #ff6a3d 0%, #ffb86c 100%);
+    border: 4px solid var(--secondary);
+  overflow: hidden;}
+  .avatar {
+    width: 100%;
+    height: 100%;
+    border-radius: 50% !important;
+    object-fit: cover;
+    display: block;
   box-shadow: 0 30px 80px rgba(255, 186, 108, 0.18);
   border: 12px solid var(--secondary);
   transition: all 0.3s ease;
@@ -354,281 +232,33 @@
   display: inline-block;
   animation: wave 2s infinite;
 }
-
 /* RESPONSIVE MEDIA QUERIES */
-@media (max-width: 1200px) {
-  .container {
-    padding: 40px 30px 60px;
-  }
-  
-  .content {
-    gap: 50px;
-  }
-  
-  .greeting {
-    font-size: 40px;
-  }
-  
-  .description {
-    font-size: 20px;
-  }
-  
-  .avatarContainer {
-    width: 400px;
-    height: 400px;
-  }
-  
-  .statistikalar {
-    gap: 60px 100px;
-    padding: 30px 20px;
-  }
-  
-  .statRaqam {
-    font-size: 50px;
-  }
-}
 
-@media (max-width: 1024px) {
-  .content {
-    flex-direction: column;
-    text-align: center;
-    gap: 40px;
+/* Accessibility - harakat kamaytirilganda */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
   
-  .greeting {
-    font-size: 38px;
-  }
-  
-  .description {
-    font-size: 19px;
-    margin: 0 auto 45px;
-  }
-  
-  .avatarContainer {
-    width: 350px;
-    height: 350px;
-  }
-  
-  .textSection {
-    align-items: center;
-  }
-  
+  .avatarContainer,
   .cvButton {
-    align-self: center;
+    transition: none !important;
   }
   
-  .statistikalar {
-    width: 100%;
-    gap: 50px;
-    flex-wrap: wrap;
-    margin-top: 20px;
+  .waveHand {
+    animation: none !important;
   }
   
-  .statistikalar {
-    padding: 25px 15px;
+  .cvButton:hover {
+    transform: none !important;
   }
 }
 
-@media (max-width: 768px) {
-  .container {
-    padding: 30px 20px 50px;
-    gap: 40px;
-  }
-  .content {
-    gap: 35px;
-  }
-  .greeting {
-    font-size: 36px;
-  }
-  .description {
-    font-size: 20px;
-    line-height: 1.6;
-    margin-bottom: 30px;
-  }
-  .avatarContainer {
-    width: 300px;
-    height: 300px;
-    border-width: 8px;
-  }
-  .statRaqam {
-    font-size: 36px;
-  }
-  .statMatn {
-    font-size: 16px;
-  }
-  .cvButton {
-    padding: 18px 40px;
-    font-size: 18px;
-  }
-  .statistikalar {
-    gap: 30px;
-    margin-top: 30px;
-    padding: 20px 15px;
-    border-radius: var(--radius-medium);
-  }
-  .statItem {
-    min-width: 120px;
-  }
-}
-
-@media (max-width: 640px) {
-  .content {
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 18px;
-  }
-  .imageSection {
-    order: 1;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 10px;
-  }
-  .textSection {
-    order: 2;
-    width: 100%;
-    align-items: center;
-    text-align: center;
-    min-height: unset;
-    margin-left: 0;
-  }
-  .container {
-    padding: 25px 8px 32px;
-    gap: 22px;
-  }
-  .greeting {
-    font-size: 28px;
-  }
-  .description {
-    font-size: 16px;
-  }
-  .avatarContainer {
-    width: 160px;
-    height: 160px;
-    max-width: 90vw;
-    max-height: 40vw;
-  }
-  .statistikalar {
-    flex-direction: column;
-    gap: 18px;
-    width: 100%;
-    padding: 10px 2px;
-  }
-  .statRaqam {
-    font-size: 20px;
-  }
-  .statMatn {
-    font-size: 15px;
-  }
-  .cvButton {
-    padding: 12px 18px;
-    font-size: 15px;
-    min-width: 44px;
-    min-height: 44px;
-  }
-  .statItem {
-    width: 100%;
-    margin-bottom: 10px;
-    min-width: 44px;
-    min-height: 44px;
-  }
-}
-
-@media (max-width: 480px) {
-  .content {
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 10px;
-  }
-  .imageSection {
-    order: 1;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 6px;
-  }
-  .textSection {
-    order: 2;
-    width: 100%;
-    align-items: center;
-    text-align: center;
-    min-height: unset;
-    margin-left: 0;
-  }
-  .container {
-    padding: 12px 4px 18px;
-    gap: 14px;
-  }
-  .content {
-    gap: 12px;
-  }
-  .greeting {
-    font-size: 20px;
-  }
-  .description {
-    font-size: 14px;
-    margin-bottom: 10px;
-  }
-  .avatarContainer {
-    width: 110px;
-    height: 110px;
-    max-width: 80vw;
-    max-height: 30vw;
-    border-width: 3px;
-  }
-  .cvButton {
-    width: 100%;
-    justify-content: center;
-    padding: 10px 10px;
-    font-size: 13px;
-    min-width: 44px;
-    min-height: 44px;
-  }
-  .statRaqam {
-    font-size: 18px;
-  }
-  .statMatn {
-    font-size: 13px;
-  }
-  .statistikalar {
-    padding: 8px 2px;
-    margin-top: 10px;
-    gap: 10px;
-  }
-  .statItem {
-    width: 100%;
-    margin-bottom: 6px;
-    min-width: 44px;
-    min-height: 44px;
-  }
-}
-
-@media (max-width: 360px) {
-  .greeting {
-    font-size: 22px;
-  }
-  
-  .description {
-    font-size: 14px;
-  }
-  
-  .avatarContainer {
-    width: 200px;
-    height: 200px;
-  }
-  
-  .statRaqam {
-    font-size: 24px;
-  }
-  
-  .cvButton {
-    font-size: 14px;
-  }
-}
-
-/* Katta ekranlar uchun */
+/* Katta ekranlar uchun (1600px+) */
 @media (min-width: 1600px) {
   .container {
     max-width: 1400px;
@@ -663,27 +293,492 @@
   }
 }
 
-/* Accessibility - harakat kamaytirilganda */
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+/* 1200px dan katta */
+@media (min-width: 1200px) {
+  .container {
+    padding: 40px 30px 60px;
   }
   
-  .avatarContainer,
+  .content {
+    gap: 50px;
+  }
+  
+  .greeting {
+    font-size: 40px;
+  }
+  
+  .description {
+    font-size: 20px;
+  }
+  
+  .avatarContainer {
+    width: 400px;
+    height: 400px;
+  }
+  
+  .statistikalar {
+    gap: 60px 100px;
+    padding: 30px 20px;
+  }
+  
+  .statRaqam {
+    font-size: 50px;
+  }
+}
+
+/* 1200px dan kichik */
+@media (max-width: 1200px) {
+  .container {
+    padding: 40px 30px 60px;
+  }
+  
+  .content {
+    gap: 50px;
+  }
+  
+  .greeting {
+    font-size: 40px;
+  }
+  
+  .description {
+    font-size: 20px;
+  }
+  
+  .avatarContainer {
+    width: 400px;
+    height: 400px;
+  }
+  
+  .statistikalar {
+    gap: 60px 100px;
+    padding: 30px 20px;
+  }
+  
+  .statRaqam {
+    font-size: 50px;
+  }
+}
+
+/* 1024px dan kichik */
+@media (max-width: 1024px) {
+  .content {
+    flex-direction: column;
+    text-align: center;
+    gap: 40px;
+  }
+  
+  .greeting {
+    font-size: 38px;
+  }
+  
+  .description {
+    font-size: 19px;
+    margin: 0 auto 45px;
+  }
+  
+  .avatarContainer {
+    width: 350px;
+    height: 350px;
+  }
+  
+  .textSection {
+    align-items: center;
+  }
+  
   .cvButton {
-    transition: none !important;
+    align-self: center;
   }
   
-  .waveHand {
-    animation: none !important;
+  .statistikalar {
+    width: 100%;
+    gap: 50px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    padding: 25px 15px;
+  }
+}
+
+/* 992px dan kichik */
+@media (max-width: 992px) {
+  .content {
+    gap: 24px;
   }
   
-  .cvButton:hover {
-    transform: none !important;
+  .imageSection {
+    margin-right: 10px;
+    min-width: 180px;
+  }
+}
+
+/* 768px dan kichik */
+@media (max-width: 768px) {
+  .header {
+    position: relative;
+    z-index: 2;
+  }
+  
+  .container {
+    padding: 30px 20px 50px;
+    gap: 40px;
+  }
+  
+  .content {
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 18px;
+  }
+  
+  .imageSection {
+    order: 1;
+    width: 100%;
+    display: flex;
+    justify-content: center !important;
+    align-items: center !important;
+    margin-top: 32px !important;
+    margin-bottom: 10px;
+    margin-right: 0;
+    min-width: 0;
+  }
+  
+  .textSection {
+    order: 2;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    min-height: unset;
+    margin-left: 0;
+  }
+  
+  .greeting {
+    font-size: 36px;
+  }
+  
+  .description {
+    font-size: 20px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+  }
+  
+  .avatarContainer {
+    width: 220px;
+    height: 220px;
+    max-width: 90vw;
+    max-height: 40vw;
+    border-width: 8px;
+    margin: 0 auto !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .statRaqam {
+    font-size: 36px;
+  }
+  
+  .statMatn {
+    font-size: 16px;
+  }
+  
+  .cvButton {
+    padding: 18px 40px;
+    font-size: 18px;
+  }
+  
+  .statistikalar {
+    flex-direction: column;
+    gap: 18px;
+    width: 100%;
+    padding: 10px 2px;
+    margin-top: 30px;
+    border-radius: var(--radius-medium);
+  }
+  
+  .statItem {
+    width: 100%;
+    margin-bottom: 10px;
+    min-width: 44px;
+    min-height: 44px;
+  }
+}
+
+/* 640px dan kichik */
+@media (max-width: 640px) {
+  .content {
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 18px;
+  }
+  
+  .imageSection {
+    order: 1;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+  
+  .textSection {
+    order: 2;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    min-height: unset;
+    margin-left: 0;
+  }
+  
+  .container {
+    padding: 25px 8px 32px;
+    gap: 22px;
+  }
+  
+  .greeting {
+    font-size: 28px;
+  }
+  
+  .description {
+    font-size: 16px;
+  }
+  
+  .avatarContainer {
+    width: 160px;
+    height: 160px;
+    max-width: 90vw;
+    max-height: 40vw;
+  }
+  
+  .statistikalar {
+    flex-direction: column;
+    gap: 18px;
+    width: 100%;
+    padding: 10px 2px;
+  }
+  
+  .statRaqam {
+    font-size: 20px;
+  }
+  
+  .statMatn {
+    font-size: 15px;
+  }
+  
+  .cvButton {
+    padding: 12px 18px;
+    font-size: 15px;
+    min-width: 44px;
+    min-height: 44px;
+  }
+  
+  .statItem {
+    width: 100%;
+    margin-bottom: 10px;
+    min-width: 44px;
+    min-height: 44px;
+  }
+}
+
+/* 600px dan kichik */
+@media (max-width: 600px) {
+  .container {
+    padding: 8px 2px 12px;
+    gap: 8px;
+  }
+  
+  .content {
+    gap: 6px;
+  }
+  
+  .avatarContainer {
+    width: 120px;
+    height: 120px;
+    max-width: 80vw;
+    max-height: 30vw;
+  }
+  
+  .statistikalar {
+    gap: 8px;
+    padding: 4px 1px;
+  }
+  
+  .statItem {
+    min-width: 32px;
+    min-height: 32px;
+    font-size: 0.9rem;
+  }
+}
+
+/* 480px dan kichik */
+@media (max-width: 480px) {
+  .content {
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+  }
+  
+  .imageSection {
+    order: 1;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 6px;
+  }
+  
+  .textSection {
+    order: 2;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    min-height: unset;
+    margin-left: 0;
+  }
+  
+  .container {
+    padding: 12px 4px 18px;
+    gap: 14px;
+  }
+  
+  .content {
+    gap: 12px;
+  }
+  
+  .greeting {
+    font-size: 20px;
+  }
+  
+  .description {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  
+  .avatarContainer {
+    width: 110px;
+    height: 110px;
+    max-width: 80vw;
+    max-height: 30vw;
+    border-width: 3px;
+  }
+  
+  .cvButton {
+    width: 100%;
+    justify-content: center;
+    padding: 10px 10px;
+    font-size: 13px;
+    min-width: 44px;
+    min-height: 44px;
+  }
+  
+  .statRaqam {
+    font-size: 18px;
+  }
+  
+  .statMatn {
+    font-size: 13px;
+  }
+  
+  .statistikalar {
+    padding: 8px 2px;
+    margin-top: 10px;
+    gap: 10px;
+  }
+  
+  .statItem {
+    width: 100%;
+    margin-bottom: 6px;
+    min-width: 44px;
+    min-height: 44px;
+  }
+}
+
+/* 360px dan kichik */
+@media (max-width: 360px) {
+  .header {
+    position: relative;
+    z-index: 2;
+    min-height: 56px;
+    padding: 0 6px;
+    font-size: 0.95rem;
+  }
+  
+  .content {
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+  }
+  
+  .imageSection {
+    order: 1;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 38px !important;
+  }
+  
+  .textSection {
+    order: 2;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    font-size: 1rem;
+    min-height: unset;
+    margin-left: 0;
+    padding: 0 6px;
+  }
+  
+  .greeting {
+    font-size: 22px;
+  }
+  
+  .description {
+    font-size: 14px;
+  }
+  
+  .avatarContainer {
+    width: 120px;
+    height: 120px;
+    max-width: 70vw;
+    max-height: 30vw;
+    margin: 0 auto !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-width: 3px;
+  }
+  
+  .cvButton {
+    width: 90vw;
+    font-size: 1rem;
+    padding: 12px 0;
+    margin: 18px auto 0 auto;
+    display: block;
+    min-width: 44px;
+    min-height: 44px;
+  }
+  
+  .statRaqam {
+    font-size: 24px;
+  }
+  
+  .statMatn {
+    font-size: 0.95rem;
+  }
+  
+  .statistikalar {
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    padding: 8px 2px;
+  }
+  
+  .statItem {
+    width: 100%;
+    margin-bottom: 8px;
+    min-width: 36px;
+    min-height: 36px;
+    font-size: 0.95rem;
   }
 }
 

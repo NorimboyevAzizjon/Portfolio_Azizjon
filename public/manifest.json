@@ -1,0 +1,16 @@
+{
+  "short_name": "Azizjon",
+  "name": "Azizjon Norimboyev Portfolio",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#007bff",
+  "description": "Azizjon Norimboyev - Frontend dasturchi portfoliosi. Zamonaviy texnologiyalar, kreativ yondashuv va yuqori sifatli loyihalar."
+}
