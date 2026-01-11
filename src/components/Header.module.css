@@ -1,59 +1,3 @@
-@media (max-width: 375px) {
-  .header {
-    top: 0;
-    padding: 0 1px;
-  }
-  .navContainer {
-    gap: 0;
-    padding: 1px 1px;
-  }
-  .navLink {
-    min-width: 40px;
-    padding: 4px 2px;
-    font-size: 0.7rem;
-    min-height: 28px;
-  }
-  .navText {
-    font-size: 0.7rem;
-  }
-  .langSwitcher {
-    padding: 1px 2px;
-    gap: 1px;
-  }
-  .langBtn {
-    font-size: 0.7rem;
-    padding: 2px 4px;
-    min-width: 24px;
-    min-height: 24px;
-  }
-}
-@media (max-width: 992px) {
-  .header {
-    width: 100vw;
-    min-width: 0;
-    padding: 0 2px;
-  }
-  .navContainer {
-    gap: 6px;
-    padding: 6px 2px;
-    min-width: 0;
-  }
-  .navLink {
-    min-width: 80px;
-    padding: 8px 8px;
-    font-size: 0.95rem;
-    min-height: 36px;
-  }
-  .navText {
-    font-size: 0.9rem;
-  }
-  .langDropdownBtn {
-    font-size: 0.95rem;
-    padding: 6px 10px;
-    min-width: 36px;
-    min-height: 36px;
-  }
-}
 /* Language dropdown styles */
 .langDropdownBtn {
   border: none;
@@ -103,40 +47,7 @@
 .langDropdownItem:hover {
   background: #8A2BE2;
 }
-@media (max-width: 425px) {
-  .header {
-    top: 2px;
-    width: 100vw;
-    min-width: 0;
-    padding: 0 2px;
-  }
-  .navContainer {
-    gap: 1px;
-    padding: 2px 2px;
-    min-width: 0;
-  }
-  .navLink {
-    min-width: 48px;
-    padding: 6px 4px;
-    font-size: 0.85rem;
-    min-height: 36px;
-  }
-  .navText {
-    font-size: 0.8rem;
-  }
-  .langSwitcher {
-    padding: 2px 4px;
-    gap: 2px;
-  }
-  .langBtn {
-    font-size: 0.8rem;
-    padding: 4px 8px;
-    min-width: 32px;
-    min-height: 32px;
-  }
-  /* Dropdown uchun joy ajratiladi, lekin JS kerak bo‘ladi */
-}
-/* Language Switcher (Til tanlash) */
+
 .langSwitcher {
   display: flex;
   gap: 8px;
@@ -181,19 +92,7 @@
   pointer-events: none;
 }
 
-@media (max-width: 640px) {
-  .langSwitcher {
-    gap: 4px;
-    padding: 2px 4px;
-  }
-  .langBtn {
-    font-size: 0.92rem;
-    padding: 4px 8px;
-  }
-}
-/* Header.module.css - YANGILANGAN */
 
-/* Asosiy header */
 .header {
   position: fixed;
   top: 30px;
@@ -294,7 +193,6 @@
   transition: all 0.3s ease;
 }
 
-/* Hover effekti */
 .navLink:hover {
   color: #F8FAFC;
 }
@@ -316,11 +214,9 @@
   transform: translateY(-1px);
 }
 
-/* Active state */
-
 .navLink.active {
   color: #F8FAFC;
-  /* border va qora shadow olib tashlandi */
+  
 }
 
 .navLink.active::before {
@@ -358,8 +254,6 @@
   opacity: 1;
   animation: pulse 2s infinite;
 }
-
-/* Pulse animatsiya */
 @keyframes pulse {
   0%, 100% {
     box-shadow: 0 0 0 0 rgba(255, 107, 53, 0.7);
@@ -369,7 +263,6 @@
   }
 }
 
-/* Tooltip */
 .navLink::after {
   content: attr(data-tooltip);
   position: absolute;
@@ -397,87 +290,9 @@
   visibility: visible;
   transform: translateX(-50%) translateY(0);
 }
+/* Header.module.css - YANGILANGAN */
 
-/* Responsive */
-@media (max-width: 1024px) {
-  .header {
-    top: 20px;
-  }
-  
-  .navLink {
-    min-width: 90px;
-    padding: 10px 16px;
-  }
-}
-
-@media (max-width: 768px) {
-  .header {
-    top: 15px;
-    width: 95%;
-  }
-  
-  .navContainer {
-    gap: 4px;
-    padding: 8px;
-  }
-  
-  .navLink {
-    min-width: 70px;
-    padding: 8px 12px;
-  }
-  
-  .navLink i {
-    font-size: 1.1rem;
-    margin-bottom: 4px;
-  }
-  
-  .navText {
-    font-size: 0.8rem;
-  }
-  
-  .navLink::after {
-    display: none;
-  }
-}
-
-@media (max-width: 640px) {
-  .navLink {
-    min-width: 90px;
-    padding: 12px 16px;
-    font-size: 1.08rem;
-    min-height: 44px;
-  }
-  .navLink i {
-    font-size: 1.2rem;
-    margin-bottom: 3px;
-  }
-  .navText {
-    font-size: 1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .header {
-    top: 2px;
-    width: 100%;
-  }
-  .navContainer {
-    gap: 1px;
-    padding: 2px;
-  }
-  .navLink {
-    min-width: 70px;
-    padding: 10px 8px;
-    font-size: 0.95rem;
-    min-height: 44px;
-  }
-  .navLink i {
-    font-size: 1.05rem;
-  }
-  .navText {
-    font-size: 0.9rem;
-  }
-}
+/* Responsive media queries */
 
 /* Accessibility */
 @media (prefers-reduced-motion: reduce) {
@@ -495,13 +310,6 @@
   .navLink:hover .navText {
     transform: none !important;
   }
-}
-
-/* Focus holati */
-.navLink:focus-visible {
-  outline: 2px solid #FF6B35;
-  outline-offset: 3px;
-  border-radius: 40px;
 }
 
 /* Dark/Light mode */
@@ -536,5 +344,233 @@
   
   .navLink.active {
     color: #FFFFFF;
+  }
+}
+
+/* Focus holati */
+.navLink:focus-visible {
+  outline: 2px solid #FF6B35;
+  outline-offset: 3px;
+  border-radius: 40px;
+}
+
+/* 1024px dan kichik */
+@media (max-width: 1024px) {
+  .header {
+    top: 20px;
+  }
+  
+  .navLink {
+    min-width: 90px;
+    padding: 10px 16px;
+  }
+}
+
+/* 992px dan kichik */
+@media (max-width: 992px) {
+  .header {
+    width: 100vw;
+    min-width: 0;
+    padding: 0 2px;
+  }
+  
+  .navContainer {
+    gap: 6px;
+    padding: 6px 2px;
+    min-width: 0;
+  }
+  
+  .navLink {
+    min-width: 80px;
+    padding: 8px 8px;
+    font-size: 0.95rem;
+    min-height: 36px;
+  }
+  
+  .navText {
+    font-size: 0.9rem;
+  }
+  
+  .langDropdownBtn {
+    font-size: 0.95rem;
+    padding: 6px 10px;
+    min-width: 36px;
+    min-height: 36px;
+  }
+}
+
+/* 768px dan kichik */
+@media (max-width: 768px) {
+  .header {
+    top: 15px;
+    width: 95%;
+  }
+  
+  .navContainer {
+    gap: 4px;
+    padding: 8px;
+  }
+  
+  .navLink {
+    min-width: 70px;
+    padding: 8px 12px;
+  }
+  
+  .navLink i {
+    font-size: 1.1rem;
+    margin-bottom: 4px;
+  }
+  
+  .navText {
+    font-size: 0.8rem;
+  }
+  
+  .navLink::after {
+    display: none;
+  }
+}
+
+/* 640px dan kichik */
+@media (max-width: 640px) {
+  .navLink {
+    min-width: 90px;
+    padding: 12px 16px;
+    font-size: 1.08rem;
+    min-height: 44px;
+  }
+  
+  .navLink i {
+    font-size: 1.2rem;
+    margin-bottom: 3px;
+  }
+  
+  .navText {
+    font-size: 1rem;
+  }
+  
+  .langSwitcher {
+    gap: 4px;
+    padding: 2px 4px;
+  }
+  
+  .langBtn {
+    font-size: 0.92rem;
+    padding: 4px 8px;
+  }
+}
+
+/* 480px dan kichik */
+@media (max-width: 480px) {
+  .header {
+    top: 2px;
+    width: 100%;
+  }
+  
+  .navContainer {
+    gap: 1px;
+    padding: 2px;
+  }
+  
+  .navLink {
+    min-width: 70px;
+    padding: 10px 8px;
+    font-size: 0.95rem;
+    min-height: 44px;
+  }
+  
+  .navLink i {
+    font-size: 1.05rem;
+  }
+  
+  .navText {
+    font-size: 0.9rem;
+  }
+}
+
+/* 425px dan kichik */
+@media (max-width: 425px) {
+  .header {
+    top: 2px;
+    width: 100vw;
+    min-width: 0;
+    padding: 0 2px;
+  }
+  
+  .navContainer {
+    gap: 1px;
+    padding: 2px 2px;
+    min-width: 0;
+    border-radius: 32px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  }
+  
+  .navLink {
+    min-width: 48px;
+    padding: 6px 4px;
+    font-size: 0.85rem;
+    min-height: 36px;
+  }
+  
+  .navText {
+    font-size: 0.8rem;
+  }
+  
+  .langSwitcher {
+    padding: 2px 4px;
+    gap: 2px;
+    margin-left: 8px;
+    border-radius: 16px;
+  }
+  
+  .langBtn {
+    font-size: 0.8rem;
+    padding: 4px 8px;
+    min-width: 32px;
+    min-height: 32px;
+    border-radius: 12px;
+  }
+  
+  .langDropdownBtn {
+    font-size: 0.8rem;
+    padding: 4px 8px;
+    min-width: 28px;
+    min-height: 28px;
+    border-radius: 12px;
+  }
+}
+
+/* 375px dan kichik */
+@media (max-width: 375px) {
+  .header {
+    top: 0;
+    padding: 0 1px;
+  }
+  
+  .navContainer {
+    gap: 0;
+    padding: 1px 1px;
+  }
+  
+  .navLink {
+    min-width: 40px;
+    padding: 4px 2px;
+    font-size: 0.7rem;
+    min-height: 28px;
+  }
+  
+  .navText {
+    font-size: 0.7rem;
+  }
+  
+  .langSwitcher {
+    padding: 1px 2px;
+    gap: 1px;
+  }
+  
+  .langBtn {
+    font-size: 0.7rem;
+    padding: 2px 4px;
+    min-width: 24px;
+    min-height: 24px;
   }
 }

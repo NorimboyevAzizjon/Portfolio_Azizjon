@@ -1,19 +1,4 @@
-@media (max-width: 480px) {
-  .langSwitcher {
-    gap: 2px;
-  }
-  .langBtn {
-    font-size: 0.8rem;
-    padding: 2px 6px;
-    min-width: 24px;
-    min-height: 24px;
-  }
-  .themeToggleBtn, .whiteBtn {
-    width: 36px;
-    height: 36px;
-    font-size: 1rem;
-  }
-}
+
 .activeLang {
   background: #8A2BE2 !important;
   color: #fff !important;
@@ -358,7 +343,9 @@
   }
 }
 
-/* Responsive */
+/* Responsive media queries */
+
+/* 768px dan kichik */
 @media (max-width: 768px) {
   .contentSection {
     grid-template-columns: 1fr;
@@ -384,7 +371,27 @@
   }
 }
 
+/* 480px dan kichik */
 @media (max-width: 480px) {
+  /* Header uchun */
+  .langSwitcher {
+    gap: 2px;
+  }
+  
+  .langBtn {
+    font-size: 0.8rem;
+    padding: 2px 6px;
+    min-width: 24px;
+    min-height: 24px;
+  }
+  
+  .themeToggleBtn, .whiteBtn {
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
+  }
+  
+  /* Footer uchun */
   .footer {
     padding: 60px 15px 30px;
   }
