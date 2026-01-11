@@ -83,3 +83,28 @@ export default {
   code: "Code",
   webApp: "Web App"
 };
+
+// About page: Skills
+export const aboutSkills_en = [
+  { name: "HTML5", description: "Semantic HTML, SEO optimization" },
+  { name: "CSS3", description: "Flexbox, Grid, Animations" },
+  { name: "JavaScript ES6+", description: "Modern JavaScript, Async/Await" },
+  { name: "React.js", description: "Hooks, Context API, Components" },
+  { name: "Next.js", description: "App Router, Server Actions" },
+  { name: "TypeScript", description: "Type safety, Interfaces" },
+  { name: "Sass/SCSS", description: "Nesting, Variables, Mixins" },
+  { name: "Redux", description: "State Management, Toolkit" },
+  { name: "Figma", description: "UI/UX Design, Prototyping" },
+  { name: "Git", description: "Version Control, Branching" },
+  { name: "Tailwind CSS", description: "Utility-first, Responsive Design" },
+  { name: "Bootstrap", description: "Grid System, Components" }
+];
+
+// About page: Education
+export const aboutEducation_en = [
+  { degree: "Software Engineering", institution: "TUIT (Tashkent University of Information Technologies)", period: "2024-2028", description: "Bachelor's degree" },
+  { degree: "Frontend Development", institution: "Najot Ta'lim", period: "2025", description: "React.JS course, 8 months" },
+  { degree: "Online Platform", institution: "Mohirdev", period: "2025", description: "ReactJS 6 months" },
+  { degree: "Online Platform", institution: "Coursera (Board Infinity)", period: "2025", description: "Web Development" },
+  { degree: "Online Platform", institution: "Ustoz AI", period: "2025", description: "AI (artificial intelligence)" }
+];

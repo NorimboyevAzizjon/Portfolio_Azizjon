@@ -83,3 +83,28 @@ export default {
   code: "Kod",
   webApp: "Web Dastur"
 };
+
+// About page: Skills
+export const aboutSkills_uz = [
+  { name: "HTML5", description: "Semantik HTML, SEO optimallashtirish" },
+  { name: "CSS3", description: "Flexbox, Grid, Animatsiyalar" },
+  { name: "JavaScript ES6+", description: "Zamonaviy JavaScript, Async/Await" },
+  { name: "React.js", description: "Hooks, Context API, Komponentlar" },
+  { name: "Next.js", description: "App Router, Server Actions" },
+  { name: "TypeScript", description: "Type xavfsizligi, Interfeyslar" },
+  { name: "Sass/SCSS", description: "Nesting, O'zgaruvchilar, Mixins" },
+  { name: "Redux", description: "State Management, Toolkit" },
+  { name: "Figma", description: "UI/UX Dizayn, Prototiplash" },
+  { name: "Git", description: "Versiya nazorati, Branching" },
+  { name: "Tailwind CSS", description: "Utility-first, Responsive Dizayn" },
+  { name: "Bootstrap", description: "Grid tizimi, Komponentlar" }
+];
+
+// About page: Education
+export const aboutEducation_uz = [
+  { degree: "Dasturiy injiniring", institution: "TATU (Toshkent Axborot Texnologiyalari Universiteti)", period: "2024-2028", description: "Bakalavr darajasi" },
+  { degree: "Frontend Dasturlash", institution: "Najot Ta'lim", period: "2025", description: "React.JS kurs, 8 oy" },
+  { degree: "Onlayin Platforma", institution: "Mohirdev", period: "2025", description: "ReactJS 6 oy" },
+  { degree: "Onlayin Platforma", institution: "Coursera (Board Infinity)", period: "2025", description: "Web Development" },
+  { degree: "Onlayin Platforma", institution: "Ustoz AI", period: "2025", description: "AI (suniy intellektlar)" }
+];

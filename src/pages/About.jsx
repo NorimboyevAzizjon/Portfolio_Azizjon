@@ -1,39 +1,28 @@
+
 import React, { useState, useEffect } from 'react';
 import { useLanguage } from '../useLanguage';
 import styles from './About.module.css';
-
 import { FaHtml5, FaCss3Alt, FaJsSquare, FaReact, FaBolt, FaCode, FaSass, FaFigma, FaGitAlt, FaWind, FaBootstrap, FaUniversity, FaGraduationCap, FaLaptopCode, FaGlobe, FaRobot, FaBriefcase, FaProjectDiagram, FaUsers, FaChartLine, FaExternalLinkAlt, FaCalendarAlt, FaInfoCircle, FaPaperPlane } from 'react-icons/fa';
 import { SiTypescript, SiTailwindcss, SiRedux } from 'react-icons/si';
 
 // Icon mapping for skills, education, stats
 const iconMap = {
-  'fab fa-html5': <FaHtml5 color="#E44D26" />,
-  'fab fa-css3-alt': <FaCss3Alt color="#264DE4" />, 
-  'fab fa-js-square': <FaJsSquare color="#F7DF1E" />, 
-  'fab fa-react': <FaReact color="#61DAFB" />, 
-  'fas fa-bolt': <FaBolt color="#000" />, 
-  'fas fa-code': <FaCode color="#3178C6" />, 
-  'fab fa-sass': <FaSass color="#CC6699" />, 
-  'fab fa-redux': <SiRedux color="#764ABC" />, 
-  'fab fa-figma': <FaFigma color="#A259FF" />, 
-  'fab fa-git-alt': <FaGitAlt color="#F05032" />, 
-  'fas fa-wind': <FaWind color="#38BDF8" />, 
-  'fab fa-bootstrap': <FaBootstrap color="#7952B3" />, 
-  'fas fa-external-link-alt': <FaExternalLinkAlt />, 
-  'fas fa-university': <FaUniversity />, 
-  'fas fa-graduation-cap': <FaGraduationCap />,
-  'fas fa-laptop-code': <FaLaptopCode />, 
-  'fas fa-globe': <FaGlobe />, 
-  'fas fa-robot': <FaRobot />, 
-  'fas fa-briefcase': <FaBriefcase />, 
-  'fas fa-project-diagram': <FaProjectDiagram />, 
-  'fas fa-users': <FaUsers />, 
-  'fas fa-chart-line': <FaChartLine />, 
-  'fas fa-calendar-alt': <FaCalendarAlt />,
-  'fas fa-info-circle': <FaInfoCircle />, 
-  'fab fa-github': <FaGitAlt />, 
-  'fab fa-linkedin': <FaUsers />, 
-  'fab fa-twitter': <FaUsers />
+  'HTML5': <FaHtml5 color="#E44D26" />,
+  'CSS3': <FaCss3Alt color="#264DE4" />,
+  'JavaScript ES6+': <FaJsSquare color="#F7DF1E" />,
+  'React.js': <FaReact color="#61DAFB" />,
+  'Next.js': <FaBolt color="#000" />,
+  'TypeScript': <FaCode color="#3178C6" />,
+  'Sass/SCSS': <FaSass color="#CC6699" />,
+  'Redux': <SiRedux color="#764ABC" />,
+  'Figma': <FaFigma color="#A259FF" />,
+  'Git': <FaGitAlt color="#F05032" />,
+  'Tailwind CSS': <FaWind color="#38BDF8" />,
+  'Bootstrap': <FaBootstrap color="#7952B3" />,
+  'university': <FaUniversity />, 
+  'course': <FaGraduationCap />,
+  'online': <FaLaptopCode />,
+  'default': <FaCode />
 };
 
 const About = () => {
@@ -43,187 +32,45 @@ const About = () => {
   const [stats, setStats] = useState([]);
   const { t } = useLanguage(); // t funksiyasini olish
 
+
   useEffect(() => {
-    // Mahoratlar ro'yxati
-    const skillsData = [
-      { 
-        name: 'HTML5', 
-        level: 95, 
-        color: '#E44D26', 
-        description: 'Semantik HTML, SEO optimallashtirish',
-        icon: 'fab fa-html5',
-        link: 'https://developer.mozilla.org/en-US/docs/Web/HTML'
-      },
-      { 
-        name: 'CSS3', 
-        level: 90, 
-        color: '#264DE4', 
-        description: 'Flexbox, Grid, Animatsiyalar',
-        icon: 'fab fa-css3-alt',
-        link: 'https://developer.mozilla.org/en-US/docs/Web/CSS'
-      },
-      { 
-        name: 'JavaScript ES6+', 
-        level: 90, 
-        color: '#F7DF1E', 
-        description: 'Modern JavaScript, Async/Await',
-        icon: 'fab fa-js-square',
-        link: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript'
-      },
-      { 
-        name: 'React.js', 
-        level: 88, 
-        color: '#61DAFB', 
-        description: 'Hooks, Context API, Components',
-        icon: 'fab fa-react',
-        link: 'https://reactjs.org/'
-      },
-      { 
-        name: 'Next.js', 
-        level: 82, 
-        color: '#000000', 
-        description: 'App Router, Server Actions',
-        icon: 'fas fa-bolt',
-        link: 'https://nextjs.org/'
-      },
-      { 
-        name: 'TypeScript', 
-        level: 80, 
-        color: '#3178C6', 
-        description: 'Type safety, Interfaces',
-        icon: 'fas fa-code',
-        link: 'https://www.typescriptlang.org/'
-      },
-      // Qo'shimcha frontend texnologiyalari
-      {
-        name: 'Sass/SCSS',
-        level: 78,
-        color: '#CC6699',
-        description: 'Nesting, Variables, Mixins',
-        icon: 'fab fa-sass',
-        link: 'https://sass-lang.com/'
-      },
-      {
-        name: 'Redux',
-        level: 75,
-        color: '#764ABC',
-        description: 'State Management, Toolkit',
-        icon: 'fab fa-redux',
-        link: 'https://redux.js.org/'
-      },
-      {
-        name: 'Figma',
-        level: 70,
-        color: '#A259FF',
-        description: 'UI/UX Dizayn, Prototyping',
-        icon: 'fab fa-figma',
-        link: 'https://figma.com/'
-      },
-      {
-        name: 'Git',
-        level: 85,
-        color: '#F05032',
-        description: 'Version Control, Branching',
-        icon: 'fab fa-git-alt',
-        link: 'https://git-scm.com/'
-      },
-      {
-        name: 'Tailwind CSS',
-        level: 77,
-        color: '#38BDF8',
-        description: 'Utility-first, Responsive Design',
-        icon: 'fas fa-wind',
-        link: 'https://tailwindcss.com/'
-      },
-      {
-        name: 'Bootstrap',
-        level: 73,
-        color: '#7952B3',
-        description: 'Grid System, Components',
-        icon: 'fab fa-bootstrap',
-        link: 'https://getbootstrap.com/'
-      }
-    ];
-
-    // Ta'lim tarixi
-    const educationData = [
-      {
-        degree: 'Dasturiy injiniring',
-        institution: 'TATU (Toshkent Axborot Texnologiyalari Universiteti)',
-        period: '2024-2028',
-        description: 'Bakalavr darajasi',
-        icon: 'fas fa-university',
-        link: 'https://tuit.uz/',
-        type: 'university'
-      },
-      {
-        degree: 'Frontend Dasturlash',
-        institution: 'Najot Ta\'lim',
-        period: '2025',
-        description: 'React.JS kurs, 8 oy',
-        icon: 'fas fa-graduation-cap',
-        link: 'https://najottalim.uz/',
-        type: 'course'
-      },
-      {
-        degree: 'Onlayin Platforma',
-        institution: 'Mohirdev',
-        period: '2025',
-        description: 'ReactJS 6 oy',
-        icon: 'fas fa-laptop-code',
-        link: 'https://mohirdev.uz/courses/frontend-reactjs',
-        type: 'online'
-      },
-      {
-        degree: 'Onlayin Platforma',
-        institution: 'Coursera (Board Infinity)',
-        period: '2025',
-        description: 'Web Development',
-        icon: 'fas fa-globe',
-        link: 'https://coursera.org/learn/frontend-development-for-java-full-stack',
-        type: 'online'
-      },
-      {
-        degree: 'Onlayin Platforma',
-        institution: 'Ustoz AI',
-        period: '2025',
-        description: 'AI (suniy intellektlar)',
-        icon: 'fas fa-robot',
-        link: 'https://ustoz.ai/',
-        type: 'online'
-      }
-    ];
-
+    // Dynamically import translation arrays for skills and education
+    import(`../locales/${t('lang')}.js`).then((mod) => {
+      const skillsArr = mod[`aboutSkills_${t('lang')}`];
+      const educationArr = mod[`aboutEducation_${t('lang')}`];
+      // Add static fields for skills (level, color, icon, link)
+      const skillsData = [
+        { ...skillsArr[0], level: 95, color: '#E44D26', icon: 'HTML5', link: 'https://developer.mozilla.org/en-US/docs/Web/HTML' },
+        { ...skillsArr[1], level: 90, color: '#264DE4', icon: 'CSS3', link: 'https://developer.mozilla.org/en-US/docs/Web/CSS' },
+        { ...skillsArr[2], level: 90, color: '#F7DF1E', icon: 'JavaScript ES6+', link: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript' },
+        { ...skillsArr[3], level: 88, color: '#61DAFB', icon: 'React.js', link: 'https://reactjs.org/' },
+        { ...skillsArr[4], level: 82, color: '#000000', icon: 'Next.js', link: 'https://nextjs.org/' },
+        { ...skillsArr[5], level: 80, color: '#3178C6', icon: 'TypeScript', link: 'https://www.typescriptlang.org/' },
+        { ...skillsArr[6], level: 78, color: '#CC6699', icon: 'Sass/SCSS', link: 'https://sass-lang.com/' },
+        { ...skillsArr[7], level: 75, color: '#764ABC', icon: 'Redux', link: 'https://redux.js.org/' },
+        { ...skillsArr[8], level: 70, color: '#A259FF', icon: 'Figma', link: 'https://figma.com/' },
+        { ...skillsArr[9], level: 85, color: '#F05032', icon: 'Git', link: 'https://git-scm.com/' },
+        { ...skillsArr[10], level: 77, color: '#38BDF8', icon: 'Tailwind CSS', link: 'https://tailwindcss.com/' },
+        { ...skillsArr[11], level: 73, color: '#7952B3', icon: 'Bootstrap', link: 'https://getbootstrap.com/' },
+      ];
+      // Add static fields for education (icon, link, type)
+      const educationData = [
+        { ...educationArr[0], icon: 'university', link: 'https://tuit.uz/', type: 'university' },
+        { ...educationArr[1], icon: 'course', link: 'https://najottalim.uz/', type: 'course' },
+        { ...educationArr[2], icon: 'online', link: 'https://mohirdev.uz/courses/frontend-reactjs', type: 'online' },
+        { ...educationArr[3], icon: 'online', link: 'https://coursera.org/learn/frontend-development-for-java-full-stack', type: 'online' },
+        { ...educationArr[4], icon: 'online', link: 'https://ustoz.ai/', type: 'online' },
+      ];
+      setSkills(skillsData);
+      setEducation(educationData);
+    });
     // Statistika
     const statsData = [
-      { 
-        number: '1+', 
-        label: t('expYears'), 
-        icon: 'fas fa-briefcase',
-        color: '#8A2BE2'
-      },
-      { 
-        number: '15+', 
-        label: t('projectsDone'), 
-        icon: 'fas fa-project-diagram',
-        color: '#00CED1'
-      },
-      { 
-        number: '100%', 
-        label: t('clientSatisfaction'), 
-        icon: 'fas fa-users',
-        color: '#FF6B35'
-      },
-      { 
-        number: '12+', 
-        label: 'Technology Skills', // English fallback if not in i18n
-        icon: 'fas fa-code',
-        color: '#4CAF50'
-      }
+      { number: '1+', label: t('expYears'), icon: 'fa-briefcase', color: '#8A2BE2' },
+      { number: '15+', label: t('projectsDone'), icon: 'fa-project-diagram', color: '#00CED1' },
+      { number: '100%', label: t('clientSatisfaction'), icon: 'fa-users', color: '#FF6B35' },
+      { number: '12+', label: 'Technology Skills', icon: 'fa-code', color: '#4CAF50' }
     ];
-
-    setSkills(skillsData);
-    setEducation(educationData);
     setStats(statsData);
   }, [t]);
 

@@ -14,7 +14,10 @@ export const LanguageProvider = ({ children }) => {
     localStorage.setItem('lang', lang);
   }, [lang]);
 
-  const t = (key) => translations[lang][key] || key;
+  const t = (key) => {
+    if (key === 'lang') return lang;
+    return translations[lang][key] || key;
+  };
 
   return (
     <LanguageContext.Provider value={{ lang, setLang, t }}>

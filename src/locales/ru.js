@@ -83,3 +83,28 @@ export default {
   code: "Код",
   webApp: "Веб-приложение"
 };
+
+// About page: Skills
+export const aboutSkills_ru = [
+  { name: "HTML5", description: "Семантический HTML, SEO оптимизация" },
+  { name: "CSS3", description: "Flexbox, Grid, Анимации" },
+  { name: "JavaScript ES6+", description: "Современный JavaScript, Async/Await" },
+  { name: "React.js", description: "Hooks, Context API, Компоненты" },
+  { name: "Next.js", description: "App Router, Server Actions" },
+  { name: "TypeScript", description: "Типизация, Интерфейсы" },
+  { name: "Sass/SCSS", description: "Nesting, Переменные, Миксины" },
+  { name: "Redux", description: "State Management, Toolkit" },
+  { name: "Figma", description: "UI/UX Дизайн, Прототипирование" },
+  { name: "Git", description: "Контроль версий, Ветвление" },
+  { name: "Tailwind CSS", description: "Utility-first, Адаптивный дизайн" },
+  { name: "Bootstrap", description: "Grid система, Компоненты" }
+];
+
+// About page: Education
+export const aboutEducation_ru = [
+  { degree: "Программная инженерия", institution: "ТУИТ (Ташкентский Университет Информационных Технологий)", period: "2024-2028", description: "Степень бакалавра" },
+  { degree: "Frontend разработка", institution: "Najot Ta'lim", period: "2025", description: "Курс React.JS, 8 месяцев" },
+  { degree: "Онлайн платформа", institution: "Mohirdev", period: "2025", description: "ReactJS 6 месяцев" },
+  { degree: "Онлайн платформа", institution: "Coursera (Board Infinity)", period: "2025", description: "Web Development" },
+  { degree: "Онлайн платформа", institution: "Ustoz AI", period: "2025", description: "AI (искусственный интеллект)" }
+];
