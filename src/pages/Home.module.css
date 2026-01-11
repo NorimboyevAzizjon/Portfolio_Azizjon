@@ -1,3 +1,27 @@
+@media (max-width: 600px) {
+  .container {
+    padding: 8px 2px 12px;
+    gap: 8px;
+  }
+  .content {
+    gap: 6px;
+  }
+  .avatarContainer {
+    width: 120px;
+    height: 120px;
+    max-width: 80vw;
+    max-height: 30vw;
+  }
+  .statistikalar {
+    gap: 8px;
+    padding: 4px 1px;
+  }
+  .statItem {
+    min-width: 32px;
+    min-height: 32px;
+    font-size: 0.9rem;
+  }
+}
 @media (max-width: 992px) {
   .content {
     gap: 24px;
@@ -117,25 +141,20 @@
   --accent: #FF6B35;
   --accent-dark: #E55A2B;
   
-  /* Gradient fonlar */
   --bg-gradient: linear-gradient(135deg, #0A1929 0%, #1A2C42 50%, #2A1E5C 100%);
   --surface-gradient: linear-gradient(135deg, rgba(30, 58, 138, 0.85) 0%, rgba(17, 24, 39, 0.95) 100%);
   --card-gradient: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.08) 100%);
   
-  /* Matn ranglari */
   --text: #F8FAFC;
   --text-secondary: #CBD5E1;
   --text-muted: #94A3B8;
   
-  /* Chegaralar */
   --border: rgba(255, 255, 255, 0.15);
   --border-glow: rgba(138, 43, 226, 0.4);
   
-  /* Soyalar */
   --shadow-glow: 0 0 25px rgba(138, 43, 226, 0.4);
   --shadow-soft: 0 6px 12px -2px rgba(0, 0, 0, 0.25);
   
-  /* O'lchamlar */
   --container-wide: 1200px;
   --container-narrow: 900px;
   --radius-large: 25px;

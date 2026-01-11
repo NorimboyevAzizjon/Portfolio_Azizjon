@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 // TypeScript uchun fayl nomini .tsx ga o‘tkazing
-import { useLanguage } from '../LanguageContext';
+import { useLanguage } from '../useLanguage';
 import { useNavigate } from 'react-router-dom';
 import styles from "./Footer.module.css";
 import { FaGithub, FaLinkedin, FaTelegram, FaInstagram, FaTwitter, FaFacebook, FaArrowUp, FaSun, FaMoon } from 'react-icons/fa';

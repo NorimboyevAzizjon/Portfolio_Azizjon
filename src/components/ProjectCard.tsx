@@ -1,5 +1,5 @@
 import React, { useState, ReactElement } from 'react';
-import { useLanguage } from '../LanguageContext';
+import { useLanguage } from '../useLanguage';
 import styles from './ProjectCard.module.css';
 import { FaExternalLinkAlt, FaGithub, FaCode, FaReact, FaNodeJs, FaJs, FaCss3Alt, FaPlayCircle } from 'react-icons/fa';
 // Texnologiya nomi => icon mapping

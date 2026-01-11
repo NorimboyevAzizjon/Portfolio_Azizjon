@@ -5,7 +5,7 @@ import ru from './locales/ru';
 
 const translations = { uz, en, ru };
 
-const LanguageContext = createContext();
+export const LanguageContext = createContext();
 
 export const LanguageProvider = ({ children }) => {
   const [lang, setLang] = useState(() => localStorage.getItem('lang') || 'uz');

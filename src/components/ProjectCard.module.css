@@ -1,3 +1,22 @@
+@media (max-width: 480px) {
+  .card {
+    border-radius: 8px;
+    padding: 4px;
+    min-width: 0;
+  }
+  .imageWrapper {
+    padding-top: 70%;
+  }
+  .image {
+    border-radius: 8px;
+  }
+  .cardTitle {
+    font-size: 1rem;
+  }
+  .cardDesc {
+    font-size: 0.85rem;
+  }
+}
 /* ProjectCard.module.css */
 
 .card {
