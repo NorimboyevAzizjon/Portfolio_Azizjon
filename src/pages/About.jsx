@@ -225,7 +225,7 @@ const About = () => {
     setSkills(skillsData);
     setEducation(educationData);
     setStats(statsData);
-  }, []);
+  }, [t]);
 
   const handleSkillClick = (link) => {
     window.open(link, '_blank', 'noopener,noreferrer');

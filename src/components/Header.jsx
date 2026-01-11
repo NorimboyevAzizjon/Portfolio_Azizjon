@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 
 import { useLanguage } from '../LanguageContext';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion'; // 'motion' is used, so keep both
 import { NavLink } from 'react-router-dom';
 import styles from './Header.module.css';
 import { FaHome, FaUser, FaBriefcase, FaEnvelope } from 'react-icons/fa';
