@@ -84,6 +84,44 @@ export default {
   webApp: "Web Dastur"
 };
 
+// Portfolio page: Technologies
+export const portfolioTechnologies_uz = {
+  'React': 'React',
+  'React Native': 'React Native',
+  'Node.js': 'Node.js',
+  'Express': 'Express',
+  'Express.js': 'Express.js',
+  'MongoDB': 'MongoDB',
+  'Redux': 'Redux',
+  'Next.js': 'Next.js',
+  'Sanity.io': 'Sanity.io',
+  'Tailwind': 'Tailwind',
+  'Tailwind CSS': 'Tailwind CSS',
+  'Vercel': 'Vercel',
+  'GraphQL': 'GraphQL',
+  'CSS3': 'CSS3',
+  'JavaScript': 'JavaScript',
+  'Framer Motion': 'Framer Motion',
+  'GSAP': 'GSAP',
+  'Google Maps API': 'Google Maps API',
+  'Firebase': 'Firebase',
+  'SCSS': 'SCSS',
+  'Axios': 'Axios',
+  'DnD': 'DnD',
+  'Weather API': 'Ob-havo API',
+  'Chart.js': 'Chart.js',
+  'CoinGecko API': 'CoinGecko API',
+  'WebSocket': 'WebSocket',
+  'Howler.js': 'Howler.js',
+  'Material-UI': 'Material-UI',
+  'Stripe API': 'Stripe API',
+  'JWT': 'JWT',
+  'WebRTC': 'WebRTC',
+  'Socket.io': 'Socket.io',
+  'Expo': 'Expo',
+  'HealthKit': 'HealthKit'
+};
+
 // About page: Skills
 export const aboutSkills_uz = [
   { name: "HTML5", description: "Semantik HTML, SEO optimallashtirish" },

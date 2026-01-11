@@ -9,6 +9,7 @@ import styles from './Portfolio.module.css';
 const Portfolio = () => {
   const { t } = useLanguage();
   const description = t('portfolioTechTitle') + ' | ' + t('portfolioCtaText');
+  // Texnologiya nomlari translation key sifatida massivda saqlanadi
   const [loyihalar] = useState([
     {
       id: 1,
@@ -162,7 +163,15 @@ const Portfolio = () => {
     { raqam: '100%', yorliq: t('portfolioStatsSuccess'), ikonka: 'fas fa-trophy' }
   ];
 
-  // Barcha texnologiyalarni olish
+  // Barcha texnologiyalarni olish va tarjima qilish
+  // Texnologiya tarjimalari har doim tanlangan tilga mos olinadi
+  let techTranslations = {};
+  try {
+    const lang = t('lang');
+    techTranslations = require(`../locales/${lang}.js`)[`portfolioTechnologies_${lang}`] || {};
+  } catch (e) {
+    techTranslations = {};
+  }
   const barchaTexnologiyalar = [...new Set(loyihalar.flatMap(l => l.texnologiyalar))];
 
   // Filter tugmalari uchun klass nomlarini aniqlash
@@ -260,6 +269,7 @@ const Portfolio = () => {
               key={index} 
               className={styles.technologyTag}
             >
+              {/* Icon rendering as before */}
               {tex.includes('React') && <i className="fab fa-react"></i>}
               {tex.includes('Node') && <i className="fab fa-node-js"></i>}
               {tex.includes('MongoDB') && <i className="fas fa-database"></i>}
@@ -274,7 +284,8 @@ const Portfolio = () => {
                !tex.includes('Firebase') && !tex.includes('JavaScript') && !tex.includes('CSS') &&
                !tex.includes('Express') && !tex.includes('Redux') && !tex.includes('Tailwind') &&
                !tex.includes('GraphQL') && <i className="fas fa-code"></i>}
-              {tex}
+              {/* Use translation if available */}
+              {techTranslations[tex] || tex}
             </div>
           ))}
         </div>
