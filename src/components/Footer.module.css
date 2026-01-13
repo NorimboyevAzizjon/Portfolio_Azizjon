@@ -13,16 +13,19 @@
   background: #fff;
   color: #222;
   border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 4px 10px;
-  font-size: 0.95rem;
-  font-weight: 600;
+  border-radius: 12px;
+  padding: 4px 14px;
+  font-size: 0.98rem;
+  font-weight: 700;
   cursor: pointer;
-  transition: background 0.2s, color 0.2s;
+  box-shadow: 0 1.5px 8px #8A2BE211;
+  transition: background 0.22s cubic-bezier(.4,2,.6,1), color 0.22s, box-shadow 0.22s, transform 0.22s;
 }
-.langBtn:hover {
-  background: #8A2BE2;
+.langBtn:hover, .langBtn:focus {
+  background: linear-gradient(90deg, #8A2BE2 60%, #00CED1 100%);
   color: #fff;
+  box-shadow: 0 6px 24px #8A2BE233, 0 0 0 2px #00CED155;
+  transform: scale(1.08) rotate(-2deg);
 }
 .themeToggleBtn {
   width: 48px;

@@ -40,6 +40,96 @@ const Portfolio = () => {
       githubHavolasi: 'https://github.com/NorimboyevAzizjon/weather-app',
       jonliDemo: 'https://weather-azizjon.netlify.app/',
       toifa: 'veb'
+    },
+    {
+      id: 4,
+      sarlavha: 'Chat App',
+      tavsif: 'Real-time chat ilovasi: Socket.io, Node.js, React va responsive dizayn.',
+      rasm: 'https://images.unsplash.com/photo-1519125323398-675f0ddb6308?w=600&auto=format&fit=crop',
+      texnologiyalar: ['React', 'Node.js', 'Socket.io', 'CSS3'],
+      githubHavolasi: 'https://github.com/NorimboyevAzizjon/chat-app',
+      jonliDemo: 'https://chat-azizjon.netlify.app/',
+      toifa: 'veb'
+    },
+    {
+      id: 5,
+      sarlavha: 'E-commerce Platform',
+      tavsif: 'Onlayn do‘kon: mahsulotlar, savat, to‘lov va admin panel.',
+      rasm: 'https://images.unsplash.com/photo-1515168833906-d2a3b82b3029?w=600&auto=format&fit=crop',
+      texnologiyalar: ['React', 'Redux', 'Node.js', 'MongoDB', 'Express'],
+      githubHavolasi: 'https://github.com/NorimboyevAzizjon/ecommerce-app',
+      jonliDemo: 'https://ecommerce-azizjon.netlify.app/',
+      toifa: 'veb'
+    },
+    {
+      id: 6,
+      sarlavha: 'Blog Platform',
+      tavsif: 'Markdown asosida blog, foydalanuvchi autentifikatsiyasi va sharhlar.',
+      rasm: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&auto=format&fit=crop',
+      texnologiyalar: ['Next.js', 'Sanity.io', 'Tailwind', 'Vercel'],
+      githubHavolasi: 'https://github.com/NorimboyevAzizjon/blog-platform',
+      jonliDemo: 'https://blog-azizjon.vercel.app/',
+      toifa: 'veb'
+    },
+    {
+      id: 7,
+      sarlavha: 'Task Manager',
+      tavsif: 'Jamoaviy task management: drag & drop, deadline, progress tracking.',
+      rasm: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=600&auto=format&fit=crop',
+      texnologiyalar: ['React', 'Redux', 'DnD', 'Node.js'],
+      githubHavolasi: 'https://github.com/NorimboyevAzizjon/task-manager',
+      jonliDemo: 'https://task-azizjon.netlify.app/',
+      toifa: 'veb'
+    },
+    {
+      id: 8,
+      sarlavha: 'Finance Tracker',
+      tavsif: 'Shaxsiy moliya va xarajatlarni boshqarish uchun zamonaviy ilova.',
+      rasm: 'https://images.unsplash.com/photo-1465101046530-73398c7f28ca?w=600&auto=format&fit=crop',
+      texnologiyalar: ['React', 'Chart.js', 'Firebase'],
+      githubHavolasi: 'https://github.com/NorimboyevAzizjon/finance-tracker',
+      jonliDemo: 'https://finance-azizjon.netlify.app/',
+      toifa: 'veb'
+    },
+    {
+      id: 9,
+      sarlavha: 'Movie Search',
+      tavsif: 'OMDb API asosida filmlar qidiruvi va saqlash.',
+      rasm: 'https://images.unsplash.com/photo-1467987506553-8f3916508521?w=600&auto=format&fit=crop',
+      texnologiyalar: ['React', 'OMDb API', 'CSS3'],
+      githubHavolasi: 'https://github.com/NorimboyevAzizjon/movie-search',
+      jonliDemo: 'https://movie-azizjon.netlify.app/',
+      toifa: 'veb'
+    },
+    {
+      id: 10,
+      sarlavha: 'Quiz App',
+      tavsif: 'Savollar va testlar uchun interaktiv quiz platforma.',
+      rasm: 'https://images.unsplash.com/photo-1519125323398-675f0ddb6308?w=600&auto=format&fit=crop',
+      texnologiyalar: ['React', 'Redux', 'CSS3'],
+      githubHavolasi: 'https://github.com/NorimboyevAzizjon/quiz-app',
+      jonliDemo: 'https://quiz-azizjon.netlify.app/',
+      toifa: 'veb'
+    },
+    {
+      id: 11,
+      sarlavha: 'Notes App',
+      tavsif: 'Oddiy va tezkor eslatmalar ilovasi, localStorage bilan.',
+      rasm: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&auto=format&fit=crop',
+      texnologiyalar: ['React', 'CSS3', 'JavaScript'],
+      githubHavolasi: 'https://github.com/NorimboyevAzizjon/notes-app',
+      jonliDemo: 'https://notes-azizjon.netlify.app/',
+      toifa: 'veb'
+    },
+    {
+      id: 12,
+      sarlavha: 'Portfolio Gallery',
+      tavsif: 'Rasmlar va dizayn ishlarining galereyasi, lightbox bilan.',
+      rasm: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=600&auto=format&fit=crop',
+      texnologiyalar: ['React', 'Lightbox', 'CSS3'],
+      githubHavolasi: 'https://github.com/NorimboyevAzizjon/portfolio-gallery',
+      jonliDemo: 'https://gallery-azizjon.netlify.app/',
+      toifa: 'veb'
     }
     // ... boshqa loyihalar ham shu tarzda to‘ldiriladi ...
   ]);

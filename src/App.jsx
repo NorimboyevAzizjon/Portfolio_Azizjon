@@ -7,12 +7,22 @@ import About from './pages/About.jsx';
 import Portfolio from './pages/Portfolio.jsx';
 import Contact from './pages/Contact.jsx';
 import Footer from './components/Footer.jsx';
-import './index.css';
+
+import Loader from './components/Loader.jsx';
+
 
 function App() {
+  const [loading, setLoading] = React.useState(true);
+
+  React.useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 1200); // 1.2s loader
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <LanguageProvider>
-      <div className="app">
+      {loading && <Loader />}
+      <div className="app" style={loading ? { filter: 'blur(2px)', pointerEvents: 'none' } : {}}>
         <Header />
         <main>
           <Routes>

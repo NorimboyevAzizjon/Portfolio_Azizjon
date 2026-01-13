@@ -65,20 +65,31 @@
 	justify-content: center;
 }
 
+
 .navLink {
 	color: #fff;
 	text-decoration: none;
 	font-size: 0.98rem;
 	font-weight: 500;
 	padding: 4px 10px;
-	border-radius: 8px;
-	transition: background 0.2s, color 0.2s;
+	border-radius: 12px;
+	transition: background 0.22s cubic-bezier(.4,2,.6,1), color 0.22s, box-shadow 0.22s, transform 0.22s;
 	white-space: nowrap;
+	box-shadow: 0 1.5px 8px #00e0ff11;
 }
 
-.navLink:hover {
-	background: #282828;
-	color: #00e0d6;
+.navLink:hover, .navLink:focus {
+	background: linear-gradient(90deg, #00e0ff 60%, #007bff 100%);
+	color: #fff;
+	box-shadow: 0 6px 24px #00e0ff33, 0 0 0 2px #00e0ff55;
+	transform: scale(1.08) rotate(-2deg);
+}
+
+.active {
+	background: linear-gradient(90deg, #007bff 60%, #00e0ff 100%);
+	color: #181818;
+	box-shadow: 0 8px 32px #007bff33, 0 0 0 2px #00e0ff88;
+	transform: scale(1.10) rotate(-2deg);
 }
 
 .active {

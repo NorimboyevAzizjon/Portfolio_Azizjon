@@ -19,30 +19,88 @@
 }
 /* ProjectCard.module.css */
 
+
 .card {
   position: relative;
-  /* Card styles */
   background: linear-gradient(135deg, #101c2c 60%, #1e2a3a 100%);
-  border-radius: 12px;
-  box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+  border-radius: 18px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.10);
   overflow: hidden;
-  transition: box-shadow 0.2s;
+  transition: box-shadow 0.35s cubic-bezier(.4,2,.6,1), transform 0.35s cubic-bezier(.4,2,.6,1);
   height: 100%;
   display: flex;
   flex-direction: column;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  border: 1.5px solid rgba(255, 255, 255, 0.13);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   cursor: pointer;
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
   will-change: transform, box-shadow, border-color;
 }
 
-.card.hovered {
-  transform: translateY(-12px);
-  box-shadow: 0 8px 32px rgba(255, 107, 53, 0.12), 0 0 0 1px rgba(255, 107, 53, 0.3);
-  border-color: rgba(255, 107, 53, 0.4);
+
+.card:hover, .card.hovered {
+  transform: perspective(800px) rotateY(8deg) rotateX(6deg) scale(1.06) translateY(-10px);
+  box-shadow: 0 24px 64px 0 #007bff55, 0 0 0 2px #00e0ff88, 0 1.5px 16px #00e0ff33;
+  border-color: #00e0ffcc;
   z-index: 10;
+  filter: brightness(1.08) saturate(1.2);
+}
+
+.card:active {
+  transform: scale(0.98) perspective(800px) rotateY(0deg) rotateX(0deg);
+  box-shadow: 0 2px 8px #007bff22;
+}
+
+.card:active {
+  transform: scale(0.98) translateY(2px);
+  box-shadow: 0 2px 8px #007bff22;
+}
+
+.overlayBtn {
+  background: linear-gradient(90deg, #007bff 60%, #00e0ff 100%);
+  color: #fff;
+  border-radius: 10px;
+  padding: 0.7rem 1.3rem;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  box-shadow: 0 2px 12px #007bff22;
+  border: none;
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  outline: none;
+}
+
+.overlayBtn:hover, .overlayBtn:focus {
+  background: linear-gradient(90deg, #00e0ff 60%, #007bff 100%);
+  color: #fff;
+  transform: scale(1.08) translateY(-2px);
+  box-shadow: 0 6px 24px #00e0ff33;
+}
+
+.actionButtons a {
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.actionButtons a:hover, .actionButtons a:focus {
+  transform: scale(1.08) translateY(-2px);
+  box-shadow: 0 6px 24px #ff6b3533;
+}
+
+.techBadge, .techTag {
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+}
+.techBadge:hover, .techTag:hover {
+  background: #007bff;
+  color: #fff;
+  transform: scale(1.08) rotate(-2deg);
+}
+
+.card {
+  /* Modal preview uchun z-index */
+  z-index: 1;
 }
 
 .cardHoverEffect {
