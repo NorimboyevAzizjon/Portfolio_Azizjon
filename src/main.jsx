@@ -4,19 +4,8 @@ import App from './App.jsx';
 import ErrorBoundary from './components/ErrorBoundary.jsx';
 import { BrowserRouter } from 'react-router-dom';
 
+
 import './index.css';
-
-// Font Awesome
-const fontAwesomeLink = document.createElement('link');
-fontAwesomeLink.rel = 'stylesheet';
-fontAwesomeLink.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css';
-document.head.appendChild(fontAwesomeLink);
-
-// Google Fonts
-const googleFontsLink = document.createElement('link');
-googleFontsLink.rel = 'stylesheet';
-googleFontsLink.href = 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800&display=swap';
-document.head.appendChild(googleFontsLink);
 
 // Meta tags
 document.title = 'Azizjon | Frontend Dasturchi';

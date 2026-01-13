@@ -13,124 +13,35 @@ const Portfolio = () => {
   const [loyihalar] = useState([
     {
       id: 1,
-      sarlavha: t('project1_title'),
-      tavsif: t('project1_desc'),
-      rasm: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&auto=format&fit=crop',
-      texnologiyalar: ['React', 'Node.js', 'MongoDB', 'Express', 'Redux'],
-      githubHavolasi: '#',
-      jonliDemo: '#',
+      sarlavha: 'Online Portfolio',
+      tavsif: 'Shaxsiy portfolio sayti: React, Vite, Framer Motion, ko‘p tilli va SEO optimizatsiyalangan.',
+      rasm: 'https://raw.githubusercontent.com/NorimboyevAzizjon/Portfolio_Azizjon/main/public/manifest.json',
+      texnologiyalar: ['React', 'Vite', 'Framer Motion', 'CSS Modules'],
+      githubHavolasi: 'https://github.com/NorimboyevAzizjon/Portfolio_Azizjon',
+      jonliDemo: 'https://azizjon-portfolio.vercel.app/',
       toifa: 'veb'
     },
     {
       id: 2,
-      sarlavha: t('project2_title'),
-      tavsif: t('project2_desc'),
+      sarlavha: 'To-Do App',
+      tavsif: 'Oddiy va qulay vazifalar ro‘yxati ilovasi. CRUD, localStorage, responsive dizayn.',
       rasm: 'https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?w=600&auto=format&fit=crop',
-      texnologiyalar: ['React', 'Google Maps API', 'Firebase', 'SCSS', 'Axios'],
-      githubHavolasi: '#',
-      jonliDemo: '#',
+      texnologiyalar: ['React', 'CSS3', 'JavaScript'],
+      githubHavolasi: 'https://github.com/NorimboyevAzizjon/todo-react',
+      jonliDemo: 'https://todo-azizjon.netlify.app/',
       toifa: 'veb'
     },
     {
       id: 3,
-      sarlavha: t('project3_title'),
-      tavsif: t('project3_desc'),
-      rasm: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=600&auto=format&fit=crop',
-      texnologiyalar: ['React', 'Redux', 'Express.js', 'MongoDB', 'DnD'],
-      githubHavolasi: '#',
-      jonliDemo: '#',
-      toifa: 'veb'
-    },
-    {
-      id: 4,
-      sarlavha: t('project4_title'),
-      tavsif: t('project4_desc'),
+      sarlavha: 'Weather App',
+      tavsif: 'Ob-havo maʼlumotlari uchun API integratsiyali, zamonaviy interfeysli ilova.',
       rasm: 'https://images.unsplash.com/photo-1592210454359-9043f067919b?w=600&auto=format&fit=crop',
       texnologiyalar: ['React', 'Weather API', 'Chart.js', 'Axios', 'Tailwind'],
-      githubHavolasi: '#',
-      jonliDemo: '#',
-      toifa: 'veb'
-    },
-    {
-      id: 5,
-      sarlavha: t('project5_title'),
-      tavsif: t('project5_desc'),
-      rasm: 'https://images.unsplash.com/photo-1611605698335-8b1569810432?w=600&auto=format&fit=crop',
-      texnologiyalar: ['React Native', 'Firebase', 'Redux', 'Node.js', 'Expo'],
-      githubHavolasi: '#',
-      jonliDemo: '#',
-      toifa: 'mobil'
-    },
-    {
-      id: 6,
-      sarlavha: t('project6_title'),
-      tavsif: t('project6_desc'),
-      rasm: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&auto=format&fit=crop',
-      texnologiyalar: ['React', 'CSS3', 'JavaScript', 'Framer Motion', 'GSAP'],
-      githubHavolasi: '#',
-      jonliDemo: '#',
-      toifa: 'veb'
-    },
-    {
-      id: 7,
-      sarlavha: t('project7_title'),
-      tavsif: t('project7_desc'),
-      rasm: 'https://images.unsplash.com/photo-1620336655055-bd87c5d1d73f?w=600&auto=format&fit=crop',
-      texnologiyalar: ['React', 'CoinGecko API', 'Chart.js', 'Tailwind', 'WebSocket'],
-      githubHavolasi: '#',
-      jonliDemo: '#',
-      toifa: 'veb'
-    },
-    {
-      id: 8,
-      sarlavha: t('project8_title'),
-      tavsif: t('project8_desc'),
-      rasm: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=600&auto=format&fit=crop',
-      texnologiyalar: ['React', 'Howler.js', 'Material-UI', 'Redux', 'Node.js'],
-      githubHavolasi: '#',
-      jonliDemo: '#',
-      toifa: 'veb'
-    },
-    {
-      id: 9,
-      sarlavha: t('project9_title'),
-      tavsif: t('project9_desc'),
-      rasm: 'https://images.unsplash.com/photo-1556742044-3c52d6e88c62?w=600&auto=format&fit=crop',
-      texnologiyalar: ['React', 'Stripe API', 'MongoDB', 'Express', 'JWT'],
-      githubHavolasi: '#',
-      jonliDemo: '#',
-      toifa: 'veb'
-    },
-    {
-      id: 10,
-      sarlavha: t('project10_title'),
-      tavsif: t('project10_desc'),
-      rasm: 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&auto=format&fit=crop',
-      texnologiyalar: ['Next.js', 'Sanity.io', 'Tailwind', 'Vercel', 'GraphQL'],
-      githubHavolasi: '#',
-      jonliDemo: '#',
-      toifa: 'veb'
-    },
-    {
-      id: 11,
-      sarlavha: t('project11_title'),
-      tavsif: t('project11_desc'),
-      rasm: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&auto=format&fit=crop',
-      texnologiyalar: ['React Native', 'Firebase', 'HealthKit', 'Redux', 'Expo'],
-      githubHavolasi: '#',
-      jonliDemo: '#',
-      toifa: 'mobil'
-    },
-    {
-      id: 12,
-      sarlavha: t('project12_title'),
-      tavsif: t('project12_desc'),
-      rasm: 'https://images.unsplash.com/photo-1587560699334-cc4ff634909a?w=600&auto=format&fit=crop',
-      texnologiyalar: ['React', 'WebRTC', 'Socket.io', 'Node.js', 'WebSocket'],
-      githubHavolasi: '#',
-      jonliDemo: '#',
+      githubHavolasi: 'https://github.com/NorimboyevAzizjon/weather-app',
+      jonliDemo: 'https://weather-azizjon.netlify.app/',
       toifa: 'veb'
     }
+    // ... boshqa loyihalar ham shu tarzda to‘ldiriladi ...
   ]);
 
   const [filtr, setFiltr] = useState('hamma');
